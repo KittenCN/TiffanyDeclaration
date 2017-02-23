@@ -108,7 +108,7 @@ namespace BHair.Business
         public static bool ToApplicantFinal(ApplicationInfo ai)
         {
             //bool isSuccess = false;
-            //string Subject = string.Format("转货系统：" + ai.DeliverStore + "到" + ai.ReceiptStore + ",在" + DateTime.Now.ToString() + "的转货流程已完成，需要最终确认");
+            //string Subject = string.Format("入关流程系统：" + ai.DeliverStore + "到" + ai.ReceiptStore + ",在" + DateTime.Now.ToString() + "的转货流程已完成，需要最终确认");
             //string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", ai.CtrlID, ai.ApplicantsName, ai.ApplicantsDate);
             //foreach (DataRow dr in users.UsersDT.Rows)
             //{
@@ -128,7 +128,7 @@ namespace BHair.Business
         public static bool ToApplicantSubmit(string CtrlID, string ApplicantsName, string ApplicantsDate)
         {
             //bool isSuccess = false;
-            //string Subject = string.Format("转货系统：有一单转货单需要审核");
+            //string Subject = string.Format("入关流程系统：有一单转货单需要审核");
             //string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", CtrlID, ApplicantsName, ApplicantsDate);
             //foreach (DataRow dr in users.UsersDT.Rows)
             //{
@@ -149,7 +149,7 @@ namespace BHair.Business
         public static bool ToApplicantSubmit2(ApplicationInfo ai)
         {
             //bool isSuccess = false;
-            //string Subject = string.Format("转货系统：" + ai.DeliverStore + "到" + ai.ReceiptStore + ",在" + DateTime.Now.ToString() + "的转货流程需要审核");
+            //string Subject = string.Format("入关流程系统：" + ai.DeliverStore + "到" + ai.ReceiptStore + ",在" + DateTime.Now.ToString() + "的转货流程需要审核");
             //string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", ai.CtrlID, ai.ApplicantsName, ai.ApplicantsDate);
             //foreach (DataRow dr in users.UsersDT.Rows)
             //{
@@ -170,7 +170,7 @@ namespace BHair.Business
         public static bool ToDeliverConfirm(ApplicationInfo ai)
         {
             //bool isSuccess = false;
-            //string Subject = string.Format("转货系统：" + ai.DeliverStore + "到" + ai.ReceiptStore + ",在" + DateTime.Now.ToString() + "的转货流程需要填写转出确认");
+            //string Subject = string.Format("入关流程系统：" + ai.DeliverStore + "到" + ai.ReceiptStore + ",在" + DateTime.Now.ToString() + "的转货流程需要填写转出确认");
             //string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", ai.CtrlID, ai.ApplicantsName, ai.ApplicantsDate);
             //foreach (DataRow dr in users.UsersDT.Rows)
             //{
@@ -192,7 +192,7 @@ namespace BHair.Business
         public static bool ToReceiptConfirm(ApplicationInfo ai)
         {
             //bool isSuccess = false;
-            //string Subject = string.Format("转货系统：" + ai.DeliverStore + "到" + ai.ReceiptStore + ",在" + DateTime.Now.ToString() + "的转货流程需要填写转入确认");
+            //string Subject = string.Format("入关流程系统：" + ai.DeliverStore + "到" + ai.ReceiptStore + ",在" + DateTime.Now.ToString() + "的转货流程需要填写转入确认");
             //string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", ai.CtrlID, ai.ApplicantsName, ai.ApplicantsDate);
             //foreach (DataRow dr in users.UsersDT.Rows)
             //{
@@ -213,7 +213,7 @@ namespace BHair.Business
         public static bool ToApplicantWLSubmit(ApplicationInfo ai)
         {
             //bool isSuccess = false;
-            //string Subject = string.Format("转货系统：" + ai.DeliverStore + "到" + ai.ReceiptStore + ",在" + DateTime.Now.ToString() + "的转货流程需要物流确认");
+            //string Subject = string.Format("入关流程系统：" + ai.DeliverStore + "到" + ai.ReceiptStore + ",在" + DateTime.Now.ToString() + "的转货流程需要物流确认");
             //string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", ai.CtrlID, ai.ApplicantsName, ai.ApplicantsDate);
             //foreach (DataRow dr in users.UsersDT.Rows)
             //{
@@ -237,7 +237,7 @@ namespace BHair.Business
         public static bool ToAlertApproval(string CtrlID, string ApplicantsName, string ApplicantsDate, string DeliverStore)
         {
             bool isSuccess = false;
-            string Subject = string.Format("转货系统：申请批准后超时提醒");
+            string Subject = string.Format("入关流程系统：申请批准后超时提醒");
             string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", CtrlID, ApplicantsName, ApplicantsDate);
             foreach (DataRow dr in users.UsersDT.Rows)
             {
@@ -262,7 +262,7 @@ namespace BHair.Business
         public static bool ToAlertDeliver(string CtrlID, string ApplicantsName, string ApplicantsDate, string DeliverStore, string ReceiptStore)
         {
             bool isSuccess = false;
-            string Subject = string.Format("转货系统：发货后超时提醒");
+            string Subject = string.Format("入关流程系统：发货后超时提醒");
             string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", CtrlID, ApplicantsName, ApplicantsDate);
             foreach (DataRow dr in users.UsersDT.Rows)
             {
@@ -287,7 +287,7 @@ namespace BHair.Business
         public static bool ToAlertReceipt(string CtrlID, string ApplicantsName, string ApplicantsDate, string DeliverStore, string ReceiptStore)
         {
             bool isSuccess = false;
-            string Subject = string.Format("转货系统：收货后超时提醒");
+            string Subject = string.Format("入关流程系统：收货后超时提醒");
             string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", CtrlID, ApplicantsName, ApplicantsDate);
             foreach (DataRow dr in users.UsersDT.Rows)
             {

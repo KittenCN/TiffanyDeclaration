@@ -291,7 +291,7 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(982, 28);
             this.toolStripStatusLabel1.Spring = true;
-            this.toolStripStatusLabel1.Text = "转货系统";
+            this.toolStripStatusLabel1.Text = "入关流程系统";
             this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tssrMain_Timer
