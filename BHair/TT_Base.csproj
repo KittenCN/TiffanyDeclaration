@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1D68A981-BD8D-497A-A6E1-2F8BCAB9E766}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TiffanyDeclaration</RootNamespace>
+    <AssemblyName>TiffanyDeclaration</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>bhair.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.interop.access.dao, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\TiffanyPurchase\BHair\Dll\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WinFormsUI.Docking, Version=2.1.3183.32032, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\WinFormsUI.Docking.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XLuSharpLibrary, Version=1.2.4368.24409, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\XLuSharpLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\frmConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\frmConfig.designer.cs">
+      <DependentUpon>frmConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\frmItem_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\frmItem_List.Designer.cs">
+      <DependentUpon>frmItem_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\frmMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\frmMember.Designer.cs">
+      <DependentUpon>frmMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\frmMember_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\frmMember_Import.Designer.cs">
+      <DependentUpon>frmMember_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\frmMember_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\frmMember_List.Designer.cs">
+      <DependentUpon>frmMember_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\frmItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\frmItem.Designer.cs">
+      <DependentUpon>frmItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\frmStore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\frmStore.Designer.cs">
+      <DependentUpon>frmStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\frmItem_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\frmItem_Import.Designer.cs">
+      <DependentUpon>frmItem_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\frmStore_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\frmStore_List.Designer.cs">
+      <DependentUpon>frmStore_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmAddStoreApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmAddStoreApplication.Designer.cs">
+      <DependentUpon>frmAddStoreApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmAlterStoreApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmAlterStoreApplication.Designer.cs">
+      <DependentUpon>frmAlterStoreApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmAlterApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmAlterApplication.Designer.cs">
+      <DependentUpon>frmAlterApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmAppApprovalAlter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmAppApprovalAlter.Designer.cs">
+      <DependentUpon>frmAppApprovalAlter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmAppApprovalDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmAppApprovalDetail.Designer.cs">
+      <DependentUpon>frmAppApprovalDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmAppApprovalDetail2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmAppApprovalDetail2.Designer.cs">
+      <DependentUpon>frmAppApprovalDetail2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmAppAproval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmAppAproval.Designer.cs">
+      <DependentUpon>frmAppAproval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmAppAproval2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmAppAproval2.Designer.cs">
+      <DependentUpon>frmAppAproval2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmAppDone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmAppDone.Designer.cs">
+      <DependentUpon>frmAppDone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmApplicationReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmApplicationReport.Designer.cs">
+      <DependentUpon>frmApplicationReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmAppDoneDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmAppDoneDetail.Designer.cs">
+      <DependentUpon>frmAppDoneDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmDataProcessing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmDataProcessing.Designer.cs">
+      <DependentUpon>frmDataProcessing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmEditReason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmEditReason.Designer.cs">
+      <DependentUpon>frmEditReason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmImportApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmImportApplication.designer.cs">
+      <DependentUpon>frmImportApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmSelectItems_App.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmSelectItems_App.Designer.cs">
+      <DependentUpon>frmSelectItems_App.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmStoreAppDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmStoreAppDetail.Designer.cs">
+      <DependentUpon>frmStoreAppDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmHistoryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmHistoryDetail.Designer.cs">
+      <DependentUpon>frmHistoryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmStoreApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmStoreApp.Designer.cs">
+      <DependentUpon>frmStoreApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmHistoryInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmHistoryInfo.Designer.cs">
+      <DependentUpon>frmHistoryInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmAddApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmAddApplication.Designer.cs">
+      <DependentUpon>frmAddApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmSelectItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmSelectItems.Designer.cs">
+      <DependentUpon>frmSelectItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Base\frmConfig.resx">
+      <DependentUpon>frmConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\frmItem_List.resx">
+      <DependentUpon>frmItem_List.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\frmMember.resx">
+      <DependentUpon>frmMember.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\frmMember_Import.resx">
+      <DependentUpon>frmMember_Import.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\frmMember_List.resx">
+      <DependentUpon>frmMember_List.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\frmItem.resx">
+      <DependentUpon>frmItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\frmStore.resx">
+      <DependentUpon>frmStore.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\frmItem_Import.resx">
+      <DependentUpon>frmItem_Import.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\frmStore_List.resx">
+      <DependentUpon>frmStore_List.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmAddStoreApplication.resx">
+      <DependentUpon>frmAddStoreApplication.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmAlterStoreApplication.resx">
+      <DependentUpon>frmAlterStoreApplication.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmAlterApplication.resx">
+      <DependentUpon>frmAlterApplication.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmAppApprovalAlter.resx">
+      <DependentUpon>frmAppApprovalAlter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmAppApprovalDetail.resx">
+      <DependentUpon>frmAppApprovalDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmAppApprovalDetail2.resx">
+      <DependentUpon>frmAppApprovalDetail2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmAppAproval.resx">
+      <DependentUpon>frmAppAproval.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmAppAproval2.resx">
+      <DependentUpon>frmAppAproval2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmAppDone.resx">
+      <DependentUpon>frmAppDone.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmApplicationReport.resx">
+      <DependentUpon>frmApplicationReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmAppDoneDetail.resx">
+      <DependentUpon>frmAppDoneDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmDataProcessing.resx">
+      <DependentUpon>frmDataProcessing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmEditReason.resx">
+      <DependentUpon>frmEditReason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmImportApplication.resx">
+      <DependentUpon>frmImportApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmSelectItems_App.resx">
+      <DependentUpon>frmSelectItems_App.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmStoreAppDetail.resx">
+      <DependentUpon>frmStoreAppDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmHistoryDetail.resx">
+      <DependentUpon>frmHistoryDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmStoreApp.resx">
+      <DependentUpon>frmStoreApp.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmHistoryInfo.resx">
+      <DependentUpon>frmHistoryInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmAddApplication.resx">
+      <DependentUpon>frmAddApplication.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmSelectItems.resx">
+      <DependentUpon>frmSelectItems.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemSet\ComboDate.resx">
+      <DependentUpon>ComboDate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="bin\Debug\BHair.exe.config" />
+    <None Include="bin\Debug\BHair.vshost.exe.config" />
+    <None Include="bin\Debug\BHair.vshost.exe.manifest" />
+    <None Include="bin\Debug\templet\报告模板.xls" />
+    <None Include="bin\Debug\templet\转货申请表模板.xls" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SystemSet\ComboDate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemSet\ComboDate.Designer.cs">
+      <DependentUpon>ComboDate.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bhair.ico" />
+    <Content Include="bin\Debug\BarcodeLib.dll" />
+    <Content Include="bin\Debug\BHair.Business.dll" />
+    <Content Include="bin\Debug\BHair.Business.pdb" />
+    <Content Include="bin\Debug\BHair.exe" />
+    <Content Include="bin\Debug\BHair.pdb" />
+    <Content Include="bin\Debug\BHair.vshost.exe" />
+    <Content Include="bin\Debug\Config.xml" />
+    <Content Include="bin\Debug\Declaration.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Microsoft.Office.Interop.Excel.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Microsoft.Vbe.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\office.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\stdole.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\WinFormsUI.Docking.dll" />
+    <Content Include="bin\Debug\XLuSharpLibrary.dll" />
+    <Content Include="Config.xml" />
+    <Content Include="Dll\BarcodeLib.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{778265EE-4F26-4739-A390-AE5510CF9C81}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CheckBoxComboBox\CheckBoxComboBox.csproj">
+      <Project>{70a25201-8ea4-48f8-a4a6-ed13adf8823c}</Project>
+      <Name>CheckBoxComboBox</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\tempPDF\" />
+    <Folder Include="bin\Release\" />
+    <Folder Include="Report\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

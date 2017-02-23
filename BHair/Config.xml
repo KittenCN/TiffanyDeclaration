@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Config>
+  <LinkString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\Declaration.accdb</LinkString>
+</Config>
