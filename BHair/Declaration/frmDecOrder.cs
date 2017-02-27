@@ -20,5 +20,11 @@ namespace BHair.Business
         {
             this.TopMost = false;
         }
+
+        private void btnCreateNewOrder_Click(object sender, EventArgs e)
+        {
+            frmDecNewOrder fdno = new Business.frmDecNewOrder();
+            fdno.Show();
+        }
     }
 }

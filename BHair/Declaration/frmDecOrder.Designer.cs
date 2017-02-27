@@ -254,6 +254,7 @@
             this.btnCreateNewOrder.TabIndex = 0;
             this.btnCreateNewOrder.Text = "新建入关流程";
             this.btnCreateNewOrder.UseVisualStyleBackColor = true;
+            this.btnCreateNewOrder.Click += new System.EventHandler(this.btnCreateNewOrder_Click);
             // 
             // frmDecOrder
             // 

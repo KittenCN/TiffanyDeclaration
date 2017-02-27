@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TiffanyDeclaration.Declaration
+namespace BHair.Business
 {
     public partial class frmDecNewOrder : Form
     {
         public frmDecNewOrder()
         {
             InitializeComponent();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
