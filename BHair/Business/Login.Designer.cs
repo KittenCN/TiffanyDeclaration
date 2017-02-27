@@ -106,7 +106,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(366, 56);
             this.label3.TabIndex = 7;
-            this.label3.Text = "内部入关流程系统";
+            this.label3.Text = "入关流程管理";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Login
