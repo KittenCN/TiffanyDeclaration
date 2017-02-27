@@ -455,11 +455,15 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
-    <None Include="bin\Debug\BHair.exe.config" />
+    <None Include="bin\Debug\app.config" />
     <None Include="bin\Debug\BHair.vshost.exe.config" />
     <None Include="bin\Debug\BHair.vshost.exe.manifest" />
     <None Include="bin\Debug\templet\报告模板.xls" />
     <None Include="bin\Debug\templet\转货申请表模板.xls" />
+    <None Include="bin\Debug\TiffanyDeclaration.exe.config" />
+    <None Include="bin\Debug\TiffanyDeclaration.vshost.exe.config" />
+    <None Include="bin\Debug\TiffanyTransfer.vshost.exe.config" />
+    <None Include="bin\Debug\TiffanyTransfer.vshost.exe.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -481,28 +485,35 @@
     <Content Include="bin\Debug\BarcodeLib.dll" />
     <Content Include="bin\Debug\BHair.Business.dll" />
     <Content Include="bin\Debug\BHair.Business.pdb" />
-    <Content Include="bin\Debug\BHair.exe" />
-    <Content Include="bin\Debug\BHair.pdb" />
-    <Content Include="bin\Debug\BHair.vshost.exe" />
+    <Content Include="bin\Debug\bin\Debug\Declaration.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\bin\Debug\Microsoft.Office.Interop.Excel.dll" />
+    <Content Include="bin\Debug\bin\Debug\Microsoft.Vbe.Interop.dll" />
+    <Content Include="bin\Debug\bin\Debug\office.dll" />
+    <Content Include="bin\Debug\bin\Debug\stdole.dll" />
+    <Content Include="bin\Debug\CheckBoxComboBox.dll" />
+    <Content Include="bin\Debug\CheckBoxComboBox.pdb" />
     <Content Include="bin\Debug\Config.xml" />
     <Content Include="bin\Debug\Declaration.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="bin\Debug\Microsoft.Office.Interop.Excel.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\Microsoft.Vbe.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\office.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\stdole.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="bin\Debug\Microsoft.Office.interop.access.dao.dll" />
+    <Content Include="bin\Debug\Microsoft.Office.Interop.Excel.dll" />
+    <Content Include="bin\Debug\Microsoft.Vbe.Interop.dll" />
+    <Content Include="bin\Debug\office.dll" />
+    <Content Include="bin\Debug\stdole.dll" />
+    <Content Include="bin\Debug\TiffanyDeclaration.exe" />
+    <Content Include="bin\Debug\TiffanyDeclaration.pdb" />
+    <Content Include="bin\Debug\TiffanyDeclaration.vshost.exe" />
+    <Content Include="bin\Debug\TiffanyTransfer.exe" />
+    <Content Include="bin\Debug\TiffanyTransfer.pdb" />
     <Content Include="bin\Debug\WinFormsUI.Docking.dll" />
     <Content Include="bin\Debug\XLuSharpLibrary.dll" />
     <Content Include="Config.xml" />
+    <Content Include="Declaration.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Dll\BarcodeLib.dll" />
   </ItemGroup>
   <ItemGroup>
