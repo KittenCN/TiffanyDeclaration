@@ -21,5 +21,18 @@ namespace BHair.Business
         {
             this.Close();
         }
+
+        private void btnSaveOrder_Click(object sender, EventArgs e)
+        {
+            DataTable dtDecMain;
+            AccessHelper ah = new AccessHelper();
+            string strSQL_GetAOneMainData = "select top 1 * from DecMain ";
+            dtDecMain = ah.SelectToDataTable(strSQL_GetAOneMainData);
+            DataRow drMainData = dtDecMain.NewRow();
+
+            drMainData["OrderNO"] = tbOrderNO.Text;
+            drMainData["Status"] = 0;
+            drMainData["ExCusClearTime"] = "#" + dtExCusClearTime.ToString() + "#";
+        }
     }
 }
