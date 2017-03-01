@@ -42,6 +42,7 @@ namespace BHair.Business
             drMainData["cust_fee"] = tbCust_Fee.Text;
             drMainData["Import_Agent"] = cbImport_Agent.SelectedIndex;
             drMainData["ContractNO"] = tbContract_NO.Text;
+            drMainData["Freight"] = tbFreight.Text;
             drMainData["Duty"] = tbDuty.Text;
             drMainData["VAT"] = tbVAT.Text;
             drMainData["CT"] = tbCT.Text;
@@ -130,7 +131,7 @@ namespace BHair.Business
             drINVData["Status"] = 0;
             drINVData["INV_NO"] = tbINV_NO.Text;
             drINVData["INV_Amount"] = tbINV_Amount.Text;
-            drINVData["Freight"] = tbFreight.Text;
+            //drINVData["Freight"] = tbFreight.Text;
             drINVData["Cart_INV"] = tbCart_INV.Text;
             drINVData["PCs"] = tbPCs.Text;
             drINVData["Shop_Receiver"] = tbShop_Receiver.Text;
@@ -141,7 +142,7 @@ namespace BHair.Business
 
             tbINV_NO.Text = "";
             tbINV_Amount.Text = "0";
-            tbFreight.Text = "0";
+            //tbFreight.Text = "0";
             tbCart_INV.Text = "0";
             tbPCs.Text = "0";
         }

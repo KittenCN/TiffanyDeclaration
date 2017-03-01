@@ -28,13 +28,21 @@ namespace BHair.Business
             fdno.Show();
         }
 
-        private void Reflush()
+        public void Reflush()
         {
             AccessHelper ah = new AccessHelper();
             string strSQL_GetAllMainData = "select * from DecMain ";
             DataTable dtDecMain = ah.SelectToDataTable(strSQL_GetAllMainData);
             dgvDecMain.AutoGenerateColumns = false;
             dgvDecMain.DataSource = dtDecMain;
+        }
+
+        private void dgvDecMain_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //MessageBox.Show("提交成功::" + dgvDecMain.Rows[e.RowIndex].Cells[0].Value.ToString(), "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string strUUID = dgvDecMain.Rows[e.RowIndex].Cells[0].Value.ToString();
+            frmDecOrderEdit fdoe = new frmDecOrderEdit(strUUID);
+            fdoe.Show();
         }
     }
 }

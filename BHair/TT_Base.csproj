@@ -291,6 +291,12 @@
     <Compile Include="Business\Login.designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Declaration\frmDecOrderEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Declaration\frmDecOrderEdit.Designer.cs">
+      <DependentUpon>frmDecOrderEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Declaration\frmDecNewOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -429,6 +435,9 @@
     <EmbeddedResource Include="Business\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Declaration\frmDecOrderEdit.resx">
+      <DependentUpon>frmDecOrderEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Declaration\frmDecNewOrder.resx">
       <DependentUpon>frmDecNewOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -512,7 +521,7 @@
     <Content Include="bin\Debug\XLuSharpLibrary.dll" />
     <Content Include="Config.xml" />
     <Content Include="Declaration.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Dll\BarcodeLib.dll" />
   </ItemGroup>
