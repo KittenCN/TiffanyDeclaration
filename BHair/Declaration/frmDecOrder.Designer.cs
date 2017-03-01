@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnCreateNewOrder = new System.Windows.Forms.Button();
+            this.dgvDecMain = new System.Windows.Forms.DataGridView();
             this.ExCusClearTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAWB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ARRport = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,29 +54,40 @@
             this.Shop_Receiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContainerNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JD_Receiveing_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCreateNewOrder = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDecMain)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnCreateNewOrder);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(18, 18);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(960, 111);
+            this.panel1.Size = new System.Drawing.Size(1440, 166);
             this.panel1.TabIndex = 0;
             // 
-            // dataGridView1
+            // btnCreateNewOrder
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnCreateNewOrder.Location = new System.Drawing.Point(4, 4);
+            this.btnCreateNewOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateNewOrder.Name = "btnCreateNewOrder";
+            this.btnCreateNewOrder.Size = new System.Drawing.Size(141, 34);
+            this.btnCreateNewOrder.TabIndex = 0;
+            this.btnCreateNewOrder.Text = "新建入关流程";
+            this.btnCreateNewOrder.UseVisualStyleBackColor = true;
+            this.btnCreateNewOrder.Click += new System.EventHandler(this.btnCreateNewOrder_Click);
+            // 
+            // dgvDecMain
+            // 
+            this.dgvDecMain.AllowUserToAddRows = false;
+            this.dgvDecMain.AllowUserToDeleteRows = false;
+            this.dgvDecMain.AllowUserToResizeRows = false;
+            this.dgvDecMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDecMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDecMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ExCusClearTime,
             this.MAWB,
             this.ARRport,
@@ -99,13 +111,14 @@
             this.Shop_Receiver,
             this.ContainerNO,
             this.JD_Receiveing_Date});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 129);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(960, 420);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvDecMain.Location = new System.Drawing.Point(18, 194);
+            this.dgvDecMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDecMain.MultiSelect = false;
+            this.dgvDecMain.Name = "dgvDecMain";
+            this.dgvDecMain.RowTemplate.Height = 23;
+            this.dgvDecMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDecMain.Size = new System.Drawing.Size(1440, 630);
+            this.dgvDecMain.TabIndex = 1;
             // 
             // ExCusClearTime
             // 
@@ -246,29 +259,20 @@
             this.JD_Receiveing_Date.HeaderText = "入系统的时间";
             this.JD_Receiveing_Date.Name = "JD_Receiveing_Date";
             // 
-            // btnCreateNewOrder
-            // 
-            this.btnCreateNewOrder.Location = new System.Drawing.Point(3, 3);
-            this.btnCreateNewOrder.Name = "btnCreateNewOrder";
-            this.btnCreateNewOrder.Size = new System.Drawing.Size(94, 23);
-            this.btnCreateNewOrder.TabIndex = 0;
-            this.btnCreateNewOrder.Text = "新建入关流程";
-            this.btnCreateNewOrder.UseVisualStyleBackColor = true;
-            this.btnCreateNewOrder.Click += new System.EventHandler(this.btnCreateNewOrder_Click);
-            // 
             // frmDecOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1476, 842);
+            this.Controls.Add(this.dgvDecMain);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmDecOrder";
             this.TabText = "入关流程管理";
             this.Text = "入关流程管理";
             this.Load += new System.EventHandler(this.frmStoreApp_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDecMain)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -276,7 +280,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDecMain;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExCusClearTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn MAWB;
         private System.Windows.Forms.DataGridViewTextBoxColumn ARRport;

@@ -19,12 +19,22 @@ namespace BHair.Business
         private void frmStoreApp_Load(object sender, EventArgs e)
         {
             this.TopMost = false;
+            Reflush();
         }
 
         private void btnCreateNewOrder_Click(object sender, EventArgs e)
         {
             frmDecNewOrder fdno = new Business.frmDecNewOrder();
             fdno.Show();
+        }
+
+        private void Reflush()
+        {
+            AccessHelper ah = new AccessHelper();
+            string strSQL_GetAllMainData = "select * from DecMain ";
+            DataTable dtDecMain = ah.SelectToDataTable(strSQL_GetAllMainData);
+            dgvDecMain.AutoGenerateColumns = false;
+            dgvDecMain.DataSource = dtDecMain;
         }
     }
 }
