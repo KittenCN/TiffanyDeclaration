@@ -44,5 +44,10 @@ namespace BHair.Business
             frmDecOrderEdit fdoe = new frmDecOrderEdit(strUUID);
             fdoe.Show();
         }
+
+        private void btnUnSearch_Click(object sender, EventArgs e)
+        {
+            Reflush();
+        }
     }
 }

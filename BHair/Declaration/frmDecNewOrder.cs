@@ -191,29 +191,29 @@ namespace BHair.Business
             return dt;
         }
 
-        private static DataTable GetTableFromDgv(DataGridView dgv,string strDataTableName)
+        private static DataTable GetTableFromDgv(DataGridView dgv, string strDataTableName)
         {
             DataTable dt = new DataTable();
             string strSQL = "select top 1 * from " + strDataTableName;
             AccessHelper ah = new AccessHelper();
             dt = ah.SelectToDataTable(strSQL);
-            DataRow dr = dt.NewRow();
+            DataTable dtNew = dt.Clone();
+            DataRow dr = dtNew.NewRow();
             int intdgvRowsCount = dgv.Rows.Count - 1;
             int intdgvColsCount = dgv.Columns.Count;
-            if(intdgvRowsCount>0 && intdgvColsCount>0)
+            if (intdgvRowsCount > 0 && intdgvColsCount > 0)
             {
-                for(int x = 0;x < intdgvRowsCount;x++)
+                for (int x = 0; x < intdgvRowsCount; x++)
                 {
-                    for(int y = 0;y < intdgvColsCount;y++)
+                    for (int y = 0; y < intdgvColsCount; y++)
                     {
                         dr[y + 1] = dgv.Rows[x].Cells[y].Value;
                     }
-                    dt.Rows.Add(dr.ItemArray);
-                    dr = dt.NewRow();
+                    dtNew.Rows.Add(dr.ItemArray);
+                    dr = dtNew.NewRow();
                 }
             }
-
-            return dt;
+            return dtNew;
         }
 
         private void btnCalINV_Click(object sender, EventArgs e)

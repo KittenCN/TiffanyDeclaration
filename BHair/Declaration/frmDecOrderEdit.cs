@@ -31,7 +31,8 @@ namespace BHair.Business
         private void btnSaveOrder_Click(object sender, EventArgs e)
         {
             AccessHelper ah = new AccessHelper();
-            DataRow drMainData = dtDecMain.NewRow();
+            DataTable dtSaveMain = dtDecMain.Clone();
+            DataRow drMainData = dtSaveMain.NewRow();
 
             drMainData["OrderNO"] = tbOrderNO.Text;
             drMainData["Status"] = 0;
@@ -54,23 +55,21 @@ namespace BHair.Business
             drMainData["ContainerNO"] = tbContainerNo.Text;
             drMainData["JD_Receiving_Date"] = dtpJD_Receiving_Date.Value;
 
-            dtDecMain.Rows.Add(drMainData);
+            dtSaveMain.Rows.Add(drMainData);
 
             string strSQL_DropMain = "delete from DecMain where OrderNO='" + tbOrderNO.Text + "'";
             ah.ExecuteSQLNonquery(strSQL_DropMain);
-            ah.AddRowsToTable(dtDecMain, "DecMain");
+            ah.AddRowsToTable(dtSaveMain, "DecMain");
 
             string strSQL_DropINV = "delete from DecINV where OrderNO='" + tbOrderNO.Text + "'";
             ah.ExecuteSQLNonquery(strSQL_DropINV);
             DataTable dtSaveINV;
-            //dtSaveINV = GetDgvToTable(dgvINV);
             dtSaveINV = GetTableFromDgv(dgvINV, "DecINV");
             ah.AddRowsToTable(dtSaveINV, "DecINV");
 
             string strSQL_DropHS = "delete from DecHS where OrderNO='" + tbOrderNO.Text + "'";
             ah.ExecuteSQLNonquery(strSQL_DropHS);
             DataTable dtSaveHS;
-            //dtSaveHS = GetDgvToTable(dgvHS);
             dtSaveHS = GetTableFromDgv(dgvHS, "DecHS");
             ah.AddRowsToTable(dtSaveHS, "DecHS");
             ah.Close();
@@ -222,7 +221,8 @@ namespace BHair.Business
             string strSQL = "select top 1 * from " + strDataTableName;
             AccessHelper ah = new AccessHelper();
             dt = ah.SelectToDataTable(strSQL);
-            DataRow dr = dt.NewRow();
+            DataTable dtNew = dt.Clone();
+            DataRow dr = dtNew.NewRow();
             int intdgvRowsCount = dgv.Rows.Count - 1;
             int intdgvColsCount = dgv.Columns.Count;
             if(intdgvRowsCount>0 && intdgvColsCount>0)
@@ -233,17 +233,38 @@ namespace BHair.Business
                     {
                         dr[y + 1] = dgv.Rows[x].Cells[y].Value;
                     }
-                    dt.Rows.Add(dr.ItemArray);
-                    dr = dt.NewRow();
+                    dtNew.Rows.Add(dr.ItemArray);
+                    dr = dtNew.NewRow();
                 }
             }
-
-            return dt;
+            return dtNew;
         }
 
         private void btnCalINV_Click(object sender, EventArgs e)
         {
+            DataTable dtSaveINV;
+            dtSaveINV = GetTableFromDgv(dgvINV, "DecINV");
+            double douSumAmount = double.Parse(dtSaveINV.Compute("Sum(INV_Amount)", "True").ToString());
+            double douSumDuty = double.Parse(tbDuty.Text);
+            double douSumVAT = double.Parse(tbVAT.Text);
+            double douSumFreight = double.Parse(tbFreight.Text);
+            int intRowsnum = 0;
 
+            foreach (DataRow dr in dtSaveINV.Rows)
+            {               
+                if(dr[1].ToString() != null && dr[1].ToString() != "")
+                {
+                    double douINV_Amount = double.Parse(dr["INV_Amount"].ToString());
+                    double douFreight = douSumFreight * (douINV_Amount / douSumAmount);
+                    double douDuty = douSumDuty * (douINV_Amount / douSumAmount);
+                    double douVAT = douSumVAT * (douINV_Amount / douSumAmount);
+
+                    dgvINV.Rows[intRowsnum].Cells["Freight"].Value = douFreight.ToString();
+                    dgvINV.Rows[intRowsnum].Cells["Duty"].Value = douDuty.ToString();
+                    dgvINV.Rows[intRowsnum].Cells["VAT"].Value = douVAT.ToString();
+                }
+                intRowsnum++;
+            }
         }
     }
 }
