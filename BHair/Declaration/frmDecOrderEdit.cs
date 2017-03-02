@@ -187,34 +187,6 @@ namespace BHair.Business
             tbM.Text = "0";
         }
 
-        /// <summary>
-        /// 方法实现把dgv里的数据完整的复制到一张内存表
-        /// </summary>
-        /// <param name="dgv">dgv控件作为参数</param>
-        /// <returns>返回临时内存表</returns>
-        public static DataTable GetDgvToTable(DataGridView dgv)
-        {
-            DataTable dt = new DataTable();
-            for (int count = 0; count < dgv.Columns.Count; count++)
-            {
-                DataColumn dc = new DataColumn(dgv.Columns[count].Name.ToString());
-                dt.Columns.Add(dc);
-            }
-            for (int count = 0; count < dgv.Rows.Count; count++)
-            {
-                DataRow dr = dt.NewRow();
-                for (int countsub = 0; countsub < dgv.Columns.Count; countsub++)
-                {
-                    if(dgv.Rows[count].Cells[countsub].Value != null)
-                    {
-                        dr[countsub] = dgv.Rows[count].Cells[countsub].Value.ToString();
-                    }                   
-                }
-                dt.Rows.Add(dr);
-            }
-            return dt;
-        }
-
         private static DataTable GetTableFromDgv(DataGridView dgv,string strDataTableName)
         {
             DataTable dt = new DataTable();
@@ -264,6 +236,44 @@ namespace BHair.Business
                     dgvINV.Rows[intRowsnum].Cells["VAT"].Value = douVAT.ToString();
                 }
                 intRowsnum++;
+            }
+        }
+
+        private void btnCalHS_Click(object sender, EventArgs e)
+        {
+            DataTable dtSaveHS;
+            dtSaveHS = GetTableFromDgv(dgvHS, "DecHS");
+            DataTable dtHSSetting;
+            string strSQL_GetHSSetting = "select * from DecHSSetting ";
+            AccessHelper ah = new AccessHelper();
+            dtHSSetting = ah.SelectToDataTable(strSQL_GetHSSetting);
+            int intRowsNum = 0;
+            double douExRate = 6.6056;
+
+            foreach (DataRow dr in dtSaveHS.Rows)
+            {
+                if (dr[1].ToString() != null && dr[1].ToString() != "")
+                {
+                    string strHSCODE = dr["HS_CODE"].ToString();
+                    DataRow[] drs;
+                    drs = dtHSSetting.Select("HSCODE = '" + strHSCODE + "' ");
+                    if(drs.Length > 0)
+                    {
+                        double douDutyS = double.Parse(drs[0][2].ToString());
+                        double douVATs = double.Parse(drs[0][3].ToString());
+                        double douM = double.Parse(dr["M"].ToString());
+                        double douDuty = douM * douExRate * douDutyS;
+                        double douVAT = (douDuty + (douM * douExRate)) * douVATs;
+
+                        dgvHS.Rows[intRowsNum].Cells["Duty_System"].Value = douDuty.ToString();
+                        dgvHS.Rows[intRowsNum].Cells["VAT_System"].Value = douVAT.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("HSCODE:" + strHSCODE + ",在系统中没有设定,请检查.", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                intRowsNum++;
             }
         }
     }

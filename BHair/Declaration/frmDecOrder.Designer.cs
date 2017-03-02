@@ -57,12 +57,14 @@
             this.ContainerNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JD_Receiveing_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUnSearch = new System.Windows.Forms.Button();
+            this.btnHSSetting = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDecMain)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnHSSetting);
             this.panel1.Controls.Add(this.btnUnSearch);
             this.panel1.Controls.Add(this.btnCreateNewOrder);
             this.panel1.Location = new System.Drawing.Point(18, 18);
@@ -347,6 +349,17 @@
             this.btnUnSearch.UseVisualStyleBackColor = true;
             this.btnUnSearch.Click += new System.EventHandler(this.btnUnSearch_Click);
             // 
+            // btnHSSetting
+            // 
+            this.btnHSSetting.Location = new System.Drawing.Point(168, 4);
+            this.btnHSSetting.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHSSetting.Name = "btnHSSetting";
+            this.btnHSSetting.Size = new System.Drawing.Size(141, 34);
+            this.btnHSSetting.TabIndex = 2;
+            this.btnHSSetting.Text = "配置HSCODE";
+            this.btnHSSetting.UseVisualStyleBackColor = true;
+            this.btnHSSetting.Click += new System.EventHandler(this.btnHSSetting_Click);
+            // 
             // frmDecOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -396,5 +409,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ContainerNO;
         private System.Windows.Forms.DataGridViewTextBoxColumn JD_Receiveing_Date;
         private System.Windows.Forms.Button btnUnSearch;
+        private System.Windows.Forms.Button btnHSSetting;
     }
 }

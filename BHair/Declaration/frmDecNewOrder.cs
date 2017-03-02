@@ -163,34 +163,6 @@ namespace BHair.Business
             tbM.Text = "0";
         }
 
-        /// <summary>
-        /// 方法实现把dgv里的数据完整的复制到一张内存表
-        /// </summary>
-        /// <param name="dgv">dgv控件作为参数</param>
-        /// <returns>返回临时内存表</returns>
-        public static DataTable GetDgvToTable(DataGridView dgv)
-        {
-            DataTable dt = new DataTable();
-            for (int count = 0; count < dgv.Columns.Count; count++)
-            {
-                DataColumn dc = new DataColumn(dgv.Columns[count].Name.ToString());
-                dt.Columns.Add(dc);
-            }
-            for (int count = 0; count < dgv.Rows.Count; count++)
-            {
-                DataRow dr = dt.NewRow();
-                for (int countsub = 0; countsub < dgv.Columns.Count; countsub++)
-                {
-                    if(dgv.Rows[count].Cells[countsub].Value != null)
-                    {
-                        dr[countsub] = dgv.Rows[count].Cells[countsub].Value.ToString();
-                    }                   
-                }
-                dt.Rows.Add(dr);
-            }
-            return dt;
-        }
-
         private static DataTable GetTableFromDgv(DataGridView dgv, string strDataTableName)
         {
             DataTable dt = new DataTable();

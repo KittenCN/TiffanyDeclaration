@@ -1,0 +1,74 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace BHair.Business
+{
+    public partial class frmHSSetting : WinFormsUI.Docking.DockContent
+    {
+        public frmHSSetting()
+        {
+            InitializeComponent();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            AccessHelper ah = new AccessHelper();
+            string strSQL_DropHS = "delete from DecHSSetting ";
+            ah.ExecuteSQLNonquery(strSQL_DropHS);
+            DataTable dtSaveHS;
+            dtSaveHS = GetTableFromDgv(dgvHSSetting, "DecHSSetting");
+            ah.AddRowsToTable(dtSaveHS, "DecHSSetting");
+            ah.Close();
+            MessageBox.Show("提交成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
+
+        private static DataTable GetTableFromDgv(DataGridView dgv, string strDataTableName)
+        {
+            DataTable dt = new DataTable();
+            string strSQL = "select top 1 * from " + strDataTableName;
+            AccessHelper ah = new AccessHelper();
+            dt = ah.SelectToDataTable(strSQL);
+            DataTable dtNew = dt.Clone();
+            DataRow dr = dtNew.NewRow();
+            int intdgvRowsCount = dgv.Rows.Count - 1;
+            int intdgvColsCount = dgv.Columns.Count;
+            if (intdgvRowsCount > 0 && intdgvColsCount > 0)
+            {
+                for (int x = 0; x < intdgvRowsCount; x++)
+                {
+                    for (int y = 0; y < intdgvColsCount; y++)
+                    {
+                        dr[y + 1] = dgv.Rows[x].Cells[y].Value;
+                    }
+                    dtNew.Rows.Add(dr.ItemArray);
+                    dr = dtNew.NewRow();
+                }
+            }
+            return dtNew;
+        }
+
+        private void frmHSSetting_Load(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            string strSQL = "select * from DecHSSetting ";
+            AccessHelper ah = new AccessHelper();
+            dt = ah.SelectToDataTable(strSQL);
+            ah.Close();
+            dgvHSSetting.AutoGenerateColumns = false;
+            dgvHSSetting.DataSource = dt;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

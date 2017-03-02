@@ -49,5 +49,11 @@ namespace BHair.Business
         {
             Reflush();
         }
+
+        private void btnHSSetting_Click(object sender, EventArgs e)
+        {
+            frmHSSetting fhss = new Business.frmHSSetting();
+            fhss.Show();
+        }
     }
 }
