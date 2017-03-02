@@ -34,6 +34,7 @@
             this.VAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnUploadHSSetting = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHSSetting)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,10 +46,11 @@
             this.HSCODE,
             this.Duty,
             this.VAT});
-            this.dgvHSSetting.Location = new System.Drawing.Point(13, 13);
+            this.dgvHSSetting.Location = new System.Drawing.Point(9, 9);
+            this.dgvHSSetting.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvHSSetting.Name = "dgvHSSetting";
             this.dgvHSSetting.RowTemplate.Height = 30;
-            this.dgvHSSetting.Size = new System.Drawing.Size(456, 451);
+            this.dgvHSSetting.Size = new System.Drawing.Size(304, 301);
             this.dgvHSSetting.TabIndex = 0;
             // 
             // HSCODE
@@ -71,9 +73,10 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(273, 488);
+            this.btnSave.Location = new System.Drawing.Point(182, 325);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(88, 36);
+            this.btnSave.Size = new System.Drawing.Size(59, 24);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -81,22 +84,36 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(381, 488);
+            this.btnCancel.Location = new System.Drawing.Point(254, 325);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(88, 36);
+            this.btnCancel.Size = new System.Drawing.Size(59, 24);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnUploadHSSetting
+            // 
+            this.btnUploadHSSetting.Location = new System.Drawing.Point(11, 325);
+            this.btnUploadHSSetting.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUploadHSSetting.Name = "btnUploadHSSetting";
+            this.btnUploadHSSetting.Size = new System.Drawing.Size(59, 24);
+            this.btnUploadHSSetting.TabIndex = 3;
+            this.btnUploadHSSetting.Text = "上传";
+            this.btnUploadHSSetting.UseVisualStyleBackColor = true;
+            this.btnUploadHSSetting.Click += new System.EventHandler(this.btnUploadHSSetting_Click);
+            // 
             // frmHSSetting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 548);
+            this.ClientSize = new System.Drawing.Size(326, 365);
+            this.Controls.Add(this.btnUploadHSSetting);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvHSSetting);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmHSSetting";
             this.TabText = "frmHSSetting";
             this.Text = "frmHSSetting";
@@ -114,5 +131,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn VAT;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnUploadHSSetting;
     }
 }

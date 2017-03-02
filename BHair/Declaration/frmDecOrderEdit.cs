@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Drawing.Printing;
+using System.Security.Cryptography;
 
 namespace BHair.Business
 {
@@ -274,6 +277,28 @@ namespace BHair.Business
                     }
                 }
                 intRowsNum++;
+            }
+        }
+
+        private void btnInputHS_Click(object sender, EventArgs e)
+        {
+            DataTable TempDT;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel文件|*.xls";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string filePath = openFileDialog.FileName;
+                    PrintExcel pe = new PrintExcel();
+                    TempDT = pe.ExcelToDataTable_HS(filePath,tbOrderNO.Text);
+                    dgvHS.AutoGenerateColumns = false;
+                    dgvHS.DataSource = TempDT;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Excel数据导入失败,详见数据错误列表::" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }

@@ -149,7 +149,67 @@ namespace BHair.Business
             return result;
         }
 
+        public DataTable ExcelToDataTable_HS(string filePath,string strOrderNO)
+        {
+            DataTable Result = new DataTable();
+            Result.Columns.Add(new DataColumn("OrderNO", typeof(string)));
+            Result.Columns.Add(new DataColumn("Status", typeof(int)));
+            Result.Columns.Add(new DataColumn("HS_CODE", typeof(string)));
+            Result.Columns.Add(new DataColumn("M", typeof(double)));
+            Result.Columns.Add(new DataColumn("Duty_System", typeof(double)));
+            Result.Columns.Add(new DataColumn("Duty_Input", typeof(double)));
+            Result.Columns.Add(new DataColumn("VAT_System", typeof(double)));
+            Result.Columns.Add(new DataColumn("VAT_Input", typeof(double)));
 
+            Excel.Application app = new Excel.Application();
+            Excel.Sheets sheets;
+            object oMissiong = System.Reflection.Missing.Value;
+            Excel.Workbook workbook = null;
+
+            try
+            {
+                if (app == null) return null;
+                workbook = app.Workbooks.Open(filePath, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong,
+                    oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong);
+                sheets = workbook.Worksheets;
+
+                //将数据读入到DataTable中
+                Excel.Worksheet worksheet = (Excel.Worksheet)sheets.get_Item(1);//读取第一张表  
+                if (worksheet == null) return null;
+
+                int iRowCount = worksheet.UsedRange.Rows.Count;
+                int iColCount = worksheet.UsedRange.Columns.Count;
+
+                //生成行数据
+                Excel.Range range;
+                for (int iRow = 2; iRow <= iRowCount; iRow++)
+                {
+                    int validate = 0;
+                    DataRow dr = Result.NewRow();
+                    dr["OrderNO"] = strOrderNO;
+                    dr["Status"] = 0;
+                    dr["HS_CODE"] = ((Excel.Range)worksheet.Cells[iRow, 1]).Text;
+                    dr["M"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 2]).Text.ToString());
+                    dr["Duty_System"] = 0.00;
+                    dr["Duty_Input"] = 0.00;
+                    dr["VAT_System"] = 0.00;
+                    dr["VAT_Input"] = 0.00;
+                    if (validate == 0) Result.Rows.Add(dr);
+                }
+                return Result;
+            }
+            catch(Exception ex) { return null; }
+            finally
+            {
+                workbook.Close(false, oMissiong, oMissiong);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+                workbook = null;
+                app.Workbooks.Close();
+                app.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+                app = null;
+            }
+        }
 
         public DataTable ExcelToDataTable_Items(string filePath)
         {
@@ -1091,6 +1151,58 @@ namespace BHair.Business
                 strResult = "-";
             }
             return strResult;
+        }
+
+        public DataTable ExcelToDataTable_HSSetting(string filePath)
+        {
+            DataTable Result = new DataTable();
+            Result.Columns.Add(new DataColumn("HSCODE", typeof(string)));
+            Result.Columns.Add(new DataColumn("Duty", typeof(double)));
+            Result.Columns.Add(new DataColumn("VAT", typeof(double)));
+
+            Excel.Application app = new Excel.Application();
+            Excel.Sheets sheets;
+            object oMissiong = System.Reflection.Missing.Value;
+            Excel.Workbook workbook = null;
+
+            try
+            {
+                if (app == null) return null;
+                workbook = app.Workbooks.Open(filePath, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong,
+                    oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong);
+                sheets = workbook.Worksheets;
+
+                //将数据读入到DataTable中
+                Excel.Worksheet worksheet = (Excel.Worksheet)sheets.get_Item(1);//读取第一张表  
+                if (worksheet == null) return null;
+
+                int iRowCount = worksheet.UsedRange.Rows.Count;
+                int iColCount = worksheet.UsedRange.Columns.Count;
+
+                //生成行数据
+                Excel.Range range;
+                for (int iRow = 2; iRow <= iRowCount; iRow++)
+                {
+                    int validate = 0;
+                    DataRow dr = Result.NewRow();
+                    dr["HSCODE"] = ((Excel.Range)worksheet.Cells[iRow, 1]).Text;
+                    dr["Duty"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 2]).Text.ToString());
+                    dr["VAT"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 3]).Text.ToString());
+                    if (validate == 0) Result.Rows.Add(dr);
+                }
+                return Result;
+            }
+            catch (Exception ex) { return null; }
+            finally
+            {
+                workbook.Close(false, oMissiong, oMissiong);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+                workbook = null;
+                app.Workbooks.Close();
+                app.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+                app = null;
+            }
         }
     }
 }

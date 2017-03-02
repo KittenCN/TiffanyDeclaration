@@ -70,5 +70,27 @@ namespace BHair.Business
         {
             this.Close();
         }
+
+        private void btnUploadHSSetting_Click(object sender, EventArgs e)
+        {
+            DataTable TempDT;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel文件|*.xls";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string filePath = openFileDialog.FileName;
+                    PrintExcel pe = new PrintExcel();
+                    TempDT = pe.ExcelToDataTable_HSSetting(filePath);
+                    dgvHSSetting.AutoGenerateColumns = false;
+                    dgvHSSetting.DataSource = TempDT;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Excel数据导入失败,详见数据错误列表::" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
     }
 }
