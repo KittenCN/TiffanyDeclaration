@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnHSSetting = new System.Windows.Forms.Button();
+            this.btnUnSearch = new System.Windows.Forms.Button();
             this.btnCreateNewOrder = new System.Windows.Forms.Button();
             this.dgvDecMain = new System.Windows.Forms.DataGridView();
             this.OrderNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,8 +58,6 @@
             this.Shop_Receiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContainerNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JD_Receiveing_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnUnSearch = new System.Windows.Forms.Button();
-            this.btnHSSetting = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDecMain)).BeginInit();
             this.SuspendLayout();
@@ -67,18 +67,36 @@
             this.panel1.Controls.Add(this.btnHSSetting);
             this.panel1.Controls.Add(this.btnUnSearch);
             this.panel1.Controls.Add(this.btnCreateNewOrder);
-            this.panel1.Location = new System.Drawing.Point(18, 18);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1440, 93);
+            this.panel1.Size = new System.Drawing.Size(960, 33);
             this.panel1.TabIndex = 0;
+            // 
+            // btnHSSetting
+            // 
+            this.btnHSSetting.Location = new System.Drawing.Point(203, 3);
+            this.btnHSSetting.Name = "btnHSSetting";
+            this.btnHSSetting.Size = new System.Drawing.Size(94, 23);
+            this.btnHSSetting.TabIndex = 2;
+            this.btnHSSetting.Text = "配置HSCODE";
+            this.btnHSSetting.UseVisualStyleBackColor = true;
+            this.btnHSSetting.Click += new System.EventHandler(this.btnHSSetting_Click);
+            // 
+            // btnUnSearch
+            // 
+            this.btnUnSearch.Location = new System.Drawing.Point(3, 3);
+            this.btnUnSearch.Name = "btnUnSearch";
+            this.btnUnSearch.Size = new System.Drawing.Size(94, 23);
+            this.btnUnSearch.TabIndex = 1;
+            this.btnUnSearch.Text = "重置搜索条件";
+            this.btnUnSearch.UseVisualStyleBackColor = true;
+            this.btnUnSearch.Click += new System.EventHandler(this.btnUnSearch_Click);
             // 
             // btnCreateNewOrder
             // 
-            this.btnCreateNewOrder.Location = new System.Drawing.Point(4, 46);
-            this.btnCreateNewOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateNewOrder.Location = new System.Drawing.Point(103, 3);
             this.btnCreateNewOrder.Name = "btnCreateNewOrder";
-            this.btnCreateNewOrder.Size = new System.Drawing.Size(141, 34);
+            this.btnCreateNewOrder.Size = new System.Drawing.Size(94, 23);
             this.btnCreateNewOrder.TabIndex = 0;
             this.btnCreateNewOrder.Text = "新建入关流程";
             this.btnCreateNewOrder.UseVisualStyleBackColor = true;
@@ -119,14 +137,13 @@
             this.Shop_Receiver,
             this.ContainerNO,
             this.JD_Receiveing_Date});
-            this.dgvDecMain.Location = new System.Drawing.Point(18, 119);
-            this.dgvDecMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDecMain.Location = new System.Drawing.Point(12, 51);
             this.dgvDecMain.MultiSelect = false;
             this.dgvDecMain.Name = "dgvDecMain";
             this.dgvDecMain.ReadOnly = true;
             this.dgvDecMain.RowTemplate.Height = 23;
             this.dgvDecMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDecMain.Size = new System.Drawing.Size(1440, 703);
+            this.dgvDecMain.Size = new System.Drawing.Size(960, 497);
             this.dgvDecMain.TabIndex = 1;
             this.dgvDecMain.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDecMain_CellDoubleClick);
             // 
@@ -338,36 +355,13 @@
             this.JD_Receiveing_Date.Name = "JD_Receiveing_Date";
             this.JD_Receiveing_Date.ReadOnly = true;
             // 
-            // btnUnSearch
-            // 
-            this.btnUnSearch.Location = new System.Drawing.Point(4, 4);
-            this.btnUnSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUnSearch.Name = "btnUnSearch";
-            this.btnUnSearch.Size = new System.Drawing.Size(141, 34);
-            this.btnUnSearch.TabIndex = 1;
-            this.btnUnSearch.Text = "重置搜索条件";
-            this.btnUnSearch.UseVisualStyleBackColor = true;
-            this.btnUnSearch.Click += new System.EventHandler(this.btnUnSearch_Click);
-            // 
-            // btnHSSetting
-            // 
-            this.btnHSSetting.Location = new System.Drawing.Point(168, 4);
-            this.btnHSSetting.Margin = new System.Windows.Forms.Padding(4);
-            this.btnHSSetting.Name = "btnHSSetting";
-            this.btnHSSetting.Size = new System.Drawing.Size(141, 34);
-            this.btnHSSetting.TabIndex = 2;
-            this.btnHSSetting.Text = "配置HSCODE";
-            this.btnHSSetting.UseVisualStyleBackColor = true;
-            this.btnHSSetting.Click += new System.EventHandler(this.btnHSSetting_Click);
-            // 
             // frmDecOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1476, 858);
+            this.ClientSize = new System.Drawing.Size(984, 572);
             this.Controls.Add(this.dgvDecMain);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmDecOrder";
             this.TabText = "入关流程管理";
             this.Text = "入关流程管理";

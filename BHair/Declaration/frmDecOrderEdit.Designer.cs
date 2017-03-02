@@ -741,6 +741,7 @@
             this.btnInputD_V.TabIndex = 40;
             this.btnInputD_V.Text = "上传税信息";
             this.btnInputD_V.UseVisualStyleBackColor = true;
+            this.btnInputD_V.Visible = false;
             // 
             // btnCalHS
             // 

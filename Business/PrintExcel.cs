@@ -190,10 +190,10 @@ namespace BHair.Business
                     dr["Status"] = 0;
                     dr["HS_CODE"] = ((Excel.Range)worksheet.Cells[iRow, 1]).Text;
                     dr["M"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 2]).Text.ToString());
-                    dr["Duty_System"] = 0.00;
-                    dr["Duty_Input"] = 0.00;
-                    dr["VAT_System"] = 0.00;
-                    dr["VAT_Input"] = 0.00;
+                    dr["Duty_System"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 3]).Text.ToString());
+                    dr["Duty_Input"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 4]).Text.ToString());
+                    dr["VAT_System"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 5]).Text.ToString());
+                    dr["VAT_Input"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString());
                     if (validate == 0) Result.Rows.Add(dr);
                 }
                 return Result;
@@ -223,7 +223,6 @@ namespace BHair.Business
             Result.Columns.Add(new DataColumn("Class", typeof(string)));
             Result.Columns.Add(new DataColumn("Detail", typeof(string)));
             Result.Columns.Add(new DataColumn("IsDelete", typeof(double)));
-
 
             Excel.Application app = new Excel.Application();
             Excel.Sheets sheets;
