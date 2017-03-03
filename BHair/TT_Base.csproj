@@ -548,6 +548,7 @@
     <Folder Include="bin\Debug\tempPDF\" />
     <Folder Include="bin\Release\" />
     <Folder Include="Report\" />
+    <Folder Include="WMS\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
