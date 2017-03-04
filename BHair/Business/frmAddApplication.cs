@@ -288,8 +288,7 @@ namespace BHair.Business
                     if (strStoreTemp[i].ToString() != null && strStoreTemp[i].ToString() != "")
                     {
                         cbRecieveStore.Items.Add(strStoreTemp[i].ToString());
-                    }
-                        
+                    }                       
                 }
             }
             else

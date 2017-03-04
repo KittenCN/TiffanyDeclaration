@@ -328,7 +328,7 @@ namespace BHair
         {
             if (Login.LoginUser.UID == null || Login.LoginUser.UID == "")
             {
-                toolStripButton3.Visible = false;
+                //toolStripButton3.Visible = false;
                 toolStripButton8.Visible = false;
                 toolStripButton2.Visible = false;
             }
@@ -344,21 +344,23 @@ namespace BHair
                     toolStripButton2.Visible = false;
                 }
                 toolStripButton8.Visible = true;
-                tsbDscOrder_Click(null, null);
+                //tsbDscOrder_Click(null, null);
                 //menuMain_Manage_ApprovalApp_Click(null, null);//入关窗口
             }
             else if (Login.LoginUser.Character == 2)
             {
-                
-                toolStripButton3.Visible = false;
+                tsbInbound.Visible = true;
+                //toolStripButton3.Visible = false;
                 toolStripButton8.Visible = false;
                 toolStripButton2.Visible = false;
-                menuMain_Manage_Approval2App_Click(null, null);//仓管窗口
+                //menuMain_Manage_Approval2App_Click(null, null);//仓管窗口
             }
             if (Login.LoginUser.UID == "Administrator")
             {
+                tsbInbound.Visible = true;
+                tsbDscOrder.Visible = true;
                 toolStripButton2.Visible = true;
-                toolStripButton3.Visible = true;
+                //toolStripButton3.Visible = true;
                 toolStripButton8.Visible = true;
             }
         }
@@ -375,6 +377,12 @@ namespace BHair
         {
             frmDecOrder fdo = new frmDecOrder();
             this.ShowWindows_Click(fdo);
+        }
+
+        private void tsbInbound_Click(object sender, EventArgs e)
+        {
+            frmWMSInbound fwmsi = new Business.frmWMSInbound();
+            this.ShowWindows_Click(fwmsi);
         }
     }
 }

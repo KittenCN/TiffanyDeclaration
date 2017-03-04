@@ -121,5 +121,24 @@ namespace BHair.Business
             catch (Exception ex){ return null; }
             return dtResult;
         }
+
+        public static Boolean CheckDT(DataTable dt,string strCheck)
+        {
+            Boolean boolResult = false;
+            int intTotalRowsNum = dt.Rows.Count;
+            for(int x = 0; x < intTotalRowsNum; x++)
+            {
+                for(int y = x + 1; y < intTotalRowsNum; y++)
+                {
+                    if ((dt.Rows[x][strCheck].ToString() == dt.Rows[y][strCheck].ToString()) && dt.Rows[x][strCheck].ToString() != null && dt.Rows[y][strCheck].ToString() != null && dt.Rows[x][strCheck].ToString().Length > 0 && dt.Rows[y][strCheck].ToString().Length > 0)
+                    {
+                        boolResult = true;
+                        goto done;
+                    }
+                }
+            }
+        done:
+            return boolResult;
+        }
     }
 }

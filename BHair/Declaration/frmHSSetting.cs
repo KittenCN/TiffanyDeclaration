@@ -19,15 +19,22 @@ namespace BHair.Business
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            AccessHelper ah = new AccessHelper();
-            string strSQL_DropHS = "delete from DecHSSetting ";
-            ah.ExecuteSQLNonquery(strSQL_DropHS);
             DataTable dtSaveHS;
             dtSaveHS = GetTableFromDgv(dgvHSSetting, "DecHSSetting");
-            ah.AddRowsToTable(dtSaveHS, "DecHSSetting");
-            ah.Close();
-            MessageBox.Show("提交成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+            if(!GenClass.CheckDT(dtSaveHS,"HSCODE"))
+            {
+                AccessHelper ah = new AccessHelper();
+                string strSQL_DropHS = "delete from DecHSSetting ";
+                ah.ExecuteSQLNonquery(strSQL_DropHS);
+                ah.AddRowsToTable(dtSaveHS, "DecHSSetting");
+                ah.Close();
+                MessageBox.Show("提交成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("HSCODE有重复,提交失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private static DataTable GetTableFromDgv(DataGridView dgv, string strDataTableName)

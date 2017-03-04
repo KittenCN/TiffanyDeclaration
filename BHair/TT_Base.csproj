@@ -323,6 +323,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WMS\frmWMSInbound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WMS\frmWMSInbound.Designer.cs">
+      <DependentUpon>frmWMSInbound.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Base\frmConfig.resx">
       <DependentUpon>frmConfig.cs</DependentUpon>
     </EmbeddedResource>
@@ -472,6 +478,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="WMS\frmWMSInbound.resx">
+      <DependentUpon>frmWMSInbound.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="bin\Debug\app.config" />
     <None Include="bin\Debug\BHair.vshost.exe.config" />
@@ -548,7 +557,6 @@
     <Folder Include="bin\Debug\tempPDF\" />
     <Folder Include="bin\Release\" />
     <Folder Include="Report\" />
-    <Folder Include="WMS\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
