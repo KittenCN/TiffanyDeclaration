@@ -36,13 +36,14 @@
             this.tssrMain_Timer = new System.Windows.Forms.ToolStripStatusLabel();
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbDscOrder = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbInbound = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
-            this.tsbInbound = new System.Windows.Forms.ToolStripButton();
+            this.tsbWMConfig = new System.Windows.Forms.ToolStripButton();
             this.ssrMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -95,10 +96,11 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbDscOrder,
-            this.toolStripSeparator2,
-            this.tsbInbound,
             this.toolStripSeparator1,
+            this.tsbInbound,
+            this.toolStripSeparator2,
             this.toolStripButton8,
+            this.tsbWMConfig,
             this.toolStripButton2,
             this.toolStripButton9});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -106,11 +108,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(775, 72);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 72);
             // 
             // tsbDscOrder
             // 
@@ -123,6 +120,23 @@
             this.tsbDscOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbDscOrder.Visible = false;
             this.tsbDscOrder.Click += new System.EventHandler(this.tsbDscOrder_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 72);
+            // 
+            // tsbInbound
+            // 
+            this.tsbInbound.Image = ((System.Drawing.Image)(resources.GetObject("tsbInbound.Image")));
+            this.tsbInbound.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbInbound.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbInbound.Name = "tsbInbound";
+            this.tsbInbound.Size = new System.Drawing.Size(60, 69);
+            this.tsbInbound.Text = "入库流程";
+            this.tsbInbound.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbInbound.Visible = false;
+            this.tsbInbound.Click += new System.EventHandler(this.tsbInbound_Click);
             // 
             // toolStripSeparator1
             // 
@@ -164,17 +178,17 @@
             this.toolStripButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
             // 
-            // tsbInbound
+            // tsbWMConfig
             // 
-            this.tsbInbound.Image = ((System.Drawing.Image)(resources.GetObject("tsbInbound.Image")));
-            this.tsbInbound.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbInbound.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbInbound.Name = "tsbInbound";
-            this.tsbInbound.Size = new System.Drawing.Size(60, 69);
-            this.tsbInbound.Text = "入库流程";
-            this.tsbInbound.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbInbound.Visible = false;
-            this.tsbInbound.Click += new System.EventHandler(this.tsbInbound_Click);
+            this.tsbWMConfig.Image = ((System.Drawing.Image)(resources.GetObject("tsbWMConfig.Image")));
+            this.tsbWMConfig.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbWMConfig.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbWMConfig.Name = "tsbWMConfig";
+            this.tsbWMConfig.Size = new System.Drawing.Size(60, 69);
+            this.tsbWMConfig.Text = "仓管管理";
+            this.tsbWMConfig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbWMConfig.Visible = false;
+            this.tsbWMConfig.Click += new System.EventHandler(this.tsbWMConfig_Click);
             // 
             // frmMain
             // 
@@ -216,5 +230,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton9;
         private System.Windows.Forms.ToolStripButton tsbDscOrder;
         private System.Windows.Forms.ToolStripButton tsbInbound;
+        private System.Windows.Forms.ToolStripButton tsbWMConfig;
     }
 }
