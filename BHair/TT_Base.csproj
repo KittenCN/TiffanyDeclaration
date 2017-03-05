@@ -341,6 +341,12 @@
     <Compile Include="WMS\frmWMSinboundDetail.Designer.cs">
       <DependentUpon>frmWMSinboundDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="WMS\frmWMSMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WMS\frmWMSMain.Designer.cs">
+      <DependentUpon>frmWMSMain.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Base\frmConfig.resx">
       <DependentUpon>frmConfig.cs</DependentUpon>
     </EmbeddedResource>
@@ -498,6 +504,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WMS\frmWMSinboundDetail.resx">
       <DependentUpon>frmWMSinboundDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WMS\frmWMSMain.resx">
+      <DependentUpon>frmWMSMain.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="bin\Debug\app.config" />

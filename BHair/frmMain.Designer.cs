@@ -37,13 +37,14 @@
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbDscOrder = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tt = new System.Windows.Forms.ToolStripSeparator();
             this.tsbInbound = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.tsbWMConfig = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
-            this.tsbWMConfig = new System.Windows.Forms.ToolStripButton();
+            this.tsbWMSMain = new System.Windows.Forms.ToolStripButton();
             this.ssrMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -96,7 +97,8 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbDscOrder,
-            this.toolStripSeparator1,
+            this.tt,
+            this.tsbWMSMain,
             this.tsbInbound,
             this.toolStripSeparator2,
             this.toolStripButton8,
@@ -121,10 +123,10 @@
             this.tsbDscOrder.Visible = false;
             this.tsbDscOrder.Click += new System.EventHandler(this.tsbDscOrder_Click);
             // 
-            // toolStripSeparator2
+            // tt
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 72);
+            this.tt.Name = "tt";
+            this.tt.Size = new System.Drawing.Size(6, 72);
             // 
             // tsbInbound
             // 
@@ -138,10 +140,10 @@
             this.tsbInbound.Visible = false;
             this.tsbInbound.Click += new System.EventHandler(this.tsbInbound_Click);
             // 
-            // toolStripSeparator1
+            // toolStripSeparator2
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 72);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 72);
             // 
             // toolStripButton8
             // 
@@ -154,6 +156,18 @@
             this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton8.Visible = false;
             this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
+            // 
+            // tsbWMConfig
+            // 
+            this.tsbWMConfig.Image = ((System.Drawing.Image)(resources.GetObject("tsbWMConfig.Image")));
+            this.tsbWMConfig.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbWMConfig.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbWMConfig.Name = "tsbWMConfig";
+            this.tsbWMConfig.Size = new System.Drawing.Size(60, 69);
+            this.tsbWMConfig.Text = "仓管管理";
+            this.tsbWMConfig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbWMConfig.Visible = false;
+            this.tsbWMConfig.Click += new System.EventHandler(this.tsbWMConfig_Click);
             // 
             // toolStripButton2
             // 
@@ -178,17 +192,17 @@
             this.toolStripButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
             // 
-            // tsbWMConfig
+            // tsbWMSMain
             // 
-            this.tsbWMConfig.Image = ((System.Drawing.Image)(resources.GetObject("tsbWMConfig.Image")));
-            this.tsbWMConfig.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbWMConfig.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbWMConfig.Name = "tsbWMConfig";
-            this.tsbWMConfig.Size = new System.Drawing.Size(60, 69);
-            this.tsbWMConfig.Text = "仓管管理";
-            this.tsbWMConfig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbWMConfig.Visible = false;
-            this.tsbWMConfig.Click += new System.EventHandler(this.tsbWMConfig_Click);
+            this.tsbWMSMain.Image = ((System.Drawing.Image)(resources.GetObject("tsbWMSMain.Image")));
+            this.tsbWMSMain.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbWMSMain.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbWMSMain.Name = "tsbWMSMain";
+            this.tsbWMSMain.Size = new System.Drawing.Size(60, 69);
+            this.tsbWMSMain.Text = "库存管理";
+            this.tsbWMSMain.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbWMSMain.Visible = false;
+            this.tsbWMSMain.Click += new System.EventHandler(this.tsbWMSMain_Click);
             // 
             // frmMain
             // 
@@ -224,12 +238,13 @@
         private System.Windows.Forms.ToolStripStatusLabel tssrMain_Timer;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator tt;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton toolStripButton8;
         private System.Windows.Forms.ToolStripButton toolStripButton9;
         private System.Windows.Forms.ToolStripButton tsbDscOrder;
         private System.Windows.Forms.ToolStripButton tsbInbound;
         private System.Windows.Forms.ToolStripButton tsbWMConfig;
+        private System.Windows.Forms.ToolStripButton tsbWMSMain;
     }
 }

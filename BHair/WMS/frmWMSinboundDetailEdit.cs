@@ -58,7 +58,7 @@ namespace BHair.Business
             string strSQL = "select * from WMSInboundDetail where InboundNO='" + strInboundNO + "' ";
             AccessHelper ah = new Business.AccessHelper();
             dtShowWMSInDetail = ah.SelectToDataTable(strSQL);
-            dtSaveWMSInDetail = dtShowWMSInDetail.Clone();
+            dtSaveWMSInDetail = dtShowWMSInDetail.Copy();
             strSQL = "select * from WMSInbound where InboundNO='" + strInboundNO + "' ";
             dtShowWMSIn = ah.SelectToDataTable(strSQL);
             dtSaveWMSIn = dtShowWMSIn.Clone();
@@ -133,17 +133,33 @@ namespace BHair.Business
             ah.ExecuteSQLNonquery(strSQL_DropMain);
             ah.AddRowsToTable(dtSaveWMSIn, "WMSInbound");
 
-            string strSQL_DropWMSD = "delete from WMSInboundDetail where InboundNO='" + strInboundNO + "' ";
-            ah.ExecuteSQLNonquery(strSQL_DropWMSD);
             DataTable dtSaveWMSD;
-            dtSaveWMSD = GenClass.GetTableFromDgv(dgvWMSInboundDetail, "WMSInboundDetail");
-            ah.AddRowsToTable(dtSaveWMSD, "WMSInboundDetail");
-
+            dtSaveWMSD = GenClass.GetTableFromDgv(dgvWMSInboundDetail, "WMSInboundDetail");           
             foreach(DataRow dr in dtSaveWMSD.Rows)
             {
+                string strSKU = dr["SKU"].ToString();
+                int intAmount = int.Parse(dr["PCs"].ToString());
 
+                string strSQL = "select * from WMSMain where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
+                DataTable dtTemp = ah.SelectToDataTable(strSQL);
+                ah.Close();
+                ah = new AccessHelper();
+                if(dtTemp.Rows.Count > 0)
+                {
+                    int intOldAmount = int.Parse(dtTemp.Rows[0]["Amount"].ToString());
+                    strSQL = "update WMSMain set Amount=Amount-" + intOldAmount + "+" + intAmount + " where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
+                }
+                else
+                {
+                    strSQL = "insert into WMSMain(SKU,Amount,WearHouse) values('" + strSKU + "'," + intAmount + ",'" + cbWearHouse.Text + "') ";
+                }
+                ah.ExecuteSQLNonquery(strSQL);
             }
+            string strSQL_DropWMSD = "delete from WMSInboundDetail where InboundNO='" + strInboundNO + "' ";
+            ah.ExecuteSQLNonquery(strSQL_DropWMSD);
+            ah.AddRowsToTable(dtSaveWMSD, "WMSInboundDetail");
 
+            ah.Close();
             MessageBox.Show("提交成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
