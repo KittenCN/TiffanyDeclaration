@@ -19,12 +19,16 @@ namespace BHair.Business
 
         private void btnCreateIn_Click(object sender, EventArgs e)
         {
-
+            frmWMSinboundDetail fwmsd = new Business.frmWMSinboundDetail();
+            fwmsd.Show();
         }
 
         private void frmWMSInbound_Load(object sender, EventArgs e)
         {
-
+            string[] strWMTemp = Login.LoginUser.Store.ToString().Split(',');
+            DataTable dtWMSinfo = SelectApplicationByApplicants(strWMTemp, "");
+            dgvWMSInList.AutoGenerateColumns = false;
+            dgvWMSInList.DataSource = dtWMSinfo;
         }
 
         public DataTable SelectApplicationByApplicants(string[] Applicants, string sql)
@@ -36,7 +40,7 @@ namespace BHair.Business
                 if (Applicants[i].ToString() != null && Applicants[i].ToString() != "")
                 {
                     AccessHelper ah = new AccessHelper();
-                    string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState<9 and ( DeliverStore='{0}' or ReceiptStore='{0}') {1} order by [ApplicantsDate] desc", Applicants[i].ToString(), sql);
+                    string sqlString = string.Format("select * from WMSInbound where WearHouse='{0}' {1} order by [InDate] desc", Applicants[i].ToString(), sql);
                     DataTable tempResult = ah.SelectToDataTable(sqlString);
                     if (boolFlag == false)
                     {
@@ -54,6 +58,13 @@ namespace BHair.Business
                 }
             }
             return Result;
+        }
+        private void dgvWMSInList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //MessageBox.Show("提交成功::" + dgvDecMain.Rows[e.RowIndex].Cells[0].Value.ToString(), "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string strUUID = dgvWMSInList.Rows[e.RowIndex].Cells[3].Value.ToString();
+            frmWMSinboundDetailEdit fwmsde = new frmWMSinboundDetailEdit(strUUID);
+            fwmsde.Show();
         }
     }
 }

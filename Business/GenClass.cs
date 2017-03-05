@@ -140,5 +140,29 @@ namespace BHair.Business
         done:
             return boolResult;
         }
+        public static DataTable GetTableFromDgv(DataGridView dgv, string strDataTableName)
+        {
+            DataTable dt = new DataTable();
+            string strSQL = "select top 1 * from " + strDataTableName;
+            AccessHelper ah = new AccessHelper();
+            dt = ah.SelectToDataTable(strSQL);
+            DataTable dtNew = dt.Clone();
+            DataRow dr = dtNew.NewRow();
+            int intdgvRowsCount = dgv.Rows.Count - 1;
+            int intdgvColsCount = dgv.Columns.Count;
+            if (intdgvRowsCount > 0 && intdgvColsCount > 0)
+            {
+                for (int x = 0; x < intdgvRowsCount; x++)
+                {
+                    for (int y = 0; y < intdgvColsCount; y++)
+                    {
+                        dr[y + 1] = dgv.Rows[x].Cells[y].Value;
+                    }
+                    dtNew.Rows.Add(dr.ItemArray);
+                    dr = dtNew.NewRow();
+                }
+            }
+            return dtNew;
+        }
     }
 }

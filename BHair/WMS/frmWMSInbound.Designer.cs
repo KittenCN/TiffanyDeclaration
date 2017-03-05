@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnCreateIn = new System.Windows.Forms.Button();
+            this.dgvWMSInList = new System.Windows.Forms.DataGridView();
             this.OrderNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,9 +42,8 @@
             this.PCs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GrossWGT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WearHouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCreateIn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWMSInList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,16 +54,26 @@
             this.panel1.Size = new System.Drawing.Size(706, 32);
             this.panel1.TabIndex = 0;
             // 
-            // dataGridView1
+            // btnCreateIn
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnCreateIn.Location = new System.Drawing.Point(4, 4);
+            this.btnCreateIn.Name = "btnCreateIn";
+            this.btnCreateIn.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateIn.TabIndex = 0;
+            this.btnCreateIn.Text = "创建入库单";
+            this.btnCreateIn.UseVisualStyleBackColor = true;
+            this.btnCreateIn.Click += new System.EventHandler(this.btnCreateIn_Click);
+            // 
+            // dgvWMSInList
+            // 
+            this.dgvWMSInList.AllowUserToAddRows = false;
+            this.dgvWMSInList.AllowUserToDeleteRows = false;
+            this.dgvWMSInList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvWMSInList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvWMSInList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWMSInList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrderNO,
             this.Status,
             this.InDate,
@@ -75,12 +85,13 @@
             this.PCs,
             this.GrossWGT,
             this.WearHouse});
-            this.dataGridView1.Location = new System.Drawing.Point(13, 51);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(706, 422);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvWMSInList.Location = new System.Drawing.Point(13, 51);
+            this.dgvWMSInList.Name = "dgvWMSInList";
+            this.dgvWMSInList.ReadOnly = true;
+            this.dgvWMSInList.RowTemplate.Height = 23;
+            this.dgvWMSInList.Size = new System.Drawing.Size(706, 422);
+            this.dgvWMSInList.TabIndex = 1;
+            this.dgvWMSInList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWMSInList_CellDoubleClick);
             // 
             // OrderNO
             // 
@@ -161,29 +172,19 @@
             this.WearHouse.Name = "WearHouse";
             this.WearHouse.ReadOnly = true;
             // 
-            // btnCreateIn
-            // 
-            this.btnCreateIn.Location = new System.Drawing.Point(4, 4);
-            this.btnCreateIn.Name = "btnCreateIn";
-            this.btnCreateIn.Size = new System.Drawing.Size(75, 23);
-            this.btnCreateIn.TabIndex = 0;
-            this.btnCreateIn.Text = "创建入库单";
-            this.btnCreateIn.UseVisualStyleBackColor = true;
-            this.btnCreateIn.Click += new System.EventHandler(this.btnCreateIn_Click);
-            // 
             // frmWMSInbound
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 485);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvWMSInList);
             this.Controls.Add(this.panel1);
             this.Name = "frmWMSInbound";
             this.TabText = "frmWMSInbound";
             this.Text = "frmWMSInbound";
             this.Load += new System.EventHandler(this.frmWMSInbound_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWMSInList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -191,7 +192,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvWMSInList;
+        private System.Windows.Forms.Button btnCreateIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderNO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn InDate;
@@ -203,6 +205,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PCs;
         private System.Windows.Forms.DataGridViewTextBoxColumn GrossWGT;
         private System.Windows.Forms.DataGridViewTextBoxColumn WearHouse;
-        private System.Windows.Forms.Button btnCreateIn;
     }
 }

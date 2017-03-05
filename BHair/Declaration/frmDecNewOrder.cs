@@ -63,14 +63,14 @@ namespace BHair.Business
             ah.ExecuteSQLNonquery(strSQL_DropINV);
             DataTable dtSaveINV;
             //dtSaveINV = GetDgvToTable(dgvINV);
-            dtSaveINV = GetTableFromDgv(dgvINV, "DecINV");
+            dtSaveINV = GenClass.GetTableFromDgv(dgvINV, "DecINV");
             ah.AddRowsToTable(dtSaveINV, "DecINV");
 
             string strSQL_DropHS = "delete from DecHS where OrderNO='" + tbOrderNO.Text + "'";
             ah.ExecuteSQLNonquery(strSQL_DropHS);
             DataTable dtSaveHS;
             //dtSaveHS = GetDgvToTable(dgvHS);
-            dtSaveHS = GetTableFromDgv(dgvHS, "DecHS");
+            dtSaveHS = GenClass.GetTableFromDgv(dgvHS, "DecHS");
             ah.AddRowsToTable(dtSaveHS, "DecHS");
             ah.Close();
 
@@ -161,31 +161,6 @@ namespace BHair.Business
 
             tbHS_Code.Text = "";
             tbM.Text = "0";
-        }
-
-        private static DataTable GetTableFromDgv(DataGridView dgv, string strDataTableName)
-        {
-            DataTable dt = new DataTable();
-            string strSQL = "select top 1 * from " + strDataTableName;
-            AccessHelper ah = new AccessHelper();
-            dt = ah.SelectToDataTable(strSQL);
-            DataTable dtNew = dt.Clone();
-            DataRow dr = dtNew.NewRow();
-            int intdgvRowsCount = dgv.Rows.Count - 1;
-            int intdgvColsCount = dgv.Columns.Count;
-            if (intdgvRowsCount > 0 && intdgvColsCount > 0)
-            {
-                for (int x = 0; x < intdgvRowsCount; x++)
-                {
-                    for (int y = 0; y < intdgvColsCount; y++)
-                    {
-                        dr[y + 1] = dgv.Rows[x].Cells[y].Value;
-                    }
-                    dtNew.Rows.Add(dr.ItemArray);
-                    dr = dtNew.NewRow();
-                }
-            }
-            return dtNew;
         }
 
         private void btnCalINV_Click(object sender, EventArgs e)
