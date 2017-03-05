@@ -351,6 +351,7 @@ namespace BHair
             {
                 tsbInbound.Visible = true;
                 tsbWMSMain.Visible = true;
+                tsbOutbound.Visible = true;
                 //toolStripButton3.Visible = false;
                 toolStripButton8.Visible = false;
                 toolStripButton2.Visible = false;
@@ -365,6 +366,7 @@ namespace BHair
                 toolStripButton8.Visible = true;
                 tsbWMConfig.Visible = true;
                 tsbWMSMain.Visible = true;
+                tsbOutbound.Visible = true;
             }
         }
         #endregion
@@ -398,6 +400,12 @@ namespace BHair
         {
             frmWMSMain fwmsm = new frmWMSMain();
             this.ShowWindows_Click(fwmsm);
+        }
+
+        private void tsbOutbound_Click(object sender, EventArgs e)
+        {
+            frmWMSOutbound fwms = new Business.frmWMSOutbound();
+            this.ShowWindows_Click(fwms);
         }
     }
 }
