@@ -12,27 +12,27 @@ namespace BHair.Business
 {
     public partial class frmWMSoutboundDetail : Form
     {
-        public DataTable dtShowWMSInDetail;
-        public DataTable dtShowWMSIn;
-        public DataTable dtSaveWMSIn;
-        public DataTable dtSaveWMSInDetail;
-        public string strInboundNO = "";
+        public DataTable dtShowWMSOutDetail;
+        public DataTable dtShowWMSOut;
+        public DataTable dtSaveWMSOut;
+        public DataTable dtSaveWMSOutDetail;
+        public string strOutboundNO = "";
         public frmWMSoutboundDetail()
         {
             InitializeComponent();
         }
-        public frmWMSoutboundDetail(string strInNO)
+        public frmWMSoutboundDetail(string strOutNO)
         {
             InitializeComponent();
-            strInboundNO = strInNO;
+            strOutboundNO = strOutNO;
         }
 
         private void btnADD_Click(object sender, EventArgs e)
         {
-            DataRow drShow = dtShowWMSInDetail.NewRow();
+            DataRow drShow = dtShowWMSOutDetail.NewRow();
             drShow["OrderNO"] = "";
             drShow["Status"] = 0;
-            drShow["InboundNO"] = tbInboundNO.Text;
+            drShow["OutboundNO"] = tbOutboundNO.Text;
             drShow["SKU"] = tbSKU.Text;
             drShow["Description"] = tbDescription.Text;
             drShow["OutsiteSize"] = tbOutsiteSize.Text;
@@ -40,9 +40,9 @@ namespace BHair.Business
             drShow["Carton"] = tbCarton.Text;
             drShow["PCs"] = tbPCss.Text;
             drShow["Remarks"] = tbRemarks.Text;
-            dtSaveWMSInDetail.Rows.Add(drShow.ItemArray);
-            dgvWMSInboundDetail.AutoGenerateColumns = false;
-            dgvWMSInboundDetail.DataSource = dtSaveWMSInDetail;
+            dtSaveWMSOutDetail.Rows.Add(drShow.ItemArray);
+            dgvWMSOutboundDetail.AutoGenerateColumns = false;
+            dgvWMSOutboundDetail.DataSource = dtSaveWMSOutDetail;
 
             tbSKU.Text = "";
             tbDescription.Text = "";
@@ -55,17 +55,17 @@ namespace BHair.Business
 
         private void frmWMSinboundDetail_Load(object sender, EventArgs e)
         {
-            string strSQL = "select * from WMSInboundDetail where InboundNO='" + strInboundNO + "' ";
+            string strSQL = "select * from WMSOutboundDetail where OutboundNO='" + strOutboundNO + "' ";
             AccessHelper ah = new Business.AccessHelper();
-            dtShowWMSInDetail = ah.SelectToDataTable(strSQL);
-            dtSaveWMSInDetail = dtShowWMSInDetail.Clone();
-            strSQL = "select * from WMSInbound where InboundNO='" + strInboundNO + "' ";
-            dtShowWMSIn = ah.SelectToDataTable(strSQL);
-            dtSaveWMSIn = dtShowWMSIn.Clone();
+            dtShowWMSOutDetail = ah.SelectToDataTable(strSQL);
+            dtSaveWMSOutDetail = dtShowWMSOutDetail.Clone();
+            strSQL = "select * from WMSOutbound where OutboundNO='" + strOutboundNO + "' ";
+            dtShowWMSOut = ah.SelectToDataTable(strSQL);
+            dtSaveWMSOut = dtShowWMSOut.Clone();
             ah.Close();
 
-            dgvWMSInboundDetail.AutoGenerateColumns = false;
-            dgvWMSInboundDetail.DataSource = dtShowWMSInDetail;
+            dgvWMSOutboundDetail.AutoGenerateColumns = false;
+            dgvWMSOutboundDetail.DataSource = dtShowWMSOutDetail;
 
             string[] strWMSTemp = Login.LoginUser.Store.ToString().Split(',');
             if (strWMSTemp[0] != "" && strWMSTemp[0] != null && strWMSTemp.Length > 1)
@@ -95,33 +95,33 @@ namespace BHair.Business
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DataRow drSaveWMSIn = dtSaveWMSIn.NewRow();
-            drSaveWMSIn["OrderNO"] = "";
-            drSaveWMSIn["Status"] = 0;
-            drSaveWMSIn["InDate"] = dtInDate.Value;
-            drSaveWMSIn["InboundNO"] = tbInboundNO.Text;
-            drSaveWMSIn["Shipper"] = tbShipper.Text;
-            drSaveWMSIn["User"] = tbUser.Text;
-            drSaveWMSIn["DocNO"] = tbDosNO.Text;
-            drSaveWMSIn["DocNOs"] = tbDocNOs.Text;
-            drSaveWMSIn["PCs"] = tbPCs.Text;
-            drSaveWMSIn["GrossWGT"] = tbGrossWGT.Text;
-            drSaveWMSIn["WearHouse"] = cbWearHouse.Text;
-            drSaveWMSIn["Prepared"] = tbPrerared.Text;
-            drSaveWMSIn["OperSup"] = tbOperSup.Text;
-            drSaveWMSIn["WHSup"] = tbWHSup.Text;
-            dtSaveWMSIn.Rows.Add(drSaveWMSIn);
+            DataRow drSaveWMSOut = dtSaveWMSOut.NewRow();
+            drSaveWMSOut["OrderNO"] = "";
+            drSaveWMSOut["Status"] = 0;
+            drSaveWMSOut["OutDate"] = dtOutDate.Value;
+            drSaveWMSOut["OutboundNO"] = tbOutboundNO.Text;
+            drSaveWMSOut["Shipper"] = tbShipper.Text;
+            drSaveWMSOut["User"] = tbUser.Text;
+            drSaveWMSOut["DocNO"] = tbDosNO.Text;
+            drSaveWMSOut["DocNOs"] = tbDocNOs.Text;
+            drSaveWMSOut["PCs"] = tbPCs.Text;
+            drSaveWMSOut["GrossWGT"] = tbGrossWGT.Text;
+            drSaveWMSOut["WearHouse"] = cbWearHouse.Text;
+            drSaveWMSOut["Prepared"] = tbPrerared.Text;
+            drSaveWMSOut["OperSup"] = tbOperSup.Text;
+            drSaveWMSOut["WHSup"] = tbWHSup.Text;
+            dtSaveWMSOut.Rows.Add(drSaveWMSOut);
 
             AccessHelper ah = new AccessHelper();
-            string strSQL_DropMain = "delete from WMSInbound where InboundNO='" + strInboundNO + "' ";
+            string strSQL_DropMain = "delete from WMSOutbound where OutboundNO='" + strOutboundNO + "' ";
             ah.ExecuteSQLNonquery(strSQL_DropMain);
-            ah.AddRowsToTable(dtSaveWMSIn, "WMSInbound");
+            ah.AddRowsToTable(dtSaveWMSOut, "WMSOutbound");
 
-            string strSQL_DropWMSD = "delete from WMSInboundDetail where InboundNO='" + strInboundNO + "' ";
+            string strSQL_DropWMSD = "delete from WMSOutboundDetail where OutboundNO='" + strOutboundNO + "' ";
             ah.ExecuteSQLNonquery(strSQL_DropWMSD);
             DataTable dtSaveWMSD;
-            dtSaveWMSD = GenClass.GetTableFromDgv(dgvWMSInboundDetail, "WMSInboundDetail");
-            ah.AddRowsToTable(dtSaveWMSD, "WMSInboundDetail");
+            dtSaveWMSD = GenClass.GetTableFromDgv(dgvWMSOutboundDetail, "WMSOutboundDetail");
+            ah.AddRowsToTable(dtSaveWMSD, "WMSOutboundDetail");
 
             foreach (DataRow dr in dtSaveWMSD.Rows)
             {

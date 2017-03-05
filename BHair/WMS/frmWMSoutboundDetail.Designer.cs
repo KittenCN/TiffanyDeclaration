@@ -49,9 +49,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbShipper = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbInboundNO = new System.Windows.Forms.TextBox();
+            this.tbOutboundNO = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dtInDate = new System.Windows.Forms.DateTimePicker();
+            this.dtOutDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -72,7 +72,7 @@
             this.tbSKU = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dgvWMSInboundDetail = new System.Windows.Forms.DataGridView();
+            this.dgvWMSOutboundDetail = new System.Windows.Forms.DataGridView();
             this.OrderNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InboundNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,7 +86,7 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWMSInboundDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWMSOutboundDetail)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -111,9 +111,9 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.tbShipper);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.tbInboundNO);
+            this.panel1.Controls.Add(this.tbOutboundNO);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.dtInDate);
+            this.panel1.Controls.Add(this.dtOutDate);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
@@ -281,12 +281,12 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "发货人:";
             // 
-            // tbInboundNO
+            // tbOutboundNO
             // 
-            this.tbInboundNO.Location = new System.Drawing.Point(80, 29);
-            this.tbInboundNO.Name = "tbInboundNO";
-            this.tbInboundNO.Size = new System.Drawing.Size(121, 21);
-            this.tbInboundNO.TabIndex = 3;
+            this.tbOutboundNO.Location = new System.Drawing.Point(80, 29);
+            this.tbOutboundNO.Name = "tbOutboundNO";
+            this.tbOutboundNO.Size = new System.Drawing.Size(121, 21);
+            this.tbOutboundNO.TabIndex = 3;
             // 
             // label2
             // 
@@ -297,13 +297,13 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "入库单编号:";
             // 
-            // dtInDate
+            // dtOutDate
             // 
-            this.dtInDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtInDate.Location = new System.Drawing.Point(81, 3);
-            this.dtInDate.Name = "dtInDate";
-            this.dtInDate.Size = new System.Drawing.Size(120, 21);
-            this.dtInDate.TabIndex = 1;
+            this.dtOutDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtOutDate.Location = new System.Drawing.Point(81, 3);
+            this.dtOutDate.Name = "dtOutDate";
+            this.dtOutDate.Size = new System.Drawing.Size(120, 21);
+            this.dtOutDate.TabIndex = 1;
             // 
             // label1
             // 
@@ -484,17 +484,17 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dgvWMSInboundDetail);
+            this.panel3.Controls.Add(this.dgvWMSOutboundDetail);
             this.panel3.Location = new System.Drawing.Point(6, 140);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(474, 330);
             this.panel3.TabIndex = 0;
             // 
-            // dgvWMSInboundDetail
+            // dgvWMSOutboundDetail
             // 
-            this.dgvWMSInboundDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvWMSInboundDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWMSInboundDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvWMSOutboundDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvWMSOutboundDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWMSOutboundDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrderNO,
             this.Status,
             this.InboundNO,
@@ -505,11 +505,11 @@
             this.CARTON,
             this.PCs,
             this.Remarks});
-            this.dgvWMSInboundDetail.Location = new System.Drawing.Point(3, 3);
-            this.dgvWMSInboundDetail.Name = "dgvWMSInboundDetail";
-            this.dgvWMSInboundDetail.RowTemplate.Height = 23;
-            this.dgvWMSInboundDetail.Size = new System.Drawing.Size(468, 321);
-            this.dgvWMSInboundDetail.TabIndex = 0;
+            this.dgvWMSOutboundDetail.Location = new System.Drawing.Point(3, 3);
+            this.dgvWMSOutboundDetail.Name = "dgvWMSOutboundDetail";
+            this.dgvWMSOutboundDetail.RowTemplate.Height = 23;
+            this.dgvWMSOutboundDetail.Size = new System.Drawing.Size(468, 321);
+            this.dgvWMSOutboundDetail.TabIndex = 0;
             // 
             // OrderNO
             // 
@@ -574,14 +574,14 @@
             this.Remarks.HeaderText = "备注";
             this.Remarks.Name = "Remarks";
             // 
-            // frmWMSinboundDetail
+            // frmWMSoutboundDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(717, 524);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "frmWMSinboundDetail";
+            this.Name = "frmWMSoutboundDetail";
             this.Text = "frmWMSinboundDetail";
             this.Load += new System.EventHandler(this.frmWMSinboundDetail_Load);
             this.panel1.ResumeLayout(false);
@@ -589,7 +589,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWMSInboundDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWMSOutboundDetail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -617,9 +617,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbShipper;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbInboundNO;
+        private System.Windows.Forms.TextBox tbOutboundNO;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtInDate;
+        private System.Windows.Forms.DateTimePicker dtOutDate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnCancel;
@@ -640,7 +640,7 @@
         private System.Windows.Forms.TextBox tbSKU;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dgvWMSInboundDetail;
+        private System.Windows.Forms.DataGridView dgvWMSOutboundDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderNO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn InboundNO;
