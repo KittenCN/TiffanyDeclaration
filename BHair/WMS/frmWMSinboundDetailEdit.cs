@@ -139,6 +139,11 @@ namespace BHair.Business
             dtSaveWMSD = GenClass.GetTableFromDgv(dgvWMSInboundDetail, "WMSInboundDetail");
             ah.AddRowsToTable(dtSaveWMSD, "WMSInboundDetail");
 
+            foreach(DataRow dr in dtSaveWMSD.Rows)
+            {
+
+            }
+
             MessageBox.Show("提交成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
