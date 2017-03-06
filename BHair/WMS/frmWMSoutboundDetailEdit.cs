@@ -69,7 +69,7 @@ namespace BHair.Business
             string strSQL = "select * from WMSOutboundDetail where OutboundNO='" + strOutboundNO + "' ";
             AccessHelper ah = new Business.AccessHelper();
             dtShowWMSOutDetail = ah.SelectToDataTable(strSQL);
-            dtSaveWMSOutDetail = dtShowWMSOutDetail.Clone();
+            dtSaveWMSOutDetail = dtShowWMSOutDetail.Copy();
             strSQL = "select * from WMSOutbound where OutboundNO='" + strOutboundNO + "' ";
             dtShowWMSOut = ah.SelectToDataTable(strSQL);
             dtSaveWMSOut = dtShowWMSOut.Clone();
@@ -96,6 +96,21 @@ namespace BHair.Business
             if (cbWearHouse.Items.Count > 0)
             {
                 cbWearHouse.SelectedIndex = 0;
+            }
+
+            foreach (DataRow drShowWMSOut in dtShowWMSOut.Rows)
+            {
+                dtOutDate.Value = DateTime.Parse(drShowWMSOut["OutDate"].ToString());
+                tbOutboundNO.Text = drShowWMSOut["OutboundNO"].ToString();
+                tbWHSup.Text = drShowWMSOut["WHSup"].ToString();
+                tbShipper.Text = drShowWMSOut["Shipper"].ToString();
+                tbContact.Text = drShowWMSOut["Contact"].ToString();
+                tbOutType.Text = drShowWMSOut["OutType"].ToString();
+                tbReceiptAdd.Text = drShowWMSOut["ReceiptAdd"].ToString();
+                dtpDeadline.Text = drShowWMSOut["Deadline"].ToString();
+                cbWearHouse.Text = drShowWMSOut["WearHouse"].ToString();
+                tbPrerared.Text = drShowWMSOut["Prepared"].ToString();
+                tbOperSup.Text = drShowWMSOut["OperSup"].ToString();                
             }
         }
 
