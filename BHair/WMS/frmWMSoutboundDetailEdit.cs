@@ -32,7 +32,9 @@ namespace BHair.Business
             string strSQL = "select * from WMSMain where SKU='" + tbSKU.Text + "' and WearHouse='" + cbWearHouse.Text + "' ";
             AccessHelper ah = new AccessHelper();
             DataTable dt = ah.SelectToDataTable(strSQL);
-            if(dt.Rows.Count > 0 && int.Parse(dt.Rows[0]["Amount"].ToString()) > int.Parse(tbPCss.Text))
+            ah.Close();
+            DataTable dttemp = GenClass.GetTableFromDgv(dgvWMSOutboundDetail, "WMSOutboundDetail");                      
+            if (dt.Rows.Count > 0 && int.Parse(dt.Rows[0]["Amount"].ToString()) > int.Parse(tbPCss.Text))
             {
                 DataRow drShow = dtShowWMSOutDetail.NewRow();
                 drShow["OrderNO"] = "";
