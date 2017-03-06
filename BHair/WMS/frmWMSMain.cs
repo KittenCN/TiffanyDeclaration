@@ -78,7 +78,7 @@ namespace BHair.Business
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            string[] strWMTemp = { cbWearHouse.Text };            
+            string[] strWMTemp = { cbWearHouse.Text };
             DataTable dtShowdgvWMSMain = SelectApplicationByApplicants(strWMTemp, "");
             dgvWMSMain.AutoGenerateColumns = false;
             dgvWMSMain.DataSource = dtShowdgvWMSMain;
@@ -90,6 +90,33 @@ namespace BHair.Business
             DataTable dtShowdgvWMSMain = SelectApplicationByApplicants(strWMTemp, "");
             dgvWMSMain.AutoGenerateColumns = false;
             dgvWMSMain.DataSource = dtShowdgvWMSMain;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            DataTable dtSave = GenClass.GetTableFromDgv(dgvWMSMain, "WMSMain");
+            if (!GenClass.CheckDT(dtSave, "SKU", "WearHouse"))
+            {
+                AccessHelper ah = new AccessHelper();
+                foreach (DataRow dr in dtSave.Rows)
+                {
+                    string strSQL = "delete from WMSMain where SKU='" + dr["SKU"].ToString() + "' and WearHouse='" + dr["WearHouse"].ToString() + "' ";
+                    ah = new AccessHelper();
+                    ah.ExecuteSQLNonquery(strSQL);
+                    ah.Close();
+                }
+                ah = new AccessHelper();
+                ah.AddRowsToTable(dtSave, "WMSMain");
+                ah.Close();
+                string[] strWMTemp = Login.LoginUser.Store.ToString().Split(',');
+                DataTable dtShowdgvWMSMain = SelectApplicationByApplicants(strWMTemp, "");
+                dgvWMSMain.AutoGenerateColumns = false;
+                dgvWMSMain.DataSource = dtShowdgvWMSMain;
+            }
+            else
+            {
+                MessageBox.Show("SKU有重复,提交失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

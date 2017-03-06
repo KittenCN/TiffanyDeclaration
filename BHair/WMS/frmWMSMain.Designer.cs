@@ -36,6 +36,7 @@
             this.cbWearHouse = new System.Windows.Forms.ComboBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnInit = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWMSMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,11 +113,22 @@
             this.btnInit.UseVisualStyleBackColor = true;
             this.btnInit.Click += new System.EventHandler(this.btnInit_Click);
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(459, 8);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 5;
+            this.btnSave.Text = "保存修改";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // frmWMSMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 383);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnInit);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.cbWearHouse);
@@ -142,5 +154,6 @@
         private System.Windows.Forms.ComboBox cbWearHouse;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnInit;
+        private System.Windows.Forms.Button btnSave;
     }
 }

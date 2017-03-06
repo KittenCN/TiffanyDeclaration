@@ -140,6 +140,24 @@ namespace BHair.Business
         done:
             return boolResult;
         }
+        public static Boolean CheckDT(DataTable dt, string strCheck,string strQu)
+        {
+            Boolean boolResult = false;
+            int intTotalRowsNum = dt.Rows.Count;
+            for (int x = 0; x < intTotalRowsNum; x++)
+            {
+                for (int y = x + 1; y < intTotalRowsNum; y++)
+                {
+                    if ((dt.Rows[x][strQu].ToString() == dt.Rows[y][strQu].ToString() && dt.Rows[x][strCheck].ToString() == dt.Rows[y][strCheck].ToString()) && dt.Rows[x][strCheck].ToString() != null && dt.Rows[y][strCheck].ToString() != null && dt.Rows[x][strCheck].ToString().Length > 0 && dt.Rows[y][strCheck].ToString().Length > 0)
+                    {
+                        boolResult = true;
+                        goto done;
+                    }
+                }
+            }
+        done:
+            return boolResult;
+        }
         public static DataTable GetTableFromDgv(DataGridView dgv, string strDataTableName)
         {
             DataTable dt = new DataTable();

@@ -20,7 +20,7 @@ namespace BHair.Business
         private void btnCreateIn_Click(object sender, EventArgs e)
         {
             frmWMSoutboundDetail fwmsd = new Business.frmWMSoutboundDetail();
-            fwmsd.Show();
+            fwmsd.ShowDialog();
         }
 
         private void frmWMSInbound_Load(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace BHair.Business
             //MessageBox.Show("提交成功::" + dgvDecMain.Rows[e.RowIndex].Cells[0].Value.ToString(), "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             string strUUID = dgvWMSOutList.Rows[e.RowIndex].Cells[3].Value.ToString();
             frmWMSoutboundDetailEdit fwmsde = new frmWMSoutboundDetailEdit(strUUID);
-            fwmsde.Show();
+            fwmsde.ShowDialog();
         }
     }
 }

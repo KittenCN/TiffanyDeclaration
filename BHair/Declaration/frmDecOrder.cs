@@ -25,7 +25,7 @@ namespace BHair.Business
         private void btnCreateNewOrder_Click(object sender, EventArgs e)
         {
             frmDecNewOrder fdno = new Business.frmDecNewOrder();
-            fdno.Show();
+            fdno.ShowDialog();
         }
 
         public void Reflush()
@@ -53,7 +53,7 @@ namespace BHair.Business
         private void btnHSSetting_Click(object sender, EventArgs e)
         {
             frmHSSetting fhss = new Business.frmHSSetting();
-            fhss.Show();
+            fhss.ShowDialog();
         }
     }
 }
