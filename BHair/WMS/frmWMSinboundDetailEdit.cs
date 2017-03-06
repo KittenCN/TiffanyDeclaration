@@ -148,8 +148,20 @@ namespace BHair.Business
                 ah = new AccessHelper();
                 if(dtTemp.Rows.Count > 0)
                 {
-                    int intOldAmount = int.Parse(dtTemp.Rows[0]["Amount"].ToString());
-                    strSQL = "update WMSMain set Amount=Amount-" + intOldAmount + "+" + intAmount + " where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
+                    strSQL = "select * from WMSInboundDetail where InboundNO='" + strInboundNO + "' and SKU='" + strSKU + "' ";
+                    AccessHelper ahin = new AccessHelper();
+                    DataTable dtin = ahin.SelectToDataTable(strSQL);
+                    ahin.Close();
+                    if (dtin.Rows.Count > 0)
+                    {
+                        int intOldAmount = int.Parse(dtin.Rows[0]["PCs"].ToString());
+                        strSQL = "update WMSMain set Amount=Amount-" + intOldAmount + "+" + intAmount + " where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
+                    }
+                    else
+                    {
+                        strSQL = "update WMSMain set Amount=Amount+" + intAmount + " where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
+                    }
+
                 }
                 else
                 {
