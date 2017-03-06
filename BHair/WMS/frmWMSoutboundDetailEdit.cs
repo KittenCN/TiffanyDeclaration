@@ -154,7 +154,6 @@ namespace BHair.Business
                     {
                         strSQL = "update WMSMain set Amount=Amount-" + intAmount + " where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
                     }
-
                 }
                 else
                 {
