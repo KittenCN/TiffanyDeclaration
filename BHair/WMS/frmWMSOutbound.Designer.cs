@@ -90,6 +90,7 @@
             this.OperSup,
             this.WHSup});
             this.dgvWMSOutList.Location = new System.Drawing.Point(13, 51);
+            this.dgvWMSOutList.MultiSelect = false;
             this.dgvWMSOutList.Name = "dgvWMSOutList";
             this.dgvWMSOutList.ReadOnly = true;
             this.dgvWMSOutList.RowTemplate.Height = 23;

@@ -29,54 +29,61 @@ namespace BHair.Business
 
         private void btnSaveOrder_Click(object sender, EventArgs e)
         {
-            AccessHelper ah = new AccessHelper();
-            DataRow drMainData = dtDecMain.NewRow();
+            DataTable dttemp = GenClass.GetTableFromDgv(dgvINV, "DecINV");
+            if (!GenClass.CheckDT(dttemp, "INV_NO"))
+            {
+                AccessHelper ah = new AccessHelper();
+                DataRow drMainData = dtDecMain.NewRow();
 
-            drMainData["OrderNO"] = tbOrderNO.Text;
-            drMainData["Status"] = 0;
-            drMainData["ExCusClearTime"] = dtExCusClearTime.Value;
-            drMainData["MAWB"] = tbMAWB.Text;
-            drMainData["ARRport"] = cbARRport.SelectedIndex;
-            drMainData["ARRdate"] = dtpARRDate.Value;
-            drMainData["cust_gl_agent"] = cbcust_gl_agent.SelectedIndex;
-            drMainData["cust_fee"] = tbCust_Fee.Text;
-            drMainData["Import_Agent"] = cbImport_Agent.SelectedIndex;
-            drMainData["ContractNO"] = tbContract_NO.Text;
-            drMainData["Freight"] = tbFreight.Text;
-            drMainData["Duty"] = tbDuty.Text;
-            drMainData["VAT"] = tbVAT.Text;
-            drMainData["CT"] = tbCT.Text;
-            drMainData["AgentFee"] = tbAgentFee.Text;
-            drMainData["DutyInJD"] = tbDutyInJD.Text;
-            drMainData["VATinJD"] = tbVATinJD.Text;
-            drMainData["CTinJD"] = tbCTinJD.Text;
-            drMainData["ContainerNO"] = tbContainerNo.Text;
-            drMainData["JD_Receiving_Date"] = dtpJD_Receiving_Date.Value;
+                drMainData["OrderNO"] = tbOrderNO.Text;
+                drMainData["Status"] = 0;
+                drMainData["ExCusClearTime"] = dtExCusClearTime.Value;
+                drMainData["MAWB"] = tbMAWB.Text;
+                drMainData["ARRport"] = cbARRport.SelectedIndex;
+                drMainData["ARRdate"] = dtpARRDate.Value;
+                drMainData["cust_gl_agent"] = cbcust_gl_agent.SelectedIndex;
+                drMainData["cust_fee"] = tbCust_Fee.Text;
+                drMainData["Import_Agent"] = cbImport_Agent.SelectedIndex;
+                drMainData["ContractNO"] = tbContract_NO.Text;
+                drMainData["Freight"] = tbFreight.Text;
+                drMainData["Duty"] = tbDuty.Text;
+                drMainData["VAT"] = tbVAT.Text;
+                drMainData["CT"] = tbCT.Text;
+                drMainData["AgentFee"] = tbAgentFee.Text;
+                drMainData["DutyInJD"] = tbDutyInJD.Text;
+                drMainData["VATinJD"] = tbVATinJD.Text;
+                drMainData["CTinJD"] = tbCTinJD.Text;
+                drMainData["ContainerNO"] = tbContainerNo.Text;
+                drMainData["JD_Receiving_Date"] = dtpJD_Receiving_Date.Value;
 
-            dtDecMain.Rows.Add(drMainData);
+                dtDecMain.Rows.Add(drMainData);
 
-            string strSQL_DropMain = "delete from DecMain where OrderNO='" + tbOrderNO.Text + "'";
-            ah.ExecuteSQLNonquery(strSQL_DropMain);
-            ah.AddRowsToTable(dtDecMain, "DecMain");
+                string strSQL_DropMain = "delete from DecMain where OrderNO='" + tbOrderNO.Text + "'";
+                ah.ExecuteSQLNonquery(strSQL_DropMain);
+                ah.AddRowsToTable(dtDecMain, "DecMain");
 
-            string strSQL_DropINV = "delete from DecINV where OrderNO='" + tbOrderNO.Text + "'";
-            ah.ExecuteSQLNonquery(strSQL_DropINV);
-            DataTable dtSaveINV;
-            //dtSaveINV = GetDgvToTable(dgvINV);
-            dtSaveINV = GenClass.GetTableFromDgv(dgvINV, "DecINV");
-            ah.AddRowsToTable(dtSaveINV, "DecINV");
+                string strSQL_DropINV = "delete from DecINV where OrderNO='" + tbOrderNO.Text + "'";
+                ah.ExecuteSQLNonquery(strSQL_DropINV);
+                DataTable dtSaveINV;
+                //dtSaveINV = GetDgvToTable(dgvINV);
+                dtSaveINV = GenClass.GetTableFromDgv(dgvINV, "DecINV");
+                ah.AddRowsToTable(dtSaveINV, "DecINV");
 
-            string strSQL_DropHS = "delete from DecHS where OrderNO='" + tbOrderNO.Text + "'";
-            ah.ExecuteSQLNonquery(strSQL_DropHS);
-            DataTable dtSaveHS;
-            //dtSaveHS = GetDgvToTable(dgvHS);
-            dtSaveHS = GenClass.GetTableFromDgv(dgvHS, "DecHS");
-            ah.AddRowsToTable(dtSaveHS, "DecHS");
-            ah.Close();
+                string strSQL_DropHS = "delete from DecHS where OrderNO='" + tbOrderNO.Text + "'";
+                ah.ExecuteSQLNonquery(strSQL_DropHS);
+                DataTable dtSaveHS;
+                //dtSaveHS = GetDgvToTable(dgvHS);
+                dtSaveHS = GenClass.GetTableFromDgv(dgvHS, "DecHS");
+                ah.AddRowsToTable(dtSaveHS, "DecHS");
+                ah.Close();
 
-            MessageBox.Show("提交成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
-
+                MessageBox.Show("提交成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("INV_NO有重复值,请检查!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void frmDecNewOrder_Load(object sender, EventArgs e)
@@ -126,25 +133,33 @@ namespace BHair.Business
 
         private void btnAddINV_Click(object sender, EventArgs e)
         {
-            DataRow drINVData = dtShowINV.NewRow();
-            drINVData["OrderNO"] = tbOrderNO.Text;
-            drINVData["Status"] = 0;
-            drINVData["INV_NO"] = tbINV_NO.Text;
-            drINVData["INV_Amount"] = tbINV_Amount.Text;
-            //drINVData["Freight"] = tbFreight.Text;
-            drINVData["Cart_INV"] = tbCart_INV.Text;
-            drINVData["PCs"] = tbPCs.Text;
-            drINVData["Shop_Receiver"] = tbShop_Receiver.Text;
-            dtShowINV.Rows.Add(drINVData);
+            DataTable dttemp = GenClass.GetTableFromDgv(dgvINV, "DecINV");
+            if (GenClass.CheckDB_String(dttemp, "INV_NO", tbINV_NO.Text))
+            {
+                MessageBox.Show("INV_NO:" + tbINV_NO.Text + "重复,请检查!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                DataRow drINVData = dtShowINV.NewRow();
+                drINVData["OrderNO"] = tbOrderNO.Text;
+                drINVData["Status"] = 0;
+                drINVData["INV_NO"] = tbINV_NO.Text;
+                drINVData["INV_Amount"] = tbINV_Amount.Text;
+                //drINVData["Freight"] = tbFreight.Text;
+                drINVData["Cart_INV"] = tbCart_INV.Text;
+                drINVData["PCs"] = tbPCs.Text;
+                drINVData["Shop_Receiver"] = tbShop_Receiver.Text;
+                dtShowINV.Rows.Add(drINVData);
 
-            dgvINV.AutoGenerateColumns = false;
-            dgvINV.DataSource = dtShowINV;
+                dgvINV.AutoGenerateColumns = false;
+                dgvINV.DataSource = dtShowINV;
 
-            tbINV_NO.Text = "";
-            tbINV_Amount.Text = "0";
-            //tbFreight.Text = "0";
-            tbCart_INV.Text = "0";
-            tbPCs.Text = "0";
+                tbINV_NO.Text = "";
+                tbINV_Amount.Text = "0";
+                //tbFreight.Text = "0";
+                tbCart_INV.Text = "0";
+                tbPCs.Text = "0";
+            }
         }
 
         private void btnAddHS_Click(object sender, EventArgs e)

@@ -164,5 +164,20 @@ namespace BHair.Business
             }
             return dtNew;
         }
+
+        public static Boolean CheckDB_String(DataTable dtin,string strCheck,string strin)
+        {
+            Boolean boolResult = false;
+            foreach(DataRow dr in dtin.Rows)
+            {
+                if(dr[strCheck].ToString() == strin)
+                {
+                    boolResult = true;
+                    goto done;
+                }
+            }
+        done:
+            return boolResult;
+        }
     }
 }

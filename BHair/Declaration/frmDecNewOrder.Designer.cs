@@ -125,11 +125,10 @@
             this.tcDecNewOrder.Controls.Add(this.tabStep1);
             this.tcDecNewOrder.Controls.Add(this.tabStep2);
             this.tcDecNewOrder.Controls.Add(this.tabPage3);
-            this.tcDecNewOrder.Location = new System.Drawing.Point(18, 18);
-            this.tcDecNewOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcDecNewOrder.Location = new System.Drawing.Point(12, 12);
             this.tcDecNewOrder.Name = "tcDecNewOrder";
             this.tcDecNewOrder.SelectedIndex = 0;
-            this.tcDecNewOrder.Size = new System.Drawing.Size(978, 826);
+            this.tcDecNewOrder.Size = new System.Drawing.Size(652, 551);
             this.tcDecNewOrder.TabIndex = 0;
             // 
             // tabStep1
@@ -172,263 +171,244 @@
             this.tabStep1.Controls.Add(this.label2);
             this.tabStep1.Controls.Add(this.tbOrderNO);
             this.tabStep1.Controls.Add(this.label1);
-            this.tabStep1.Location = new System.Drawing.Point(4, 28);
-            this.tabStep1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabStep1.Location = new System.Drawing.Point(4, 22);
             this.tabStep1.Name = "tabStep1";
-            this.tabStep1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabStep1.Size = new System.Drawing.Size(970, 794);
+            this.tabStep1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStep1.Size = new System.Drawing.Size(644, 525);
             this.tabStep1.TabIndex = 0;
             this.tabStep1.Text = "基础信息";
             this.tabStep1.UseVisualStyleBackColor = true;
             // 
             // tbAgentFee
             // 
-            this.tbAgentFee.Location = new System.Drawing.Point(129, 525);
-            this.tbAgentFee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbAgentFee.Location = new System.Drawing.Point(86, 350);
             this.tbAgentFee.Name = "tbAgentFee";
-            this.tbAgentFee.Size = new System.Drawing.Size(300, 28);
+            this.tbAgentFee.Size = new System.Drawing.Size(201, 21);
             this.tbAgentFee.TabIndex = 47;
             // 
             // label24
             // 
             this.label24.AllowDrop = true;
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(8, 528);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Location = new System.Drawing.Point(5, 352);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(71, 18);
+            this.label24.Size = new System.Drawing.Size(47, 12);
             this.label24.TabIndex = 46;
             this.label24.Text = "代理费:";
             // 
             // dtpJD_Receiving_Date
             // 
             this.dtpJD_Receiving_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpJD_Receiving_Date.Location = new System.Drawing.Point(598, 450);
+            this.dtpJD_Receiving_Date.Location = new System.Drawing.Point(399, 300);
+            this.dtpJD_Receiving_Date.Margin = new System.Windows.Forms.Padding(2);
             this.dtpJD_Receiving_Date.Name = "dtpJD_Receiving_Date";
-            this.dtpJD_Receiving_Date.Size = new System.Drawing.Size(300, 28);
+            this.dtpJD_Receiving_Date.Size = new System.Drawing.Size(201, 21);
             this.dtpJD_Receiving_Date.TabIndex = 45;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(465, 458);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Location = new System.Drawing.Point(310, 305);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(125, 18);
+            this.label23.Size = new System.Drawing.Size(83, 12);
             this.label23.TabIndex = 44;
             this.label23.Text = "入系统的时间:";
             // 
             // tbContainerNo
             // 
-            this.tbContainerNo.Location = new System.Drawing.Point(129, 458);
-            this.tbContainerNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbContainerNo.Location = new System.Drawing.Point(86, 305);
             this.tbContainerNo.Name = "tbContainerNo";
-            this.tbContainerNo.Size = new System.Drawing.Size(300, 28);
+            this.tbContainerNo.Size = new System.Drawing.Size(201, 21);
             this.tbContainerNo.TabIndex = 43;
             // 
             // tbCTinJD
             // 
-            this.tbCTinJD.Location = new System.Drawing.Point(598, 406);
-            this.tbCTinJD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCTinJD.Location = new System.Drawing.Point(399, 271);
             this.tbCTinJD.Name = "tbCTinJD";
-            this.tbCTinJD.Size = new System.Drawing.Size(300, 28);
+            this.tbCTinJD.Size = new System.Drawing.Size(201, 21);
             this.tbCTinJD.TabIndex = 41;
             // 
             // tbVATinJD
             // 
-            this.tbVATinJD.Location = new System.Drawing.Point(129, 410);
-            this.tbVATinJD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbVATinJD.Location = new System.Drawing.Point(86, 273);
             this.tbVATinJD.Name = "tbVATinJD";
-            this.tbVATinJD.Size = new System.Drawing.Size(300, 28);
+            this.tbVATinJD.Size = new System.Drawing.Size(201, 21);
             this.tbVATinJD.TabIndex = 39;
             // 
             // tbDutyInJD
             // 
-            this.tbDutyInJD.Location = new System.Drawing.Point(598, 362);
-            this.tbDutyInJD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDutyInJD.Location = new System.Drawing.Point(399, 241);
             this.tbDutyInJD.Name = "tbDutyInJD";
-            this.tbDutyInJD.Size = new System.Drawing.Size(300, 28);
+            this.tbDutyInJD.Size = new System.Drawing.Size(201, 21);
             this.tbDutyInJD.TabIndex = 37;
             // 
             // tbCust_Fee
             // 
-            this.tbCust_Fee.Location = new System.Drawing.Point(129, 364);
-            this.tbCust_Fee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCust_Fee.Location = new System.Drawing.Point(86, 243);
             this.tbCust_Fee.Name = "tbCust_Fee";
-            this.tbCust_Fee.Size = new System.Drawing.Size(300, 28);
+            this.tbCust_Fee.Size = new System.Drawing.Size(201, 21);
             this.tbCust_Fee.TabIndex = 35;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(8, 460);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Location = new System.Drawing.Point(5, 307);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(125, 18);
+            this.label22.Size = new System.Drawing.Size(83, 12);
             this.label22.TabIndex = 42;
             this.label22.Text = "入系统的号码:";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(465, 410);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Location = new System.Drawing.Point(310, 273);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(107, 18);
+            this.label21.Size = new System.Drawing.Size(71, 12);
             this.label21.TabIndex = 40;
             this.label21.Text = "系统消费税:";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(8, 412);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Location = new System.Drawing.Point(5, 275);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(107, 18);
+            this.label20.Size = new System.Drawing.Size(71, 12);
             this.label20.TabIndex = 38;
             this.label20.Text = "系统增值税:";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(465, 364);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Location = new System.Drawing.Point(310, 243);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(89, 18);
+            this.label19.Size = new System.Drawing.Size(59, 12);
             this.label19.TabIndex = 36;
             this.label19.Text = "系统关税:";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(8, 368);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Location = new System.Drawing.Point(5, 245);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(71, 18);
+            this.label18.Size = new System.Drawing.Size(47, 12);
             this.label18.TabIndex = 34;
             this.label18.Text = "报关费:";
             // 
             // tbCT
             // 
-            this.tbCT.Location = new System.Drawing.Point(128, 297);
-            this.tbCT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCT.Location = new System.Drawing.Point(85, 198);
             this.tbCT.Name = "tbCT";
-            this.tbCT.Size = new System.Drawing.Size(300, 28);
+            this.tbCT.Size = new System.Drawing.Size(201, 21);
             this.tbCT.TabIndex = 33;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(8, 300);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Location = new System.Drawing.Point(5, 200);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(71, 18);
+            this.label17.Size = new System.Drawing.Size(47, 12);
             this.label17.TabIndex = 32;
             this.label17.Text = "消费税:";
             // 
             // tbVAT
             // 
-            this.tbVAT.Location = new System.Drawing.Point(598, 261);
-            this.tbVAT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbVAT.Location = new System.Drawing.Point(399, 174);
             this.tbVAT.Name = "tbVAT";
-            this.tbVAT.Size = new System.Drawing.Size(300, 28);
+            this.tbVAT.Size = new System.Drawing.Size(201, 21);
             this.tbVAT.TabIndex = 31;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(465, 264);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Location = new System.Drawing.Point(310, 176);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(71, 18);
+            this.label16.Size = new System.Drawing.Size(47, 12);
             this.label16.TabIndex = 30;
             this.label16.Text = "增值税:";
             // 
             // tbDuty
             // 
-            this.tbDuty.Location = new System.Drawing.Point(128, 261);
-            this.tbDuty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDuty.Location = new System.Drawing.Point(85, 174);
             this.tbDuty.Name = "tbDuty";
-            this.tbDuty.Size = new System.Drawing.Size(300, 28);
+            this.tbDuty.Size = new System.Drawing.Size(201, 21);
             this.tbDuty.TabIndex = 29;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(8, 264);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(5, 176);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 18);
+            this.label15.Size = new System.Drawing.Size(35, 12);
             this.label15.TabIndex = 28;
             this.label15.Text = "关税:";
             // 
             // tbFreight
             // 
-            this.tbFreight.Location = new System.Drawing.Point(598, 192);
+            this.tbFreight.Location = new System.Drawing.Point(399, 128);
+            this.tbFreight.Margin = new System.Windows.Forms.Padding(2);
             this.tbFreight.Name = "tbFreight";
-            this.tbFreight.Size = new System.Drawing.Size(298, 28);
+            this.tbFreight.Size = new System.Drawing.Size(200, 21);
             this.tbFreight.TabIndex = 27;
             // 
             // tbContract_NO
             // 
-            this.tbContract_NO.Location = new System.Drawing.Point(126, 194);
+            this.tbContract_NO.Location = new System.Drawing.Point(84, 129);
+            this.tbContract_NO.Margin = new System.Windows.Forms.Padding(2);
             this.tbContract_NO.Name = "tbContract_NO";
-            this.tbContract_NO.Size = new System.Drawing.Size(300, 28);
+            this.tbContract_NO.Size = new System.Drawing.Size(201, 21);
             this.tbContract_NO.TabIndex = 25;
             // 
             // tbMAWB
             // 
-            this.tbMAWB.Location = new System.Drawing.Point(126, 152);
-            this.tbMAWB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMAWB.Location = new System.Drawing.Point(84, 101);
             this.tbMAWB.Name = "tbMAWB";
-            this.tbMAWB.Size = new System.Drawing.Size(300, 28);
+            this.tbMAWB.Size = new System.Drawing.Size(201, 21);
             this.tbMAWB.TabIndex = 21;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(465, 195);
+            this.label14.Location = new System.Drawing.Point(310, 130);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 18);
+            this.label14.Size = new System.Drawing.Size(35, 12);
             this.label14.TabIndex = 26;
             this.label14.Text = "运费:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 196);
+            this.label13.Location = new System.Drawing.Point(5, 131);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(71, 18);
+            this.label13.Size = new System.Drawing.Size(47, 12);
             this.label13.TabIndex = 24;
             this.label13.Text = "合同号:";
             // 
             // dtpARRDate
             // 
             this.dtpARRDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpARRDate.Location = new System.Drawing.Point(598, 148);
-            this.dtpARRDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpARRDate.Location = new System.Drawing.Point(399, 99);
             this.dtpARRDate.Name = "dtpARRDate";
-            this.dtpARRDate.Size = new System.Drawing.Size(298, 28);
+            this.dtpARRDate.Size = new System.Drawing.Size(200, 21);
             this.dtpARRDate.TabIndex = 23;
             this.dtpARRDate.Value = new System.DateTime(2017, 2, 27, 15, 22, 7, 0);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(465, 154);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(310, 103);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(89, 18);
+            this.label12.Size = new System.Drawing.Size(59, 12);
             this.label12.TabIndex = 22;
             this.label12.Text = "到达时间:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 154);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(5, 103);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 18);
+            this.label11.Size = new System.Drawing.Size(47, 12);
             this.label11.TabIndex = 20;
             this.label11.Text = "运单号:";
             // 
@@ -439,19 +419,17 @@
             "代理1",
             "代理2",
             "代理3"});
-            this.cbImport_Agent.Location = new System.Drawing.Point(126, 93);
-            this.cbImport_Agent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbImport_Agent.Location = new System.Drawing.Point(84, 62);
             this.cbImport_Agent.Name = "cbImport_Agent";
-            this.cbImport_Agent.Size = new System.Drawing.Size(300, 26);
+            this.cbImport_Agent.Size = new System.Drawing.Size(201, 20);
             this.cbImport_Agent.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 98);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(5, 65);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 18);
+            this.label5.Size = new System.Drawing.Size(59, 12);
             this.label5.TabIndex = 8;
             this.label5.Text = "进口代理:";
             // 
@@ -462,19 +440,17 @@
             "代理1",
             "代理2",
             "代理3"});
-            this.cbcust_gl_agent.Location = new System.Drawing.Point(598, 54);
-            this.cbcust_gl_agent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbcust_gl_agent.Location = new System.Drawing.Point(399, 36);
             this.cbcust_gl_agent.Name = "cbcust_gl_agent";
-            this.cbcust_gl_agent.Size = new System.Drawing.Size(298, 26);
+            this.cbcust_gl_agent.Size = new System.Drawing.Size(200, 20);
             this.cbcust_gl_agent.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(465, 58);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(310, 39);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 18);
+            this.label4.Size = new System.Drawing.Size(59, 12);
             this.label4.TabIndex = 6;
             this.label4.Text = "报关代理:";
             // 
@@ -484,57 +460,51 @@
             this.cbARRport.Items.AddRange(new object[] {
             "上海",
             "北京"});
-            this.cbARRport.Location = new System.Drawing.Point(126, 52);
-            this.cbARRport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbARRport.Location = new System.Drawing.Point(84, 35);
             this.cbARRport.Name = "cbARRport";
-            this.cbARRport.Size = new System.Drawing.Size(300, 26);
+            this.cbARRport.Size = new System.Drawing.Size(201, 20);
             this.cbARRport.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 57);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(5, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 18);
+            this.label3.Size = new System.Drawing.Size(59, 12);
             this.label3.TabIndex = 4;
             this.label3.Text = "到达港口:";
             // 
             // dtExCusClearTime
             // 
             this.dtExCusClearTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtExCusClearTime.Location = new System.Drawing.Point(598, 9);
-            this.dtExCusClearTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtExCusClearTime.Location = new System.Drawing.Point(399, 6);
             this.dtExCusClearTime.Name = "dtExCusClearTime";
-            this.dtExCusClearTime.Size = new System.Drawing.Size(298, 28);
+            this.dtExCusClearTime.Size = new System.Drawing.Size(200, 21);
             this.dtExCusClearTime.TabIndex = 3;
             this.dtExCusClearTime.Value = new System.DateTime(2017, 2, 27, 15, 22, 7, 0);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(465, 18);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(310, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 18);
+            this.label2.Size = new System.Drawing.Size(83, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "预计清关时间:";
             // 
             // tbOrderNO
             // 
-            this.tbOrderNO.Location = new System.Drawing.Point(126, 14);
-            this.tbOrderNO.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbOrderNO.Location = new System.Drawing.Point(84, 9);
             this.tbOrderNO.Name = "tbOrderNO";
-            this.tbOrderNO.Size = new System.Drawing.Size(300, 28);
+            this.tbOrderNO.Size = new System.Drawing.Size(201, 21);
             this.tbOrderNO.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 16);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(5, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 18);
+            this.label1.Size = new System.Drawing.Size(35, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "单号:";
             // 
@@ -553,21 +523,19 @@
             this.tabStep2.Controls.Add(this.label7);
             this.tabStep2.Controls.Add(this.tbINV_NO);
             this.tabStep2.Controls.Add(this.label6);
-            this.tabStep2.Location = new System.Drawing.Point(4, 28);
-            this.tabStep2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabStep2.Location = new System.Drawing.Point(4, 22);
             this.tabStep2.Name = "tabStep2";
-            this.tabStep2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabStep2.Size = new System.Drawing.Size(970, 794);
+            this.tabStep2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStep2.Size = new System.Drawing.Size(644, 525);
             this.tabStep2.TabIndex = 1;
             this.tabStep2.Text = "发票信息";
             this.tabStep2.UseVisualStyleBackColor = true;
             // 
             // btnCalINV
             // 
-            this.btnCalINV.Location = new System.Drawing.Point(640, 84);
-            this.btnCalINV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCalINV.Location = new System.Drawing.Point(427, 56);
             this.btnCalINV.Name = "btnCalINV";
-            this.btnCalINV.Size = new System.Drawing.Size(132, 34);
+            this.btnCalINV.Size = new System.Drawing.Size(88, 23);
             this.btnCalINV.TabIndex = 32;
             this.btnCalINV.Text = "运费分摊计算";
             this.btnCalINV.UseVisualStyleBackColor = true;
@@ -576,10 +544,9 @@
             // 
             // btnAddINV
             // 
-            this.btnAddINV.Location = new System.Drawing.Point(794, 84);
-            this.btnAddINV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddINV.Location = new System.Drawing.Point(529, 56);
             this.btnAddINV.Name = "btnAddINV";
-            this.btnAddINV.Size = new System.Drawing.Size(112, 34);
+            this.btnAddINV.Size = new System.Drawing.Size(75, 23);
             this.btnAddINV.TabIndex = 31;
             this.btnAddINV.Text = "添加发票";
             this.btnAddINV.UseVisualStyleBackColor = true;
@@ -600,10 +567,12 @@
             this.Freight,
             this.Duty,
             this.VAT});
-            this.dgvINV.Location = new System.Drawing.Point(8, 177);
+            this.dgvINV.Location = new System.Drawing.Point(5, 118);
+            this.dgvINV.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvINV.MultiSelect = false;
             this.dgvINV.Name = "dgvINV";
             this.dgvINV.RowTemplate.Height = 30;
-            this.dgvINV.Size = new System.Drawing.Size(956, 610);
+            this.dgvINV.Size = new System.Drawing.Size(637, 407);
             this.dgvINV.TabIndex = 30;
             // 
             // OrderNO
@@ -670,91 +639,81 @@
             // 
             // tbShop_Receiver
             // 
-            this.tbShop_Receiver.Location = new System.Drawing.Point(608, 6);
-            this.tbShop_Receiver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbShop_Receiver.Location = new System.Drawing.Point(405, 4);
             this.tbShop_Receiver.Name = "tbShop_Receiver";
-            this.tbShop_Receiver.Size = new System.Drawing.Size(298, 28);
+            this.tbShop_Receiver.Size = new System.Drawing.Size(200, 21);
             this.tbShop_Receiver.TabIndex = 29;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(476, 10);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(317, 7);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(125, 18);
+            this.label10.Size = new System.Drawing.Size(83, 12);
             this.label10.TabIndex = 28;
             this.label10.Text = "店铺两字代码:";
             // 
             // tbPCs
             // 
-            this.tbPCs.Location = new System.Drawing.Point(136, 87);
-            this.tbPCs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPCs.Location = new System.Drawing.Point(91, 58);
             this.tbPCs.Name = "tbPCs";
-            this.tbPCs.Size = new System.Drawing.Size(300, 28);
+            this.tbPCs.Size = new System.Drawing.Size(201, 21);
             this.tbPCs.TabIndex = 27;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 92);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(11, 61);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 18);
+            this.label9.Size = new System.Drawing.Size(35, 12);
             this.label9.TabIndex = 26;
             this.label9.Text = "件数:";
             // 
             // tbCart_INV
             // 
-            this.tbCart_INV.Location = new System.Drawing.Point(608, 46);
-            this.tbCart_INV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCart_INV.Location = new System.Drawing.Point(405, 31);
             this.tbCart_INV.Name = "tbCart_INV";
-            this.tbCart_INV.Size = new System.Drawing.Size(298, 28);
+            this.tbCart_INV.Size = new System.Drawing.Size(200, 21);
             this.tbCart_INV.TabIndex = 25;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(476, 51);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(317, 34);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 18);
+            this.label8.Size = new System.Drawing.Size(35, 12);
             this.label8.TabIndex = 24;
             this.label8.Text = "箱数:";
             // 
             // tbINV_Amount
             // 
-            this.tbINV_Amount.Location = new System.Drawing.Point(136, 45);
-            this.tbINV_Amount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbINV_Amount.Location = new System.Drawing.Point(91, 30);
             this.tbINV_Amount.Name = "tbINV_Amount";
-            this.tbINV_Amount.Size = new System.Drawing.Size(300, 28);
+            this.tbINV_Amount.Size = new System.Drawing.Size(201, 21);
             this.tbINV_Amount.TabIndex = 23;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 50);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(11, 33);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 18);
+            this.label7.Size = new System.Drawing.Size(59, 12);
             this.label7.TabIndex = 22;
             this.label7.Text = "发票金额:";
             // 
             // tbINV_NO
             // 
-            this.tbINV_NO.Location = new System.Drawing.Point(138, 8);
-            this.tbINV_NO.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbINV_NO.Location = new System.Drawing.Point(92, 5);
             this.tbINV_NO.Name = "tbINV_NO";
-            this.tbINV_NO.Size = new System.Drawing.Size(298, 28);
+            this.tbINV_NO.Size = new System.Drawing.Size(200, 21);
             this.tbINV_NO.TabIndex = 21;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 10);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(11, 7);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 18);
+            this.label6.Size = new System.Drawing.Size(47, 12);
             this.label6.TabIndex = 20;
             this.label6.Text = "发票号:";
             // 
@@ -769,20 +728,18 @@
             this.tabPage3.Controls.Add(this.label27);
             this.tabPage3.Controls.Add(this.tbHS_Code);
             this.tabPage3.Controls.Add(this.label26);
-            this.tabPage3.Location = new System.Drawing.Point(4, 28);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(970, 794);
+            this.tabPage3.Size = new System.Drawing.Size(644, 525);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "税分摊";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // btnInputD_V
             // 
-            this.btnInputD_V.Location = new System.Drawing.Point(812, 20);
-            this.btnInputD_V.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInputD_V.Location = new System.Drawing.Point(541, 13);
             this.btnInputD_V.Name = "btnInputD_V";
-            this.btnInputD_V.Size = new System.Drawing.Size(148, 38);
+            this.btnInputD_V.Size = new System.Drawing.Size(99, 25);
             this.btnInputD_V.TabIndex = 40;
             this.btnInputD_V.Text = "上传税信息";
             this.btnInputD_V.UseVisualStyleBackColor = true;
@@ -790,10 +747,9 @@
             // 
             // btnCalHS
             // 
-            this.btnCalHS.Location = new System.Drawing.Point(640, 68);
-            this.btnCalHS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCalHS.Location = new System.Drawing.Point(427, 45);
             this.btnCalHS.Name = "btnCalHS";
-            this.btnCalHS.Size = new System.Drawing.Size(148, 38);
+            this.btnCalHS.Size = new System.Drawing.Size(99, 25);
             this.btnCalHS.TabIndex = 39;
             this.btnCalHS.Text = "计算分摊信息";
             this.btnCalHS.UseVisualStyleBackColor = true;
@@ -801,20 +757,18 @@
             // 
             // btnInputHS
             // 
-            this.btnInputHS.Location = new System.Drawing.Point(640, 20);
-            this.btnInputHS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInputHS.Location = new System.Drawing.Point(427, 13);
             this.btnInputHS.Name = "btnInputHS";
-            this.btnInputHS.Size = new System.Drawing.Size(148, 38);
+            this.btnInputHS.Size = new System.Drawing.Size(99, 25);
             this.btnInputHS.TabIndex = 38;
             this.btnInputHS.Text = "上传分摊信息";
             this.btnInputHS.UseVisualStyleBackColor = true;
             // 
             // btnAddHS
             // 
-            this.btnAddHS.Location = new System.Drawing.Point(812, 68);
-            this.btnAddHS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddHS.Location = new System.Drawing.Point(541, 45);
             this.btnAddHS.Name = "btnAddHS";
-            this.btnAddHS.Size = new System.Drawing.Size(148, 38);
+            this.btnAddHS.Size = new System.Drawing.Size(99, 25);
             this.btnAddHS.TabIndex = 37;
             this.btnAddHS.Text = "添加分摊信息";
             this.btnAddHS.UseVisualStyleBackColor = true;
@@ -833,10 +787,12 @@
             this.Duty_Input,
             this.VAT_System,
             this.VAT_Input});
-            this.dgvHS.Location = new System.Drawing.Point(-4, 130);
+            this.dgvHS.Location = new System.Drawing.Point(-3, 87);
+            this.dgvHS.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvHS.MultiSelect = false;
             this.dgvHS.Name = "dgvHS";
             this.dgvHS.RowTemplate.Height = 30;
-            this.dgvHS.Size = new System.Drawing.Size(963, 648);
+            this.dgvHS.Size = new System.Drawing.Size(642, 432);
             this.dgvHS.TabIndex = 36;
             // 
             // OrderNO2
@@ -891,42 +847,45 @@
             // 
             // tbM
             // 
-            this.tbM.Location = new System.Drawing.Point(134, 75);
+            this.tbM.Location = new System.Drawing.Point(89, 50);
+            this.tbM.Margin = new System.Windows.Forms.Padding(2);
             this.tbM.Name = "tbM";
-            this.tbM.Size = new System.Drawing.Size(298, 28);
+            this.tbM.Size = new System.Drawing.Size(200, 21);
             this.tbM.TabIndex = 35;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(4, 78);
+            this.label27.Location = new System.Drawing.Point(3, 52);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(53, 18);
+            this.label27.Size = new System.Drawing.Size(35, 12);
             this.label27.TabIndex = 34;
             this.label27.Text = "总价:";
             // 
             // tbHS_Code
             // 
-            this.tbHS_Code.Location = new System.Drawing.Point(134, 26);
+            this.tbHS_Code.Location = new System.Drawing.Point(89, 17);
+            this.tbHS_Code.Margin = new System.Windows.Forms.Padding(2);
             this.tbHS_Code.Name = "tbHS_Code";
-            this.tbHS_Code.Size = new System.Drawing.Size(298, 28);
+            this.tbHS_Code.Size = new System.Drawing.Size(200, 21);
             this.tbHS_Code.TabIndex = 33;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(2, 28);
+            this.label26.Location = new System.Drawing.Point(1, 19);
+            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(80, 18);
+            this.label26.Size = new System.Drawing.Size(53, 12);
             this.label26.TabIndex = 32;
             this.label26.Text = "HS CODE:";
             // 
             // btnSaveOrder
             // 
-            this.btnSaveOrder.Location = new System.Drawing.Point(730, 862);
-            this.btnSaveOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSaveOrder.Location = new System.Drawing.Point(487, 575);
             this.btnSaveOrder.Name = "btnSaveOrder";
-            this.btnSaveOrder.Size = new System.Drawing.Size(112, 34);
+            this.btnSaveOrder.Size = new System.Drawing.Size(75, 23);
             this.btnSaveOrder.TabIndex = 1;
             this.btnSaveOrder.Text = "保存";
             this.btnSaveOrder.UseVisualStyleBackColor = true;
@@ -934,10 +893,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(880, 862);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(587, 575);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(112, 34);
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -945,14 +903,13 @@
             // 
             // frmDecNewOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1014, 921);
+            this.ClientSize = new System.Drawing.Size(676, 614);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveOrder);
             this.Controls.Add(this.tcDecNewOrder);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmDecNewOrder";

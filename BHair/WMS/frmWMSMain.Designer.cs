@@ -32,6 +32,10 @@
             this.SKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WearHouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbWearHouse = new System.Windows.Forms.ComboBox();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.btnInit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWMSMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +51,7 @@
             this.Amount,
             this.WearHouse});
             this.dgvWMSMain.Location = new System.Drawing.Point(13, 61);
+            this.dgvWMSMain.MultiSelect = false;
             this.dgvWMSMain.Name = "dgvWMSMain";
             this.dgvWMSMain.RowTemplate.Height = 23;
             this.dgvWMSMain.Size = new System.Drawing.Size(521, 310);
@@ -70,11 +75,52 @@
             this.WearHouse.HeaderText = "仓库";
             this.WearHouse.Name = "WearHouse";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "选择仓库:";
+            // 
+            // cbWearHouse
+            // 
+            this.cbWearHouse.FormattingEnabled = true;
+            this.cbWearHouse.Location = new System.Drawing.Point(78, 10);
+            this.cbWearHouse.Name = "cbWearHouse";
+            this.cbWearHouse.Size = new System.Drawing.Size(73, 20);
+            this.cbWearHouse.TabIndex = 2;
+            // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(157, 8);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 3;
+            this.btnOK.Text = "确定";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // btnInit
+            // 
+            this.btnInit.Location = new System.Drawing.Point(238, 8);
+            this.btnInit.Name = "btnInit";
+            this.btnInit.Size = new System.Drawing.Size(75, 23);
+            this.btnInit.TabIndex = 4;
+            this.btnInit.Text = "重置";
+            this.btnInit.UseVisualStyleBackColor = true;
+            this.btnInit.Click += new System.EventHandler(this.btnInit_Click);
+            // 
             // frmWMSMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 383);
+            this.Controls.Add(this.btnInit);
+            this.Controls.Add(this.btnOK);
+            this.Controls.Add(this.cbWearHouse);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvWMSMain);
             this.Name = "frmWMSMain";
             this.TabText = "frmWMSMain";
@@ -82,6 +128,7 @@
             this.Load += new System.EventHandler(this.frmWMSMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWMSMain)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -91,5 +138,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SKU;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn WearHouse;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbWearHouse;
+        private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Button btnInit;
     }
 }

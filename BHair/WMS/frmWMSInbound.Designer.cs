@@ -86,6 +86,7 @@
             this.GrossWGT,
             this.WearHouse});
             this.dgvWMSInList.Location = new System.Drawing.Point(13, 51);
+            this.dgvWMSInList.MultiSelect = false;
             this.dgvWMSInList.Name = "dgvWMSInList";
             this.dgvWMSInList.ReadOnly = true;
             this.dgvWMSInList.RowTemplate.Height = 23;

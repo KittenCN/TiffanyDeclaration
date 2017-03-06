@@ -506,6 +506,7 @@
             this.PCs,
             this.Remarks});
             this.dgvWMSInboundDetail.Location = new System.Drawing.Point(3, 3);
+            this.dgvWMSInboundDetail.MultiSelect = false;
             this.dgvWMSInboundDetail.Name = "dgvWMSInboundDetail";
             this.dgvWMSInboundDetail.RowTemplate.Height = 23;
             this.dgvWMSInboundDetail.Size = new System.Drawing.Size(468, 321);

@@ -506,6 +506,7 @@
             this.PCs,
             this.Remarks});
             this.dgvWMSInboundDetail.Location = new System.Drawing.Point(3, 3);
+            this.dgvWMSInboundDetail.MultiSelect = false;
             this.dgvWMSInboundDetail.Name = "dgvWMSInboundDetail";
             this.dgvWMSInboundDetail.RowTemplate.Height = 23;
             this.dgvWMSInboundDetail.Size = new System.Drawing.Size(468, 321);
@@ -574,14 +575,14 @@
             this.Remarks.HeaderText = "备注";
             this.Remarks.Name = "Remarks";
             // 
-            // frmWMSinboundDetail
+            // frmWMSinboundDetailEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(717, 524);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "frmWMSinboundDetail";
+            this.Name = "frmWMSinboundDetailEdit";
             this.Text = "frmWMSinboundDetail";
             this.Load += new System.EventHandler(this.frmWMSinboundDetail_Load);
             this.panel1.ResumeLayout(false);

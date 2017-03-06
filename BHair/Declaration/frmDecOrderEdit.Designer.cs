@@ -173,7 +173,7 @@
             this.tabStep1.Controls.Add(this.label1);
             this.tabStep1.Location = new System.Drawing.Point(4, 22);
             this.tabStep1.Name = "tabStep1";
-            this.tabStep1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabStep1.Padding = new System.Windows.Forms.Padding(3);
             this.tabStep1.Size = new System.Drawing.Size(644, 525);
             this.tabStep1.TabIndex = 0;
             this.tabStep1.Text = "基础信息";
@@ -200,7 +200,7 @@
             // 
             this.dtpJD_Receiving_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpJD_Receiving_Date.Location = new System.Drawing.Point(399, 300);
-            this.dtpJD_Receiving_Date.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpJD_Receiving_Date.Margin = new System.Windows.Forms.Padding(2);
             this.dtpJD_Receiving_Date.Name = "dtpJD_Receiving_Date";
             this.dtpJD_Receiving_Date.Size = new System.Drawing.Size(201, 21);
             this.dtpJD_Receiving_Date.TabIndex = 45;
@@ -345,7 +345,7 @@
             // tbFreight
             // 
             this.tbFreight.Location = new System.Drawing.Point(399, 128);
-            this.tbFreight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFreight.Margin = new System.Windows.Forms.Padding(2);
             this.tbFreight.Name = "tbFreight";
             this.tbFreight.Size = new System.Drawing.Size(200, 21);
             this.tbFreight.TabIndex = 27;
@@ -353,7 +353,7 @@
             // tbContract_NO
             // 
             this.tbContract_NO.Location = new System.Drawing.Point(84, 129);
-            this.tbContract_NO.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbContract_NO.Margin = new System.Windows.Forms.Padding(2);
             this.tbContract_NO.Name = "tbContract_NO";
             this.tbContract_NO.Size = new System.Drawing.Size(201, 21);
             this.tbContract_NO.TabIndex = 25;
@@ -525,7 +525,7 @@
             this.tabStep2.Controls.Add(this.label6);
             this.tabStep2.Location = new System.Drawing.Point(4, 22);
             this.tabStep2.Name = "tabStep2";
-            this.tabStep2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabStep2.Padding = new System.Windows.Forms.Padding(3);
             this.tabStep2.Size = new System.Drawing.Size(644, 525);
             this.tabStep2.TabIndex = 1;
             this.tabStep2.Text = "发票信息";
@@ -567,7 +567,8 @@
             this.Duty,
             this.VAT});
             this.dgvINV.Location = new System.Drawing.Point(5, 118);
-            this.dgvINV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvINV.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvINV.MultiSelect = false;
             this.dgvINV.Name = "dgvINV";
             this.dgvINV.RowTemplate.Height = 30;
             this.dgvINV.Size = new System.Drawing.Size(637, 407);
@@ -787,7 +788,8 @@
             this.VAT_System,
             this.VAT_Input});
             this.dgvHS.Location = new System.Drawing.Point(-3, 87);
-            this.dgvHS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvHS.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvHS.MultiSelect = false;
             this.dgvHS.Name = "dgvHS";
             this.dgvHS.RowTemplate.Height = 30;
             this.dgvHS.Size = new System.Drawing.Size(642, 432);
@@ -846,7 +848,7 @@
             // tbM
             // 
             this.tbM.Location = new System.Drawing.Point(89, 50);
-            this.tbM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbM.Margin = new System.Windows.Forms.Padding(2);
             this.tbM.Name = "tbM";
             this.tbM.Size = new System.Drawing.Size(200, 21);
             this.tbM.TabIndex = 35;
@@ -864,7 +866,7 @@
             // tbHS_Code
             // 
             this.tbHS_Code.Location = new System.Drawing.Point(89, 17);
-            this.tbHS_Code.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbHS_Code.Margin = new System.Windows.Forms.Padding(2);
             this.tbHS_Code.Name = "tbHS_Code";
             this.tbHS_Code.Size = new System.Drawing.Size(200, 21);
             this.tbHS_Code.TabIndex = 33;

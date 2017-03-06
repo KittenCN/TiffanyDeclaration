@@ -47,7 +47,8 @@
             this.Duty,
             this.VAT});
             this.dgvHSSetting.Location = new System.Drawing.Point(9, 9);
-            this.dgvHSSetting.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvHSSetting.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvHSSetting.MultiSelect = false;
             this.dgvHSSetting.Name = "dgvHSSetting";
             this.dgvHSSetting.RowTemplate.Height = 30;
             this.dgvHSSetting.Size = new System.Drawing.Size(304, 301);
@@ -74,7 +75,7 @@
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(182, 325);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(59, 24);
             this.btnSave.TabIndex = 1;
@@ -85,7 +86,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(254, 325);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(59, 24);
             this.btnCancel.TabIndex = 2;
@@ -113,7 +114,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvHSSetting);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmHSSetting";
             this.TabText = "frmHSSetting";
             this.Text = "frmHSSetting";

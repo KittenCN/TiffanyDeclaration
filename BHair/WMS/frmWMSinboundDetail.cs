@@ -29,28 +29,36 @@ namespace BHair.Business
 
         private void btnADD_Click(object sender, EventArgs e)
         {
-            DataRow drShow = dtShowWMSInDetail.NewRow();
-            drShow["OrderNO"] = "";
-            drShow["Status"] = 0;
-            drShow["InboundNO"] = tbInboundNO.Text;
-            drShow["SKU"] = tbSKU.Text;
-            drShow["Description"] = tbDescription.Text;
-            drShow["OutsiteSize"] = tbOutsiteSize.Text;
-            drShow["Specification"] = tbSpecification.Text;
-            drShow["Carton"] = tbCarton.Text;
-            drShow["PCs"] = tbPCss.Text;
-            drShow["Remarks"] = tbRemarks.Text;
-            dtSaveWMSInDetail.Rows.Add(drShow.ItemArray);
-            dgvWMSInboundDetail.AutoGenerateColumns = false;
-            dgvWMSInboundDetail.DataSource = dtSaveWMSInDetail;
+            DataTable dttemp = GenClass.GetTableFromDgv(dgvWMSInboundDetail, "WMSinboundDetail");
+            if (GenClass.CheckDB_String(dttemp, "SKU", tbSKU.Text))
+            {
+                MessageBox.Show("SKU:" + tbSKU.Text + "重复,请检查!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                DataRow drShow = dtShowWMSInDetail.NewRow();
+                drShow["OrderNO"] = "";
+                drShow["Status"] = 0;
+                drShow["InboundNO"] = tbInboundNO.Text;
+                drShow["SKU"] = tbSKU.Text;
+                drShow["Description"] = tbDescription.Text;
+                drShow["OutsiteSize"] = tbOutsiteSize.Text;
+                drShow["Specification"] = tbSpecification.Text;
+                drShow["Carton"] = tbCarton.Text;
+                drShow["PCs"] = tbPCss.Text;
+                drShow["Remarks"] = tbRemarks.Text;
+                dtSaveWMSInDetail.Rows.Add(drShow.ItemArray);
+                dgvWMSInboundDetail.AutoGenerateColumns = false;
+                dgvWMSInboundDetail.DataSource = dtSaveWMSInDetail;
 
-            tbSKU.Text = "";
-            tbDescription.Text = "";
-            tbOutsiteSize.Text = "";
-            tbSpecification.Text = "";
-            tbCarton.Text = "";
-            tbPCss.Text = "";
-            tbRemarks.Text = "";
+                tbSKU.Text = "";
+                tbDescription.Text = "";
+                tbOutsiteSize.Text = "";
+                tbSpecification.Text = "";
+                tbCarton.Text = "";
+                tbPCss.Text = "";
+                tbRemarks.Text = "";
+            }
         }
 
         private void frmWMSinboundDetail_Load(object sender, EventArgs e)
@@ -97,57 +105,65 @@ namespace BHair.Business
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DataRow drSaveWMSIn = dtSaveWMSIn.NewRow();
-            drSaveWMSIn["OrderNO"] = "";
-            drSaveWMSIn["Status"] = 0;
-            drSaveWMSIn["InDate"] = dtInDate.Value;
-            drSaveWMSIn["InboundNO"] = tbInboundNO.Text;
-            drSaveWMSIn["Shipper"] = tbShipper.Text;
-            drSaveWMSIn["User"] = tbUser.Text;
-            drSaveWMSIn["DocNO"] = tbDosNO.Text;
-            drSaveWMSIn["DocNOs"] = tbDocNOs.Text;
-            drSaveWMSIn["PCs"] = tbPCs.Text;
-            drSaveWMSIn["GrossWGT"] = tbGrossWGT.Text;
-            drSaveWMSIn["WearHouse"] = cbWearHouse.Text;
-            drSaveWMSIn["Prepared"] = tbPrerared.Text;
-            drSaveWMSIn["OperSup"] = tbOperSup.Text;
-            drSaveWMSIn["WHSup"] = tbWHSup.Text;
-            dtSaveWMSIn.Rows.Add(drSaveWMSIn);
-
-            AccessHelper ah = new AccessHelper();
-            string strSQL_DropMain = "delete from WMSInbound where InboundNO='" + strInboundNO + "' ";
-            ah.ExecuteSQLNonquery(strSQL_DropMain);
-            ah.AddRowsToTable(dtSaveWMSIn, "WMSInbound");
-
-            string strSQL_DropWMSD = "delete from WMSInboundDetail where InboundNO='" + strInboundNO + "' ";
-            ah.ExecuteSQLNonquery(strSQL_DropWMSD);
-            DataTable dtSaveWMSD;
-            dtSaveWMSD = GenClass.GetTableFromDgv(dgvWMSInboundDetail, "WMSInboundDetail");
-            ah.AddRowsToTable(dtSaveWMSD, "WMSInboundDetail");
-
-            foreach (DataRow dr in dtSaveWMSD.Rows)
+            DataTable dttemp = GenClass.GetTableFromDgv(dgvWMSInboundDetail, "WMSInboundDetail");
+            if (!GenClass.CheckDT(dttemp, "InboundNO"))
             {
-                string strSKU = dr["SKU"].ToString();
-                int intAmount = int.Parse(dr["PCs"].ToString());
+                DataRow drSaveWMSIn = dtSaveWMSIn.NewRow();
+                drSaveWMSIn["OrderNO"] = "";
+                drSaveWMSIn["Status"] = 0;
+                drSaveWMSIn["InDate"] = dtInDate.Value;
+                drSaveWMSIn["InboundNO"] = tbInboundNO.Text;
+                drSaveWMSIn["Shipper"] = tbShipper.Text;
+                drSaveWMSIn["User"] = tbUser.Text;
+                drSaveWMSIn["DocNO"] = tbDosNO.Text;
+                drSaveWMSIn["DocNOs"] = tbDocNOs.Text;
+                drSaveWMSIn["PCs"] = tbPCs.Text;
+                drSaveWMSIn["GrossWGT"] = tbGrossWGT.Text;
+                drSaveWMSIn["WearHouse"] = cbWearHouse.Text;
+                drSaveWMSIn["Prepared"] = tbPrerared.Text;
+                drSaveWMSIn["OperSup"] = tbOperSup.Text;
+                drSaveWMSIn["WHSup"] = tbWHSup.Text;
+                dtSaveWMSIn.Rows.Add(drSaveWMSIn);
 
-                string strSQL = "select * from WMSMain where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
-                DataTable dtTemp = ah.SelectToDataTable(strSQL);
+                AccessHelper ah = new AccessHelper();
+                string strSQL_DropMain = "delete from WMSInbound where InboundNO='" + strInboundNO + "' ";
+                ah.ExecuteSQLNonquery(strSQL_DropMain);
+                ah.AddRowsToTable(dtSaveWMSIn, "WMSInbound");
+
+                string strSQL_DropWMSD = "delete from WMSInboundDetail where InboundNO='" + strInboundNO + "' ";
+                ah.ExecuteSQLNonquery(strSQL_DropWMSD);
+                DataTable dtSaveWMSD;
+                dtSaveWMSD = GenClass.GetTableFromDgv(dgvWMSInboundDetail, "WMSInboundDetail");
+                ah.AddRowsToTable(dtSaveWMSD, "WMSInboundDetail");
+
+                foreach (DataRow dr in dtSaveWMSD.Rows)
+                {
+                    string strSKU = dr["SKU"].ToString();
+                    int intAmount = int.Parse(dr["PCs"].ToString());
+
+                    string strSQL = "select * from WMSMain where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
+                    DataTable dtTemp = ah.SelectToDataTable(strSQL);
+                    ah.Close();
+                    ah = new AccessHelper();
+                    if (dtTemp.Rows.Count > 0)
+                    {
+                        strSQL = "update WMSMain set Amount=Amount+" + intAmount + " where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
+                    }
+                    else
+                    {
+                        strSQL = "insert into WMSMain(SKU,Amount,WearHouse) values('" + strSKU + "'," + intAmount + ",'" + cbWearHouse.Text + "') ";
+                    }
+                    ah.ExecuteSQLNonquery(strSQL);
+                }
+
                 ah.Close();
-                ah = new AccessHelper();
-                if (dtTemp.Rows.Count > 0)
-                {
-                    strSQL = "update WMSMain set Amount=Amount+" + intAmount + " where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
-                }
-                else
-                {
-                    strSQL = "insert into WMSMain(SKU,Amount,WearHouse) values('" + strSKU + "'," + intAmount + ",'" + cbWearHouse.Text + "') ";
-                }
-                ah.ExecuteSQLNonquery(strSQL);
+                MessageBox.Show("提交成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
-
-            ah.Close();
-            MessageBox.Show("提交成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+            else
+            {
+                MessageBox.Show("入库单号有重复值,请检查!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

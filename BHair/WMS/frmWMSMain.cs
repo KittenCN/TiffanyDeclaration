@@ -25,6 +25,26 @@ namespace BHair.Business
             DataTable dtShowdgvWMSMain = SelectApplicationByApplicants(strWMTemp, "");
             dgvWMSMain.AutoGenerateColumns = false;
             dgvWMSMain.DataSource = dtShowdgvWMSMain;
+
+            string[] strWMSTemp = Login.LoginUser.Store.ToString().Split(',');
+            if (strWMSTemp[0] != "" && strWMSTemp[0] != null && strWMSTemp.Length > 1)
+            {
+                for (int i = 0; i < strWMSTemp.Length; i++)
+                {
+                    if (strWMSTemp[i].ToString() != null && strWMSTemp[i].ToString() != "")
+                    {
+                        cbWearHouse.Items.Add(strWMSTemp[i].ToString());
+                    }
+                }
+            }
+            else
+            {
+                cbWearHouse.Items.Add(strWMSTemp[0]);
+            }
+            if (cbWearHouse.Items.Count > 0)
+            {
+                cbWearHouse.SelectedIndex = 0;
+            }
         }
 
         public DataTable SelectApplicationByApplicants(string[] Applicants, string sql)
@@ -54,6 +74,22 @@ namespace BHair.Business
                 }
             }
             return Result;
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            string[] strWMTemp = { cbWearHouse.Text };            
+            DataTable dtShowdgvWMSMain = SelectApplicationByApplicants(strWMTemp, "");
+            dgvWMSMain.AutoGenerateColumns = false;
+            dgvWMSMain.DataSource = dtShowdgvWMSMain;
+        }
+
+        private void btnInit_Click(object sender, EventArgs e)
+        {
+            string[] strWMTemp = Login.LoginUser.Store.ToString().Split(',');
+            DataTable dtShowdgvWMSMain = SelectApplicationByApplicants(strWMTemp, "");
+            dgvWMSMain.AutoGenerateColumns = false;
+            dgvWMSMain.DataSource = dtShowdgvWMSMain;
         }
     }
 }
