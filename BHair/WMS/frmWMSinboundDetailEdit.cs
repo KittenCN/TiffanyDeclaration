@@ -55,6 +55,8 @@ namespace BHair.Business
 
         private void frmWMSinboundDetail_Load(object sender, EventArgs e)
         {
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             string strSQL = "select * from WMSInboundDetail where InboundNO='" + strInboundNO + "' ";
             AccessHelper ah = new Business.AccessHelper();
             dtShowWMSInDetail = ah.SelectToDataTable(strSQL);

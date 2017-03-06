@@ -19,6 +19,8 @@ namespace BHair.Business
 
         private void frmWMSMain_Load(object sender, EventArgs e)
         {
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             string[] strWMTemp = Login.LoginUser.Store.ToString().Split(',');
             DataTable dtShowdgvWMSMain = SelectApplicationByApplicants(strWMTemp, "");
             dgvWMSMain.AutoGenerateColumns = false;

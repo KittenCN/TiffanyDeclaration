@@ -33,7 +33,7 @@ namespace BHair
         }
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         }
         private void frmMain_Resize(object sender, EventArgs e)
         {

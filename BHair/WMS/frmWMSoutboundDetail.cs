@@ -29,28 +29,39 @@ namespace BHair.Business
 
         private void btnADD_Click(object sender, EventArgs e)
         {
-            DataRow drShow = dtShowWMSOutDetail.NewRow();
-            drShow["OrderNO"] = "";
-            drShow["Status"] = 0;
-            drShow["OutboundNO"] = tbOutboundNO.Text;
-            drShow["SKU"] = tbSKU.Text;
-            drShow["Description"] = tbDescription.Text;
-            drShow["OutsiteSize"] = tbOutsiteSize.Text;
-            drShow["Specification"] = tbSpecification.Text;
-            drShow["Carton"] = tbCarton.Text;
-            drShow["PCs"] = tbPCss.Text;
-            drShow["Remarks"] = tbRemarks.Text;
-            dtSaveWMSOutDetail.Rows.Add(drShow.ItemArray);
-            dgvWMSOutboundDetail.AutoGenerateColumns = false;
-            dgvWMSOutboundDetail.DataSource = dtSaveWMSOutDetail;
+            string strSQL = "select * from WMSMain where SKU='" + tbSKU.Text + "' and WearHouse='" + cbWearHouse.Text + "' ";
+            AccessHelper ah = new AccessHelper();
+            DataTable dt = ah.SelectToDataTable(strSQL);
+            if(dt.Rows.Count > 0 && int.Parse(dt.Rows[0]["Amount"].ToString()) > int.Parse(tbPCss.Text))
+            {
+                DataRow drShow = dtShowWMSOutDetail.NewRow();
+                drShow["OrderNO"] = "";
+                drShow["Status"] = 0;
+                drShow["OutboundNO"] = tbOutboundNO.Text;
+                drShow["SKU"] = tbSKU.Text;
+                drShow["Description"] = tbDescription.Text;
+                drShow["OutsiteSize"] = tbOutsiteSize.Text;
+                drShow["Specification"] = tbSpecification.Text;
+                drShow["Carton"] = tbCarton.Text;
+                drShow["PCs"] = tbPCss.Text;
+                drShow["Remarks"] = tbRemarks.Text;
+                dtSaveWMSOutDetail.Rows.Add(drShow.ItemArray);
+                dgvWMSOutboundDetail.AutoGenerateColumns = false;
+                dgvWMSOutboundDetail.DataSource = dtSaveWMSOutDetail;
 
-            tbSKU.Text = "";
-            tbDescription.Text = "";
-            tbOutsiteSize.Text = "";
-            tbSpecification.Text = "";
-            tbCarton.Text = "";
-            tbPCss.Text = "";
-            tbRemarks.Text = "";
+                tbSKU.Text = "";
+                tbDescription.Text = "";
+                tbOutsiteSize.Text = "";
+                tbSpecification.Text = "";
+                tbCarton.Text = "";
+                tbPCss.Text = "";
+                tbRemarks.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("SKU:" + tbSKU.Text + "库存不足!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         private void frmWMSinboundDetail_Load(object sender, EventArgs e)
@@ -100,16 +111,15 @@ namespace BHair.Business
             drSaveWMSOut["Status"] = 0;
             drSaveWMSOut["OutDate"] = dtOutDate.Value;
             drSaveWMSOut["OutboundNO"] = tbOutboundNO.Text;
+            drSaveWMSOut["WHSup"] = tbWHSup.Text;
             drSaveWMSOut["Shipper"] = tbShipper.Text;
-            drSaveWMSOut["User"] = tbUser.Text;
-            drSaveWMSOut["DocNO"] = tbDosNO.Text;
-            drSaveWMSOut["DocNOs"] = tbDocNOs.Text;
-            drSaveWMSOut["PCs"] = tbPCs.Text;
-            drSaveWMSOut["GrossWGT"] = tbGrossWGT.Text;
+            drSaveWMSOut["Contact"] = tbContact.Text;
+            drSaveWMSOut["OutType"] = tbOutType.Text;
+            drSaveWMSOut["ReceiptAdd"] = tbReceiptAdd.Text;
+            drSaveWMSOut["Deadline"] = dtpDeadline.Value;
             drSaveWMSOut["WearHouse"] = cbWearHouse.Text;
             drSaveWMSOut["Prepared"] = tbPrerared.Text;
-            drSaveWMSOut["OperSup"] = tbOperSup.Text;
-            drSaveWMSOut["WHSup"] = tbWHSup.Text;
+            drSaveWMSOut["OperSup"] = tbOperSup.Text;            
             dtSaveWMSOut.Rows.Add(drSaveWMSOut);
 
             AccessHelper ah = new AccessHelper();
@@ -132,13 +142,14 @@ namespace BHair.Business
                 DataTable dtTemp = ah.SelectToDataTable(strSQL);
                 ah.Close();
                 ah = new AccessHelper();
-                if (dtTemp.Rows.Count > 0)
+                if (dtTemp.Rows.Count > 0 && int.Parse(dtTemp.Rows[0]["Amount"].ToString()) > intAmount )
                 {
-                    strSQL = "update WMSMain set Amount=Amount+" + intAmount + " where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
+                    strSQL = "update WMSMain set Amount=Amount-" + intAmount + " where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
                 }
                 else
                 {
-                    strSQL = "insert into WMSMain(SKU,Amount,WearHouse) values('" + strSKU + "'," + intAmount + ",'" + cbWearHouse.Text + "' ";
+                    strSQL = "";
+                    MessageBox.Show("SKU:" + tbSKU.Text + "库存不足!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 ah.ExecuteSQLNonquery(strSQL);
             }

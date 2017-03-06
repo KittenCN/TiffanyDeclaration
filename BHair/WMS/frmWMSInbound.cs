@@ -25,6 +25,7 @@ namespace BHair.Business
 
         private void frmWMSInbound_Load(object sender, EventArgs e)
         {
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             string[] strWMTemp = Login.LoginUser.Store.ToString().Split(',');
             DataTable dtWMSinfo = SelectApplicationByApplicants(strWMTemp, "");
             dgvWMSInList.AutoGenerateColumns = false;
