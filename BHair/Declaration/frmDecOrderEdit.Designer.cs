@@ -72,16 +72,6 @@
             this.btnCalINV = new System.Windows.Forms.Button();
             this.btnAddINV = new System.Windows.Forms.Button();
             this.dgvINV = new System.Windows.Forms.DataGridView();
-            this.OrderNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.INV_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.INV_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cart_INV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PCs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Shop_Receiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Freight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Duty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbShop_Receiver = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tbPCs = new System.Windows.Forms.TextBox();
@@ -112,6 +102,18 @@
             this.label26 = new System.Windows.Forms.Label();
             this.btnSaveOrder = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.OrderNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.INV_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.INV_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cart_INV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PCs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Shop_Receiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Freight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Duty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnUpload = new System.Windows.Forms.Button();
             this.tcDecNewOrder.SuspendLayout();
             this.tabStep1.SuspendLayout();
             this.tabStep2.SuspendLayout();
@@ -510,6 +512,7 @@
             // 
             // tabStep2
             // 
+            this.tabStep2.Controls.Add(this.btnUpload);
             this.tabStep2.Controls.Add(this.btnCalINV);
             this.tabStep2.Controls.Add(this.btnAddINV);
             this.tabStep2.Controls.Add(this.dgvINV);
@@ -533,7 +536,7 @@
             // 
             // btnCalINV
             // 
-            this.btnCalINV.Location = new System.Drawing.Point(427, 56);
+            this.btnCalINV.Location = new System.Drawing.Point(436, 58);
             this.btnCalINV.Name = "btnCalINV";
             this.btnCalINV.Size = new System.Drawing.Size(88, 23);
             this.btnCalINV.TabIndex = 32;
@@ -543,7 +546,7 @@
             // 
             // btnAddINV
             // 
-            this.btnAddINV.Location = new System.Drawing.Point(529, 56);
+            this.btnAddINV.Location = new System.Drawing.Point(530, 58);
             this.btnAddINV.Name = "btnAddINV";
             this.btnAddINV.Size = new System.Drawing.Size(75, 23);
             this.btnAddINV.TabIndex = 31;
@@ -565,76 +568,15 @@
             this.Shop_Receiver,
             this.Freight,
             this.Duty,
-            this.VAT});
-            this.dgvINV.Location = new System.Drawing.Point(5, 118);
+            this.VAT,
+            this.CT});
+            this.dgvINV.Location = new System.Drawing.Point(5, 86);
             this.dgvINV.Margin = new System.Windows.Forms.Padding(2);
             this.dgvINV.MultiSelect = false;
             this.dgvINV.Name = "dgvINV";
             this.dgvINV.RowTemplate.Height = 30;
-            this.dgvINV.Size = new System.Drawing.Size(637, 407);
+            this.dgvINV.Size = new System.Drawing.Size(637, 439);
             this.dgvINV.TabIndex = 30;
-            // 
-            // OrderNO
-            // 
-            this.OrderNO.DataPropertyName = "OrderNO";
-            this.OrderNO.HeaderText = "OrderNO";
-            this.OrderNO.Name = "OrderNO";
-            this.OrderNO.Visible = false;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.Visible = false;
-            // 
-            // INV_NO
-            // 
-            this.INV_NO.DataPropertyName = "INV_NO";
-            this.INV_NO.HeaderText = "INV_NO";
-            this.INV_NO.Name = "INV_NO";
-            // 
-            // INV_Amount
-            // 
-            this.INV_Amount.DataPropertyName = "INV_Amount";
-            this.INV_Amount.HeaderText = "INV_Amount";
-            this.INV_Amount.Name = "INV_Amount";
-            // 
-            // Cart_INV
-            // 
-            this.Cart_INV.DataPropertyName = "Cart_INV";
-            this.Cart_INV.HeaderText = "Cart_INV";
-            this.Cart_INV.Name = "Cart_INV";
-            // 
-            // PCs
-            // 
-            this.PCs.DataPropertyName = "PCs";
-            this.PCs.HeaderText = "PCs";
-            this.PCs.Name = "PCs";
-            // 
-            // Shop_Receiver
-            // 
-            this.Shop_Receiver.DataPropertyName = "Shop_Receiver";
-            this.Shop_Receiver.HeaderText = "Shop_Receiver";
-            this.Shop_Receiver.Name = "Shop_Receiver";
-            // 
-            // Freight
-            // 
-            this.Freight.DataPropertyName = "Freight";
-            this.Freight.HeaderText = "Freight";
-            this.Freight.Name = "Freight";
-            // 
-            // Duty
-            // 
-            this.Duty.DataPropertyName = "Duty";
-            this.Duty.HeaderText = "Duty";
-            this.Duty.Name = "Duty";
-            // 
-            // VAT
-            // 
-            this.VAT.DataPropertyName = "VAT";
-            this.VAT.HeaderText = "VAT";
-            this.VAT.Name = "VAT";
             // 
             // tbShop_Receiver
             // 
@@ -901,6 +843,84 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // OrderNO
+            // 
+            this.OrderNO.DataPropertyName = "OrderNO";
+            this.OrderNO.HeaderText = "OrderNO";
+            this.OrderNO.Name = "OrderNO";
+            this.OrderNO.Visible = false;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.Visible = false;
+            // 
+            // INV_NO
+            // 
+            this.INV_NO.DataPropertyName = "INV_NO";
+            this.INV_NO.HeaderText = "INV_NO";
+            this.INV_NO.Name = "INV_NO";
+            // 
+            // INV_Amount
+            // 
+            this.INV_Amount.DataPropertyName = "INV_Amount";
+            this.INV_Amount.HeaderText = "INV_Amount";
+            this.INV_Amount.Name = "INV_Amount";
+            // 
+            // Cart_INV
+            // 
+            this.Cart_INV.DataPropertyName = "Cart_INV";
+            this.Cart_INV.HeaderText = "Cart_INV";
+            this.Cart_INV.Name = "Cart_INV";
+            // 
+            // PCs
+            // 
+            this.PCs.DataPropertyName = "PCs";
+            this.PCs.HeaderText = "PCs";
+            this.PCs.Name = "PCs";
+            // 
+            // Shop_Receiver
+            // 
+            this.Shop_Receiver.DataPropertyName = "Shop_Receiver";
+            this.Shop_Receiver.HeaderText = "Shop_Receiver";
+            this.Shop_Receiver.Name = "Shop_Receiver";
+            // 
+            // Freight
+            // 
+            this.Freight.DataPropertyName = "Freight";
+            this.Freight.HeaderText = "Freight";
+            this.Freight.Name = "Freight";
+            // 
+            // Duty
+            // 
+            this.Duty.DataPropertyName = "Duty";
+            this.Duty.HeaderText = "Duty";
+            this.Duty.Name = "Duty";
+            // 
+            // VAT
+            // 
+            this.VAT.DataPropertyName = "VAT";
+            this.VAT.HeaderText = "VAT";
+            this.VAT.Name = "VAT";
+            // 
+            // CT
+            // 
+            this.CT.DataPropertyName = "CT";
+            this.CT.HeaderText = "CT";
+            this.CT.Name = "CT";
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.Location = new System.Drawing.Point(342, 58);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(88, 23);
+            this.btnUpload.TabIndex = 33;
+            this.btnUpload.Text = "上传发票";
+            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
             // frmDecOrderEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1007,6 +1027,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Duty_Input;
         private System.Windows.Forms.DataGridViewTextBoxColumn VAT_System;
         private System.Windows.Forms.DataGridViewTextBoxColumn VAT_Input;
+        private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderNO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn INV_NO;
@@ -1017,5 +1038,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Freight;
         private System.Windows.Forms.DataGridViewTextBoxColumn Duty;
         private System.Windows.Forms.DataGridViewTextBoxColumn VAT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CT;
     }
 }

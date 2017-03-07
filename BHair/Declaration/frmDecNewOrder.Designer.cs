@@ -763,6 +763,7 @@
             this.btnInputHS.TabIndex = 38;
             this.btnInputHS.Text = "上传分摊信息";
             this.btnInputHS.UseVisualStyleBackColor = true;
+            this.btnInputHS.Click += new System.EventHandler(this.btnInputHS_Click);
             // 
             // btnAddHS
             // 

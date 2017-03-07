@@ -233,66 +233,83 @@ namespace BHair.Business
 
         private void btnCalINV_Click(object sender, EventArgs e)
         {
-            DataTable dtSaveINV;
-            dtSaveINV = GetTableFromDgv(dgvINV, "DecINV");
-            double douSumAmount = double.Parse(dtSaveINV.Compute("Sum(INV_Amount)", "True").ToString());
-            double douSumDuty = double.Parse(tbDuty.Text);
-            double douSumVAT = double.Parse(tbVAT.Text);
-            double douSumFreight = double.Parse(tbFreight.Text);
-            int intRowsnum = 0;
-
-            foreach (DataRow dr in dtSaveINV.Rows)
+            try
             {
-                if (dr[1].ToString() != null && dr[1].ToString() != "")
-                {
-                    double douINV_Amount = double.Parse(dr["INV_Amount"].ToString());
-                    double douFreight = douSumFreight * (douINV_Amount / douSumAmount);
-                    double douDuty = douSumDuty * (douINV_Amount / douSumAmount);
-                    double douVAT = douSumVAT * (douINV_Amount / douSumAmount);
+                DataTable dtSaveINV;
+                dtSaveINV = GetTableFromDgv(dgvINV, "DecINV");
+                double douSumAmount = double.Parse(dtSaveINV.Compute("Sum(INV_Amount)", "True").ToString());
+                double douSumDuty = double.Parse(tbDuty.Text);
+                double douSumVAT = double.Parse(tbVAT.Text);
+                double douSumFreight = double.Parse(tbFreight.Text);
+                double douSumCT = double.Parse(tbCT.Text);
+                int intRowsnum = 0;
 
-                    dgvINV.Rows[intRowsnum].Cells["Freight"].Value = douFreight.ToString();
-                    dgvINV.Rows[intRowsnum].Cells["Duty"].Value = douDuty.ToString();
-                    dgvINV.Rows[intRowsnum].Cells["VAT"].Value = douVAT.ToString();
+                foreach (DataRow dr in dtSaveINV.Rows)
+                {
+                    if (dr[1].ToString() != null && dr[1].ToString() != "")
+                    {
+                        double douINV_Amount = double.Parse(dr["INV_Amount"].ToString());
+                        double douFreight = douSumFreight * (douINV_Amount / douSumAmount);
+                        double douDuty = douSumDuty * (douINV_Amount / douSumAmount);
+                        double douVAT = douSumVAT * (douINV_Amount / douSumAmount);
+                        double douCT = douSumCT * (douINV_Amount / douSumAmount);
+
+                        dgvINV.Rows[intRowsnum].Cells["Freight"].Value = douFreight.ToString();
+                        dgvINV.Rows[intRowsnum].Cells["Duty"].Value = douDuty.ToString();
+                        dgvINV.Rows[intRowsnum].Cells["VAT"].Value = douVAT.ToString();
+                        dgvINV.Rows[intRowsnum].Cells["CT"].Value = douCT.ToString();
+                    }
+                    intRowsnum++;
                 }
-                intRowsnum++;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("计算发生异常,错误信息为:" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void btnCalHS_Click(object sender, EventArgs e)
         {
-            DataTable dtSaveHS;
-            dtSaveHS = GetTableFromDgv(dgvHS, "DecHS");
-            DataTable dtHSSetting;
-            string strSQL_GetHSSetting = "select * from DecHSSetting ";
-            AccessHelper ah = new AccessHelper();
-            dtHSSetting = ah.SelectToDataTable(strSQL_GetHSSetting);
-            int intRowsNum = 0;
-            double douExRate = 6.6056;
-
-            foreach (DataRow dr in dtSaveHS.Rows)
+            try
             {
-                if (dr[1].ToString() != null && dr[1].ToString() != "")
-                {
-                    string strHSCODE = dr["HS_CODE"].ToString();
-                    DataRow[] drs;
-                    drs = dtHSSetting.Select("HSCODE = '" + strHSCODE + "' ");
-                    if (drs.Length > 0)
-                    {
-                        double douDutyS = double.Parse(drs[0][2].ToString());
-                        double douVATs = double.Parse(drs[0][3].ToString());
-                        double douM = double.Parse(dr["M"].ToString());
-                        double douDuty = douM * douExRate * douDutyS;
-                        double douVAT = (douDuty + (douM * douExRate)) * douVATs;
+                DataTable dtSaveHS;
+                dtSaveHS = GetTableFromDgv(dgvHS, "DecHS");
+                DataTable dtHSSetting;
+                string strSQL_GetHSSetting = "select * from DecHSSetting ";
+                AccessHelper ah = new AccessHelper();
+                dtHSSetting = ah.SelectToDataTable(strSQL_GetHSSetting);
+                int intRowsNum = 0;
+                double douExRate = 6.6056;
 
-                        dgvHS.Rows[intRowsNum].Cells["Duty_System"].Value = douDuty.ToString();
-                        dgvHS.Rows[intRowsNum].Cells["VAT_System"].Value = douVAT.ToString();
-                    }
-                    else
+                foreach (DataRow dr in dtSaveHS.Rows)
+                {
+                    if (dr[1].ToString() != null && dr[1].ToString() != "")
                     {
-                        MessageBox.Show("HSCODE:" + strHSCODE + ",在系统中没有设定,请检查.", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        string strHSCODE = dr["HS_CODE"].ToString();
+                        DataRow[] drs;
+                        drs = dtHSSetting.Select("HSCODE = '" + strHSCODE + "' ");
+                        if (drs.Length > 0)
+                        {
+                            double douDutyS = double.Parse(drs[0][2].ToString());
+                            double douVATs = double.Parse(drs[0][3].ToString());
+                            double douM = double.Parse(dr["M"].ToString());
+                            double douDuty = douM * douExRate * douDutyS;
+                            double douVAT = (douDuty + (douM * douExRate)) * douVATs;
+
+                            dgvHS.Rows[intRowsNum].Cells["Duty_System"].Value = douDuty.ToString();
+                            dgvHS.Rows[intRowsNum].Cells["VAT_System"].Value = douVAT.ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("HSCODE:" + strHSCODE + ",在系统中没有设定,请检查.", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
+                    intRowsNum++;
                 }
-                intRowsNum++;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("计算发生异常,错误信息为:" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -314,6 +331,25 @@ namespace BHair.Business
                 catch (Exception ex)
                 {
                     MessageBox.Show("Excel数据导入失败,详见数据错误列表::" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            DataTable TempDT;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel文件|*.xls";
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string filePath == openFileDialog.FileName;
+
+                }
+                catch (Exception ex)
+                {
+
                 }
             }
         }
