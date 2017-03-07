@@ -1209,12 +1209,15 @@ namespace BHair.Business
             DataTable Result = new DataTable();
             Result.Columns.Add(new DataColumn("OrderNO", typeof(string)));
             Result.Columns.Add(new DataColumn("Status", typeof(int)));
-            Result.Columns.Add(new DataColumn("HS_CODE", typeof(string)));
-            Result.Columns.Add(new DataColumn("M", typeof(double)));
-            Result.Columns.Add(new DataColumn("Duty_System", typeof(double)));
-            Result.Columns.Add(new DataColumn("Duty_Input", typeof(double)));
-            Result.Columns.Add(new DataColumn("VAT_System", typeof(double)));
-            Result.Columns.Add(new DataColumn("VAT_Input", typeof(double)));
+            Result.Columns.Add(new DataColumn("INV_NO", typeof(string)));
+            Result.Columns.Add(new DataColumn("INV_Amount", typeof(double)));
+            Result.Columns.Add(new DataColumn("Cart_INV", typeof(int)));
+            Result.Columns.Add(new DataColumn("PCs", typeof(int)));
+            Result.Columns.Add(new DataColumn("Shop_Receiver", typeof(string)));
+            Result.Columns.Add(new DataColumn("Freight", typeof(double)));
+            Result.Columns.Add(new DataColumn("Duty", typeof(double)));
+            Result.Columns.Add(new DataColumn("VAT", typeof(double)));
+            Result.Columns.Add(new DataColumn("CT", typeof(double)));
 
             Excel.Application app = new Excel.Application();
             Excel.Sheets sheets;
@@ -1243,12 +1246,15 @@ namespace BHair.Business
                     DataRow dr = Result.NewRow();
                     dr["OrderNO"] = strOrderNO;
                     dr["Status"] = 0;
-                    dr["HS_CODE"] = ((Excel.Range)worksheet.Cells[iRow, 1]).Text;
-                    dr["M"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 2]).Text.ToString());
-                    dr["Duty_System"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 3]).Text.ToString());
-                    dr["Duty_Input"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 4]).Text.ToString());
-                    dr["VAT_System"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 5]).Text.ToString());
-                    dr["VAT_Input"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString());
+                    dr["INV_NO"] = ((Excel.Range)worksheet.Cells[iRow, 1]).Text;
+                    dr["INV_Amount"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 2]).Text.ToString());
+                    dr["Cart_INV"] = int.Parse(((Excel.Range)worksheet.Cells[iRow, 3]).Text.ToString());
+                    dr["PCs"] = int.Parse(((Excel.Range)worksheet.Cells[iRow, 4]).Text.ToString());
+                    dr["Shop_Receiver"] = ((Excel.Range)worksheet.Cells[iRow, 5]).Text.ToString();
+                    dr["Freight"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString());
+                    dr["Duty"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString());
+                    dr["VAT"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString());
+                    dr["CT"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString());
                     if (validate == 0) Result.Rows.Add(dr);
                 }
                 return Result;

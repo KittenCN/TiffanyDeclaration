@@ -197,6 +197,7 @@ namespace BHair.Business
             drHSData["Status"] = 0;
             drHSData["HS_Code"] = tbHS_Code.Text;
             drHSData["M"] = tbM.Text;
+            drHSData["Shop_Receiver"] = tbShopReceiver.Text;
             dtShowHS.Rows.Add(drHSData);
 
             dgvHS.AutoGenerateColumns = false;
@@ -344,12 +345,15 @@ namespace BHair.Business
             {
                 try
                 {
-                    string filePath == openFileDialog.FileName;
-
+                    string filePath = openFileDialog.FileName;
+                    PrintExcel pe = new PrintExcel();
+                    TempDT = pe.ExcelToDataTable_INV(filePath, tbOrderNO.Text);
+                    dgvINV.AutoGenerateColumns = false;
+                    dgvINV.DataSource = TempDT;
                 }
                 catch (Exception ex)
                 {
-
+                    MessageBox.Show("Excel数据导入失败,详见数据错误列表::" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }

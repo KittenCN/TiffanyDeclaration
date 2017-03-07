@@ -159,6 +159,12 @@
     <Compile Include="Base\frmStore_List.Designer.cs">
       <DependentUpon>frmStore_List.cs</DependentUpon>
     </Compile>
+    <Compile Include="Base\frmSystemConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\frmSystemConfig.Designer.cs">
+      <DependentUpon>frmSystemConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\frmAddStoreApplication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -399,6 +405,9 @@
     <EmbeddedResource Include="Base\frmStore_List.resx">
       <DependentUpon>frmStore_List.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\frmSystemConfig.resx">
+      <DependentUpon>frmSystemConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\frmAddStoreApplication.resx">
       <DependentUpon>frmAddStoreApplication.cs</DependentUpon>

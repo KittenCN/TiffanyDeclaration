@@ -88,14 +88,6 @@
             this.btnInputHS = new System.Windows.Forms.Button();
             this.btnAddHS = new System.Windows.Forms.Button();
             this.dgvHS = new System.Windows.Forms.DataGridView();
-            this.OrderNO2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HS_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.M = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Duty_System = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Duty_Input = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VAT_System = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VAT_Input = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbM = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.tbHS_Code = new System.Windows.Forms.TextBox();
@@ -114,6 +106,17 @@
             this.VAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUpload = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.tbShopReceiver = new System.Windows.Forms.TextBox();
+            this.OrderNO2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HS_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.M = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Duty_System = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Duty_Input = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VAT_System = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VAT_Input = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Shop_Receiver2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcDecNewOrder.SuspendLayout();
             this.tabStep1.SuspendLayout();
             this.tabStep2.SuspendLayout();
@@ -660,6 +663,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.tbShopReceiver);
+            this.tabPage3.Controls.Add(this.label25);
             this.tabPage3.Controls.Add(this.btnInputD_V);
             this.tabPage3.Controls.Add(this.btnCalHS);
             this.tabPage3.Controls.Add(this.btnInputHS);
@@ -728,7 +733,8 @@
             this.Duty_System,
             this.Duty_Input,
             this.VAT_System,
-            this.VAT_Input});
+            this.VAT_Input,
+            this.Shop_Receiver2});
             this.dgvHS.Location = new System.Drawing.Point(-3, 87);
             this.dgvHS.Margin = new System.Windows.Forms.Padding(2);
             this.dgvHS.MultiSelect = false;
@@ -737,59 +743,9 @@
             this.dgvHS.Size = new System.Drawing.Size(642, 432);
             this.dgvHS.TabIndex = 36;
             // 
-            // OrderNO2
-            // 
-            this.OrderNO2.DataPropertyName = "OrderNO";
-            this.OrderNO2.HeaderText = "OrderNO";
-            this.OrderNO2.Name = "OrderNO2";
-            this.OrderNO2.Visible = false;
-            // 
-            // Status2
-            // 
-            this.Status2.DataPropertyName = "Status";
-            this.Status2.HeaderText = "Status";
-            this.Status2.Name = "Status2";
-            this.Status2.Visible = false;
-            // 
-            // HS_CODE
-            // 
-            this.HS_CODE.DataPropertyName = "HS_CODE";
-            this.HS_CODE.HeaderText = "HS_CODE";
-            this.HS_CODE.Name = "HS_CODE";
-            // 
-            // M
-            // 
-            this.M.DataPropertyName = "M";
-            this.M.HeaderText = "M";
-            this.M.Name = "M";
-            // 
-            // Duty_System
-            // 
-            this.Duty_System.DataPropertyName = "Duty_System";
-            this.Duty_System.HeaderText = "Duty_System";
-            this.Duty_System.Name = "Duty_System";
-            // 
-            // Duty_Input
-            // 
-            this.Duty_Input.DataPropertyName = "Duty_Input";
-            this.Duty_Input.HeaderText = "Duty_Input";
-            this.Duty_Input.Name = "Duty_Input";
-            // 
-            // VAT_System
-            // 
-            this.VAT_System.DataPropertyName = "VAT_System";
-            this.VAT_System.HeaderText = "VAT_System";
-            this.VAT_System.Name = "VAT_System";
-            // 
-            // VAT_Input
-            // 
-            this.VAT_Input.DataPropertyName = "VAT_Input";
-            this.VAT_Input.HeaderText = "VAT_Input";
-            this.VAT_Input.Name = "VAT_Input";
-            // 
             // tbM
             // 
-            this.tbM.Location = new System.Drawing.Point(89, 50);
+            this.tbM.Location = new System.Drawing.Point(89, 62);
             this.tbM.Margin = new System.Windows.Forms.Padding(2);
             this.tbM.Name = "tbM";
             this.tbM.Size = new System.Drawing.Size(200, 21);
@@ -798,7 +754,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(3, 52);
+            this.label27.Location = new System.Drawing.Point(3, 64);
             this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(35, 12);
@@ -807,7 +763,7 @@
             // 
             // tbHS_Code
             // 
-            this.tbHS_Code.Location = new System.Drawing.Point(89, 17);
+            this.tbHS_Code.Location = new System.Drawing.Point(89, 37);
             this.tbHS_Code.Margin = new System.Windows.Forms.Padding(2);
             this.tbHS_Code.Name = "tbHS_Code";
             this.tbHS_Code.Size = new System.Drawing.Size(200, 21);
@@ -816,7 +772,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(1, 19);
+            this.label26.Location = new System.Drawing.Point(1, 39);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(53, 12);
@@ -921,6 +877,78 @@
             this.btnUpload.UseVisualStyleBackColor = true;
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(3, 13);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(83, 12);
+            this.label25.TabIndex = 41;
+            this.label25.Text = "店铺两字代码:";
+            // 
+            // tbShopReceiver
+            // 
+            this.tbShopReceiver.Location = new System.Drawing.Point(89, 10);
+            this.tbShopReceiver.Name = "tbShopReceiver";
+            this.tbShopReceiver.Size = new System.Drawing.Size(200, 21);
+            this.tbShopReceiver.TabIndex = 42;
+            // 
+            // OrderNO2
+            // 
+            this.OrderNO2.DataPropertyName = "OrderNO";
+            this.OrderNO2.HeaderText = "OrderNO";
+            this.OrderNO2.Name = "OrderNO2";
+            this.OrderNO2.Visible = false;
+            // 
+            // Status2
+            // 
+            this.Status2.DataPropertyName = "Status";
+            this.Status2.HeaderText = "Status";
+            this.Status2.Name = "Status2";
+            this.Status2.Visible = false;
+            // 
+            // HS_CODE
+            // 
+            this.HS_CODE.DataPropertyName = "HS_CODE";
+            this.HS_CODE.HeaderText = "HS_CODE";
+            this.HS_CODE.Name = "HS_CODE";
+            // 
+            // M
+            // 
+            this.M.DataPropertyName = "M";
+            this.M.HeaderText = "M";
+            this.M.Name = "M";
+            // 
+            // Duty_System
+            // 
+            this.Duty_System.DataPropertyName = "Duty_System";
+            this.Duty_System.HeaderText = "Duty_System";
+            this.Duty_System.Name = "Duty_System";
+            // 
+            // Duty_Input
+            // 
+            this.Duty_Input.DataPropertyName = "Duty_Input";
+            this.Duty_Input.HeaderText = "Duty_Input";
+            this.Duty_Input.Name = "Duty_Input";
+            // 
+            // VAT_System
+            // 
+            this.VAT_System.DataPropertyName = "VAT_System";
+            this.VAT_System.HeaderText = "VAT_System";
+            this.VAT_System.Name = "VAT_System";
+            // 
+            // VAT_Input
+            // 
+            this.VAT_Input.DataPropertyName = "VAT_Input";
+            this.VAT_Input.HeaderText = "VAT_Input";
+            this.VAT_Input.Name = "VAT_Input";
+            // 
+            // Shop_Receiver2
+            // 
+            this.Shop_Receiver2.DataPropertyName = "Shop_Receiver";
+            this.Shop_Receiver2.HeaderText = "Shop_Receiver";
+            this.Shop_Receiver2.Name = "Shop_Receiver2";
+            // 
             // frmDecOrderEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1019,14 +1047,6 @@
         private System.Windows.Forms.TextBox tbHS_Code;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button btnInputD_V;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderNO2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HS_CODE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn M;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Duty_System;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Duty_Input;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VAT_System;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VAT_Input;
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderNO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
@@ -1039,5 +1059,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Duty;
         private System.Windows.Forms.DataGridViewTextBoxColumn VAT;
         private System.Windows.Forms.DataGridViewTextBoxColumn CT;
+        private System.Windows.Forms.TextBox tbShopReceiver;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderNO2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HS_CODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Duty_System;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Duty_Input;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VAT_System;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VAT_Input;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Shop_Receiver2;
     }
 }
