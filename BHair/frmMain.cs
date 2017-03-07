@@ -329,7 +329,7 @@ namespace BHair
             if (Login.LoginUser.UID == null || Login.LoginUser.UID == "")
             {
                 //toolStripButton3.Visible = false;
-                toolStripButton8.Visible = false;
+                //toolStripButton8.Visible = false;
                 toolStripButton2.Visible = false;
             }
             else if (Login.LoginUser.Character == 1)    //入关
@@ -343,7 +343,7 @@ namespace BHair
                 {
                     toolStripButton2.Visible = false;
                 }
-                toolStripButton8.Visible = true;
+                //toolStripButton8.Visible = true;
                 //tsbDscOrder_Click(null, null);
                 //menuMain_Manage_ApprovalApp_Click(null, null);//入关窗口
             }
@@ -353,7 +353,7 @@ namespace BHair
                 tsbWMSMain.Visible = true;
                 tsbOutbound.Visible = true;
                 //toolStripButton3.Visible = false;
-                toolStripButton8.Visible = false;
+                //toolStripButton8.Visible = false;
                 toolStripButton2.Visible = false;
                 //menuMain_Manage_Approval2App_Click(null, null);//仓管窗口
             }
@@ -363,7 +363,7 @@ namespace BHair
                 tsbDscOrder.Visible = true;
                 toolStripButton2.Visible = true;
                 //toolStripButton3.Visible = true;
-                toolStripButton8.Visible = true;
+                //toolStripButton8.Visible = true;
                 tsbWMConfig.Visible = true;
                 tsbWMSMain.Visible = true;
                 tsbOutbound.Visible = true;
@@ -392,8 +392,8 @@ namespace BHair
 
         private void tsbWMConfig_Click(object sender, EventArgs e)
         {
-            frmStore_List fsl = new frmStore_List();
-            this.ShowWindows_Click(fsl);
+            frmSystemConfig fsc = new Business.frmSystemConfig();
+            fsc.ShowDialog();
         }
 
         private void tsbWMSMain_Click(object sender, EventArgs e)

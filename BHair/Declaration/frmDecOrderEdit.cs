@@ -273,14 +273,22 @@ namespace BHair.Business
         {
             try
             {
+                AccessHelper ah = new AccessHelper();
+                string strSQL = "select * from SetupConfig ";
+                DataTable dt = ah.SelectToDataTable(strSQL);
+                double douExRate = 0.0;
+                ah.Close();
+                if (dt.Rows.Count > 0)
+                {
+                    douExRate = double.Parse(dt.Rows[0]["Rate"].ToString());
+                }
                 DataTable dtSaveHS;
                 dtSaveHS = GetTableFromDgv(dgvHS, "DecHS");
                 DataTable dtHSSetting;
                 string strSQL_GetHSSetting = "select * from DecHSSetting ";
-                AccessHelper ah = new AccessHelper();
+                ah = new AccessHelper();
                 dtHSSetting = ah.SelectToDataTable(strSQL_GetHSSetting);
                 int intRowsNum = 0;
-                double douExRate = 6.6056;
 
                 foreach (DataRow dr in dtSaveHS.Rows)
                 {
