@@ -828,7 +828,7 @@
             this.btnInputD_V.Name = "btnInputD_V";
             this.btnInputD_V.Size = new System.Drawing.Size(148, 38);
             this.btnInputD_V.TabIndex = 40;
-            this.btnInputD_V.Text = "测试功能";
+            this.btnInputD_V.Text = "导出综合报表";
             this.btnInputD_V.UseVisualStyleBackColor = true;
             this.btnInputD_V.Click += new System.EventHandler(this.btnInputD_V_Click);
             // 
