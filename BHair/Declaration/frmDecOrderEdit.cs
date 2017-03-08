@@ -150,11 +150,11 @@ namespace BHair.Business
             {
                 dtExCusClearTime.Value = DateTime.Parse(drMainData["ExCusClearTime"].ToString());
                 tbMAWB.Text = drMainData["MAWB"].ToString();
-                cbARRport.Text= drMainData["ARRport"].ToString();
+                cbARRport.Text = drMainData["ARRport"].ToString();
                 dtpARRDate.Value = DateTime.Parse(drMainData["ARRdate"].ToString());
-                cbcust_gl_agent.Text= drMainData["cust_gl_agent"].ToString();
+                cbcust_gl_agent.Text = drMainData["cust_gl_agent"].ToString();
                 tbCust_Fee.Text = drMainData["cust_fee"].ToString();
-                cbImport_Agent.Text= drMainData["Import_Agent"].ToString();
+                cbImport_Agent.Text = drMainData["Import_Agent"].ToString();
                 tbContract_NO.Text = drMainData["ContractNO"].ToString();
                 tbFreight.Text = drMainData["Freight"].ToString();
                 tbDuty.Text = drMainData["Duty"].ToString();
@@ -249,7 +249,7 @@ namespace BHair.Business
                     intRowsnum++;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("计算发生异常,错误信息为:" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -303,7 +303,7 @@ namespace BHair.Business
                 }
                 dgvHS.Sort(this.dgvHS.Columns["Shop_Receiver2"], ListSortDirection.Ascending);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("计算发生异常,错误信息为:" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -336,7 +336,7 @@ namespace BHair.Business
             DataTable TempDT;
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Excel文件|*.xls";
-            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
@@ -359,13 +359,9 @@ namespace BHair.Business
             DataTable dtTempINV = GenClass.GetTableFromDgv(dgvINV, "DecINV");
             DataTable dtResultHS = new DataTable();
             dtResultHS.Columns.Add(new DataColumn("Shop_Receiver", typeof(string)));
-            dtResultHS.Columns.Add(new DataColumn("Duty_HSCODE", typeof(string)));
-            dtResultHS.Columns.Add(new DataColumn("VAT_HSCODE", typeof(string)));
+            dtResultHS.Columns.Add(new DataColumn("Duty_HSCODE", typeof(double)));
+            dtResultHS.Columns.Add(new DataColumn("VAT_HSCODE", typeof(double)));
             DataTable dtResultINV = new DataTable();
-            //dtResultINV.Columns.Add(new DataColumn("INV_NO", typeof(string)));
-            //dtResultINV.Columns.Add(new DataColumn("INV_Amount", typeof(double)));
-            //dtResultINV.Columns.Add(new DataColumn("Cart_INV", typeof(int)));
-            //dtResultINV.Columns.Add(new DataColumn("PCs", typeof(int)));
             dtResultINV.Columns.Add(new DataColumn("Shop_Receiver", typeof(string)));
             dtResultINV.Columns.Add(new DataColumn("Freight", typeof(double)));
             dtResultINV.Columns.Add(new DataColumn("Duty", typeof(double)));
@@ -381,11 +377,81 @@ namespace BHair.Business
             double douSumCTINV = 0.00;
             double douSumFreightINV = 0.00;
             DataRow drNewINV;
+            DataTable dtResult = new DataTable();
+            dtResult.Columns.Add(new DataColumn("ExCusClearTime", typeof(DateTime)));
+            dtResult.Columns.Add(new DataColumn("MAWB", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("ARRport", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("ARRdate", typeof(DateTime)));
+            dtResult.Columns.Add(new DataColumn("cust_gl_agent", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("cust_fee", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("Import_Agent", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("ContractNO", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("INV_NO", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("INV_Amount", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("Cart_INV", typeof(int)));
+            dtResult.Columns.Add(new DataColumn("PCs", typeof(int)));
+            dtResult.Columns.Add(new DataColumn("Shop_Receiver", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("Freight", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("Duty", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("VAT", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("CT", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("Duty_HSCODE", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("VAT_HSCODE", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("AgentFee", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("DutyInJD", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("VATinJD", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("CTinJD", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("ContainerNO", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("JD_Receiving_Date", typeof(DateTime)));
 
-            foreach (DataRow dr in dtTempINV.Rows)
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel文件(*.csv)|*.csv";
+            DialogResult result = saveFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
             {
-                if (dr["Shop_Receiver"].ToString() != strLastStringINV && strLastStringINV.Length != 0)
+                try
                 {
+                    string localFilePath = saveFileDialog.FileName.ToString();
+                    PrintExcel pe = new PrintExcel();
+                    foreach (DataRow dr in dtTempINV.Rows)
+                    {
+                        if (dr["Shop_Receiver"].ToString() != strLastStringINV && strLastStringINV.Length != 0)
+                        {
+                            drNewINV = dtResultINV.NewRow();
+                            drNewINV["Shop_Receiver"] = strLastStringINV;
+                            drNewINV["Duty"] = douSumDutyINV.ToString("0.00");
+                            drNewINV["VAT"] = douSumVATINV.ToString("0.00");
+                            drNewINV["CT"] = douSumCTINV.ToString("0.00");
+                            drNewINV["Freight"] = douSumFreightINV.ToString("0.00");
+                            dtResultINV.Rows.Add(drNewINV);
+
+                            strLastStringINV = dr["Shop_Receiver"].ToString();
+                            douSumDutyINV = double.Parse(dr["Duty"].ToString());
+                            douSumVATINV = double.Parse(dr["VAT"].ToString());
+                            douSumCTINV = double.Parse(dr["CT"].ToString());
+                            douSumFreightINV = double.Parse(dr["Freight"].ToString());
+                        }
+                        else if (dr["Shop_Receiver"].ToString() != strLastStringINV && strLastStringINV.Length == 0)
+                        {
+                            strLastStringINV = dr["Shop_Receiver"].ToString();
+                            douSumDutyINV = double.Parse(dr["Duty"].ToString());
+                            douSumVATINV = double.Parse(dr["VAT"].ToString());
+                            douSumCTINV = double.Parse(dr["CT"].ToString());
+                            douSumFreightINV = double.Parse(dr["Freight"].ToString());
+                        }
+                        else if (dr["Shop_Receiver"].ToString() == strLastStringINV)
+                        {
+                            douSumDutyINV = douSumDutyINV + double.Parse(dr["Duty"].ToString());
+                            douSumVATINV = douSumVATINV + double.Parse(dr["VAT"].ToString());
+                            douSumCTINV = douSumCTINV + double.Parse(dr["CT"].ToString());
+                            douSumFreightINV = douSumFreightINV + double.Parse(dr["Freight"].ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("状态异常", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    //The last data can not calculat in the method of foreach
                     drNewINV = dtResultINV.NewRow();
                     drNewINV["Shop_Receiver"] = strLastStringINV;
                     drNewINV["Duty"] = douSumDutyINV.ToString("0.00");
@@ -394,78 +460,107 @@ namespace BHair.Business
                     drNewINV["Freight"] = douSumFreightINV.ToString("0.00");
                     dtResultINV.Rows.Add(drNewINV);
 
-                    strLastStringINV = dr["Shop_Receiver"].ToString();
-                    douSumDutyINV = double.Parse(dr["Duty"].ToString());
-                    douSumVATINV = double.Parse(dr["VAT"].ToString());
-                    douSumCTINV = double.Parse(dr["CT"].ToString());
-                    douSumFreightINV = double.Parse(dr["Freight"].ToString());
-                }
-                else if (dr["Shop_Receiver"].ToString() != strLastStringINV && strLastStringINV.Length == 0)
-                {
-                    strLastStringINV = dr["Shop_Receiver"].ToString();
-                    douSumDutyINV = double.Parse(dr["Duty"].ToString());
-                    douSumVATINV = double.Parse(dr["VAT"].ToString());
-                    douSumCTINV = double.Parse(dr["CT"].ToString());
-                    douSumFreightINV = double.Parse(dr["Freight"].ToString());
-                }
-                else if (dr["Shop_Receiver"].ToString() == strLastStringINV)
-                {
-                    douSumDutyINV = douSumDutyINV + double.Parse(dr["Duty"].ToString());
-                    douSumVATINV = douSumVATINV + double.Parse(dr["VAT"].ToString());
-                    douSumCTINV = douSumCTINV + double.Parse(dr["CT"].ToString());
-                    douSumFreightINV = douSumFreightINV + double.Parse(dr["Freight"].ToString());
-                }
-                else
-                {
-                    MessageBox.Show("状态异常", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            //The last data can not calculat in the method of foreach
-            drNewINV = dtResultINV.NewRow();
-            drNewINV["Shop_Receiver"] = strLastStringINV;
-            drNewINV["Duty"] = douSumDutyINV.ToString("0.00");
-            drNewINV["VAT"] = douSumVATINV.ToString("0.00");
-            drNewINV["CT"] = douSumCTINV.ToString("0.00");
-            drNewINV["Freight"] = douSumFreightINV.ToString("0.00");
-            dtResultINV.Rows.Add(drNewINV);
+                    foreach (DataRow dr in dtTempHS.Rows)
+                    {
+                        if (dr["Shop_Receiver"].ToString() != strLastStringHS && strLastStringHS.Length != 0)
+                        {
+                            drNewHS = dtResultHS.NewRow();
+                            drNewHS["Shop_Receiver"] = strLastStringHS;
+                            drNewHS["Duty_HSCODE"] = double.Parse(douSumDutyHS.ToString("0.00"));
+                            drNewHS["VAT_HSCODE"] = double.Parse(douSumVATHS.ToString("0.00"));
+                            dtResultHS.Rows.Add(drNewHS);
 
-            foreach (DataRow dr in dtTempHS.Rows)
-            {
-                if (dr["Shop_Receiver"].ToString() != strLastStringHS && strLastStringHS.Length != 0)
-                {
+                            strLastStringHS = dr["Shop_Receiver"].ToString();
+                            douSumDutyHS = double.Parse(dr["Duty_System"].ToString());
+                            douSumVATHS = double.Parse(dr["VAT_System"].ToString());
+                        }
+                        else if (dr["Shop_Receiver"].ToString() != strLastStringHS && strLastStringHS.Length == 0)
+                        {
+                            strLastStringHS = dr["Shop_Receiver"].ToString();
+                            douSumDutyHS = double.Parse(dr["Duty_System"].ToString());
+                            douSumVATHS = double.Parse(dr["VAT_System"].ToString());
+                        }
+                        else if (dr["Shop_Receiver"].ToString() == strLastStringHS)
+                        {
+                            douSumDutyHS = douSumDutyHS + double.Parse(dr["Duty_System"].ToString());
+                            douSumVATHS = douSumVATHS + double.Parse(dr["VAT_System"].ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("状态异常", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    //The last data can not calculat in the method of foreach
                     drNewHS = dtResultHS.NewRow();
                     drNewHS["Shop_Receiver"] = strLastStringHS;
-                    drNewHS["Duty_HSCODE"] = douSumDutyHS.ToString("0.00");
-                    drNewHS["VAT_HSCODE"] = douSumVATHS.ToString("0.00");
+                    drNewHS["Duty_HSCODE"] = double.Parse(douSumDutyHS.ToString("0.00"));
+                    drNewHS["VAT_HSCODE"] = double.Parse(douSumVATHS.ToString("0.00"));
                     dtResultHS.Rows.Add(drNewHS);
 
-                    strLastStringHS = dr["Shop_Receiver"].ToString();
-                    douSumDutyHS = double.Parse(dr["Duty_System"].ToString());
-                    douSumVATHS = double.Parse(dr["VAT_System"].ToString());
+                    Boolean boolRunFirst = false;
+                    string strLastString = "";
+                    foreach (DataRow dr in dtTempINV.Rows)
+                    {
+                        DataRow drR = dtResult.NewRow();
+                        if (!boolRunFirst)
+                        {
+                            drR.ItemArray = drData(drR).ItemArray.Clone() as object[];
+                            boolRunFirst = true;
+                        }
+                        drR["INV_NO"] = dr["INV_NO"].ToString();
+                        drR["INV_Amount"] = double.Parse(dr["INV_Amount"].ToString());
+                        drR["Cart_INV"] = int.Parse(dr["Cart_INV"].ToString());
+                        drR["PCs"] = int.Parse(dr["PCs"].ToString());
+
+                        if (strLastString != dr["Shop_Receiver"].ToString())
+                        {
+                            drR["Shop_Receiver"] = dr["Shop_Receiver"].ToString();
+                            DataRow[] drINV = dtResultINV.Select("Shop_Receiver = '" + dr["Shop_Receiver"].ToString() + "' ");
+                            if (drINV.Length > 0)
+                            {
+                                drR["Freight"] = double.Parse(drINV[0]["Freight"].ToString());
+                                drR["Duty"] = double.Parse(drINV[0]["Duty"].ToString());
+                                drR["VAT"] = double.Parse(drINV[0]["VAT"].ToString());
+                                drR["CT"] = double.Parse(drINV[0]["CT"].ToString());
+                            }
+                            DataRow[] drHS = dtResultHS.Select("Shop_Receiver = '" + dr["Shop_Receiver"].ToString() + "' ");
+                            if (drINV.Length > 0)
+                            {
+                                drR["Duty_HSCODE"] = double.Parse(drHS[0]["Duty_HSCODE"].ToString());
+                                drR["VAT_HSCODE"] = double.Parse(drHS[0]["VAT_HSCODE"].ToString());
+                            }
+                            strLastString = dr["Shop_Receiver"].ToString();
+                        }
+                        dtResult.Rows.Add(drR);
+                    }
+                    pe.CreateCSVFile(dtResult, localFilePath);
+                    MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (dr["Shop_Receiver"].ToString() != strLastStringHS && strLastStringHS.Length == 0)
+                catch (Exception ex)
                 {
-                    strLastStringHS = dr["Shop_Receiver"].ToString();
-                    douSumDutyHS = double.Parse(dr["Duty_System"].ToString());
-                    douSumVATHS = double.Parse(dr["VAT_System"].ToString());
-                }
-                else if (dr["Shop_Receiver"].ToString() == strLastStringHS)
-                {
-                    douSumDutyHS = douSumDutyHS + double.Parse(dr["Duty_System"].ToString());
-                    douSumVATHS = douSumVATHS + double.Parse(dr["VAT_System"].ToString());
-                }
-                else
-                {
-                    MessageBox.Show("状态异常", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("保存失败::" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            //The last data can not calculat in the method of foreach
-            drNewHS = dtResultHS.NewRow();
-            drNewHS["Shop_Receiver"] = strLastStringHS;
-            drNewHS["Duty_HSCODE"] = douSumDutyHS.ToString("0.00");
-            drNewHS["VAT_HSCODE"] = douSumVATHS.ToString("0.00");
-            dtResultHS.Rows.Add(drNewHS);
         }
 
+        private DataRow drData(DataRow drMainData)
+        {
+            drMainData["ExCusClearTime"] = dtExCusClearTime.Value;
+            drMainData["MAWB"] = tbMAWB.Text;
+            drMainData["ARRport"] = cbARRport.Text;
+            drMainData["ARRdate"] = dtpARRDate.Value;
+            drMainData["cust_gl_agent"] = cbcust_gl_agent.Text;
+            drMainData["cust_fee"] = tbCust_Fee.Text;
+            drMainData["Import_Agent"] = cbImport_Agent.Text;
+            drMainData["ContractNO"] = tbContract_NO.Text;
+            drMainData["AgentFee"] = tbAgentFee.Text;
+            drMainData["DutyInJD"] = tbDutyInJD.Text;
+            drMainData["VATinJD"] = tbVATinJD.Text;
+            drMainData["CTinJD"] = tbCTinJD.Text;
+            drMainData["ContainerNO"] = tbContainerNo.Text;
+            drMainData["JD_Receiving_Date"] = dtpJD_Receiving_Date.Value;
+
+            return drMainData;
+        }
     }
 }
