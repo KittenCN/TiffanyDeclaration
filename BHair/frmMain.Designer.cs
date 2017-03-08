@@ -55,9 +55,10 @@
             this.dPanelMain.ActiveAutoHideContent = null;
             this.dPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dPanelMain.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
-            this.dPanelMain.Location = new System.Drawing.Point(0, 73);
+            this.dPanelMain.Location = new System.Drawing.Point(0, 79);
+            this.dPanelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dPanelMain.Name = "dPanelMain";
-            this.dPanelMain.Size = new System.Drawing.Size(668, 402);
+            this.dPanelMain.Size = new System.Drawing.Size(1894, 937);
             this.dPanelMain.TabIndex = 0;
             // 
             // ssrMain
@@ -66,16 +67,17 @@
             this.ssrMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.tssrMain_Timer});
-            this.ssrMain.Location = new System.Drawing.Point(0, 449);
+            this.ssrMain.Location = new System.Drawing.Point(0, 983);
             this.ssrMain.Name = "ssrMain";
-            this.ssrMain.Size = new System.Drawing.Size(668, 26);
+            this.ssrMain.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
+            this.ssrMain.Size = new System.Drawing.Size(1894, 33);
             this.ssrMain.SizingGrip = false;
             this.ssrMain.TabIndex = 4;
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(545, 21);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(1714, 28);
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "入关流程系统";
             this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -84,7 +86,7 @@
             // 
             this.tssrMain_Timer.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.tssrMain_Timer.Name = "tssrMain_Timer";
-            this.tssrMain_Timer.Size = new System.Drawing.Size(108, 21);
+            this.tssrMain_Timer.Size = new System.Drawing.Size(157, 28);
             this.tssrMain_Timer.Text = "[tssrMain_Timer]";
             // 
             // tmrMain
@@ -109,7 +111,8 @@
             this.toolStripButton9});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(668, 73);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.toolStrip1.Size = new System.Drawing.Size(1894, 79);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -119,7 +122,7 @@
             this.tsbDscOrder.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbDscOrder.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDscOrder.Name = "tsbDscOrder";
-            this.tsbDscOrder.Size = new System.Drawing.Size(60, 70);
+            this.tsbDscOrder.Size = new System.Drawing.Size(86, 77);
             this.tsbDscOrder.Text = "入关流程";
             this.tsbDscOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbDscOrder.Visible = false;
@@ -128,7 +131,7 @@
             // tt
             // 
             this.tt.Name = "tt";
-            this.tt.Size = new System.Drawing.Size(6, 73);
+            this.tt.Size = new System.Drawing.Size(6, 79);
             // 
             // tsbWMSMain
             // 
@@ -136,7 +139,7 @@
             this.tsbWMSMain.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbWMSMain.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbWMSMain.Name = "tsbWMSMain";
-            this.tsbWMSMain.Size = new System.Drawing.Size(60, 70);
+            this.tsbWMSMain.Size = new System.Drawing.Size(86, 77);
             this.tsbWMSMain.Text = "库存管理";
             this.tsbWMSMain.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbWMSMain.Visible = false;
@@ -148,7 +151,7 @@
             this.tsbInbound.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbInbound.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbInbound.Name = "tsbInbound";
-            this.tsbInbound.Size = new System.Drawing.Size(60, 70);
+            this.tsbInbound.Size = new System.Drawing.Size(86, 76);
             this.tsbInbound.Text = "入库流程";
             this.tsbInbound.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbInbound.Visible = false;
@@ -160,7 +163,7 @@
             this.tsbOutbound.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbOutbound.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbOutbound.Name = "tsbOutbound";
-            this.tsbOutbound.Size = new System.Drawing.Size(60, 70);
+            this.tsbOutbound.Size = new System.Drawing.Size(86, 76);
             this.tsbOutbound.Text = "出库流程";
             this.tsbOutbound.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbOutbound.Visible = false;
@@ -169,7 +172,7 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 73);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 79);
             // 
             // toolStripButton8
             // 
@@ -177,7 +180,7 @@
             this.toolStripButton8.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(60, 70);
+            this.toolStripButton8.Size = new System.Drawing.Size(86, 76);
             this.toolStripButton8.Text = "商品管理";
             this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton8.Visible = false;
@@ -189,7 +192,7 @@
             this.tsbWMConfig.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbWMConfig.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbWMConfig.Name = "tsbWMConfig";
-            this.tsbWMConfig.Size = new System.Drawing.Size(60, 70);
+            this.tsbWMConfig.Size = new System.Drawing.Size(86, 76);
             this.tsbWMConfig.Text = "系统设置";
             this.tsbWMConfig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbWMConfig.Visible = false;
@@ -201,7 +204,7 @@
             this.toolStripButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(60, 70);
+            this.toolStripButton2.Size = new System.Drawing.Size(86, 76);
             this.toolStripButton2.Text = "会员管理";
             this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton2.Visible = false;
@@ -213,23 +216,24 @@
             this.toolStripButton9.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(52, 70);
+            this.toolStripButton9.Size = new System.Drawing.Size(52, 76);
             this.toolStripButton9.Text = "退出";
             this.toolStripButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 475);
+            this.ClientSize = new System.Drawing.Size(1894, 1016);
             this.Controls.Add(this.ssrMain);
             this.Controls.Add(this.dPanelMain);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.MaximumSize = new System.Drawing.Size(1285, 733);
-            this.MinimumSize = new System.Drawing.Size(539, 413);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(1916, 1072);
+            this.MinimumSize = new System.Drawing.Size(798, 592);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "转货管理系统";

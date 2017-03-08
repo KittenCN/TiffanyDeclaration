@@ -160,6 +160,7 @@ namespace BHair.Business
             Result.Columns.Add(new DataColumn("Duty_Input", typeof(double)));
             Result.Columns.Add(new DataColumn("VAT_System", typeof(double)));
             Result.Columns.Add(new DataColumn("VAT_Input", typeof(double)));
+            Result.Columns.Add(new DataColumn("Shop_Receiver", typeof(string)));
 
             Excel.Application app = new Excel.Application();
             Excel.Sheets sheets;
@@ -194,6 +195,7 @@ namespace BHair.Business
                     dr["Duty_Input"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 4]).Text.ToString());
                     dr["VAT_System"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 5]).Text.ToString());
                     dr["VAT_Input"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString());
+                    dr["Shop_Receiver"] = ((Excel.Range)worksheet.Cells[iRow, 7]).Text;
                     if (validate == 0) Result.Rows.Add(dr);
                 }
                 return Result;
@@ -1252,9 +1254,9 @@ namespace BHair.Business
                     dr["PCs"] = int.Parse(((Excel.Range)worksheet.Cells[iRow, 4]).Text.ToString());
                     dr["Shop_Receiver"] = ((Excel.Range)worksheet.Cells[iRow, 5]).Text.ToString();
                     dr["Freight"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString());
-                    dr["Duty"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString());
-                    dr["VAT"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString());
-                    dr["CT"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString());
+                    dr["Duty"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 7]).Text.ToString());
+                    dr["VAT"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 8]).Text.ToString());
+                    dr["CT"] = double.Parse(((Excel.Range)worksheet.Cells[iRow, 9]).Text.ToString());
                     if (validate == 0) Result.Rows.Add(dr);
                 }
                 return Result;

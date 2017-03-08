@@ -39,11 +39,11 @@ namespace BHair.Business
                 drMainData["Status"] = 0;
                 drMainData["ExCusClearTime"] = dtExCusClearTime.Value;
                 drMainData["MAWB"] = tbMAWB.Text;
-                drMainData["ARRport"] = cbARRport.SelectedIndex;
+                drMainData["ARRport"] = cbARRport.Text;
                 drMainData["ARRdate"] = dtpARRDate.Value;
-                drMainData["cust_gl_agent"] = cbcust_gl_agent.SelectedIndex;
+                drMainData["cust_gl_agent"] = cbcust_gl_agent.Text;
                 drMainData["cust_fee"] = tbCust_Fee.Text;
-                drMainData["Import_Agent"] = cbImport_Agent.SelectedIndex;
+                drMainData["Import_Agent"] = cbImport_Agent.Text;
                 drMainData["ContractNO"] = tbContract_NO.Text;
                 drMainData["Freight"] = tbFreight.Text;
                 drMainData["Duty"] = tbDuty.Text;
@@ -60,19 +60,25 @@ namespace BHair.Business
 
                 string strSQL_DropMain = "delete from DecMain where OrderNO='" + tbOrderNO.Text + "'";
                 ah.ExecuteSQLNonquery(strSQL_DropMain);
+                ah.Close();
+                ah = new AccessHelper();
                 ah.AddRowsToTable(dtDecMain, "DecMain");
+                ah.Close();
 
                 string strSQL_DropINV = "delete from DecINV where OrderNO='" + tbOrderNO.Text + "'";
                 ah.ExecuteSQLNonquery(strSQL_DropINV);
+                ah.Close();
+                ah = new AccessHelper();
                 DataTable dtSaveINV;
-                //dtSaveINV = GetDgvToTable(dgvINV);
                 dtSaveINV = GenClass.GetTableFromDgv(dgvINV, "DecINV");
                 ah.AddRowsToTable(dtSaveINV, "DecINV");
+                ah.Close();
 
                 string strSQL_DropHS = "delete from DecHS where OrderNO='" + tbOrderNO.Text + "'";
                 ah.ExecuteSQLNonquery(strSQL_DropHS);
+                ah.Close();
+                ah = new AccessHelper();
                 DataTable dtSaveHS;
-                //dtSaveHS = GetDgvToTable(dgvHS);
                 dtSaveHS = GenClass.GetTableFromDgv(dgvHS, "DecHS");
                 ah.AddRowsToTable(dtSaveHS, "DecHS");
                 ah.Close();
@@ -169,6 +175,7 @@ namespace BHair.Business
             drHSData["Status"] = 0;
             drHSData["HS_Code"] = tbHS_Code.Text;
             drHSData["M"] = tbM.Text;
+            drHSData["Shop_Receiver"] = tbShopReceiver.Text;
             dtShowHS.Rows.Add(drHSData);
 
             dgvHS.AutoGenerateColumns = false;
@@ -180,7 +187,39 @@ namespace BHair.Business
 
         private void btnCalINV_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DataTable dtSaveINV;
+                dtSaveINV = GenClass.GetTableFromDgv(dgvINV, "DecINV");
+                double douSumAmount = double.Parse(dtSaveINV.Compute("Sum(INV_Amount)", "True").ToString());
+                double douSumDuty = double.Parse(tbDuty.Text);
+                double douSumVAT = double.Parse(tbVAT.Text);
+                double douSumFreight = double.Parse(tbFreight.Text);
+                double douSumCT = double.Parse(tbCT.Text);
+                int intRowsnum = 0;
 
+                foreach (DataRow dr in dtSaveINV.Rows)
+                {
+                    if (dr[1].ToString() != null && dr[1].ToString() != "")
+                    {
+                        double douINV_Amount = double.Parse(dr["INV_Amount"].ToString());
+                        double douFreight = douSumFreight * (douINV_Amount / douSumAmount);
+                        double douDuty = douSumDuty * (douINV_Amount / douSumAmount);
+                        double douVAT = douSumVAT * (douINV_Amount / douSumAmount);
+                        double douCT = douSumCT * (douINV_Amount / douSumAmount);
+
+                        dgvINV.Rows[intRowsnum].Cells["Freight"].Value = douFreight.ToString();
+                        dgvINV.Rows[intRowsnum].Cells["Duty"].Value = douDuty.ToString();
+                        dgvINV.Rows[intRowsnum].Cells["VAT"].Value = douVAT.ToString();
+                        dgvINV.Rows[intRowsnum].Cells["CT"].Value = douCT.ToString();
+                    }
+                    intRowsnum++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("计算发生异常,错误信息为:" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnInputHS_Click(object sender, EventArgs e)
@@ -202,6 +241,81 @@ namespace BHair.Business
                 {
                     MessageBox.Show("Excel数据导入失败,详见数据错误列表::" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+        }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            DataTable TempDT;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel文件|*.xls";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string filePath = openFileDialog.FileName;
+                    PrintExcel pe = new PrintExcel();
+                    TempDT = pe.ExcelToDataTable_INV(filePath, tbOrderNO.Text);
+                    dgvINV.AutoGenerateColumns = false;
+                    dgvINV.DataSource = TempDT;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Excel数据导入失败,详见数据错误列表::" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void btnCalHS_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AccessHelper ah = new AccessHelper();
+                string strSQL = "select * from SetupConfig ";
+                DataTable dt = ah.SelectToDataTable(strSQL);
+                double douExRate = 0.0;
+                ah.Close();
+                if (dt.Rows.Count > 0)
+                {
+                    douExRate = double.Parse(dt.Rows[0]["Rate"].ToString());
+                }
+                DataTable dtSaveHS;
+                dtSaveHS = GenClass.GetTableFromDgv(dgvHS, "DecHS");
+                DataTable dtHSSetting;
+                string strSQL_GetHSSetting = "select * from DecHSSetting ";
+                ah = new AccessHelper();
+                dtHSSetting = ah.SelectToDataTable(strSQL_GetHSSetting);
+                int intRowsNum = 0;
+
+                foreach (DataRow dr in dtSaveHS.Rows)
+                {
+                    if (dr[1].ToString() != null && dr[1].ToString() != "")
+                    {
+                        string strHSCODE = dr["HS_CODE"].ToString();
+                        DataRow[] drs;
+                        drs = dtHSSetting.Select("HSCODE = '" + strHSCODE + "' ");
+                        if (drs.Length > 0)
+                        {
+                            double douDutyS = double.Parse(drs[0][2].ToString());
+                            double douVATs = double.Parse(drs[0][3].ToString());
+                            double douM = double.Parse(dr["M"].ToString());
+                            double douDuty = douM * douExRate * douDutyS;
+                            double douVAT = (douDuty + (douM * douExRate)) * douVATs;
+
+                            dgvHS.Rows[intRowsNum].Cells["Duty_System"].Value = douDuty.ToString();
+                            dgvHS.Rows[intRowsNum].Cells["VAT_System"].Value = douVAT.ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("HSCODE:" + strHSCODE + ",在系统中没有设定,请检查.", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    intRowsNum++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("计算发生异常,错误信息为:" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

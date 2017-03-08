@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Drawing;
 
 namespace BHair.Business
 {
@@ -196,6 +197,78 @@ namespace BHair.Business
             }
         done:
             return boolResult;
+        }
+
+        public static void dgCellPainting(DataGridView dgStandard, string strColumnName, DataGridViewCellPaintingEventArgs e)
+        {
+            if (dgStandard.Rows.Count > 0)
+            {
+                if (dgStandard.Rows[0].Cells[0].Value.ToString().Trim() != string.Empty)
+                {
+                    try
+                    {
+                        if (dgStandard.Columns[strColumnName].Index == e.ColumnIndex && e.RowIndex >= 0)
+                        {
+                            using (
+                                Brush gridBrush = new SolidBrush(dgStandard.GridColor),
+                                backColorBrush = new SolidBrush(e.CellStyle.BackColor))
+                            {
+                                using (Pen gridLinePen = new Pen(gridBrush))
+                                {
+                                    // 擦除原单元格背景
+                                    e.Graphics.FillRectangle(backColorBrush, e.CellBounds);
+
+                                    if (e.RowIndex != dgStandard.RowCount - 1)
+                                    {
+                                        if (e.Value.ToString() != dgStandard.Rows[e.RowIndex + 1].Cells[e.ColumnIndex].Value.ToString())
+                                        {
+                                            e.Graphics.DrawLine(gridLinePen, e.CellBounds.Left, e.CellBounds.Bottom - 1,
+                                            e.CellBounds.Right - 1, e.CellBounds.Bottom - 1);//下边缘的线 
+                                        }
+                                    }
+                                    else
+                                    {
+                                        e.Graphics.DrawLine(gridLinePen, e.CellBounds.Left, e.CellBounds.Bottom - 1,
+                                            e.CellBounds.Right - 1, e.CellBounds.Bottom - 1);//下边缘的线                       
+                                    }
+                                    //右侧的线
+                                    e.Graphics.DrawLine(gridLinePen, e.CellBounds.Right - 1, //x1,y1,x2,y2
+                                        e.CellBounds.Top, e.CellBounds.Right - 1,
+                                        e.CellBounds.Bottom - 1);
+
+                                    if (e.RowIndex == 0)
+                                    {
+                                        //绘制值
+                                        if (e.Value != null)
+                                        {
+
+                                            e.Graphics.DrawString((String)e.Value, e.CellStyle.Font,
+                                                Brushes.Crimson,
+                                                e.CellBounds.X + (e.CellBounds.Width - e.Graphics.MeasureString(e.Value.ToString().Trim(), e.CellStyle.Font).Width) / 2,
+                                                e.CellBounds.Y + 2, StringFormat.GenericDefault);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (e.Value.ToString() != dgStandard.Rows[e.RowIndex - 1].Cells[e.ColumnIndex].Value.ToString())
+                                        {
+                                            //绘制值
+                                            if (string.IsNullOrEmpty(e.Value.ToString().Trim()).Equals(false))
+                                            {
+                                                e.Graphics.DrawString((String)e.Value, e.CellStyle.Font,
+                                                    Brushes.Crimson, e.CellBounds.X + (e.CellBounds.Width - e.Graphics.MeasureString(e.Value.ToString().Trim(), e.CellStyle.Font).Width) / 2,
+                                                    e.CellBounds.Y + 2, StringFormat.GenericDefault);
+                                            }
+                                        }
+                                    }
+                                    e.Handled = true;
+                                }
+                            }
+                        }
+                    }
+                    catch { }
+                }
+            }
         }
     }
 }
