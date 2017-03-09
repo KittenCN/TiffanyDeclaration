@@ -42,6 +42,7 @@
             this.PCs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GrossWGT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WearHouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAWB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWMSInList)).BeginInit();
             this.SuspendLayout();
@@ -49,16 +50,18 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btnCreateIn);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.Location = new System.Drawing.Point(20, 20);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(706, 32);
+            this.panel1.Size = new System.Drawing.Size(1059, 48);
             this.panel1.TabIndex = 0;
             // 
             // btnCreateIn
             // 
-            this.btnCreateIn.Location = new System.Drawing.Point(4, 4);
+            this.btnCreateIn.Location = new System.Drawing.Point(6, 6);
+            this.btnCreateIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCreateIn.Name = "btnCreateIn";
-            this.btnCreateIn.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateIn.Size = new System.Drawing.Size(112, 34);
             this.btnCreateIn.TabIndex = 0;
             this.btnCreateIn.Text = "创建入库单";
             this.btnCreateIn.UseVisualStyleBackColor = true;
@@ -84,13 +87,15 @@
             this.DocNOs,
             this.PCs,
             this.GrossWGT,
-            this.WearHouse});
-            this.dgvWMSInList.Location = new System.Drawing.Point(13, 51);
+            this.WearHouse,
+            this.MAWB});
+            this.dgvWMSInList.Location = new System.Drawing.Point(20, 76);
+            this.dgvWMSInList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvWMSInList.MultiSelect = false;
             this.dgvWMSInList.Name = "dgvWMSInList";
             this.dgvWMSInList.ReadOnly = true;
             this.dgvWMSInList.RowTemplate.Height = 23;
-            this.dgvWMSInList.Size = new System.Drawing.Size(706, 422);
+            this.dgvWMSInList.Size = new System.Drawing.Size(1059, 633);
             this.dgvWMSInList.TabIndex = 1;
             this.dgvWMSInList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWMSInList_CellDoubleClick);
             // 
@@ -173,13 +178,22 @@
             this.WearHouse.Name = "WearHouse";
             this.WearHouse.ReadOnly = true;
             // 
+            // MAWB
+            // 
+            this.MAWB.DataPropertyName = "MAWB";
+            this.MAWB.HeaderText = "MAWB";
+            this.MAWB.Name = "MAWB";
+            this.MAWB.ReadOnly = true;
+            this.MAWB.Visible = false;
+            // 
             // frmWMSInbound
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 485);
+            this.ClientSize = new System.Drawing.Size(1096, 728);
             this.Controls.Add(this.dgvWMSInList);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmWMSInbound";
             this.TabText = "frmWMSInbound";
             this.Text = "frmWMSInbound";
@@ -206,5 +220,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PCs;
         private System.Windows.Forms.DataGridViewTextBoxColumn GrossWGT;
         private System.Windows.Forms.DataGridViewTextBoxColumn WearHouse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAWB;
     }
 }

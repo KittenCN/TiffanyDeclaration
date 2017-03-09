@@ -47,6 +47,8 @@ namespace BHair.Business
                 drShow["Carton"] = tbCarton.Text;
                 drShow["PCs"] = tbPCss.Text;
                 drShow["Remarks"] = tbRemarks.Text;
+                drShow["WMSNO"] = tbWMSNO.Text;
+                drShow["ItemNO"] = tbItemNO.Text;
                 dtSaveWMSInDetail.Rows.Add(drShow.ItemArray);
                 dgvWMSInboundDetail.AutoGenerateColumns = false;
                 dgvWMSInboundDetail.DataSource = dtSaveWMSInDetail;
