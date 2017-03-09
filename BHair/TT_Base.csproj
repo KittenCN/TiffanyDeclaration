@@ -548,6 +548,8 @@
     <None Include="bin\Debug\app.config" />
     <None Include="bin\Debug\BHair.vshost.exe.config" />
     <None Include="bin\Debug\BHair.vshost.exe.manifest" />
+    <None Include="bin\Debug\templet\WMS.xls" />
+    <None Include="bin\Debug\templet\商品部模板.xls" />
     <None Include="bin\Debug\templet\报告模板.xls" />
     <None Include="bin\Debug\templet\转货申请表模板.xls" />
     <None Include="bin\Debug\TiffanyDeclaration.exe.config" />

@@ -114,7 +114,7 @@ namespace BHair.Business.BaseData
         public DataTable SelectAllStoreInfo()
         {
             AccessHelper ah = new AccessHelper();
-            string sqlString = string.Format("select * from StoreInfo where IsDelete = 0 ");
+            string sqlString = string.Format("select * from StoreInfo ");
             DataTable Result = ah.SelectToDataTable(sqlString);
             ah.Close();
             return Result;

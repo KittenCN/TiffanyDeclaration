@@ -327,5 +327,10 @@ namespace BHair.Base
                 MessageBox.Show("重置密码失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void frmMember_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

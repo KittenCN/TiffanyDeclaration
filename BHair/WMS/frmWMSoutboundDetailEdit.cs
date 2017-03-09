@@ -134,7 +134,7 @@ namespace BHair.Business
         private void btnSave_Click(object sender, EventArgs e)
         {
             DataTable dttemp = GenClass.GetTableFromDgv(dgvWMSOutboundDetail, "WMSOutboundDetail");
-            if (!GenClass.CheckDT(dttemp, "OutboundNO"))
+            if (!GenClass.CheckDT(dttemp, "SKU"))
             {
                 DataRow drSaveWMSOut = dtSaveWMSOut.NewRow();
                 drSaveWMSOut["OrderNO"] = "";
@@ -202,7 +202,7 @@ namespace BHair.Business
             }
             else
             {
-                MessageBox.Show("出库单号有重复值,请检查!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("SKU有重复值,请检查!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

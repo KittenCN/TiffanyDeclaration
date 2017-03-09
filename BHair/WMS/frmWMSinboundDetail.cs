@@ -110,7 +110,7 @@ namespace BHair.Business
         private void btnSave_Click(object sender, EventArgs e)
         {
             DataTable dttemp = GenClass.GetTableFromDgv(dgvWMSInboundDetail, "WMSInboundDetail");
-            if (!GenClass.CheckDT(dttemp, "InboundNO"))
+            if (!GenClass.CheckDT(dttemp, "SKU"))
             {
                 DataRow drSaveWMSIn = dtSaveWMSIn.NewRow();
                 drSaveWMSIn["OrderNO"] = "";
@@ -166,7 +166,7 @@ namespace BHair.Business
             }
             else
             {
-                MessageBox.Show("入库单号有重复值,请检查!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("SKU有重复值,请检查!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -181,7 +181,7 @@ namespace BHair.Business
                 {
                     string filePath = openFileDialog.FileName;
                     PrintExcel pe = new PrintExcel();
-                    TempDT = pe.ExcelToDataTable_WMSinDetail(filePath, "");
+                    TempDT = pe.ExcelToDataTable_WMSinDetail(filePath, tbInboundNO.Text);
                     dgvWMSInboundDetail.AutoGenerateColumns = false;
                     dgvWMSInboundDetail.DataSource = TempDT;
                 }
@@ -194,7 +194,34 @@ namespace BHair.Business
 
         private void btnExToExcel_Click(object sender, EventArgs e)
         {
-
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
+            // Show save file dialog box
+            DialogResult result = saveFileDialog.ShowDialog();
+            //点了保存按钮进入
+            if (result == DialogResult.OK)
+            {
+                //获得文件路径
+                string localFilePath = saveFileDialog.FileName.ToString();
+                PrintExcel pe = new PrintExcel();
+                try
+                {
+                    string strSQL = "select * from WMSInbound where InboundNO='" + tbInboundNO.Text + "' ";
+                    AccessHelper ah = new AccessHelper();
+                    DataTable dtWMSIn = ah.SelectToDataTable(strSQL);
+                    ah.Close();
+                    strSQL = "select * from WMSInboundDetail where InboundNO='" + tbInboundNO.Text + "' ";
+                    ah = new AccessHelper();
+                    DataTable dtWMSInD = ah.SelectToDataTable(strSQL);
+                    ah.Close();
+                    pe.ExtoEXCELfromInD(dtWMSIn, dtWMSInD, localFilePath);
+                    MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }
