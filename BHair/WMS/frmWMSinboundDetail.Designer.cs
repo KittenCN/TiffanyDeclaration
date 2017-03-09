@@ -89,6 +89,9 @@
             this.tbWMSNO = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.tbItemNO = new System.Windows.Forms.TextBox();
+            this.btnUpload = new System.Windows.Forms.Button();
+            this.btnExToExcel = new System.Windows.Forms.Button();
+            this.btnExToPDF = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -347,6 +350,9 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnExToPDF);
+            this.panel2.Controls.Add(this.btnExToExcel);
+            this.panel2.Controls.Add(this.btnUpload);
             this.panel2.Controls.Add(this.tbItemNO);
             this.panel2.Controls.Add(this.label21);
             this.panel2.Controls.Add(this.tbWMSNO);
@@ -676,6 +682,38 @@
             this.tbItemNO.Size = new System.Drawing.Size(148, 28);
             this.tbItemNO.TabIndex = 20;
             // 
+            // btnUpload
+            // 
+            this.btnUpload.Location = new System.Drawing.Point(362, 714);
+            this.btnUpload.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(112, 34);
+            this.btnUpload.TabIndex = 21;
+            this.btnUpload.Text = "Upload";
+            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
+            // btnExToExcel
+            // 
+            this.btnExToExcel.Location = new System.Drawing.Point(242, 714);
+            this.btnExToExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExToExcel.Name = "btnExToExcel";
+            this.btnExToExcel.Size = new System.Drawing.Size(112, 34);
+            this.btnExToExcel.TabIndex = 22;
+            this.btnExToExcel.Text = "TO EXCEL";
+            this.btnExToExcel.UseVisualStyleBackColor = true;
+            this.btnExToExcel.Click += new System.EventHandler(this.btnExToExcel_Click);
+            // 
+            // btnExToPDF
+            // 
+            this.btnExToPDF.Location = new System.Drawing.Point(122, 714);
+            this.btnExToPDF.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExToPDF.Name = "btnExToPDF";
+            this.btnExToPDF.Size = new System.Drawing.Size(112, 34);
+            this.btnExToPDF.TabIndex = 23;
+            this.btnExToPDF.Text = "TO PDF";
+            this.btnExToPDF.UseVisualStyleBackColor = true;
+            // 
             // frmWMSinboundDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -760,5 +798,8 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox tbWMSNO;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button btnUpload;
+        private System.Windows.Forms.Button btnExToPDF;
+        private System.Windows.Forms.Button btnExToExcel;
     }
 }

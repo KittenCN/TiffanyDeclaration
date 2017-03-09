@@ -52,6 +52,10 @@
             this.dtOutDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tbItemNO = new System.Windows.Forms.TextBox();
+            this.tbWMSNO = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnADD = new System.Windows.Forms.Button();
@@ -83,10 +87,7 @@
             this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WMSNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.tbWMSNO = new System.Windows.Forms.TextBox();
-            this.tbItemNO = new System.Windows.Forms.TextBox();
+            this.btnUpload = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -118,7 +119,7 @@
             this.panel1.Controls.Add(this.dtOutDate);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(20, 20);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(309, 754);
             this.panel1.TabIndex = 0;
@@ -134,7 +135,7 @@
             // tbWHSup
             // 
             this.tbWHSup.Location = new System.Drawing.Point(120, 501);
-            this.tbWHSup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbWHSup.Margin = new System.Windows.Forms.Padding(4);
             this.tbWHSup.Name = "tbWHSup";
             this.tbWHSup.Size = new System.Drawing.Size(180, 28);
             this.tbWHSup.TabIndex = 23;
@@ -152,7 +153,7 @@
             // tbOperSup
             // 
             this.tbOperSup.Location = new System.Drawing.Point(120, 459);
-            this.tbOperSup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbOperSup.Margin = new System.Windows.Forms.Padding(4);
             this.tbOperSup.Name = "tbOperSup";
             this.tbOperSup.Size = new System.Drawing.Size(180, 28);
             this.tbOperSup.TabIndex = 21;
@@ -170,7 +171,7 @@
             // tbPrerared
             // 
             this.tbPrerared.Location = new System.Drawing.Point(120, 417);
-            this.tbPrerared.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPrerared.Margin = new System.Windows.Forms.Padding(4);
             this.tbPrerared.Name = "tbPrerared";
             this.tbPrerared.Size = new System.Drawing.Size(180, 28);
             this.tbPrerared.TabIndex = 19;
@@ -189,7 +190,7 @@
             // 
             this.cbWearHouse.FormattingEnabled = true;
             this.cbWearHouse.Location = new System.Drawing.Point(120, 80);
-            this.cbWearHouse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbWearHouse.Margin = new System.Windows.Forms.Padding(4);
             this.cbWearHouse.Name = "cbWearHouse";
             this.cbWearHouse.Size = new System.Drawing.Size(180, 26);
             this.cbWearHouse.TabIndex = 17;
@@ -217,7 +218,7 @@
             // tbReceiptAdd
             // 
             this.tbReceiptAdd.Location = new System.Drawing.Point(120, 237);
-            this.tbReceiptAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbReceiptAdd.Margin = new System.Windows.Forms.Padding(4);
             this.tbReceiptAdd.Name = "tbReceiptAdd";
             this.tbReceiptAdd.Size = new System.Drawing.Size(180, 28);
             this.tbReceiptAdd.TabIndex = 11;
@@ -235,7 +236,7 @@
             // tbOutType
             // 
             this.tbOutType.Location = new System.Drawing.Point(120, 195);
-            this.tbOutType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbOutType.Margin = new System.Windows.Forms.Padding(4);
             this.tbOutType.Name = "tbOutType";
             this.tbOutType.Size = new System.Drawing.Size(180, 28);
             this.tbOutType.TabIndex = 9;
@@ -253,7 +254,7 @@
             // tbContact
             // 
             this.tbContact.Location = new System.Drawing.Point(122, 153);
-            this.tbContact.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbContact.Margin = new System.Windows.Forms.Padding(4);
             this.tbContact.Name = "tbContact";
             this.tbContact.Size = new System.Drawing.Size(178, 28);
             this.tbContact.TabIndex = 7;
@@ -271,7 +272,7 @@
             // tbShipper
             // 
             this.tbShipper.Location = new System.Drawing.Point(120, 112);
-            this.tbShipper.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbShipper.Margin = new System.Windows.Forms.Padding(4);
             this.tbShipper.Name = "tbShipper";
             this.tbShipper.Size = new System.Drawing.Size(180, 28);
             this.tbShipper.TabIndex = 5;
@@ -289,7 +290,7 @@
             // tbOutboundNO
             // 
             this.tbOutboundNO.Location = new System.Drawing.Point(120, 44);
-            this.tbOutboundNO.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbOutboundNO.Margin = new System.Windows.Forms.Padding(4);
             this.tbOutboundNO.Name = "tbOutboundNO";
             this.tbOutboundNO.Size = new System.Drawing.Size(180, 28);
             this.tbOutboundNO.TabIndex = 3;
@@ -308,7 +309,7 @@
             // 
             this.dtOutDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtOutDate.Location = new System.Drawing.Point(122, 8);
-            this.dtOutDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtOutDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtOutDate.Name = "dtOutDate";
             this.dtOutDate.Size = new System.Drawing.Size(178, 28);
             this.dtOutDate.TabIndex = 1;
@@ -325,6 +326,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnUpload);
             this.panel2.Controls.Add(this.tbItemNO);
             this.panel2.Controls.Add(this.tbWMSNO);
             this.panel2.Controls.Add(this.label20);
@@ -348,15 +350,47 @@
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Location = new System.Drawing.Point(338, 18);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(720, 756);
             this.panel2.TabIndex = 1;
             // 
+            // tbItemNO
+            // 
+            this.tbItemNO.Location = new System.Drawing.Point(456, 205);
+            this.tbItemNO.Name = "tbItemNO";
+            this.tbItemNO.Size = new System.Drawing.Size(148, 28);
+            this.tbItemNO.TabIndex = 20;
+            // 
+            // tbWMSNO
+            // 
+            this.tbWMSNO.Location = new System.Drawing.Point(128, 205);
+            this.tbWMSNO.Name = "tbWMSNO";
+            this.tbWMSNO.Size = new System.Drawing.Size(148, 28);
+            this.tbWMSNO.TabIndex = 19;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(332, 208);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(62, 18);
+            this.label20.TabIndex = 18;
+            this.label20.Text = "Item#:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(10, 208);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 18);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "仓库号:";
+            // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(603, 714);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 34);
             this.btnCancel.TabIndex = 16;
@@ -367,7 +401,7 @@
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(482, 714);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(112, 34);
             this.btnSave.TabIndex = 2;
@@ -378,7 +412,7 @@
             // btnADD
             // 
             this.btnADD.Location = new System.Drawing.Point(616, 10);
-            this.btnADD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnADD.Margin = new System.Windows.Forms.Padding(4);
             this.btnADD.Name = "btnADD";
             this.btnADD.Size = new System.Drawing.Size(99, 189);
             this.btnADD.TabIndex = 15;
@@ -399,7 +433,7 @@
             // tbRemarks
             // 
             this.tbRemarks.Location = new System.Drawing.Point(128, 126);
-            this.tbRemarks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbRemarks.Margin = new System.Windows.Forms.Padding(4);
             this.tbRemarks.Multiline = true;
             this.tbRemarks.Name = "tbRemarks";
             this.tbRemarks.Size = new System.Drawing.Size(476, 72);
@@ -408,7 +442,7 @@
             // tbPCss
             // 
             this.tbPCss.Location = new System.Drawing.Point(456, 86);
-            this.tbPCss.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPCss.Margin = new System.Windows.Forms.Padding(4);
             this.tbPCss.Name = "tbPCss";
             this.tbPCss.Size = new System.Drawing.Size(148, 28);
             this.tbPCss.TabIndex = 12;
@@ -426,7 +460,7 @@
             // tbCarton
             // 
             this.tbCarton.Location = new System.Drawing.Point(128, 86);
-            this.tbCarton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCarton.Margin = new System.Windows.Forms.Padding(4);
             this.tbCarton.Name = "tbCarton";
             this.tbCarton.Size = new System.Drawing.Size(148, 28);
             this.tbCarton.TabIndex = 10;
@@ -444,7 +478,7 @@
             // tbSpecification
             // 
             this.tbSpecification.Location = new System.Drawing.Point(456, 45);
-            this.tbSpecification.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSpecification.Margin = new System.Windows.Forms.Padding(4);
             this.tbSpecification.Name = "tbSpecification";
             this.tbSpecification.Size = new System.Drawing.Size(148, 28);
             this.tbSpecification.TabIndex = 8;
@@ -462,7 +496,7 @@
             // tbOutsiteSize
             // 
             this.tbOutsiteSize.Location = new System.Drawing.Point(128, 45);
-            this.tbOutsiteSize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbOutsiteSize.Margin = new System.Windows.Forms.Padding(4);
             this.tbOutsiteSize.Name = "tbOutsiteSize";
             this.tbOutsiteSize.Size = new System.Drawing.Size(148, 28);
             this.tbOutsiteSize.TabIndex = 6;
@@ -480,7 +514,7 @@
             // tbDescription
             // 
             this.tbDescription.Location = new System.Drawing.Point(456, 10);
-            this.tbDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(148, 28);
             this.tbDescription.TabIndex = 4;
@@ -498,7 +532,7 @@
             // tbSKU
             // 
             this.tbSKU.Location = new System.Drawing.Point(128, 10);
-            this.tbSKU.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSKU.Margin = new System.Windows.Forms.Padding(4);
             this.tbSKU.Name = "tbSKU";
             this.tbSKU.Size = new System.Drawing.Size(148, 28);
             this.tbSKU.TabIndex = 2;
@@ -516,10 +550,10 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.dgvWMSOutboundDetail);
-            this.panel3.Location = new System.Drawing.Point(9, 265);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Location = new System.Drawing.Point(9, 244);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(711, 440);
+            this.panel3.Size = new System.Drawing.Size(711, 461);
             this.panel3.TabIndex = 0;
             // 
             // dgvWMSOutboundDetail
@@ -540,11 +574,11 @@
             this.WMSNO,
             this.ItemNO});
             this.dgvWMSOutboundDetail.Location = new System.Drawing.Point(4, 4);
-            this.dgvWMSOutboundDetail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvWMSOutboundDetail.Margin = new System.Windows.Forms.Padding(4);
             this.dgvWMSOutboundDetail.MultiSelect = false;
             this.dgvWMSOutboundDetail.Name = "dgvWMSOutboundDetail";
             this.dgvWMSOutboundDetail.RowTemplate.Height = 23;
-            this.dgvWMSOutboundDetail.Size = new System.Drawing.Size(702, 432);
+            this.dgvWMSOutboundDetail.Size = new System.Drawing.Size(702, 453);
             this.dgvWMSOutboundDetail.TabIndex = 0;
             // 
             // OrderNO
@@ -622,37 +656,16 @@
             this.ItemNO.HeaderText = "Item#";
             this.ItemNO.Name = "ItemNO";
             // 
-            // label8
+            // btnUpload
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 208);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 18);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "仓库号:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(332, 208);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(62, 18);
-            this.label20.TabIndex = 18;
-            this.label20.Text = "Item#:";
-            // 
-            // tbWMSNO
-            // 
-            this.tbWMSNO.Location = new System.Drawing.Point(128, 205);
-            this.tbWMSNO.Name = "tbWMSNO";
-            this.tbWMSNO.Size = new System.Drawing.Size(148, 28);
-            this.tbWMSNO.TabIndex = 19;
-            // 
-            // tbItemNO
-            // 
-            this.tbItemNO.Location = new System.Drawing.Point(456, 205);
-            this.tbItemNO.Name = "tbItemNO";
-            this.tbItemNO.Size = new System.Drawing.Size(148, 28);
-            this.tbItemNO.TabIndex = 20;
+            this.btnUpload.Location = new System.Drawing.Point(362, 714);
+            this.btnUpload.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(112, 34);
+            this.btnUpload.TabIndex = 22;
+            this.btnUpload.Text = "Upload";
+            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // frmWMSoutboundDetailEdit
             // 
@@ -661,7 +674,7 @@
             this.ClientSize = new System.Drawing.Size(1076, 786);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmWMSoutboundDetailEdit";
             this.Text = "frmWMSoutboundDetail";
             this.Load += new System.EventHandler(this.frmWMSinboundDetail_Load);
@@ -736,5 +749,6 @@
         private System.Windows.Forms.TextBox tbWMSNO;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnUpload;
     }
 }

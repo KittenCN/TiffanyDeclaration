@@ -47,6 +47,8 @@ namespace BHair.Business
                 drShow["Carton"] = tbCarton.Text;
                 drShow["PCs"] = tbPCss.Text;
                 drShow["Remarks"] = tbRemarks.Text;
+                drShow["WMSNO"] = tbWMSNO.Text;
+                drShow["ItemNO"] = tbItemNO.Text;
                 dtSaveWMSInDetail.Rows.Add(drShow.ItemArray);
                 dgvWMSInboundDetail.AutoGenerateColumns = false;
                 dgvWMSInboundDetail.DataSource = dtSaveWMSInDetail;
@@ -58,6 +60,8 @@ namespace BHair.Business
                 tbCarton.Text = "";
                 tbPCss.Text = "";
                 tbRemarks.Text = "";
+                tbWMSNO.Text = "";
+                tbItemNO.Text = "";
             }
         }
 
@@ -191,6 +195,28 @@ namespace BHair.Business
             else
             {
                 MessageBox.Show("入库单号有重复值,请检查!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            DataTable TempDT;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel文件|*.xls";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string filePath = openFileDialog.FileName;
+                    PrintExcel pe = new PrintExcel();
+                    TempDT = pe.ExcelToDataTable_WMSinDetail(filePath, "");
+                    dgvWMSInboundDetail.AutoGenerateColumns = false;
+                    dgvWMSInboundDetail.DataSource = TempDT;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Excel数据导入失败,详见数据错误列表::" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }
