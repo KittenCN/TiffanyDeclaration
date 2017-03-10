@@ -54,7 +54,9 @@
             this.dtInDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnExToPDF = new System.Windows.Forms.Button();
             this.btnUpload = new System.Windows.Forms.Button();
+            this.btnExToExcel = new System.Windows.Forms.Button();
             this.tbItemNO = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.tbWMSNO = new System.Windows.Forms.TextBox();
@@ -90,8 +92,6 @@
             this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WMSNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExToPDF = new System.Windows.Forms.Button();
-            this.btnExToExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -381,6 +381,17 @@
             this.panel2.Size = new System.Drawing.Size(720, 756);
             this.panel2.TabIndex = 1;
             // 
+            // btnExToPDF
+            // 
+            this.btnExToPDF.Location = new System.Drawing.Point(122, 714);
+            this.btnExToPDF.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExToPDF.Name = "btnExToPDF";
+            this.btnExToPDF.Size = new System.Drawing.Size(112, 34);
+            this.btnExToPDF.TabIndex = 25;
+            this.btnExToPDF.Text = "TO PDF";
+            this.btnExToPDF.UseVisualStyleBackColor = true;
+            this.btnExToPDF.Click += new System.EventHandler(this.btnExToPDF_Click);
+            // 
             // btnUpload
             // 
             this.btnUpload.Location = new System.Drawing.Point(362, 714);
@@ -391,6 +402,17 @@
             this.btnUpload.Text = "Upload";
             this.btnUpload.UseVisualStyleBackColor = true;
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
+            // btnExToExcel
+            // 
+            this.btnExToExcel.Location = new System.Drawing.Point(242, 714);
+            this.btnExToExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExToExcel.Name = "btnExToExcel";
+            this.btnExToExcel.Size = new System.Drawing.Size(112, 34);
+            this.btnExToExcel.TabIndex = 24;
+            this.btnExToExcel.Text = "TO EXCEL";
+            this.btnExToExcel.UseVisualStyleBackColor = true;
+            this.btnExToExcel.Click += new System.EventHandler(this.btnExToExcel_Click);
             // 
             // tbItemNO
             // 
@@ -692,27 +714,6 @@
             this.ItemNO.DataPropertyName = "ItemNO";
             this.ItemNO.HeaderText = "Item#";
             this.ItemNO.Name = "ItemNO";
-            // 
-            // btnExToPDF
-            // 
-            this.btnExToPDF.Location = new System.Drawing.Point(122, 714);
-            this.btnExToPDF.Margin = new System.Windows.Forms.Padding(4);
-            this.btnExToPDF.Name = "btnExToPDF";
-            this.btnExToPDF.Size = new System.Drawing.Size(112, 34);
-            this.btnExToPDF.TabIndex = 25;
-            this.btnExToPDF.Text = "TO PDF";
-            this.btnExToPDF.UseVisualStyleBackColor = true;
-            // 
-            // btnExToExcel
-            // 
-            this.btnExToExcel.Location = new System.Drawing.Point(242, 714);
-            this.btnExToExcel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnExToExcel.Name = "btnExToExcel";
-            this.btnExToExcel.Size = new System.Drawing.Size(112, 34);
-            this.btnExToExcel.TabIndex = 24;
-            this.btnExToExcel.Text = "TO EXCEL";
-            this.btnExToExcel.UseVisualStyleBackColor = true;
-            this.btnExToExcel.Click += new System.EventHandler(this.btnExToExcel_Click);
             // 
             // frmWMSinboundDetailEdit
             // 

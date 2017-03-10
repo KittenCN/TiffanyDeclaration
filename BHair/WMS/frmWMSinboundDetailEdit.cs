@@ -209,7 +209,7 @@ namespace BHair.Business
                 {
                     string filePath = openFileDialog.FileName;
                     PrintExcel pe = new PrintExcel();
-                    TempDT = pe.ExcelToDataTable_WMSinDetail(filePath, "");
+                    TempDT = pe.ExcelToDataTable_WMSinDetail(filePath, tbInboundNO.Text);
                     dgvWMSInboundDetail.AutoGenerateColumns = false;
                     dgvWMSInboundDetail.DataSource = TempDT;
                 }
@@ -246,6 +246,38 @@ namespace BHair.Business
                     MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch(Exception ex)
+                {
+                    MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void btnExToPDF_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF文件(*.pdf)|*.pdf";
+            // Show save file dialog box
+            DialogResult result = saveFileDialog.ShowDialog();
+            //点了保存按钮进入
+            if (result == DialogResult.OK)
+            {
+                //获得文件路径
+                string localFilePath = saveFileDialog.FileName.ToString();
+                PrintExcel pe = new PrintExcel();
+                try
+                {
+                    string strSQL = "select * from WMSInbound where InboundNO='" + tbInboundNO.Text + "' ";
+                    AccessHelper ah = new AccessHelper();
+                    DataTable dtWMSIn = ah.SelectToDataTable(strSQL);
+                    ah.Close();
+                    strSQL = "select * from WMSInboundDetail where InboundNO='" + tbInboundNO.Text + "' ";
+                    ah = new AccessHelper();
+                    DataTable dtWMSInD = ah.SelectToDataTable(strSQL);
+                    ah.Close();
+                    pe.ExPDFfromInD(dtWMSIn, dtWMSInD, localFilePath);
+                    MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

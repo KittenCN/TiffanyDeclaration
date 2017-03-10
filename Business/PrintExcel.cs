@@ -1533,5 +1533,21 @@ namespace BHair.Business
             app = null;
             return true;
         }
+
+        public bool ExPDFfromInD(DataTable AppDT, DataTable DetailDT, string SaveAdd)
+        {
+            try
+            {
+                string strExcelName = System.Guid.NewGuid().ToString();
+                string sourcePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\" + strExcelName + ".xls";
+                ExtoEXCELfromInD(AppDT, DetailDT, sourcePath);
+                XLSConvertToPDF(sourcePath, SaveAdd);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

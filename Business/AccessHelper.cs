@@ -187,6 +187,7 @@ namespace BHair.Business
                 odcb.QuotePrefix = "[";
                 odcb.QuoteSuffix = "]";
                 rows += adapt.Update(dt);
+                rows += adapt.Update(dt);
                 //}
             }
             catch (Exception ex)
