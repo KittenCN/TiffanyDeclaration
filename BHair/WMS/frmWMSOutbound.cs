@@ -66,5 +66,13 @@ namespace BHair.Business
             frmWMSoutboundDetailEdit fwmsde = new frmWMSoutboundDetailEdit(strUUID);
             fwmsde.ShowDialog();
         }
+
+        private void btnReflush_Click(object sender, EventArgs e)
+        {
+            string[] strWMTemp = Login.LoginUser.Store.ToString().Split(',');
+            DataTable dtWMSinfo = SelectApplicationByApplicants(strWMTemp, "");
+            dgvWMSOutList.AutoGenerateColumns = false;
+            dgvWMSOutList.DataSource = dtWMSinfo;
+        }
     }
 }

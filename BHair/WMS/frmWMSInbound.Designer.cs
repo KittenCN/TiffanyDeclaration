@@ -43,15 +43,17 @@
             this.GrossWGT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WearHouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAWB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnReflush = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWMSInList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnReflush);
             this.panel1.Controls.Add(this.btnCreateIn);
             this.panel1.Location = new System.Drawing.Point(20, 20);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1059, 48);
             this.panel1.TabIndex = 0;
@@ -59,7 +61,7 @@
             // btnCreateIn
             // 
             this.btnCreateIn.Location = new System.Drawing.Point(6, 6);
-            this.btnCreateIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateIn.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateIn.Name = "btnCreateIn";
             this.btnCreateIn.Size = new System.Drawing.Size(112, 34);
             this.btnCreateIn.TabIndex = 0;
@@ -90,7 +92,7 @@
             this.WearHouse,
             this.MAWB});
             this.dgvWMSInList.Location = new System.Drawing.Point(20, 76);
-            this.dgvWMSInList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvWMSInList.Margin = new System.Windows.Forms.Padding(4);
             this.dgvWMSInList.MultiSelect = false;
             this.dgvWMSInList.Name = "dgvWMSInList";
             this.dgvWMSInList.ReadOnly = true;
@@ -186,6 +188,17 @@
             this.MAWB.ReadOnly = true;
             this.MAWB.Visible = false;
             // 
+            // btnReflush
+            // 
+            this.btnReflush.Location = new System.Drawing.Point(126, 6);
+            this.btnReflush.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReflush.Name = "btnReflush";
+            this.btnReflush.Size = new System.Drawing.Size(112, 34);
+            this.btnReflush.TabIndex = 1;
+            this.btnReflush.Text = "刷新入库单";
+            this.btnReflush.UseVisualStyleBackColor = true;
+            this.btnReflush.Click += new System.EventHandler(this.btnReflush_Click);
+            // 
             // frmWMSInbound
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -193,7 +206,7 @@
             this.ClientSize = new System.Drawing.Size(1096, 728);
             this.Controls.Add(this.dgvWMSInList);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmWMSInbound";
             this.TabText = "frmWMSInbound";
             this.Text = "frmWMSInbound";
@@ -221,5 +234,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn GrossWGT;
         private System.Windows.Forms.DataGridViewTextBoxColumn WearHouse;
         private System.Windows.Forms.DataGridViewTextBoxColumn MAWB;
+        private System.Windows.Forms.Button btnReflush;
     }
 }

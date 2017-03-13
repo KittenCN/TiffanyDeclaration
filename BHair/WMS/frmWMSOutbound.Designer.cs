@@ -44,23 +44,27 @@
             this.Prepared = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OperSup = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WHSup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnReflush = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWMSOutList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnReflush);
             this.panel1.Controls.Add(this.btnCreateIn);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.Location = new System.Drawing.Point(20, 20);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(706, 32);
+            this.panel1.Size = new System.Drawing.Size(1059, 48);
             this.panel1.TabIndex = 0;
             // 
             // btnCreateIn
             // 
-            this.btnCreateIn.Location = new System.Drawing.Point(4, 4);
+            this.btnCreateIn.Location = new System.Drawing.Point(6, 6);
+            this.btnCreateIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCreateIn.Name = "btnCreateIn";
-            this.btnCreateIn.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateIn.Size = new System.Drawing.Size(112, 34);
             this.btnCreateIn.TabIndex = 0;
             this.btnCreateIn.Text = "创建出库单";
             this.btnCreateIn.UseVisualStyleBackColor = true;
@@ -89,12 +93,13 @@
             this.Prepared,
             this.OperSup,
             this.WHSup});
-            this.dgvWMSOutList.Location = new System.Drawing.Point(13, 51);
+            this.dgvWMSOutList.Location = new System.Drawing.Point(20, 76);
+            this.dgvWMSOutList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvWMSOutList.MultiSelect = false;
             this.dgvWMSOutList.Name = "dgvWMSOutList";
             this.dgvWMSOutList.ReadOnly = true;
             this.dgvWMSOutList.RowTemplate.Height = 23;
-            this.dgvWMSOutList.Size = new System.Drawing.Size(706, 422);
+            this.dgvWMSOutList.Size = new System.Drawing.Size(1059, 633);
             this.dgvWMSOutList.TabIndex = 1;
             this.dgvWMSOutList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWMSInList_CellDoubleClick);
             // 
@@ -191,13 +196,25 @@
             this.WHSup.Name = "WHSup";
             this.WHSup.ReadOnly = true;
             // 
+            // btnReflush
+            // 
+            this.btnReflush.Location = new System.Drawing.Point(126, 6);
+            this.btnReflush.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReflush.Name = "btnReflush";
+            this.btnReflush.Size = new System.Drawing.Size(112, 34);
+            this.btnReflush.TabIndex = 1;
+            this.btnReflush.Text = "刷新出库单";
+            this.btnReflush.UseVisualStyleBackColor = true;
+            this.btnReflush.Click += new System.EventHandler(this.btnReflush_Click);
+            // 
             // frmWMSOutbound
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 485);
+            this.ClientSize = new System.Drawing.Size(1096, 728);
             this.Controls.Add(this.dgvWMSOutList);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmWMSOutbound";
             this.TabText = "frmWMSOutbound";
             this.Text = "frmWMSOutbound";
@@ -226,5 +243,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Prepared;
         private System.Windows.Forms.DataGridViewTextBoxColumn OperSup;
         private System.Windows.Forms.DataGridViewTextBoxColumn WHSup;
+        private System.Windows.Forms.Button btnReflush;
     }
 }

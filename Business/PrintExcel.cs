@@ -1549,5 +1549,169 @@ namespace BHair.Business
                 return false;
             }
         }
+
+        public bool ExtoEXCELfromOutD(DataTable AppDT, DataTable DetailDT, string SaveAdd)
+        {
+            double douTotalPrice = 0.00;
+            string XLSName;
+            XLSName = System.IO.Directory.GetCurrentDirectory() + @"\templet\WMS.xls";
+            Excel.Application app = new Excel.Application();
+            app.DisplayAlerts = false;
+            Excel.Workbooks wbks = app.Workbooks;
+            Excel._Workbook _wbk = wbks.Add(XLSName);
+            Excel.Sheets shs = _wbk.Sheets;
+            Excel._Worksheet _wsh = (Excel._Worksheet)shs.get_Item(1);
+
+
+            //写入
+            _wsh.Cells[2, 3] = "出库单";
+            _wsh.Cells[3, 3] = "OUTBOUND NOTE";
+
+            DataRow drAppDT = AppDT.Rows[0];
+            _wsh.Cells[5, 1] = "出库日期:" + drAppDT["OutDate"].ToString();
+            _wsh.Cells[5, 5] = "出库单编号:" + drAppDT["OutboundNO"].ToString();
+            _wsh.Cells[8, 1] = "出货仓库:" + drAppDT["WearHouse"].ToString();
+            _wsh.Cells[10, 1] = "发货人:" + drAppDT["Shipper"].ToString();
+            _wsh.Cells[10, 5] = "联系方式:" + drAppDT["Contact"].ToString();
+            _wsh.Cells[12, 1] = "出货方式:" + drAppDT["OutType"].ToString();
+            _wsh.Cells[14, 1] = "收货地址:" + drAppDT["ReceiptAdd"].ToString();
+            _wsh.Cells[16, 1] = "要求到货时间:" + drAppDT["Deadline"].ToString();
+
+            int intSumCarton = 0;
+            int intSumPcs = 0;
+            int intDTRows = 0;
+
+            for (int y = 1; y <= 9; y++)
+            {
+                intDTRows = 0;
+                for (int x = 18; x < 18 + DetailDT.Rows.Count + 3; x++)
+                {
+                    if (x == 18)
+                    {
+                        switch (y)
+                        {
+                            case 1:
+                                _wsh.Cells[x, y] = "SKU";
+                                break;
+                            case 4:
+                                _wsh.Cells[x, y] = "DESCRIPTION";
+                                break;
+                            case 5:
+                                _wsh.Cells[x, y] = "外包装  尺寸";
+                                break;
+                            case 6:
+                                _wsh.Cells[x, y] = "规格";
+                                break;
+                            case 7:
+                                _wsh.Cells[x, y] = "CARTON";
+                                break;
+                            case 8:
+                                _wsh.Cells[x, y] = "PCs";
+                                break;
+                            case 9:
+                                _wsh.Cells[x, y] = "备注";
+                                break;
+                            case 2:
+                                _wsh.Cells[x, y] = "仓库号";
+                                break;
+                            case 3:
+                                _wsh.Cells[x, y] = "Item#";
+                                break;
+                        }
+                    }
+                    else if (intDTRows < DetailDT.Rows.Count)
+                    {
+                        switch (y)
+                        {
+                            case 1:
+                                _wsh.Cells[x, y] = DetailDT.Rows[intDTRows]["SKU"].ToString();
+                                break;
+                            case 4:
+                                _wsh.Cells[x, y] = DetailDT.Rows[intDTRows]["Description"].ToString();
+                                break;
+                            case 5:
+                                _wsh.Cells[x, y] = DetailDT.Rows[intDTRows]["OutsiteSize"].ToString();
+                                break;
+                            case 6:
+                                _wsh.Cells[x, y] = DetailDT.Rows[intDTRows]["Specification"].ToString();
+                                break;
+                            case 7:
+                                _wsh.Cells[x, y] = DetailDT.Rows[intDTRows]["Carton"].ToString();
+                                intSumCarton = intSumCarton + int.Parse(DetailDT.Rows[intDTRows]["Carton"].ToString());
+                                break;
+                            case 8:
+                                _wsh.Cells[x, y] = DetailDT.Rows[intDTRows]["PCs"].ToString();
+                                intSumPcs = intSumPcs + int.Parse(DetailDT.Rows[intDTRows]["PCs"].ToString());
+                                break;
+                            case 9:
+                                _wsh.Cells[x, y] = DetailDT.Rows[intDTRows]["Remarks"].ToString();
+                                break;
+                            case 2:
+                                _wsh.Cells[x, y] = DetailDT.Rows[intDTRows]["WMSNO"].ToString();
+                                break;
+                            case 3:
+                                _wsh.Cells[x, y] = DetailDT.Rows[intDTRows]["ItemNO"].ToString();
+                                break;
+                        }
+                        intDTRows++;
+                    }
+                    else if (x == 18 + DetailDT.Rows.Count + 2)
+                    {
+                        switch (y)
+                        {
+                            case 6:
+                                _wsh.Cells[x, y] = "Total";
+                                break;
+                            case 7:
+                                _wsh.Cells[x, y] = intSumCarton.ToString();
+                                break;
+                            case 8:
+                                _wsh.Cells[x, y] = intSumPcs.ToString();
+                                break;
+                        }
+                    }
+                    Excel.Range excelRange = _wsh.get_Range(_wsh.Cells[x, y], _wsh.Cells[x, y]);
+                }
+            }
+            int intCurrentRow = 18 + DetailDT.Rows.Count + 5;
+            _wsh.Cells[intCurrentRow, 1] = "制单:" + drAppDT["Prepared"].ToString();
+            _wsh.Cells[intCurrentRow, 5] = "物流主管:" + drAppDT["OperSup"].ToString();
+            _wsh.Cells[intCurrentRow + 1, 1] = "PREPARED BY:";
+            _wsh.Cells[intCurrentRow + 1, 5] = "        OPERATIONS SUPERBVISOR:";
+            _wsh.Cells[intCurrentRow + 3, 1] = "仓库主管:" + drAppDT["WHSup"].ToString();
+            _wsh.Cells[intCurrentRow + 4, 1] = "WAREHOUSE SUPERVISOR:";
+            _wsh.Cells[intCurrentRow + 5, 1] = "如外包装有破损，请注明。";
+            _wsh.Cells[intCurrentRow + 6, 1] = "IF THE OUT-PACKAGING IS BROKEN, PLEASE REMARK HERE.";
+
+            //保存
+            //string filePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\tempExcel.xls";
+            string filePath = SaveAdd;
+            app.AlertBeforeOverwriting = false;
+            _wbk.SaveAs(filePath, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            //退出和释放
+            _wbk.Close(null, null, null);
+            wbks.Close();
+            app.Quit();
+            //释放掉多余的excel进程
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+            app = null;
+            return true;
+        }
+
+        public bool ExPDFfromOutD(DataTable AppDT, DataTable DetailDT, string SaveAdd)
+        {
+            try
+            {
+                string strExcelName = System.Guid.NewGuid().ToString();
+                string sourcePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\" + strExcelName + ".xls";
+                ExtoEXCELfromOutD(AppDT, DetailDT, sourcePath);
+                XLSConvertToPDF(sourcePath, SaveAdd);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

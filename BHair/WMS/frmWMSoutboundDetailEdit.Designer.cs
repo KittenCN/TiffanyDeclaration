@@ -52,6 +52,7 @@
             this.dtOutDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnUpload = new System.Windows.Forms.Button();
             this.tbItemNO = new System.Windows.Forms.TextBox();
             this.tbWMSNO = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -87,7 +88,8 @@
             this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WMSNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnUpload = new System.Windows.Forms.Button();
+            this.btnExToPDF = new System.Windows.Forms.Button();
+            this.btnExToExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -326,7 +328,9 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnExToPDF);
             this.panel2.Controls.Add(this.btnUpload);
+            this.panel2.Controls.Add(this.btnExToExcel);
             this.panel2.Controls.Add(this.tbItemNO);
             this.panel2.Controls.Add(this.tbWMSNO);
             this.panel2.Controls.Add(this.label20);
@@ -354,6 +358,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(720, 756);
             this.panel2.TabIndex = 1;
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.Location = new System.Drawing.Point(362, 714);
+            this.btnUpload.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(112, 34);
+            this.btnUpload.TabIndex = 22;
+            this.btnUpload.Text = "Upload";
+            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // tbItemNO
             // 
@@ -656,16 +671,27 @@
             this.ItemNO.HeaderText = "Item#";
             this.ItemNO.Name = "ItemNO";
             // 
-            // btnUpload
+            // btnExToPDF
             // 
-            this.btnUpload.Location = new System.Drawing.Point(362, 714);
-            this.btnUpload.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(112, 34);
-            this.btnUpload.TabIndex = 22;
-            this.btnUpload.Text = "Upload";
-            this.btnUpload.UseVisualStyleBackColor = true;
-            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            this.btnExToPDF.Location = new System.Drawing.Point(122, 714);
+            this.btnExToPDF.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExToPDF.Name = "btnExToPDF";
+            this.btnExToPDF.Size = new System.Drawing.Size(112, 34);
+            this.btnExToPDF.TabIndex = 30;
+            this.btnExToPDF.Text = "TO PDF";
+            this.btnExToPDF.UseVisualStyleBackColor = true;
+            this.btnExToPDF.Click += new System.EventHandler(this.btnExToPDF_Click);
+            // 
+            // btnExToExcel
+            // 
+            this.btnExToExcel.Location = new System.Drawing.Point(242, 714);
+            this.btnExToExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExToExcel.Name = "btnExToExcel";
+            this.btnExToExcel.Size = new System.Drawing.Size(112, 34);
+            this.btnExToExcel.TabIndex = 29;
+            this.btnExToExcel.Text = "TO EXCEL";
+            this.btnExToExcel.UseVisualStyleBackColor = true;
+            this.btnExToExcel.Click += new System.EventHandler(this.btnExToExcel_Click);
             // 
             // frmWMSoutboundDetailEdit
             // 
@@ -750,5 +776,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnUpload;
+        private System.Windows.Forms.Button btnExToPDF;
+        private System.Windows.Forms.Button btnExToExcel;
     }
 }

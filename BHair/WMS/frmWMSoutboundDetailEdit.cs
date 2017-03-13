@@ -217,13 +217,77 @@ namespace BHair.Business
                 {
                     string filePath = openFileDialog.FileName;
                     PrintExcel pe = new PrintExcel();
-                    TempDT = pe.ExcelToDataTable_WMSinDetail(filePath, "");
+                    TempDT = pe.ExcelToDataTable_WMSinDetail(filePath, tbOutboundNO.Text);
                     dgvWMSOutboundDetail.AutoGenerateColumns = false;
                     dgvWMSOutboundDetail.DataSource = TempDT;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Excel数据导入失败,详见数据错误列表::" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void btnExToExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
+            // Show save file dialog box
+            DialogResult result = saveFileDialog.ShowDialog();
+            //点了保存按钮进入
+            if (result == DialogResult.OK)
+            {
+                //获得文件路径
+                string localFilePath = saveFileDialog.FileName.ToString();
+                PrintExcel pe = new PrintExcel();
+                try
+                {
+                    string strSQL = "select * from WMSOutbound where OutboundNO='" + tbOutboundNO.Text + "' ";
+                    AccessHelper ah = new AccessHelper();
+                    DataTable dtWMSOut = ah.SelectToDataTable(strSQL);
+                    ah.Close();
+                    strSQL = "select * from WMSOutboundDetail where OutboundNO='" + tbOutboundNO.Text + "' ";
+                    ah = new AccessHelper();
+                    DataTable dtWMSOutD = ah.SelectToDataTable(strSQL);
+                    ah.Close();
+                    pe.ExtoEXCELfromOutD(dtWMSOut, dtWMSOutD, localFilePath);
+                    MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void btnExToPDF_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF文件(*.pdf)|*.pdf";
+            // Show save file dialog box
+            DialogResult result = saveFileDialog.ShowDialog();
+            //点了保存按钮进入
+            if (result == DialogResult.OK)
+            {
+                //获得文件路径
+                string localFilePath = saveFileDialog.FileName.ToString();
+                PrintExcel pe = new PrintExcel();
+                try
+                {
+                    string strSQL = "select * from WMSOutbound where OutboundNO='" + tbOutboundNO.Text + "' ";
+                    AccessHelper ah = new AccessHelper();
+                    DataTable dtWMSIn = ah.SelectToDataTable(strSQL);
+                    ah.Close();
+                    strSQL = "select * from WMSOutboundDetail where OutboundNO='" + tbOutboundNO.Text + "' ";
+                    ah = new AccessHelper();
+                    DataTable dtWMSInD = ah.SelectToDataTable(strSQL);
+                    ah.Close();
+                    pe.ExPDFfromInD(dtWMSIn, dtWMSInD, localFilePath);
+                    MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }

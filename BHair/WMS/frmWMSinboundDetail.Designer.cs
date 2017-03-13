@@ -199,9 +199,9 @@
             this.label9.Location = new System.Drawing.Point(4, 336);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 18);
+            this.label9.Size = new System.Drawing.Size(98, 18);
             this.label9.TabIndex = 16;
-            this.label9.Text = "收货仓库:";
+            this.label9.Text = "收货仓库*:";
             // 
             // tbGrossWGT
             // 
@@ -210,6 +210,7 @@
             this.tbGrossWGT.Name = "tbGrossWGT";
             this.tbGrossWGT.Size = new System.Drawing.Size(180, 28);
             this.tbGrossWGT.TabIndex = 15;
+            this.tbGrossWGT.Text = "0";
             // 
             // label8
             // 
@@ -217,9 +218,9 @@
             this.label8.Location = new System.Drawing.Point(4, 296);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 18);
+            this.label8.Size = new System.Drawing.Size(62, 18);
             this.label8.TabIndex = 14;
-            this.label8.Text = "毛重:";
+            this.label8.Text = "毛重*:";
             // 
             // tbPCs
             // 
@@ -228,6 +229,7 @@
             this.tbPCs.Name = "tbPCs";
             this.tbPCs.Size = new System.Drawing.Size(180, 28);
             this.tbPCs.TabIndex = 13;
+            this.tbPCs.Text = "0";
             // 
             // label7
             // 
@@ -235,9 +237,9 @@
             this.label7.Location = new System.Drawing.Point(4, 254);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 18);
+            this.label7.Size = new System.Drawing.Size(62, 18);
             this.label7.TabIndex = 12;
-            this.label7.Text = "件数:";
+            this.label7.Text = "件数*:";
             // 
             // tbDocNOs
             // 
@@ -325,9 +327,9 @@
             this.label2.Location = new System.Drawing.Point(4, 48);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 18);
+            this.label2.Size = new System.Drawing.Size(116, 18);
             this.label2.TabIndex = 2;
-            this.label2.Text = "入库单编号:";
+            this.label2.Text = "入库单编号*:";
             // 
             // dtInDate
             // 
@@ -505,6 +507,7 @@
             this.tbPCss.Name = "tbPCss";
             this.tbPCss.Size = new System.Drawing.Size(148, 28);
             this.tbPCss.TabIndex = 12;
+            this.tbPCss.Text = "0";
             // 
             // label18
             // 
@@ -512,9 +515,9 @@
             this.label18.Location = new System.Drawing.Point(332, 90);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(44, 18);
+            this.label18.Size = new System.Drawing.Size(53, 18);
             this.label18.TabIndex = 11;
-            this.label18.Text = "PCs:";
+            this.label18.Text = "PCs*:";
             // 
             // tbCarton
             // 
@@ -523,6 +526,7 @@
             this.tbCarton.Name = "tbCarton";
             this.tbCarton.Size = new System.Drawing.Size(148, 28);
             this.tbCarton.TabIndex = 10;
+            this.tbCarton.Text = "0";
             // 
             // label17
             // 
@@ -530,9 +534,9 @@
             this.label17.Location = new System.Drawing.Point(10, 90);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(71, 18);
+            this.label17.Size = new System.Drawing.Size(80, 18);
             this.label17.TabIndex = 9;
-            this.label17.Text = "Carton:";
+            this.label17.Text = "Carton*:";
             // 
             // tbSpecification
             // 
@@ -559,6 +563,7 @@
             this.tbOutsiteSize.Name = "tbOutsiteSize";
             this.tbOutsiteSize.Size = new System.Drawing.Size(148, 28);
             this.tbOutsiteSize.TabIndex = 6;
+            this.tbOutsiteSize.Text = "0";
             // 
             // label15
             // 
@@ -566,9 +571,9 @@
             this.label15.Location = new System.Drawing.Point(10, 50);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(116, 18);
+            this.label15.Size = new System.Drawing.Size(125, 18);
             this.label15.TabIndex = 5;
-            this.label15.Text = "外包装 尺寸:";
+            this.label15.Text = "外包装 尺寸*:";
             // 
             // tbDescription
             // 
@@ -602,9 +607,9 @@
             this.label13.Location = new System.Drawing.Point(10, 15);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(44, 18);
+            this.label13.Size = new System.Drawing.Size(53, 18);
             this.label13.TabIndex = 1;
-            this.label13.Text = "SKU:";
+            this.label13.Text = "SKU*:";
             // 
             // panel3
             // 
