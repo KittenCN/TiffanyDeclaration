@@ -255,5 +255,34 @@ namespace BHair.Business
                 }
             }
         }
+
+        private void btnRelate_Click(object sender, EventArgs e)
+        {
+            if (tbDocNOs.Text.Length > 0)
+            {
+                string strSQL = "select * from DecMain where MAWB='" + tbDocNOs.Text + "' ";
+                AccessHelper ah = new AccessHelper();
+                DataTable dt = ah.SelectToDataTable(strSQL);
+                ah.Close();
+                if(dt.Rows.Count > 0)
+                {
+                    frmDecOrderRelate fdor = new frmDecOrderRelate(dt.Rows[0]["OrderNO"].ToString());
+                    fdor.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("未查询到与此分单号相同的入关信息!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("分单号为空!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnReportToExcel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

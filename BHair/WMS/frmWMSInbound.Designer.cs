@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnReflush = new System.Windows.Forms.Button();
             this.btnCreateIn = new System.Windows.Forms.Button();
             this.dgvWMSInList = new System.Windows.Forms.DataGridView();
             this.OrderNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,7 +44,6 @@
             this.GrossWGT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WearHouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAWB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnReflush = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWMSInList)).BeginInit();
             this.SuspendLayout();
@@ -57,6 +57,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1059, 48);
             this.panel1.TabIndex = 0;
+            // 
+            // btnReflush
+            // 
+            this.btnReflush.Location = new System.Drawing.Point(126, 6);
+            this.btnReflush.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReflush.Name = "btnReflush";
+            this.btnReflush.Size = new System.Drawing.Size(112, 34);
+            this.btnReflush.TabIndex = 1;
+            this.btnReflush.Text = "刷新入库单";
+            this.btnReflush.UseVisualStyleBackColor = true;
+            this.btnReflush.Click += new System.EventHandler(this.btnReflush_Click);
             // 
             // btnCreateIn
             // 
@@ -187,17 +198,6 @@
             this.MAWB.Name = "MAWB";
             this.MAWB.ReadOnly = true;
             this.MAWB.Visible = false;
-            // 
-            // btnReflush
-            // 
-            this.btnReflush.Location = new System.Drawing.Point(126, 6);
-            this.btnReflush.Margin = new System.Windows.Forms.Padding(4);
-            this.btnReflush.Name = "btnReflush";
-            this.btnReflush.Size = new System.Drawing.Size(112, 34);
-            this.btnReflush.TabIndex = 1;
-            this.btnReflush.Text = "刷新入库单";
-            this.btnReflush.UseVisualStyleBackColor = true;
-            this.btnReflush.Click += new System.EventHandler(this.btnReflush_Click);
             // 
             // frmWMSInbound
             // 

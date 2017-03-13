@@ -329,6 +329,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WMS\frmDecOrderRelate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WMS\frmDecOrderRelate.Designer.cs">
+      <DependentUpon>frmDecOrderRelate.cs</DependentUpon>
+    </Compile>
     <Compile Include="WMS\frmWMSOutbound.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -523,6 +529,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="WMS\frmDecOrderRelate.resx">
+      <DependentUpon>frmDecOrderRelate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WMS\frmWMSOutbound.resx">
       <DependentUpon>frmWMSOutbound.cs</DependentUpon>
     </EmbeddedResource>

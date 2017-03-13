@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRelate = new System.Windows.Forms.Button();
             this.tbWHSup = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tbOperSup = new System.Windows.Forms.TextBox();
@@ -92,6 +93,7 @@
             this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WMSNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnReportToExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -100,6 +102,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnRelate);
             this.panel1.Controls.Add(this.tbWHSup);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.tbOperSup);
@@ -129,6 +132,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(309, 754);
             this.panel1.TabIndex = 0;
+            // 
+            // btnRelate
+            // 
+            this.btnRelate.Location = new System.Drawing.Point(122, 712);
+            this.btnRelate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRelate.Name = "btnRelate";
+            this.btnRelate.Size = new System.Drawing.Size(153, 34);
+            this.btnRelate.TabIndex = 24;
+            this.btnRelate.Text = "Related Info";
+            this.btnRelate.UseVisualStyleBackColor = true;
+            this.btnRelate.Click += new System.EventHandler(this.btnRelate_Click);
             // 
             // tbWHSup
             // 
@@ -352,6 +366,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnReportToExcel);
             this.panel2.Controls.Add(this.btnExToPDF);
             this.panel2.Controls.Add(this.btnExToExcel);
             this.panel2.Controls.Add(this.btnUpload);
@@ -720,6 +735,18 @@
             this.ItemNO.HeaderText = "Item#";
             this.ItemNO.Name = "ItemNO";
             // 
+            // btnReportToExcel
+            // 
+            this.btnReportToExcel.Location = new System.Drawing.Point(4, 714);
+            this.btnReportToExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReportToExcel.Name = "btnReportToExcel";
+            this.btnReportToExcel.Size = new System.Drawing.Size(112, 34);
+            this.btnReportToExcel.TabIndex = 25;
+            this.btnReportToExcel.Text = "Report";
+            this.btnReportToExcel.UseVisualStyleBackColor = true;
+            this.btnReportToExcel.Visible = false;
+            this.btnReportToExcel.Click += new System.EventHandler(this.btnReportToExcel_Click);
+            // 
             // frmWMSinboundDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -807,5 +834,7 @@
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.Button btnExToPDF;
         private System.Windows.Forms.Button btnExToExcel;
+        private System.Windows.Forms.Button btnRelate;
+        private System.Windows.Forms.Button btnReportToExcel;
     }
 }

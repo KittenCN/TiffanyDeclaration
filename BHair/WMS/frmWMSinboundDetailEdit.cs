@@ -245,7 +245,7 @@ namespace BHair.Business
                     pe.ExtoEXCELfromInD(dtWMSIn, dtWMSInD, localFilePath);
                     MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -282,6 +282,123 @@ namespace BHair.Business
                     MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void btnRelate_Click(object sender, EventArgs e)
+        {
+            if (tbDocNOs.Text.Length > 0)
+            {
+                string strSQL = "select * from DecMain where MAWB='" + tbDocNOs.Text + "' ";
+                AccessHelper ah = new AccessHelper();
+                DataTable dt = ah.SelectToDataTable(strSQL);
+                ah.Close();
+                if (dt.Rows.Count > 0)
+                {
+                    frmDecOrderRelate fdor = new frmDecOrderRelate(dt.Rows[0]["OrderNO"].ToString());
+                    fdor.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("未查询到与此分单号相同的入关信息!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("分单号为空!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnReportToExcel_Click(object sender, EventArgs e)
+        {
+            string strSQL = "select * from WMSInboundDetail where InboundNO='" + strInboundNO + "' ";
+            AccessHelper ah = new Business.AccessHelper();
+            dtShowWMSInDetail = ah.SelectToDataTable(strSQL);
+            strSQL = "select * from WMSInbound where InboundNO='" + strInboundNO + "' ";
+            dtShowWMSIn = ah.SelectToDataTable(strSQL);
+            ah.Close();
+            DataTable dtWMSInDResult = new DataTable();
+            dtWMSInDResult.Columns.Add(new DataColumn("SKU", typeof(string)));
+            dtWMSInDResult.Columns.Add(new DataColumn("Description", typeof(string)));
+            dtWMSInDResult.Columns.Add(new DataColumn("OutsiteSize", typeof(double)));
+            dtWMSInDResult.Columns.Add(new DataColumn("Specification", typeof(string)));
+            dtWMSInDResult.Columns.Add(new DataColumn("Carton", typeof(int)));
+            dtWMSInDResult.Columns.Add(new DataColumn("PCs", typeof(int)));
+            dtWMSInDResult.Columns.Add(new DataColumn("Remarks", typeof(string)));
+            dtWMSInDResult.Columns.Add(new DataColumn("WMSNO", typeof(string)));
+            dtWMSInDResult.Columns.Add(new DataColumn("ItemNO", typeof(string)));
+            DataRow drWMSInD;
+            DataTable dtResult = new DataTable();
+            dtResult.Columns.Add(new DataColumn("MAWB", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("HAWB", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("FORWARDER", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("ORG", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("ARRport", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("ARRdate", typeof(DateTime)));
+            dtResult.Columns.Add(new DataColumn("CUST DATE", typeof(DateTime)));
+            dtResult.Columns.Add(new DataColumn("TOTAL CARTONS", typeof(int)));
+            dtResult.Columns.Add(new DataColumn("GROSS WGT", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("CHARGEABEL WGT", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("SHIPPER/VENDOR", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("INV_NO", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("INV_Amount", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("Cart_INV", typeof(int)));
+            dtResult.Columns.Add(new DataColumn("PCs", typeof(int)));
+            dtResult.Columns.Add(new DataColumn("Shop_Receiver", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("Duty", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("VAT", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("CT", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("SHOP/ RECEIVER", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("DUTY BILL RETURN DATE", typeof(DateTime)));
+            dtResult.Columns.Add(new DataColumn("INBOUND DATE", typeof(DateTime)));
+            dtResult.Columns.Add(new DataColumn("DESCRIPTION", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("WEARHOUSE NUMBER", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("Freight Cost", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("MIS. FEE", typeof(double)));
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel文件(*.csv)|*.csv";
+            DialogResult result = saveFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    string localFilePath = saveFileDialog.FileName.ToString();
+                    PrintExcel pe = new PrintExcel();
+                    Boolean boolRunFirst = false;
+                    string strLastString = "";
+                    foreach(DataRow dr in dtShowWMSInDetail.Rows)
+                    {
+                        DataRow drR = dtResult.NewRow();
+                        if (!boolRunFirst)
+                        {
+                            drR.ItemArray = drData(drR,tbDocNOs.Text).ItemArray.Clone() as object[];
+                            boolRunFirst = true;
+                        }
+
+                    }
+                }
+                catch(Exception ex)
+                {
+
+                }
+             }
+        }
+        private DataRow drData(DataRow drMainData,string strUUID)
+        {
+            string strSQL = "select * from DecMain where MAWB='" + tbDocNOs.Text + "' ";
+            AccessHelper ah = new AccessHelper();
+            DataTable dt = ah.SelectToDataTable(strSQL);
+            ah.Close();
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                drMainData["CUST DATE"] = DateTime.Parse(dr["ExCusClearTime"].ToString());
+                drMainData["MAWB"] = dr["MAWB"].ToString();
+                drMainData["ARRport"] = dr["ARRport"].ToString();
+                drMainData["ARRdate"] = DateTime.Parse(dr["ARRdate"].ToString());
+                drMainData["TOTAL CARTONS"] = int.Parse(dr["Cart_INV"].ToString());
+            }
+            return drMainData;
         }
     }
 }
