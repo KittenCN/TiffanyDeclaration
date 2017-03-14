@@ -53,12 +53,14 @@
             // dPanelMain
             // 
             this.dPanelMain.ActiveAutoHideContent = null;
-            this.dPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dPanelMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dPanelMain.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
-            this.dPanelMain.Location = new System.Drawing.Point(0, 79);
-            this.dPanelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dPanelMain.Location = new System.Drawing.Point(0, 107);
+            this.dPanelMain.Margin = new System.Windows.Forms.Padding(4);
             this.dPanelMain.Name = "dPanelMain";
-            this.dPanelMain.Size = new System.Drawing.Size(1894, 937);
+            this.dPanelMain.Size = new System.Drawing.Size(1894, 909);
             this.dPanelMain.TabIndex = 0;
             // 
             // ssrMain
@@ -231,9 +233,8 @@
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(1916, 1072);
-            this.MinimumSize = new System.Drawing.Size(798, 592);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(1916, 1072);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "转货管理系统";
