@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.dgvReceiptInfo = new System.Windows.Forms.DataGridView();
-            this.Shop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Clerk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUpload = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.Shop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Clerk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Level = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceiptInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,36 +55,6 @@
             this.dgvReceiptInfo.RowTemplate.Height = 30;
             this.dgvReceiptInfo.Size = new System.Drawing.Size(1068, 613);
             this.dgvReceiptInfo.TabIndex = 0;
-            // 
-            // Shop
-            // 
-            this.Shop.DataPropertyName = "Shop";
-            this.Shop.HeaderText = "店铺两字代码";
-            this.Shop.Name = "Shop";
-            // 
-            // Clerk
-            // 
-            this.Clerk.DataPropertyName = "Clerk";
-            this.Clerk.HeaderText = "店员";
-            this.Clerk.Name = "Clerk";
-            // 
-            // Contact
-            // 
-            this.Contact.DataPropertyName = "Contact";
-            this.Contact.HeaderText = "联系方式";
-            this.Contact.Name = "Contact";
-            // 
-            // Level
-            // 
-            this.Level.DataPropertyName = "Level";
-            this.Level.HeaderText = "级别";
-            this.Level.Name = "Level";
-            // 
-            // Address
-            // 
-            this.Address.DataPropertyName = "Address";
-            this.Address.HeaderText = "地址";
-            this.Address.Name = "Address";
             // 
             // btnUpload
             // 
@@ -116,6 +86,41 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // Shop
+            // 
+            this.Shop.DataPropertyName = "Shop";
+            this.Shop.HeaderText = "店铺两字代码";
+            this.Shop.Name = "Shop";
+            // 
+            // Clerk
+            // 
+            this.Clerk.DataPropertyName = "Clerk";
+            this.Clerk.HeaderText = "店员";
+            this.Clerk.Name = "Clerk";
+            // 
+            // Contact
+            // 
+            this.Contact.DataPropertyName = "Contact";
+            this.Contact.HeaderText = "联系方式";
+            this.Contact.Name = "Contact";
+            // 
+            // Level
+            // 
+            this.Level.DataPropertyName = "Level";
+            this.Level.HeaderText = "级别";
+            this.Level.Items.AddRange(new object[] {
+            "主管",
+            "店员"});
+            this.Level.Name = "Level";
+            this.Level.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Level.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "地址";
+            this.Address.Name = "Address";
+            // 
             // frmReceptInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -136,13 +141,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvReceiptInfo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Shop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Clerk;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Contact;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Level;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Shop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Clerk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Contact;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Level;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
     }
 }

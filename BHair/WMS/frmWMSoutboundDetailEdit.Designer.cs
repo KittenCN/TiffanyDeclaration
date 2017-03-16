@@ -52,7 +52,9 @@
             this.dtOutDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnExToPDF = new System.Windows.Forms.Button();
             this.btnUpload = new System.Windows.Forms.Button();
+            this.btnExToExcel = new System.Windows.Forms.Button();
             this.tbItemNO = new System.Windows.Forms.TextBox();
             this.tbWMSNO = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -88,8 +90,20 @@
             this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WMSNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExToPDF = new System.Windows.Forms.Button();
-            this.btnExToExcel = new System.Windows.Forms.Button();
+            this.cbReceiptShop = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.tbContact1 = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.tbReceipt1 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.tbContact3 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.tbReceipt3 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.tbContact2 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.tbReceipt2 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -98,6 +112,20 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.tbContact1);
+            this.panel1.Controls.Add(this.label26);
+            this.panel1.Controls.Add(this.tbReceipt1);
+            this.panel1.Controls.Add(this.label27);
+            this.panel1.Controls.Add(this.tbContact3);
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.tbReceipt3);
+            this.panel1.Controls.Add(this.label24);
+            this.panel1.Controls.Add(this.tbContact2);
+            this.panel1.Controls.Add(this.label21);
+            this.panel1.Controls.Add(this.tbReceipt2);
+            this.panel1.Controls.Add(this.label22);
+            this.panel1.Controls.Add(this.cbReceiptShop);
+            this.panel1.Controls.Add(this.label25);
             this.panel1.Controls.Add(this.dtpDeadline);
             this.panel1.Controls.Add(this.tbWHSup);
             this.panel1.Controls.Add(this.label12);
@@ -120,6 +148,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.dtOutDate);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(20, 20);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -129,14 +158,14 @@
             // dtpDeadline
             // 
             this.dtpDeadline.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDeadline.Location = new System.Drawing.Point(120, 284);
+            this.dtpDeadline.Location = new System.Drawing.Point(120, 536);
             this.dtpDeadline.Name = "dtpDeadline";
             this.dtpDeadline.Size = new System.Drawing.Size(180, 28);
             this.dtpDeadline.TabIndex = 24;
             // 
             // tbWHSup
             // 
-            this.tbWHSup.Location = new System.Drawing.Point(120, 501);
+            this.tbWHSup.Location = new System.Drawing.Point(120, 713);
             this.tbWHSup.Margin = new System.Windows.Forms.Padding(4);
             this.tbWHSup.Name = "tbWHSup";
             this.tbWHSup.Size = new System.Drawing.Size(180, 28);
@@ -145,7 +174,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(4, 506);
+            this.label12.Location = new System.Drawing.Point(4, 718);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(89, 18);
@@ -154,7 +183,7 @@
             // 
             // tbOperSup
             // 
-            this.tbOperSup.Location = new System.Drawing.Point(120, 459);
+            this.tbOperSup.Location = new System.Drawing.Point(120, 671);
             this.tbOperSup.Margin = new System.Windows.Forms.Padding(4);
             this.tbOperSup.Name = "tbOperSup";
             this.tbOperSup.Size = new System.Drawing.Size(180, 28);
@@ -163,7 +192,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(4, 464);
+            this.label11.Location = new System.Drawing.Point(4, 676);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(89, 18);
@@ -172,7 +201,7 @@
             // 
             // tbPrerared
             // 
-            this.tbPrerared.Location = new System.Drawing.Point(120, 417);
+            this.tbPrerared.Location = new System.Drawing.Point(120, 629);
             this.tbPrerared.Margin = new System.Windows.Forms.Padding(4);
             this.tbPrerared.Name = "tbPrerared";
             this.tbPrerared.Size = new System.Drawing.Size(180, 28);
@@ -181,7 +210,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(4, 422);
+            this.label10.Location = new System.Drawing.Point(4, 634);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 18);
@@ -210,7 +239,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 284);
+            this.label7.Location = new System.Drawing.Point(4, 536);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(125, 18);
@@ -219,7 +248,8 @@
             // 
             // tbReceiptAdd
             // 
-            this.tbReceiptAdd.Location = new System.Drawing.Point(120, 237);
+            this.tbReceiptAdd.Enabled = false;
+            this.tbReceiptAdd.Location = new System.Drawing.Point(120, 263);
             this.tbReceiptAdd.Margin = new System.Windows.Forms.Padding(4);
             this.tbReceiptAdd.Name = "tbReceiptAdd";
             this.tbReceiptAdd.Size = new System.Drawing.Size(180, 28);
@@ -228,7 +258,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(4, 242);
+            this.label6.Location = new System.Drawing.Point(4, 268);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 18);
@@ -359,6 +389,17 @@
             this.panel2.Size = new System.Drawing.Size(720, 756);
             this.panel2.TabIndex = 1;
             // 
+            // btnExToPDF
+            // 
+            this.btnExToPDF.Location = new System.Drawing.Point(122, 714);
+            this.btnExToPDF.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExToPDF.Name = "btnExToPDF";
+            this.btnExToPDF.Size = new System.Drawing.Size(112, 34);
+            this.btnExToPDF.TabIndex = 30;
+            this.btnExToPDF.Text = "TO PDF";
+            this.btnExToPDF.UseVisualStyleBackColor = true;
+            this.btnExToPDF.Click += new System.EventHandler(this.btnExToPDF_Click);
+            // 
             // btnUpload
             // 
             this.btnUpload.Location = new System.Drawing.Point(362, 714);
@@ -369,6 +410,17 @@
             this.btnUpload.Text = "Upload";
             this.btnUpload.UseVisualStyleBackColor = true;
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
+            // btnExToExcel
+            // 
+            this.btnExToExcel.Location = new System.Drawing.Point(242, 714);
+            this.btnExToExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExToExcel.Name = "btnExToExcel";
+            this.btnExToExcel.Size = new System.Drawing.Size(112, 34);
+            this.btnExToExcel.TabIndex = 29;
+            this.btnExToExcel.Text = "TO EXCEL";
+            this.btnExToExcel.UseVisualStyleBackColor = true;
+            this.btnExToExcel.Click += new System.EventHandler(this.btnExToExcel_Click);
             // 
             // tbItemNO
             // 
@@ -671,27 +723,136 @@
             this.ItemNO.HeaderText = "Item#";
             this.ItemNO.Name = "ItemNO";
             // 
-            // btnExToPDF
+            // cbReceiptShop
             // 
-            this.btnExToPDF.Location = new System.Drawing.Point(122, 714);
-            this.btnExToPDF.Margin = new System.Windows.Forms.Padding(4);
-            this.btnExToPDF.Name = "btnExToPDF";
-            this.btnExToPDF.Size = new System.Drawing.Size(112, 34);
-            this.btnExToPDF.TabIndex = 30;
-            this.btnExToPDF.Text = "TO PDF";
-            this.btnExToPDF.UseVisualStyleBackColor = true;
-            this.btnExToPDF.Click += new System.EventHandler(this.btnExToPDF_Click);
+            this.cbReceiptShop.FormattingEnabled = true;
+            this.cbReceiptShop.Location = new System.Drawing.Point(120, 230);
+            this.cbReceiptShop.Name = "cbReceiptShop";
+            this.cbReceiptShop.Size = new System.Drawing.Size(178, 26);
+            this.cbReceiptShop.TabIndex = 50;
             // 
-            // btnExToExcel
+            // label25
             // 
-            this.btnExToExcel.Location = new System.Drawing.Point(242, 714);
-            this.btnExToExcel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnExToExcel.Name = "btnExToExcel";
-            this.btnExToExcel.Size = new System.Drawing.Size(112, 34);
-            this.btnExToExcel.TabIndex = 29;
-            this.btnExToExcel.Text = "TO EXCEL";
-            this.btnExToExcel.UseVisualStyleBackColor = true;
-            this.btnExToExcel.Click += new System.EventHandler(this.btnExToExcel_Click);
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(6, 233);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(89, 18);
+            this.label25.TabIndex = 49;
+            this.label25.Text = "收货店面:";
+            // 
+            // tbContact1
+            // 
+            this.tbContact1.Enabled = false;
+            this.tbContact1.Location = new System.Drawing.Point(120, 343);
+            this.tbContact1.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContact1.Name = "tbContact1";
+            this.tbContact1.Size = new System.Drawing.Size(178, 28);
+            this.tbContact1.TabIndex = 62;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(4, 346);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(98, 18);
+            this.label26.TabIndex = 61;
+            this.label26.Text = "联系方式1:";
+            // 
+            // tbReceipt1
+            // 
+            this.tbReceipt1.Enabled = false;
+            this.tbReceipt1.Location = new System.Drawing.Point(120, 300);
+            this.tbReceipt1.Margin = new System.Windows.Forms.Padding(4);
+            this.tbReceipt1.Name = "tbReceipt1";
+            this.tbReceipt1.Size = new System.Drawing.Size(180, 28);
+            this.tbReceipt1.TabIndex = 60;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(4, 305);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(80, 18);
+            this.label27.TabIndex = 59;
+            this.label27.Text = "收货人1:";
+            // 
+            // tbContact3
+            // 
+            this.tbContact3.Enabled = false;
+            this.tbContact3.Location = new System.Drawing.Point(120, 501);
+            this.tbContact3.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContact3.Name = "tbContact3";
+            this.tbContact3.Size = new System.Drawing.Size(178, 28);
+            this.tbContact3.TabIndex = 58;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(4, 504);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(98, 18);
+            this.label23.TabIndex = 57;
+            this.label23.Text = "联系方式3:";
+            // 
+            // tbReceipt3
+            // 
+            this.tbReceipt3.Enabled = false;
+            this.tbReceipt3.Location = new System.Drawing.Point(120, 458);
+            this.tbReceipt3.Margin = new System.Windows.Forms.Padding(4);
+            this.tbReceipt3.Name = "tbReceipt3";
+            this.tbReceipt3.Size = new System.Drawing.Size(180, 28);
+            this.tbReceipt3.TabIndex = 56;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(4, 463);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(80, 18);
+            this.label24.TabIndex = 55;
+            this.label24.Text = "收货人3:";
+            // 
+            // tbContact2
+            // 
+            this.tbContact2.Enabled = false;
+            this.tbContact2.Location = new System.Drawing.Point(120, 422);
+            this.tbContact2.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContact2.Name = "tbContact2";
+            this.tbContact2.Size = new System.Drawing.Size(178, 28);
+            this.tbContact2.TabIndex = 54;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(4, 425);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(98, 18);
+            this.label21.TabIndex = 53;
+            this.label21.Text = "联系方式2:";
+            // 
+            // tbReceipt2
+            // 
+            this.tbReceipt2.Enabled = false;
+            this.tbReceipt2.Location = new System.Drawing.Point(120, 379);
+            this.tbReceipt2.Margin = new System.Windows.Forms.Padding(4);
+            this.tbReceipt2.Name = "tbReceipt2";
+            this.tbReceipt2.Size = new System.Drawing.Size(180, 28);
+            this.tbReceipt2.TabIndex = 52;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(4, 384);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(80, 18);
+            this.label22.TabIndex = 51;
+            this.label22.Text = "收货人2:";
             // 
             // frmWMSoutboundDetailEdit
             // 
@@ -778,5 +939,19 @@
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.Button btnExToPDF;
         private System.Windows.Forms.Button btnExToExcel;
+        private System.Windows.Forms.ComboBox cbReceiptShop;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox tbContact1;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox tbReceipt1;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox tbContact3;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox tbReceipt3;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox tbContact2;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox tbReceipt2;
+        private System.Windows.Forms.Label label22;
     }
 }

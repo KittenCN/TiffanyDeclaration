@@ -54,6 +54,7 @@ namespace BHair.Business
                 DataTable dtSaveWMSRI;
                 dtSaveWMSRI = GenClass.GetTableFromDgv(dgvReceiptInfo, "WMSReceiptInfo");
                 ah.AddRowsToTable(dtSaveWMSRI, "WMSReceiptInfo");
+                ah.Close();
             }
             catch (Exception ex)
             {
@@ -66,6 +67,7 @@ namespace BHair.Business
             AccessHelper ah = new AccessHelper();
             string strSQL = "select * from WMSReceiptInfo ";
             DataTable dt = ah.SelectToDataTable(strSQL);
+            ah.Close();
             dgvReceiptInfo.AutoGenerateColumns = false;
             dgvReceiptInfo.DataSource = dt;
         }

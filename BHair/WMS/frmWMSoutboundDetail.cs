@@ -135,6 +135,13 @@ namespace BHair.Business
                 drSaveWMSOut["WearHouse"] = cbWearHouse.Text;
                 drSaveWMSOut["Prepared"] = tbPrerared.Text;
                 drSaveWMSOut["OperSup"] = tbOperSup.Text;
+                drSaveWMSOut["ReceiptShop"] = cbReceiptShop.Text;
+                drSaveWMSOut["Receipt1"] = tbReceipt1.Text;
+                drSaveWMSOut["Contact1"] = tbContact1.Text;
+                drSaveWMSOut["Receipt2"] = tbReceipt2.Text;
+                drSaveWMSOut["Contact2"] = tbContact2.Text;
+                drSaveWMSOut["Receipt3"] = tbReceipt3.Text;
+                drSaveWMSOut["Contact3"] = tbContact3.Text;
                 dtSaveWMSOut.Rows.Add(drSaveWMSOut);
 
                 AccessHelper ah = new AccessHelper();
@@ -263,6 +270,15 @@ namespace BHair.Business
                     MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void cbReceiptShop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AccessHelper ah = new AccessHelper();
+            string strSQL = "select * from WMSReceiptInfo where Shop='" + cbReceiptShop.Text + "' ";
+            DataTable dt = ah.SelectToDataTable(strSQL);
+            ah.Close();
+            
         }
     }
 }

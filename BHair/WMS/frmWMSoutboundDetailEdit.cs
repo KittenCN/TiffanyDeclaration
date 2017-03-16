@@ -123,6 +123,13 @@ namespace BHair.Business
                 cbWearHouse.Text = drShowWMSOut["WearHouse"].ToString();
                 tbPrerared.Text = drShowWMSOut["Prepared"].ToString();
                 tbOperSup.Text = drShowWMSOut["OperSup"].ToString();
+                cbReceiptShop.Text = drShowWMSOut["ReceiptShop"].ToString();
+                tbReceipt1.Text = drShowWMSOut["Receipt1"].ToString();
+                tbContact1.Text = drShowWMSOut["Contact1"].ToString();
+                tbReceipt2.Text = drShowWMSOut["Receipt2"].ToString();
+                tbContact2.Text = drShowWMSOut["Contact2"].ToString();
+                tbReceipt3.Text = drShowWMSOut["Receipt3"].ToString();
+                tbContact3.Text = drShowWMSOut["Contact3"].ToString();
             }
         }
 
@@ -150,6 +157,13 @@ namespace BHair.Business
                 drSaveWMSOut["WearHouse"] = cbWearHouse.Text;
                 drSaveWMSOut["Prepared"] = tbPrerared.Text;
                 drSaveWMSOut["OperSup"] = tbOperSup.Text;
+                drSaveWMSOut["ReceiptShop"] = cbReceiptShop.Text;
+                drSaveWMSOut["Receipt1"] = tbReceipt1.Text;
+                drSaveWMSOut["Contact1"] = tbContact1.Text;
+                drSaveWMSOut["Receipt2"] = tbReceipt2.Text;
+                drSaveWMSOut["Contact2"] = tbContact2.Text;
+                drSaveWMSOut["Receipt3"] = tbReceipt3.Text;
+                drSaveWMSOut["Contact3"] = tbContact3.Text;
                 dtSaveWMSOut.Rows.Add(drSaveWMSOut);
 
                 AccessHelper ah = new AccessHelper();
