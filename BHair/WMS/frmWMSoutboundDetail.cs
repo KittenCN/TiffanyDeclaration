@@ -278,7 +278,30 @@ namespace BHair.Business
             string strSQL = "select * from WMSReceiptInfo where Shop='" + cbReceiptShop.Text + "' ";
             DataTable dt = ah.SelectToDataTable(strSQL);
             ah.Close();
-            
+            switch (dt.Rows.Count)
+            {
+                case 0:
+                    break;
+                case 1:
+                    tbReceipt1.Text = dt.Rows[0]["Clerk"].ToString();
+                    tbContact1.Text = dt.Rows[0]["Contact"].ToString();
+                    break;
+                case 2:
+                    tbReceipt1.Text = dt.Rows[0]["Clerk"].ToString();
+                    tbContact1.Text = dt.Rows[0]["Contact"].ToString();
+                    tbReceipt2.Text = dt.Rows[1]["Clerk"].ToString();
+                    tbContact2.Text = dt.Rows[1]["Contact"].ToString();
+                    break;
+                case 3:
+                    tbReceipt1.Text = dt.Rows[0]["Clerk"].ToString();
+                    tbContact1.Text = dt.Rows[0]["Contact"].ToString();
+                    tbReceipt2.Text = dt.Rows[1]["Clerk"].ToString();
+                    tbContact2.Text = dt.Rows[1]["Contact"].ToString();
+                    tbReceipt3.Text = dt.Rows[2]["Clerk"].ToString();
+                    tbContact3.Text = dt.Rows[2]["Contact"].ToString();
+                    break;
+            }
+
         }
     }
 }
