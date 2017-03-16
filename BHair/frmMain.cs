@@ -355,6 +355,7 @@ namespace BHair
                 //toolStripButton3.Visible = false;
                 //toolStripButton8.Visible = false;
                 toolStripButton2.Visible = false;
+                tsbReceiptInfo.Visible = true;
                 //menuMain_Manage_Approval2App_Click(null, null);//仓管窗口
             }
             if (Login.LoginUser.UID == "Administrator")
@@ -367,6 +368,7 @@ namespace BHair
                 tsbWMConfig.Visible = true;
                 tsbWMSMain.Visible = true;
                 tsbOutbound.Visible = true;
+                tsbReceiptInfo.Visible = true;
             }
         }
         #endregion
@@ -406,6 +408,12 @@ namespace BHair
         {
             frmWMSOutbound fwms = new Business.frmWMSOutbound();
             this.ShowWindows_Click(fwms);
+        }
+
+        private void tsbReceiptInfo_Click(object sender, EventArgs e)
+        {
+            frmReceptInfo fri = new frmReceptInfo();
+            fri.ShowDialog();
         }
     }
 }

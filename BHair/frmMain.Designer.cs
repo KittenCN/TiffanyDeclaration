@@ -46,6 +46,7 @@
             this.tsbWMConfig = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.tsbReceiptInfo = new System.Windows.Forms.ToolStripButton();
             this.ssrMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -110,11 +111,12 @@
             this.toolStripButton8,
             this.tsbWMConfig,
             this.toolStripButton2,
+            this.tsbReceiptInfo,
             this.toolStripButton9});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(1894, 79);
+            this.toolStrip1.Size = new System.Drawing.Size(1894, 80);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -133,7 +135,7 @@
             // tt
             // 
             this.tt.Name = "tt";
-            this.tt.Size = new System.Drawing.Size(6, 79);
+            this.tt.Size = new System.Drawing.Size(6, 80);
             // 
             // tsbWMSMain
             // 
@@ -153,7 +155,7 @@
             this.tsbInbound.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbInbound.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbInbound.Name = "tsbInbound";
-            this.tsbInbound.Size = new System.Drawing.Size(86, 76);
+            this.tsbInbound.Size = new System.Drawing.Size(86, 77);
             this.tsbInbound.Text = "入库流程";
             this.tsbInbound.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbInbound.Visible = false;
@@ -165,7 +167,7 @@
             this.tsbOutbound.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbOutbound.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbOutbound.Name = "tsbOutbound";
-            this.tsbOutbound.Size = new System.Drawing.Size(86, 76);
+            this.tsbOutbound.Size = new System.Drawing.Size(86, 77);
             this.tsbOutbound.Text = "出库流程";
             this.tsbOutbound.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbOutbound.Visible = false;
@@ -174,7 +176,7 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 79);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 80);
             // 
             // toolStripButton8
             // 
@@ -182,7 +184,7 @@
             this.toolStripButton8.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(86, 76);
+            this.toolStripButton8.Size = new System.Drawing.Size(86, 77);
             this.toolStripButton8.Text = "商品管理";
             this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton8.Visible = false;
@@ -194,7 +196,7 @@
             this.tsbWMConfig.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbWMConfig.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbWMConfig.Name = "tsbWMConfig";
-            this.tsbWMConfig.Size = new System.Drawing.Size(86, 76);
+            this.tsbWMConfig.Size = new System.Drawing.Size(86, 77);
             this.tsbWMConfig.Text = "系统设置";
             this.tsbWMConfig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbWMConfig.Visible = false;
@@ -206,7 +208,7 @@
             this.toolStripButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(86, 76);
+            this.toolStripButton2.Size = new System.Drawing.Size(86, 77);
             this.toolStripButton2.Text = "会员管理";
             this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton2.Visible = false;
@@ -218,10 +220,22 @@
             this.toolStripButton9.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(52, 76);
+            this.toolStripButton9.Size = new System.Drawing.Size(52, 77);
             this.toolStripButton9.Text = "退出";
             this.toolStripButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
+            // 
+            // tsbReceiptInfo
+            // 
+            this.tsbReceiptInfo.Image = ((System.Drawing.Image)(resources.GetObject("tsbReceiptInfo.Image")));
+            this.tsbReceiptInfo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbReceiptInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbReceiptInfo.Name = "tsbReceiptInfo";
+            this.tsbReceiptInfo.Size = new System.Drawing.Size(122, 77);
+            this.tsbReceiptInfo.Text = "收货信息管理";
+            this.tsbReceiptInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbReceiptInfo.Visible = false;
+            this.tsbReceiptInfo.Click += new System.EventHandler(this.tsbReceiptInfo_Click);
             // 
             // frmMain
             // 
@@ -267,5 +281,6 @@
         private System.Windows.Forms.ToolStripButton tsbWMConfig;
         private System.Windows.Forms.ToolStripButton tsbWMSMain;
         private System.Windows.Forms.ToolStripButton tsbOutbound;
+        private System.Windows.Forms.ToolStripButton tsbReceiptInfo;
     }
 }
