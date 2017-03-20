@@ -91,7 +91,7 @@ namespace BHair.Business
             dgvWMSOutboundDetail.DataSource = dtShowWMSOutDetail;
 
             string[] strWMSTemp = Login.LoginUser.Store.ToString().Split(',');
-            if (strWMSTemp[0] != "" && strWMSTemp[0] != null && strWMSTemp.Length > 1)
+            if (strWMSTemp[0] != "" && strWMSTemp[0] != null && strWMSTemp.Length > 0)
             {
                 for (int i = 0; i < strWMSTemp.Length; i++)
                 {
@@ -108,6 +108,18 @@ namespace BHair.Business
             if (cbWearHouse.Items.Count > 0)
             {
                 cbWearHouse.SelectedIndex = 0;
+            }
+
+            strSQL = "select Shop from WMSReceiptInfo group by Shop";
+            ah = new AccessHelper();
+            DataTable dtShopName = ah.SelectToDataTable(strSQL);
+            ah.Close();
+            if(dtShopName.Rows.Count > 0)
+            {
+                for(int x = 0; x < dtShopName.Rows.Count; x++)
+                {
+                    cbReceiptShop.Items.Add(dtShopName.Rows[x]["Shop"].ToString());
+                }
             }
 
             foreach (DataRow drShowWMSOut in dtShowWMSOut.Rows)
@@ -303,6 +315,37 @@ namespace BHair.Business
                 {
                     MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+        }
+
+        private void cbReceiptShop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AccessHelper ah = new AccessHelper();
+            string strSQL = "select * from WMSReceiptInfo where Shop='" + cbReceiptShop.Text + "' ";
+            DataTable dt = ah.SelectToDataTable(strSQL);
+            ah.Close();
+            switch (dt.Rows.Count)
+            {
+                case 0:
+                    break;
+                case 1:
+                    tbReceipt1.Text = dt.Rows[0]["Clerk"].ToString();
+                    tbContact1.Text = dt.Rows[0]["Contact"].ToString();
+                    break;
+                case 2:
+                    tbReceipt1.Text = dt.Rows[0]["Clerk"].ToString();
+                    tbContact1.Text = dt.Rows[0]["Contact"].ToString();
+                    tbReceipt2.Text = dt.Rows[1]["Clerk"].ToString();
+                    tbContact2.Text = dt.Rows[1]["Contact"].ToString();
+                    break;
+                case 3:
+                    tbReceipt1.Text = dt.Rows[0]["Clerk"].ToString();
+                    tbContact1.Text = dt.Rows[0]["Contact"].ToString();
+                    tbReceipt2.Text = dt.Rows[1]["Clerk"].ToString();
+                    tbContact2.Text = dt.Rows[1]["Contact"].ToString();
+                    tbReceipt3.Text = dt.Rows[2]["Clerk"].ToString();
+                    tbContact3.Text = dt.Rows[2]["Contact"].ToString();
+                    break;
             }
         }
     }

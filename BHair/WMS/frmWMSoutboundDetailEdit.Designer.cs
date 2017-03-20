@@ -29,6 +29,20 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbContact1 = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.tbReceipt1 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.tbContact3 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.tbReceipt3 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.tbContact2 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.tbReceipt2 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.cbReceiptShop = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.dtpDeadline = new System.Windows.Forms.DateTimePicker();
             this.tbWHSup = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -90,20 +104,6 @@
             this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WMSNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbReceiptShop = new System.Windows.Forms.ComboBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.tbContact1 = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.tbReceipt1 = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.tbContact3 = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.tbReceipt3 = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.tbContact2 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.tbReceipt2 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -154,6 +154,138 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(309, 754);
             this.panel1.TabIndex = 0;
+            // 
+            // tbContact1
+            // 
+            this.tbContact1.Enabled = false;
+            this.tbContact1.Location = new System.Drawing.Point(120, 343);
+            this.tbContact1.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContact1.Name = "tbContact1";
+            this.tbContact1.Size = new System.Drawing.Size(178, 28);
+            this.tbContact1.TabIndex = 62;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(4, 346);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(98, 18);
+            this.label26.TabIndex = 61;
+            this.label26.Text = "联系方式1:";
+            // 
+            // tbReceipt1
+            // 
+            this.tbReceipt1.Enabled = false;
+            this.tbReceipt1.Location = new System.Drawing.Point(120, 300);
+            this.tbReceipt1.Margin = new System.Windows.Forms.Padding(4);
+            this.tbReceipt1.Name = "tbReceipt1";
+            this.tbReceipt1.Size = new System.Drawing.Size(180, 28);
+            this.tbReceipt1.TabIndex = 60;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(4, 305);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(80, 18);
+            this.label27.TabIndex = 59;
+            this.label27.Text = "收货人1:";
+            // 
+            // tbContact3
+            // 
+            this.tbContact3.Enabled = false;
+            this.tbContact3.Location = new System.Drawing.Point(120, 501);
+            this.tbContact3.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContact3.Name = "tbContact3";
+            this.tbContact3.Size = new System.Drawing.Size(178, 28);
+            this.tbContact3.TabIndex = 58;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(4, 504);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(98, 18);
+            this.label23.TabIndex = 57;
+            this.label23.Text = "联系方式3:";
+            // 
+            // tbReceipt3
+            // 
+            this.tbReceipt3.Enabled = false;
+            this.tbReceipt3.Location = new System.Drawing.Point(120, 458);
+            this.tbReceipt3.Margin = new System.Windows.Forms.Padding(4);
+            this.tbReceipt3.Name = "tbReceipt3";
+            this.tbReceipt3.Size = new System.Drawing.Size(180, 28);
+            this.tbReceipt3.TabIndex = 56;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(4, 463);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(80, 18);
+            this.label24.TabIndex = 55;
+            this.label24.Text = "收货人3:";
+            // 
+            // tbContact2
+            // 
+            this.tbContact2.Enabled = false;
+            this.tbContact2.Location = new System.Drawing.Point(120, 422);
+            this.tbContact2.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContact2.Name = "tbContact2";
+            this.tbContact2.Size = new System.Drawing.Size(178, 28);
+            this.tbContact2.TabIndex = 54;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(4, 425);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(98, 18);
+            this.label21.TabIndex = 53;
+            this.label21.Text = "联系方式2:";
+            // 
+            // tbReceipt2
+            // 
+            this.tbReceipt2.Enabled = false;
+            this.tbReceipt2.Location = new System.Drawing.Point(120, 379);
+            this.tbReceipt2.Margin = new System.Windows.Forms.Padding(4);
+            this.tbReceipt2.Name = "tbReceipt2";
+            this.tbReceipt2.Size = new System.Drawing.Size(180, 28);
+            this.tbReceipt2.TabIndex = 52;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(4, 384);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(80, 18);
+            this.label22.TabIndex = 51;
+            this.label22.Text = "收货人2:";
+            // 
+            // cbReceiptShop
+            // 
+            this.cbReceiptShop.FormattingEnabled = true;
+            this.cbReceiptShop.Location = new System.Drawing.Point(120, 230);
+            this.cbReceiptShop.Name = "cbReceiptShop";
+            this.cbReceiptShop.Size = new System.Drawing.Size(178, 26);
+            this.cbReceiptShop.TabIndex = 50;
+            this.cbReceiptShop.SelectedIndexChanged += new System.EventHandler(this.cbReceiptShop_SelectedIndexChanged);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(6, 233);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(89, 18);
+            this.label25.TabIndex = 49;
+            this.label25.Text = "收货店面:";
             // 
             // dtpDeadline
             // 
@@ -722,137 +854,6 @@
             this.ItemNO.DataPropertyName = "ItemNO";
             this.ItemNO.HeaderText = "Item#";
             this.ItemNO.Name = "ItemNO";
-            // 
-            // cbReceiptShop
-            // 
-            this.cbReceiptShop.FormattingEnabled = true;
-            this.cbReceiptShop.Location = new System.Drawing.Point(120, 230);
-            this.cbReceiptShop.Name = "cbReceiptShop";
-            this.cbReceiptShop.Size = new System.Drawing.Size(178, 26);
-            this.cbReceiptShop.TabIndex = 50;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(6, 233);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(89, 18);
-            this.label25.TabIndex = 49;
-            this.label25.Text = "收货店面:";
-            // 
-            // tbContact1
-            // 
-            this.tbContact1.Enabled = false;
-            this.tbContact1.Location = new System.Drawing.Point(120, 343);
-            this.tbContact1.Margin = new System.Windows.Forms.Padding(4);
-            this.tbContact1.Name = "tbContact1";
-            this.tbContact1.Size = new System.Drawing.Size(178, 28);
-            this.tbContact1.TabIndex = 62;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(4, 346);
-            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(98, 18);
-            this.label26.TabIndex = 61;
-            this.label26.Text = "联系方式1:";
-            // 
-            // tbReceipt1
-            // 
-            this.tbReceipt1.Enabled = false;
-            this.tbReceipt1.Location = new System.Drawing.Point(120, 300);
-            this.tbReceipt1.Margin = new System.Windows.Forms.Padding(4);
-            this.tbReceipt1.Name = "tbReceipt1";
-            this.tbReceipt1.Size = new System.Drawing.Size(180, 28);
-            this.tbReceipt1.TabIndex = 60;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(4, 305);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(80, 18);
-            this.label27.TabIndex = 59;
-            this.label27.Text = "收货人1:";
-            // 
-            // tbContact3
-            // 
-            this.tbContact3.Enabled = false;
-            this.tbContact3.Location = new System.Drawing.Point(120, 501);
-            this.tbContact3.Margin = new System.Windows.Forms.Padding(4);
-            this.tbContact3.Name = "tbContact3";
-            this.tbContact3.Size = new System.Drawing.Size(178, 28);
-            this.tbContact3.TabIndex = 58;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(4, 504);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(98, 18);
-            this.label23.TabIndex = 57;
-            this.label23.Text = "联系方式3:";
-            // 
-            // tbReceipt3
-            // 
-            this.tbReceipt3.Enabled = false;
-            this.tbReceipt3.Location = new System.Drawing.Point(120, 458);
-            this.tbReceipt3.Margin = new System.Windows.Forms.Padding(4);
-            this.tbReceipt3.Name = "tbReceipt3";
-            this.tbReceipt3.Size = new System.Drawing.Size(180, 28);
-            this.tbReceipt3.TabIndex = 56;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(4, 463);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(80, 18);
-            this.label24.TabIndex = 55;
-            this.label24.Text = "收货人3:";
-            // 
-            // tbContact2
-            // 
-            this.tbContact2.Enabled = false;
-            this.tbContact2.Location = new System.Drawing.Point(120, 422);
-            this.tbContact2.Margin = new System.Windows.Forms.Padding(4);
-            this.tbContact2.Name = "tbContact2";
-            this.tbContact2.Size = new System.Drawing.Size(178, 28);
-            this.tbContact2.TabIndex = 54;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(4, 425);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(98, 18);
-            this.label21.TabIndex = 53;
-            this.label21.Text = "联系方式2:";
-            // 
-            // tbReceipt2
-            // 
-            this.tbReceipt2.Enabled = false;
-            this.tbReceipt2.Location = new System.Drawing.Point(120, 379);
-            this.tbReceipt2.Margin = new System.Windows.Forms.Padding(4);
-            this.tbReceipt2.Name = "tbReceipt2";
-            this.tbReceipt2.Size = new System.Drawing.Size(180, 28);
-            this.tbReceipt2.TabIndex = 52;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(4, 384);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(80, 18);
-            this.label22.TabIndex = 51;
-            this.label22.Text = "收货人2:";
             // 
             // frmWMSoutboundDetailEdit
             // 

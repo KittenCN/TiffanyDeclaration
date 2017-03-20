@@ -109,6 +109,18 @@ namespace BHair.Business
             {
                 cbWearHouse.SelectedIndex = 0;
             }
+
+            strSQL = "select Shop from WMSReceiptInfo group by Shop";
+            ah = new AccessHelper();
+            DataTable dtShopName = ah.SelectToDataTable(strSQL);
+            ah.Close();
+            if (dtShopName.Rows.Count > 0)
+            {
+                for (int x = 0; x < dtShopName.Rows.Count; x++)
+                {
+                    cbReceiptShop.Items.Add(dtShopName.Rows[x]["Shop"].ToString());
+                }
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -301,7 +313,6 @@ namespace BHair.Business
                     tbContact3.Text = dt.Rows[2]["Contact"].ToString();
                     break;
             }
-
         }
     }
 }

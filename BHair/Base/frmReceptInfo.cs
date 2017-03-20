@@ -55,6 +55,8 @@ namespace BHair.Business
                 dtSaveWMSRI = GenClass.GetTableFromDgv(dgvReceiptInfo, "WMSReceiptInfo");
                 ah.AddRowsToTable(dtSaveWMSRI, "WMSReceiptInfo");
                 ah.Close();
+                MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             catch (Exception ex)
             {
