@@ -148,7 +148,6 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.dtOutDate);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(20, 20);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";

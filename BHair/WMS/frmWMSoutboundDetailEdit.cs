@@ -40,7 +40,7 @@ namespace BHair.Business
             }
             else
             {
-                if (dt.Rows.Count > 0 && int.Parse(dt.Rows[0]["Amount"].ToString()) > int.Parse(tbPCss.Text))
+                if (dt.Rows.Count > 0 && int.Parse(dt.Rows[0]["Amount"].ToString()) >= int.Parse(tbPCss.Text))
                 {
                     DataRow drShow = dtShowWMSOutDetail.NewRow();
                     drShow["OrderNO"] = "";
@@ -195,7 +195,7 @@ namespace BHair.Business
                     DataTable dtTemp = ah.SelectToDataTable(strSQL);
                     ah.Close();
                     ah = new AccessHelper();
-                    if (dtTemp.Rows.Count > 0 && int.Parse(dtTemp.Rows[0]["Amount"].ToString()) > intAmount)
+                    if (dtTemp.Rows.Count > 0 && int.Parse(dtTemp.Rows[0]["Amount"].ToString()) >= intAmount)
                     {
                         strSQL = "select * from WMSOutboundDetail where OutboundNO='" + strOutboundNO + "' and SKU='" + strSKU + "' ";
                         AccessHelper ahin = new AccessHelper();
@@ -331,16 +331,19 @@ namespace BHair.Business
                 case 1:
                     tbReceipt1.Text = dt.Rows[0]["Clerk"].ToString();
                     tbContact1.Text = dt.Rows[0]["Contact"].ToString();
+                    tbReceiptAdd.Text = dt.Rows[0]["Address"].ToString();
                     break;
                 case 2:
                     tbReceipt1.Text = dt.Rows[0]["Clerk"].ToString();
                     tbContact1.Text = dt.Rows[0]["Contact"].ToString();
+                    tbReceiptAdd.Text = dt.Rows[0]["Address"].ToString();
                     tbReceipt2.Text = dt.Rows[1]["Clerk"].ToString();
                     tbContact2.Text = dt.Rows[1]["Contact"].ToString();
                     break;
-                case 3:
+                default:
                     tbReceipt1.Text = dt.Rows[0]["Clerk"].ToString();
                     tbContact1.Text = dt.Rows[0]["Contact"].ToString();
+                    tbReceiptAdd.Text = dt.Rows[0]["Address"].ToString();
                     tbReceipt2.Text = dt.Rows[1]["Clerk"].ToString();
                     tbContact2.Text = dt.Rows[1]["Contact"].ToString();
                     tbReceipt3.Text = dt.Rows[2]["Clerk"].ToString();

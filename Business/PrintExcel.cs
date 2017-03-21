@@ -1575,7 +1575,14 @@ namespace BHair.Business
             _wsh.Cells[10, 5] = "联系方式:" + drAppDT["Contact"].ToString();
             _wsh.Cells[12, 1] = "出货方式:" + drAppDT["OutType"].ToString();
             _wsh.Cells[14, 1] = "收货地址:" + drAppDT["ReceiptAdd"].ToString();
-            _wsh.Cells[16, 1] = "要求到货时间:" + drAppDT["Deadline"].ToString();
+            _wsh.Cells[14, 5] = "收货店铺:" + drAppDT["ReceiptShop"].ToString();
+            _wsh.Cells[16, 1] = "收货人1:" + drAppDT["Receipt1"].ToString();
+            _wsh.Cells[16, 5] = "联系方式1:" + drAppDT["Contact1"].ToString();
+            _wsh.Cells[18, 1] = "收货人2:" + drAppDT["Receipt2"].ToString();
+            _wsh.Cells[18, 5] = "联系方式2:" + drAppDT["Contact2"].ToString();
+            _wsh.Cells[20, 1] = "收货人3:" + drAppDT["Receipt3"].ToString();
+            _wsh.Cells[20, 5] = "联系方式3:" + drAppDT["Contact3"].ToString();
+            _wsh.Cells[22, 1] = "要求到货时间:" + drAppDT["Deadline"].ToString();
 
             int intSumCarton = 0;
             int intSumPcs = 0;
@@ -1584,9 +1591,9 @@ namespace BHair.Business
             for (int y = 1; y <= 9; y++)
             {
                 intDTRows = 0;
-                for (int x = 18; x < 18 + DetailDT.Rows.Count + 3; x++)
+                for (int x = 24; x < 24 + DetailDT.Rows.Count + 3; x++)
                 {
-                    if (x == 18)
+                    if (x == 24)
                     {
                         switch (y)
                         {
@@ -1655,7 +1662,7 @@ namespace BHair.Business
                         }
                         intDTRows++;
                     }
-                    else if (x == 18 + DetailDT.Rows.Count + 2)
+                    else if (x == 24 + DetailDT.Rows.Count + 2)
                     {
                         switch (y)
                         {
@@ -1673,7 +1680,7 @@ namespace BHair.Business
                     Excel.Range excelRange = _wsh.get_Range(_wsh.Cells[x, y], _wsh.Cells[x, y]);
                 }
             }
-            int intCurrentRow = 18 + DetailDT.Rows.Count + 5;
+            int intCurrentRow = 24 + DetailDT.Rows.Count + 5;
             _wsh.Cells[intCurrentRow, 1] = "制单:" + drAppDT["Prepared"].ToString();
             _wsh.Cells[intCurrentRow, 5] = "物流主管:" + drAppDT["OperSup"].ToString();
             _wsh.Cells[intCurrentRow + 1, 1] = "PREPARED BY:";

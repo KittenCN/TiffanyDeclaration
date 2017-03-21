@@ -572,8 +572,6 @@
     <None Include="bin\Debug\templet\转货申请表模板.xls" />
     <None Include="bin\Debug\TiffanyDeclaration.exe.config" />
     <None Include="bin\Debug\TiffanyDeclaration.vshost.exe.config" />
-    <None Include="bin\Debug\TiffanyTransfer.vshost.exe.config" />
-    <None Include="bin\Debug\TiffanyTransfer.vshost.exe.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -620,8 +618,6 @@
     <Content Include="bin\Debug\TiffanyDeclaration.exe" />
     <Content Include="bin\Debug\TiffanyDeclaration.pdb" />
     <Content Include="bin\Debug\TiffanyDeclaration.vshost.exe" />
-    <Content Include="bin\Debug\TiffanyTransfer.exe" />
-    <Content Include="bin\Debug\TiffanyTransfer.pdb" />
     <Content Include="bin\Debug\WinFormsUI.Docking.dll" />
     <Content Include="bin\Debug\XLuSharpLibrary.dll" />
     <Content Include="Config.xml" />
