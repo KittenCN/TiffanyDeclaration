@@ -1396,22 +1396,34 @@ namespace BHair.Business
             Excel._Workbook _wbk = wbks.Add(XLSName);
             Excel.Sheets shs = _wbk.Sheets;
             Excel._Worksheet _wsh = (Excel._Worksheet)shs.get_Item(1);
-
+            _wsh.PageSetup.Orientation = Excel.XlPageOrientation.xlLandscape;
 
             //写入
             _wsh.Cells[2, 3] = "入库单";
             _wsh.Cells[3, 3] = "INBOUND NOTE";
 
             DataRow drAppDT = AppDT.Rows[0];
-            _wsh.Cells[5, 1] = "入库日期:" + drAppDT["InDate"].ToString();
-            _wsh.Cells[5, 5] = "入库单编号:" + drAppDT["InboundNO"].ToString();
-            _wsh.Cells[8, 1] = "发货人:" + drAppDT["Shipper"].ToString();
-            _wsh.Cells[8, 5] = "使用人:" + drAppDT["User"].ToString();
-            _wsh.Cells[11, 1] = "总单号:" + drAppDT["DocNO"].ToString();
-            _wsh.Cells[11, 5] = "分单号:" + drAppDT["DocNOs"].ToString();
-            _wsh.Cells[15, 1] = "件数:" + drAppDT["PCs"].ToString();
-            _wsh.Cells[15, 5] = "毛重:" + drAppDT["GrossWGT"].ToString();
-            _wsh.Cells[18, 1] = "收货仓库:" + drAppDT["WearHouse"].ToString();
+            _wsh.Cells[5, 1] = "入库日期:";
+            _wsh.Cells[5, 2] = drAppDT["InDate"].ToString();
+            _wsh.Cells[5, 5] = "入库单编号:";
+            _wsh.Cells[5, 6] = drAppDT["InboundNO"].ToString();
+            _wsh.Cells[8, 1] = "发货人:";
+            _wsh.Cells[8, 2] = drAppDT["Shipper"].ToString();
+            _wsh.Cells[8, 5] = "使用人:";
+            _wsh.Cells[8, 6] = drAppDT["User"].ToString();
+            _wsh.Cells[11, 1] = "总单号:";
+            _wsh.Cells[11, 2] = drAppDT["DocNO"].ToString();
+            _wsh.Cells[11, 5] = "分单号:";
+            _wsh.Cells[11, 6] = drAppDT["DocNOs"].ToString();
+            _wsh.Cells[15, 1] = "件数:";
+            _wsh.Cells[15, 2] = drAppDT["PCs"].ToString();
+            _wsh.Cells[15, 5] = "毛重:";
+            _wsh.Cells[15, 6] = drAppDT["GrossWGT"].ToString();
+            _wsh.Cells[18, 1] = "收货仓库:";
+            _wsh.Cells[18, 2] = drAppDT["WearHouse"].ToString();
+
+            Excel.Range exRange = _wsh.get_Range(_wsh.Cells[1, 1], _wsh.Cells[18, 10]);
+            exRange.WrapText = true;
 
             int intSumCarton = 0;
             int intSumPcs = 0;
@@ -1504,9 +1516,11 @@ namespace BHair.Business
                             case 8:
                                 _wsh.Cells[x, y] = intSumPcs.ToString();
                                 break;
-                        }
+                        }                      
                     }
                     Excel.Range excelRange = _wsh.get_Range(_wsh.Cells[x, y], _wsh.Cells[x, y]);
+                    excelRange.Borders.LineStyle = 1;
+                    excelRange.WrapText = true;
                 }
             }
             int intCurrentRow = 22 + DetailDT.Rows.Count + 5;
@@ -1561,28 +1575,46 @@ namespace BHair.Business
             Excel._Workbook _wbk = wbks.Add(XLSName);
             Excel.Sheets shs = _wbk.Sheets;
             Excel._Worksheet _wsh = (Excel._Worksheet)shs.get_Item(1);
-
+            _wsh.PageSetup.Orientation = Excel.XlPageOrientation.xlLandscape;
 
             //写入
             _wsh.Cells[2, 3] = "出库单";
             _wsh.Cells[3, 3] = "OUTBOUND NOTE";
 
             DataRow drAppDT = AppDT.Rows[0];
-            _wsh.Cells[5, 1] = "出库日期:" + drAppDT["OutDate"].ToString();
-            _wsh.Cells[5, 5] = "出库单编号:" + drAppDT["OutboundNO"].ToString();
-            _wsh.Cells[8, 1] = "出货仓库:" + drAppDT["WearHouse"].ToString();
-            _wsh.Cells[10, 1] = "发货人:" + drAppDT["Shipper"].ToString();
-            _wsh.Cells[10, 5] = "联系方式:" + drAppDT["Contact"].ToString();
-            _wsh.Cells[12, 1] = "出货方式:" + drAppDT["OutType"].ToString();
-            _wsh.Cells[14, 1] = "收货地址:" + drAppDT["ReceiptAdd"].ToString();
-            _wsh.Cells[14, 5] = "收货店铺:" + drAppDT["ReceiptShop"].ToString();
-            _wsh.Cells[16, 1] = "收货人1:" + drAppDT["Receipt1"].ToString();
-            _wsh.Cells[16, 5] = "联系方式1:" + drAppDT["Contact1"].ToString();
-            _wsh.Cells[18, 1] = "收货人2:" + drAppDT["Receipt2"].ToString();
-            _wsh.Cells[18, 5] = "联系方式2:" + drAppDT["Contact2"].ToString();
-            _wsh.Cells[20, 1] = "收货人3:" + drAppDT["Receipt3"].ToString();
-            _wsh.Cells[20, 5] = "联系方式3:" + drAppDT["Contact3"].ToString();
-            _wsh.Cells[22, 1] = "要求到货时间:" + drAppDT["Deadline"].ToString();
+            _wsh.Cells[5, 1] = "出库日期:";
+            _wsh.Cells[5, 2] = drAppDT["OutDate"].ToString();
+            _wsh.Cells[5, 5] = "出库单编号:";
+            _wsh.Cells[5, 6] = drAppDT["OutboundNO"].ToString();
+            _wsh.Cells[8, 1] = "出货仓库:";
+            _wsh.Cells[8, 2] = drAppDT["WearHouse"].ToString();
+            _wsh.Cells[10, 1] = "发货人:";
+            _wsh.Cells[10, 2] = drAppDT["Shipper"].ToString();
+            _wsh.Cells[10, 5] = "联系方式:";
+            _wsh.Cells[10, 6] = drAppDT["Contact"].ToString();
+            _wsh.Cells[12, 1] = "出货方式:";
+            _wsh.Cells[12, 2] = drAppDT["OutType"].ToString();
+            _wsh.Cells[14, 1] = "收货地址:";
+            _wsh.Cells[14, 2] = drAppDT["ReceiptAdd"].ToString();
+            _wsh.Cells[14, 5] = "收货店铺:";
+            _wsh.Cells[14, 6] = drAppDT["ReceiptShop"].ToString();
+            _wsh.Cells[16, 1] = "收货人1:";
+            _wsh.Cells[16, 2] = drAppDT["Receipt1"].ToString();
+            _wsh.Cells[16, 5] = "联系方式1:";
+            _wsh.Cells[16, 6] = drAppDT["Contact1"].ToString();
+            _wsh.Cells[18, 1] = "收货人2:";
+            _wsh.Cells[18, 2] = drAppDT["Receipt2"].ToString();
+            _wsh.Cells[18, 5] = "联系方式2:";
+            _wsh.Cells[18, 6] = drAppDT["Contact2"].ToString();
+            _wsh.Cells[20, 1] = "收货人3:";
+            _wsh.Cells[20, 2] = drAppDT["Receipt3"].ToString();
+            _wsh.Cells[20, 5] = "联系方式3:";
+            _wsh.Cells[20, 6] = drAppDT["Contact3"].ToString();
+            _wsh.Cells[22, 1] = "要求到货时间:";
+            _wsh.Cells[22, 2] = drAppDT["Deadline"].ToString();
+
+            Excel.Range exRange = _wsh.get_Range(_wsh.Cells[1, 1], _wsh.Cells[22, 10]);
+            exRange.WrapText = true;
 
             int intSumCarton = 0;
             int intSumPcs = 0;
@@ -1678,6 +1710,8 @@ namespace BHair.Business
                         }
                     }
                     Excel.Range excelRange = _wsh.get_Range(_wsh.Cells[x, y], _wsh.Cells[x, y]);
+                    excelRange.Borders.LineStyle = 1;
+                    excelRange.WrapText = true;
                 }
             }
             int intCurrentRow = 24 + DetailDT.Rows.Count + 5;

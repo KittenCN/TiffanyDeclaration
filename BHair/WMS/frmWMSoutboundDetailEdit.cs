@@ -308,7 +308,7 @@ namespace BHair.Business
                     ah = new AccessHelper();
                     DataTable dtWMSInD = ah.SelectToDataTable(strSQL);
                     ah.Close();
-                    pe.ExPDFfromInD(dtWMSIn, dtWMSInD, localFilePath);
+                    pe.ExPDFfromOutD(dtWMSIn, dtWMSInD, localFilePath);
                     MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
