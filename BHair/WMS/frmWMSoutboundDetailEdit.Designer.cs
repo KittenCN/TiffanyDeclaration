@@ -866,6 +866,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmWMSoutboundDetailEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmWMSoutboundDetail";
             this.Load += new System.EventHandler(this.frmWMSinboundDetail_Load);
             this.panel1.ResumeLayout(false);

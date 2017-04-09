@@ -59,26 +59,29 @@
             // lblMember
             // 
             this.lblMember.AutoSize = true;
-            this.lblMember.Location = new System.Drawing.Point(10, 15);
+            this.lblMember.Location = new System.Drawing.Point(15, 22);
+            this.lblMember.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMember.Name = "lblMember";
-            this.lblMember.Size = new System.Drawing.Size(101, 12);
+            this.lblMember.Size = new System.Drawing.Size(152, 18);
             this.lblMember.TabIndex = 0;
             this.lblMember.Text = "输入账号或姓名：";
             // 
             // txtMember
             // 
-            this.txtMember.Location = new System.Drawing.Point(141, 12);
+            this.txtMember.Location = new System.Drawing.Point(212, 18);
+            this.txtMember.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMember.Name = "txtMember";
-            this.txtMember.Size = new System.Drawing.Size(100, 21);
+            this.txtMember.Size = new System.Drawing.Size(148, 28);
             this.txtMember.TabIndex = 1;
             this.txtMember.TextChanged += new System.EventHandler(this.txtMember_TextChanged);
             // 
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Location = new System.Drawing.Point(582, 10);
+            this.btnAdd.Location = new System.Drawing.Point(873, 15);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(85, 23);
+            this.btnAdd.Size = new System.Drawing.Size(128, 34);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "新增用户(&A)";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -87,9 +90,10 @@
             // btnModify
             // 
             this.btnModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnModify.Location = new System.Drawing.Point(685, 10);
+            this.btnModify.Location = new System.Drawing.Point(1028, 15);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(85, 23);
+            this.btnModify.Size = new System.Drawing.Size(128, 34);
             this.btnModify.TabIndex = 3;
             this.btnModify.Text = "编辑用户(&M)";
             this.btnModify.UseVisualStyleBackColor = true;
@@ -122,12 +126,13 @@
             this.IsAdmin,
             this.IsDelete,
             this.ID});
-            this.dgvMember.Location = new System.Drawing.Point(12, 39);
+            this.dgvMember.Location = new System.Drawing.Point(18, 58);
+            this.dgvMember.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvMember.MultiSelect = false;
             this.dgvMember.Name = "dgvMember";
             this.dgvMember.RowTemplate.Height = 23;
             this.dgvMember.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMember.Size = new System.Drawing.Size(872, 361);
+            this.dgvMember.Size = new System.Drawing.Size(1308, 542);
             this.dgvMember.TabIndex = 6;
             this.dgvMember.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvMember_CellFormatting);
             this.dgvMember.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMember_CellMouseDoubleClick);
@@ -262,9 +267,10 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Location = new System.Drawing.Point(788, 10);
+            this.btnDelete.Location = new System.Drawing.Point(1182, 15);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(85, 23);
+            this.btnDelete.Size = new System.Drawing.Size(128, 34);
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "删除用户(&D)";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -273,9 +279,10 @@
             // btnImport
             // 
             this.btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImport.Location = new System.Drawing.Point(483, 10);
+            this.btnImport.Location = new System.Drawing.Point(724, 15);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(83, 23);
+            this.btnImport.Size = new System.Drawing.Size(124, 34);
             this.btnImport.TabIndex = 8;
             this.btnImport.Text = "导入用户(&I)";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -283,9 +290,9 @@
             // 
             // frmMember_List
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 424);
+            this.ClientSize = new System.Drawing.Size(1344, 636);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.dgvMember);
@@ -293,7 +300,9 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtMember);
             this.Controls.Add(this.lblMember);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMember_List";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TabText = "用户管理";
             this.Text = "用户管理";
             this.Load += new System.EventHandler(this.frmMember_List_Load);

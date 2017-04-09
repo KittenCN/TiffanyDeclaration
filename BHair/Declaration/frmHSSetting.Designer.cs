@@ -46,12 +46,11 @@
             this.HSCODE,
             this.Duty,
             this.VAT});
-            this.dgvHSSetting.Location = new System.Drawing.Point(9, 9);
-            this.dgvHSSetting.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvHSSetting.Location = new System.Drawing.Point(14, 14);
             this.dgvHSSetting.MultiSelect = false;
             this.dgvHSSetting.Name = "dgvHSSetting";
             this.dgvHSSetting.RowTemplate.Height = 30;
-            this.dgvHSSetting.Size = new System.Drawing.Size(304, 301);
+            this.dgvHSSetting.Size = new System.Drawing.Size(456, 452);
             this.dgvHSSetting.TabIndex = 0;
             // 
             // HSCODE
@@ -74,10 +73,9 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(182, 325);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSave.Location = new System.Drawing.Point(273, 488);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(59, 24);
+            this.btnSave.Size = new System.Drawing.Size(88, 36);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -85,10 +83,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(254, 325);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancel.Location = new System.Drawing.Point(381, 488);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(59, 24);
+            this.btnCancel.Size = new System.Drawing.Size(88, 36);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -96,10 +93,9 @@
             // 
             // btnUploadHSSetting
             // 
-            this.btnUploadHSSetting.Location = new System.Drawing.Point(11, 325);
-            this.btnUploadHSSetting.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUploadHSSetting.Location = new System.Drawing.Point(16, 488);
             this.btnUploadHSSetting.Name = "btnUploadHSSetting";
-            this.btnUploadHSSetting.Size = new System.Drawing.Size(59, 24);
+            this.btnUploadHSSetting.Size = new System.Drawing.Size(88, 36);
             this.btnUploadHSSetting.TabIndex = 3;
             this.btnUploadHSSetting.Text = "上传";
             this.btnUploadHSSetting.UseVisualStyleBackColor = true;
@@ -107,15 +103,15 @@
             // 
             // frmHSSetting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 365);
+            this.ClientSize = new System.Drawing.Size(489, 548);
             this.Controls.Add(this.btnUploadHSSetting);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvHSSetting);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmHSSetting";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TabText = "frmHSSetting";
             this.Text = "frmHSSetting";
             this.Load += new System.EventHandler(this.frmHSSetting_Load);

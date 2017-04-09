@@ -52,24 +52,27 @@
             // 
             this.panel1.Controls.Add(this.tbRate);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.Location = new System.Drawing.Point(20, 20);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(272, 100);
+            this.panel1.Size = new System.Drawing.Size(408, 45);
             this.panel1.TabIndex = 0;
             // 
             // tbRate
             // 
-            this.tbRate.Location = new System.Drawing.Point(69, 1);
+            this.tbRate.Location = new System.Drawing.Point(104, 2);
+            this.tbRate.Margin = new System.Windows.Forms.Padding(4);
             this.tbRate.Name = "tbRate";
-            this.tbRate.Size = new System.Drawing.Size(100, 21);
+            this.tbRate.Size = new System.Drawing.Size(148, 28);
             this.tbRate.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 4);
+            this.label1.Location = new System.Drawing.Point(6, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.Size = new System.Drawing.Size(89, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "当前汇率:";
             // 
@@ -77,17 +80,19 @@
             // 
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.dgvAgent);
-            this.panel2.Location = new System.Drawing.Point(13, 119);
+            this.panel2.Location = new System.Drawing.Point(20, 73);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(272, 100);
+            this.panel2.Size = new System.Drawing.Size(408, 203);
             this.panel2.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 41);
+            this.label2.Location = new System.Drawing.Point(9, 62);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(80, 18);
             this.label2.TabIndex = 2;
             this.label2.Text = "代理设置";
             // 
@@ -97,10 +102,11 @@
             this.dgvAgent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAgent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Agent});
-            this.dgvAgent.Location = new System.Drawing.Point(78, 3);
+            this.dgvAgent.Location = new System.Drawing.Point(117, 4);
+            this.dgvAgent.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAgent.Name = "dgvAgent";
             this.dgvAgent.RowTemplate.Height = 23;
-            this.dgvAgent.Size = new System.Drawing.Size(191, 93);
+            this.dgvAgent.Size = new System.Drawing.Size(286, 195);
             this.dgvAgent.TabIndex = 1;
             // 
             // Agent
@@ -113,9 +119,10 @@
             // 
             this.panel3.Controls.Add(this.dgvStore);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(13, 225);
+            this.panel3.Location = new System.Drawing.Point(20, 284);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(272, 100);
+            this.panel3.Size = new System.Drawing.Size(408, 204);
             this.panel3.TabIndex = 2;
             // 
             // dgvStore
@@ -124,10 +131,11 @@
             this.dgvStore.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStore.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StoreName});
-            this.dgvStore.Location = new System.Drawing.Point(78, 4);
+            this.dgvStore.Location = new System.Drawing.Point(117, 6);
+            this.dgvStore.Margin = new System.Windows.Forms.Padding(4);
             this.dgvStore.Name = "dgvStore";
             this.dgvStore.RowTemplate.Height = 23;
-            this.dgvStore.Size = new System.Drawing.Size(191, 93);
+            this.dgvStore.Size = new System.Drawing.Size(286, 194);
             this.dgvStore.TabIndex = 1;
             // 
             // StoreName
@@ -139,17 +147,19 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 43);
+            this.label3.Location = new System.Drawing.Point(9, 64);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.Size = new System.Drawing.Size(80, 18);
             this.label3.TabIndex = 0;
             this.label3.Text = "仓库设置";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(126, 336);
+            this.btnSave.Location = new System.Drawing.Point(189, 504);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(112, 34);
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -157,9 +167,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(207, 336);
+            this.btnCancel.Location = new System.Drawing.Point(310, 504);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(112, 34);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -167,15 +178,17 @@
             // 
             // frmSystemConfig
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 371);
+            this.ClientSize = new System.Drawing.Size(447, 556);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSystemConfig";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSystemConfig";
             this.Load += new System.EventHandler(this.frmSystemConfig_Load);
             this.panel1.ResumeLayout(false);

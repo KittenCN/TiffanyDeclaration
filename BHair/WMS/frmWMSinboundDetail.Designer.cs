@@ -55,6 +55,7 @@
             this.dtInDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnReportToExcel = new System.Windows.Forms.Button();
             this.btnExToPDF = new System.Windows.Forms.Button();
             this.btnExToExcel = new System.Windows.Forms.Button();
             this.btnUpload = new System.Windows.Forms.Button();
@@ -93,7 +94,6 @@
             this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WMSNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnReportToExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -397,6 +397,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(720, 756);
             this.panel2.TabIndex = 1;
+            // 
+            // btnReportToExcel
+            // 
+            this.btnReportToExcel.Location = new System.Drawing.Point(4, 714);
+            this.btnReportToExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReportToExcel.Name = "btnReportToExcel";
+            this.btnReportToExcel.Size = new System.Drawing.Size(112, 34);
+            this.btnReportToExcel.TabIndex = 25;
+            this.btnReportToExcel.Text = "Report";
+            this.btnReportToExcel.UseVisualStyleBackColor = true;
+            this.btnReportToExcel.Visible = false;
+            this.btnReportToExcel.Click += new System.EventHandler(this.btnReportToExcel_Click);
             // 
             // btnExToPDF
             // 
@@ -735,18 +747,6 @@
             this.ItemNO.HeaderText = "Item#";
             this.ItemNO.Name = "ItemNO";
             // 
-            // btnReportToExcel
-            // 
-            this.btnReportToExcel.Location = new System.Drawing.Point(4, 714);
-            this.btnReportToExcel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnReportToExcel.Name = "btnReportToExcel";
-            this.btnReportToExcel.Size = new System.Drawing.Size(112, 34);
-            this.btnReportToExcel.TabIndex = 25;
-            this.btnReportToExcel.Text = "Report";
-            this.btnReportToExcel.UseVisualStyleBackColor = true;
-            this.btnReportToExcel.Visible = false;
-            this.btnReportToExcel.Click += new System.EventHandler(this.btnReportToExcel_Click);
-            // 
             // frmWMSinboundDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -756,6 +756,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmWMSinboundDetail";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmWMSinboundDetail";
             this.Load += new System.EventHandler(this.frmWMSinboundDetail_Load);
             this.panel1.ResumeLayout(false);
