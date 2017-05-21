@@ -43,14 +43,7 @@ namespace BHair.Base
             //    dSum += objMember.Balance;
             //    this.dgvMember.Rows.Add(new object[] { objMember.ID, objMember.Card.CardName, objMember.Name, objMember.SexText, objMember.Birthday, objMember.Balance, objMember.Point, objMember.Phone, objMember.LastTime, objMember.StatusText, objMember.Other, objMember.Remark });
             //}
-
-
         }
-
-        
-
-
-
         private void txtMember_TextChanged(object sender, EventArgs e)
         {
             string sql = string.Format(" and ([UserName] like '%{0}%' or [UID] like '%{0}%')",txtMember.Text);
@@ -114,10 +107,10 @@ namespace BHair.Base
                 string str = e.Value.ToString();
                 switch (str)
                 {
-                    case "1": e.Value = "商品部"; break;
-                    case "2": e.Value = "财务部"; break;
-                    case "3": e.Value = "店面员工"; break;
-                    case "4": e.Value = "物流部"; break;
+                    case "1": e.Value = "入关流程"; break;
+                    case "2": e.Value = "仓库流程"; break;
+                    //case "3": e.Value = "店面员工"; break;
+                    //case "4": e.Value = "物流部"; break;
                     default:
                         e.Value = "无";
                         break;

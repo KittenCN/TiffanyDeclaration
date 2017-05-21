@@ -78,16 +78,7 @@ namespace BHair.Base
                 MessageBox.Show("获取用户信息失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-
-
-
-
-
         #endregion
-
-
-
         /// <summary>加载用户信息。</summary>
         private void LoadMember()
         {
@@ -118,8 +109,8 @@ namespace BHair.Base
 
             if (user.UsersDT.Rows[0]["Character"].ToString() == "1") cboCharacter.SelectedIndex = 0;
             if (user.UsersDT.Rows[0]["Character"].ToString() == "2") cboCharacter.SelectedIndex = 1;
-            if (user.UsersDT.Rows[0]["Character"].ToString() == "3") cboCharacter.SelectedIndex = 2;
-            if (user.UsersDT.Rows[0]["Character"].ToString() == "4") cboCharacter.SelectedIndex = 3;
+            //if (user.UsersDT.Rows[0]["Character"].ToString() == "3") cboCharacter.SelectedIndex = 2;
+            //if (user.UsersDT.Rows[0]["Character"].ToString() == "4") cboCharacter.SelectedIndex = 3;
 
             //if(cboStore.Items.Contains(user.UsersDT.Rows[0]["Store"].ToString()))
             //{
@@ -209,11 +200,11 @@ namespace BHair.Base
 
         void LoadComBox()
         {
-            cboCharacter.Items.Add("商品部");
-            cboCharacter.Items.Add("财务部");
-            cboCharacter.Items.Add("店面员工");
-            cboCharacter.Items.Add("物流部");
-            cboCharacter.SelectedIndex = 2;
+            cboCharacter.Items.Add("入关流程");
+            cboCharacter.Items.Add("仓库流程");
+            //cboCharacter.Items.Add("店面员工");
+            //cboCharacter.Items.Add("物流部");
+            cboCharacter.SelectedIndex = 1;
 
             Store store = new Store();
             store.StoreDT = store.SelectAllStoreInfo();
