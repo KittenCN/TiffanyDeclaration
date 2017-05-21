@@ -136,10 +136,17 @@ namespace BHair.Base
                 {
                     for(int y=0; y< cbcbStroe.Items.Count + 1; y++)
                     {
-                        if (strStore[y] == strTemp[x])
+                        try
                         {
-                            cbcbStroe.CheckBoxItems[y].Checked = true;
-                            break;
+                            if (strStore[y] == strTemp[x])
+                            {
+                                cbcbStroe.CheckBoxItems[y].Checked = true;
+                                break;
+                            }
+                        }
+                        catch(Exception ex)
+                        {
+
                         }
                     }
                 }
@@ -147,10 +154,17 @@ namespace BHair.Base
                 {
                     for (int y = 0; y < cbcbStroe.Items.Count + 1; y++)
                     {
-                        if (strStore[y] == strTemp[0])
+                        try
                         {
-                            cbcbStroe.CheckBoxItems[y].Checked = true;
-                            break;
+                            if (strStore[y] == strTemp[0])
+                            {
+                                cbcbStroe.CheckBoxItems[y].Checked = true;
+                                break;
+                            }
+                        }
+                        catch(Exception ex)
+                        {
+
                         }
                     }
                 }
