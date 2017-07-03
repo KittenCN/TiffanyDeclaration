@@ -183,7 +183,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount; iRow++)
+                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result.NewRow();
@@ -247,7 +247,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount; iRow++)
+                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result.NewRow();
@@ -311,7 +311,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount; iRow++)
+                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result.NewRow();
@@ -628,7 +628,7 @@ namespace BHair.Business
                 //生成申请单行数据
                 Excel.Range range;
 
-                for (int iRow = 2; iRow <= iRowCount; iRow++)
+                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result[0].NewRow();
@@ -982,7 +982,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount; iRow++)
+                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
                 {
                     //((Excel.Range)worksheet.Cells[iRow, 1]).Text;
                     string strCtrlid = ((Excel.Range)worksheet.Cells[iRow, 1]).Text.ToString();
@@ -1182,7 +1182,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount; iRow++)
+                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result.NewRow();
@@ -1242,7 +1242,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount; iRow++)
+                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result.NewRow();
@@ -1353,7 +1353,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount; iRow++)
+                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result.NewRow();
@@ -1785,7 +1785,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount; iRow++)
+                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result.NewRow();
