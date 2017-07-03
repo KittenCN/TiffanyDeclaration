@@ -128,8 +128,8 @@ namespace BHair.Business
             tbINV_NO.Text = "";
             tbINV_Amount.Text = "0";
             tbFreight.Text = "0";
-            tbCart_INV.Text = "0";
-            tbPCs.Text = "0";
+            tbCart_INV.Text = "1";
+            tbPCs.Text = "1";
 
             AccessHelper ah = new AccessHelper();
             string strSQL_GetAllINVData = "select * from DecINV where OrderNO='" + tbOrderNO.Text + "' ";
@@ -196,8 +196,8 @@ namespace BHair.Business
                 tbINV_NO.Text = "";
                 tbINV_Amount.Text = "0";
                 //tbFreight.Text = "0";
-                tbCart_INV.Text = "0";
-                tbPCs.Text = "0";
+                tbCart_INV.Text = "1";
+                tbPCs.Text = "1";
             }
         }
 
