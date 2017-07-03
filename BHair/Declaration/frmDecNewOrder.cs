@@ -155,12 +155,14 @@ namespace BHair.Business
                 drINVData["Cart_INV"] = tbCart_INV.Text;
                 drINVData["PCs"] = tbPCs.Text;
                 drINVData["Shop_Receiver"] = tbShop_Receiver.Text;
+                drINVData["ContainerNo"] = tbContainerNoD.Text;
                 dtShowINV.Rows.Add(drINVData);
 
                 dgvINV.AutoGenerateColumns = false;
                 dgvINV.DataSource = dtShowINV;
 
                 tbINV_NO.Text = "";
+                tbContainerNoD.Text = "";
                 tbINV_Amount.Text = "0";
                 //tbFreight.Text = "0";
                 tbCart_INV.Text = "1";
@@ -196,6 +198,7 @@ namespace BHair.Business
                 double douSumVAT = double.Parse(tbVAT.Text);
                 double douSumFreight = double.Parse(tbFreight.Text);
                 double douSumCT = double.Parse(tbCT.Text);
+                double douSumAgentFee = double.Parse(tbAgentFee.Text);
                 int intRowsnum = 0;
 
                 foreach (DataRow dr in dtSaveINV.Rows)
@@ -207,11 +210,13 @@ namespace BHair.Business
                         double douDuty = douSumDuty * (douINV_Amount / douSumAmount);
                         double douVAT = douSumVAT * (douINV_Amount / douSumAmount);
                         double douCT = douSumCT * (douINV_Amount / douSumAmount);
+                        double douAgentFee = douSumAgentFee * (douINV_Amount / douSumAmount);
 
                         dgvINV.Rows[intRowsnum].Cells["Freight"].Value = douFreight.ToString();
                         dgvINV.Rows[intRowsnum].Cells["Duty"].Value = douDuty.ToString();
                         dgvINV.Rows[intRowsnum].Cells["VAT"].Value = douVAT.ToString();
                         dgvINV.Rows[intRowsnum].Cells["CT"].Value = douCT.ToString();
+                        dgvINV.Rows[intRowsnum].Cells["AgentFee"].Value = douAgentFee.ToString();
                     }
                     intRowsnum++;
                 }

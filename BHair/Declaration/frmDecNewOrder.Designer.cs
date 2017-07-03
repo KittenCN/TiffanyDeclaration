@@ -73,17 +73,6 @@
             this.btnCalINV = new System.Windows.Forms.Button();
             this.btnAddINV = new System.Windows.Forms.Button();
             this.dgvINV = new System.Windows.Forms.DataGridView();
-            this.OrderNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.INV_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.INV_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cart_INV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PCs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Shop_Receiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Freight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Duty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbShop_Receiver = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tbPCs = new System.Windows.Forms.TextBox();
@@ -95,6 +84,8 @@
             this.tbINV_NO = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tbShopReceiver = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.btnInputD_V = new System.Windows.Forms.Button();
             this.btnCalHS = new System.Windows.Forms.Button();
             this.btnInputHS = new System.Windows.Forms.Button();
@@ -115,8 +106,24 @@
             this.label26 = new System.Windows.Forms.Label();
             this.btnSaveOrder = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.tbShopReceiver = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
+            this.OrderNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.INV_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.INV_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cart_INV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PCs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Shop_Receiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Freight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AgentFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Duty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DutyinJD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VATinJD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTinJD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContainerNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbContainerNoD = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.tcDecNewOrder.SuspendLayout();
             this.tabStep1.SuspendLayout();
             this.tabStep2.SuspendLayout();
@@ -134,7 +141,7 @@
             this.tcDecNewOrder.Margin = new System.Windows.Forms.Padding(4);
             this.tcDecNewOrder.Name = "tcDecNewOrder";
             this.tcDecNewOrder.SelectedIndex = 0;
-            this.tcDecNewOrder.Size = new System.Drawing.Size(978, 826);
+            this.tcDecNewOrder.Size = new System.Drawing.Size(1491, 826);
             this.tcDecNewOrder.TabIndex = 0;
             // 
             // tabStep1
@@ -181,7 +188,7 @@
             this.tabStep1.Margin = new System.Windows.Forms.Padding(4);
             this.tabStep1.Name = "tabStep1";
             this.tabStep1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabStep1.Size = new System.Drawing.Size(970, 794);
+            this.tabStep1.Size = new System.Drawing.Size(1483, 794);
             this.tabStep1.TabIndex = 0;
             this.tabStep1.Text = "基础信息";
             this.tabStep1.UseVisualStyleBackColor = true;
@@ -545,6 +552,8 @@
             // 
             // tabStep2
             // 
+            this.tabStep2.Controls.Add(this.tbContainerNoD);
+            this.tabStep2.Controls.Add(this.label28);
             this.tabStep2.Controls.Add(this.btnUpload);
             this.tabStep2.Controls.Add(this.btnCalINV);
             this.tabStep2.Controls.Add(this.btnAddINV);
@@ -563,14 +572,14 @@
             this.tabStep2.Margin = new System.Windows.Forms.Padding(4);
             this.tabStep2.Name = "tabStep2";
             this.tabStep2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabStep2.Size = new System.Drawing.Size(970, 794);
+            this.tabStep2.Size = new System.Drawing.Size(1483, 794);
             this.tabStep2.TabIndex = 1;
             this.tabStep2.Text = "发票信息";
             this.tabStep2.UseVisualStyleBackColor = true;
             // 
             // btnUpload
             // 
-            this.btnUpload.Location = new System.Drawing.Point(514, 84);
+            this.btnUpload.Location = new System.Drawing.Point(1334, 10);
             this.btnUpload.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(132, 34);
@@ -581,7 +590,7 @@
             // 
             // btnCalINV
             // 
-            this.btnCalINV.Location = new System.Drawing.Point(654, 84);
+            this.btnCalINV.Location = new System.Drawing.Point(1334, 52);
             this.btnCalINV.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalINV.Name = "btnCalINV";
             this.btnCalINV.Size = new System.Drawing.Size(132, 34);
@@ -593,10 +602,10 @@
             // 
             // btnAddINV
             // 
-            this.btnAddINV.Location = new System.Drawing.Point(794, 84);
+            this.btnAddINV.Location = new System.Drawing.Point(1334, 92);
             this.btnAddINV.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddINV.Name = "btnAddINV";
-            this.btnAddINV.Size = new System.Drawing.Size(112, 34);
+            this.btnAddINV.Size = new System.Drawing.Size(132, 34);
             this.btnAddINV.TabIndex = 31;
             this.btnAddINV.Text = "添加发票";
             this.btnAddINV.UseVisualStyleBackColor = true;
@@ -604,6 +613,7 @@
             // 
             // dgvINV
             // 
+            this.dgvINV.AllowUserToOrderColumns = true;
             this.dgvINV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvINV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvINV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -615,83 +625,20 @@
             this.PCs,
             this.Shop_Receiver,
             this.Freight,
+            this.AgentFee,
             this.Duty,
+            this.DutyinJD,
             this.VAT,
-            this.CT});
-            this.dgvINV.Location = new System.Drawing.Point(8, 125);
+            this.VATinJD,
+            this.CT,
+            this.CTinJD,
+            this.ContainerNO});
+            this.dgvINV.Location = new System.Drawing.Point(8, 133);
             this.dgvINV.MultiSelect = false;
             this.dgvINV.Name = "dgvINV";
             this.dgvINV.RowTemplate.Height = 30;
-            this.dgvINV.Size = new System.Drawing.Size(956, 662);
+            this.dgvINV.Size = new System.Drawing.Size(1458, 654);
             this.dgvINV.TabIndex = 30;
-            // 
-            // OrderNO
-            // 
-            this.OrderNO.DataPropertyName = "OrderNO";
-            this.OrderNO.HeaderText = "OrderNO";
-            this.OrderNO.Name = "OrderNO";
-            this.OrderNO.Visible = false;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.Visible = false;
-            // 
-            // INV_NO
-            // 
-            this.INV_NO.DataPropertyName = "INV_NO";
-            this.INV_NO.HeaderText = "INV_NO";
-            this.INV_NO.Name = "INV_NO";
-            // 
-            // INV_Amount
-            // 
-            this.INV_Amount.DataPropertyName = "INV_Amount";
-            this.INV_Amount.HeaderText = "INV_Amount";
-            this.INV_Amount.Name = "INV_Amount";
-            // 
-            // Cart_INV
-            // 
-            this.Cart_INV.DataPropertyName = "Cart_INV";
-            this.Cart_INV.HeaderText = "Cart_INV";
-            this.Cart_INV.Name = "Cart_INV";
-            // 
-            // PCs
-            // 
-            this.PCs.DataPropertyName = "PCs";
-            this.PCs.HeaderText = "PCs";
-            this.PCs.Name = "PCs";
-            // 
-            // Shop_Receiver
-            // 
-            this.Shop_Receiver.DataPropertyName = "Shop_Receiver";
-            this.Shop_Receiver.HeaderText = "Shop_Receiver";
-            this.Shop_Receiver.Name = "Shop_Receiver";
-            // 
-            // Freight
-            // 
-            this.Freight.DataPropertyName = "Freight";
-            this.Freight.HeaderText = "Freight";
-            this.Freight.Name = "Freight";
-            // 
-            // Duty
-            // 
-            this.Duty.DataPropertyName = "Duty";
-            this.Duty.HeaderText = "Duty";
-            this.Duty.Name = "Duty";
-            // 
-            // VAT
-            // 
-            this.VAT.DataPropertyName = "VAT";
-            this.VAT.HeaderText = "VAT";
-            this.VAT.Name = "VAT";
-            // 
-            // CT
-            // 
-            this.CT.DataPropertyName = "CT";
-            this.CT.HeaderText = "CT";
-            this.CT.Name = "CT";
             // 
             // tbShop_Receiver
             // 
@@ -799,10 +746,28 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(970, 794);
+            this.tabPage3.Size = new System.Drawing.Size(1483, 794);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "税分摊";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tbShopReceiver
+            // 
+            this.tbShopReceiver.Location = new System.Drawing.Point(134, 20);
+            this.tbShopReceiver.Margin = new System.Windows.Forms.Padding(4);
+            this.tbShopReceiver.Name = "tbShopReceiver";
+            this.tbShopReceiver.Size = new System.Drawing.Size(298, 28);
+            this.tbShopReceiver.TabIndex = 44;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(4, 25);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(125, 18);
+            this.label25.TabIndex = 43;
+            this.label25.Text = "店铺两字代码:";
             // 
             // btnInputD_V
             // 
@@ -866,7 +831,7 @@
             this.dgvHS.MultiSelect = false;
             this.dgvHS.Name = "dgvHS";
             this.dgvHS.RowTemplate.Height = 30;
-            this.dgvHS.Size = new System.Drawing.Size(963, 648);
+            this.dgvHS.Size = new System.Drawing.Size(1465, 648);
             this.dgvHS.TabIndex = 36;
             // 
             // OrderNO2
@@ -959,7 +924,7 @@
             // 
             // btnSaveOrder
             // 
-            this.btnSaveOrder.Location = new System.Drawing.Point(730, 862);
+            this.btnSaveOrder.Location = new System.Drawing.Point(1243, 852);
             this.btnSaveOrder.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveOrder.Name = "btnSaveOrder";
             this.btnSaveOrder.Size = new System.Drawing.Size(112, 34);
@@ -970,7 +935,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(880, 862);
+            this.btnCancel.Location = new System.Drawing.Point(1393, 852);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 34);
@@ -979,30 +944,128 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // tbShopReceiver
+            // OrderNO
             // 
-            this.tbShopReceiver.Location = new System.Drawing.Point(134, 20);
-            this.tbShopReceiver.Margin = new System.Windows.Forms.Padding(4);
-            this.tbShopReceiver.Name = "tbShopReceiver";
-            this.tbShopReceiver.Size = new System.Drawing.Size(298, 28);
-            this.tbShopReceiver.TabIndex = 44;
+            this.OrderNO.DataPropertyName = "OrderNO";
+            this.OrderNO.HeaderText = "OrderNO";
+            this.OrderNO.Name = "OrderNO";
+            this.OrderNO.Visible = false;
             // 
-            // label25
+            // Status
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(4, 25);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(125, 18);
-            this.label25.TabIndex = 43;
-            this.label25.Text = "店铺两字代码:";
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.Visible = false;
+            // 
+            // INV_NO
+            // 
+            this.INV_NO.DataPropertyName = "INV_NO";
+            this.INV_NO.HeaderText = "INV_NO";
+            this.INV_NO.Name = "INV_NO";
+            // 
+            // INV_Amount
+            // 
+            this.INV_Amount.DataPropertyName = "INV_Amount";
+            this.INV_Amount.HeaderText = "INV_Amount";
+            this.INV_Amount.Name = "INV_Amount";
+            // 
+            // Cart_INV
+            // 
+            this.Cart_INV.DataPropertyName = "Cart_INV";
+            this.Cart_INV.HeaderText = "Cart_INV";
+            this.Cart_INV.Name = "Cart_INV";
+            // 
+            // PCs
+            // 
+            this.PCs.DataPropertyName = "PCs";
+            this.PCs.HeaderText = "PCs";
+            this.PCs.Name = "PCs";
+            // 
+            // Shop_Receiver
+            // 
+            this.Shop_Receiver.DataPropertyName = "Shop_Receiver";
+            this.Shop_Receiver.HeaderText = "Shop_Receiver";
+            this.Shop_Receiver.Name = "Shop_Receiver";
+            // 
+            // Freight
+            // 
+            this.Freight.DataPropertyName = "Freight";
+            this.Freight.HeaderText = "Freight";
+            this.Freight.Name = "Freight";
+            // 
+            // AgentFee
+            // 
+            this.AgentFee.DataPropertyName = "AgentFee";
+            this.AgentFee.HeaderText = "AgentFee";
+            this.AgentFee.Name = "AgentFee";
+            // 
+            // Duty
+            // 
+            this.Duty.DataPropertyName = "Duty";
+            this.Duty.HeaderText = "Duty";
+            this.Duty.Name = "Duty";
+            // 
+            // DutyinJD
+            // 
+            this.DutyinJD.DataPropertyName = "DutyinJD";
+            this.DutyinJD.HeaderText = "DutyinJD";
+            this.DutyinJD.Name = "DutyinJD";
+            // 
+            // VAT
+            // 
+            this.VAT.DataPropertyName = "VAT";
+            this.VAT.HeaderText = "VAT";
+            this.VAT.Name = "VAT";
+            // 
+            // VATinJD
+            // 
+            this.VATinJD.DataPropertyName = "VATinJD";
+            this.VATinJD.HeaderText = "VATinJD";
+            this.VATinJD.Name = "VATinJD";
+            // 
+            // CT
+            // 
+            this.CT.DataPropertyName = "CT";
+            this.CT.HeaderText = "CT";
+            this.CT.Name = "CT";
+            // 
+            // CTinJD
+            // 
+            this.CTinJD.DataPropertyName = "CTinJD";
+            this.CTinJD.HeaderText = "CTinJD";
+            this.CTinJD.Name = "CTinJD";
+            // 
+            // ContainerNO
+            // 
+            this.ContainerNO.DataPropertyName = "ContainerNO";
+            this.ContainerNO.HeaderText = "ContainerNO";
+            this.ContainerNO.Name = "ContainerNO";
+            // 
+            // tbContainerNoD
+            // 
+            this.tbContainerNoD.Location = new System.Drawing.Point(608, 87);
+            this.tbContainerNoD.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContainerNoD.Name = "tbContainerNoD";
+            this.tbContainerNoD.Size = new System.Drawing.Size(300, 28);
+            this.tbContainerNoD.TabIndex = 45;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(475, 90);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(125, 18);
+            this.label28.TabIndex = 44;
+            this.label28.Text = "入系统的号码:";
             // 
             // frmDecNewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1014, 921);
+            this.ClientSize = new System.Drawing.Size(1522, 921);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveOrder);
             this.Controls.Add(this.tcDecNewOrder);
@@ -1097,17 +1160,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button btnInputD_V;
         private System.Windows.Forms.Button btnUpload;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderNO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn INV_NO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn INV_Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cart_INV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PCs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Shop_Receiver;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Freight;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Duty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VAT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CT;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderNO2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status2;
         private System.Windows.Forms.DataGridViewTextBoxColumn HS_CODE;
@@ -1119,5 +1171,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Shop_Receiver2;
         private System.Windows.Forms.TextBox tbShopReceiver;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderNO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn INV_NO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn INV_Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cart_INV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PCs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Shop_Receiver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Freight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AgentFee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Duty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DutyinJD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VAT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VATinJD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CTinJD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContainerNO;
+        private System.Windows.Forms.TextBox tbContainerNoD;
+        private System.Windows.Forms.Label label28;
     }
 }

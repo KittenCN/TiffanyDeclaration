@@ -102,12 +102,6 @@
             this.btnInputHS = new System.Windows.Forms.Button();
             this.btnAddHS = new System.Windows.Forms.Button();
             this.dgvHS = new System.Windows.Forms.DataGridView();
-            this.tbM = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.tbHS_Code = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.btnSaveOrder = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.OrderNO2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HS_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -117,6 +111,12 @@
             this.VAT_System = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VAT_Input = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Shop_Receiver2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbM = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.tbHS_Code = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.btnSaveOrder = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.tcDecNewOrder.SuspendLayout();
             this.tabStep1.SuspendLayout();
             this.tabStep2.SuspendLayout();
@@ -131,10 +131,10 @@
             this.tcDecNewOrder.Controls.Add(this.tabStep2);
             this.tcDecNewOrder.Controls.Add(this.tabPage3);
             this.tcDecNewOrder.Location = new System.Drawing.Point(18, 18);
-            this.tcDecNewOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcDecNewOrder.Margin = new System.Windows.Forms.Padding(4);
             this.tcDecNewOrder.Name = "tcDecNewOrder";
             this.tcDecNewOrder.SelectedIndex = 0;
-            this.tcDecNewOrder.Size = new System.Drawing.Size(978, 826);
+            this.tcDecNewOrder.Size = new System.Drawing.Size(1491, 826);
             this.tcDecNewOrder.TabIndex = 0;
             // 
             // tabStep1
@@ -178,9 +178,9 @@
             this.tabStep1.Controls.Add(this.tbOrderNO);
             this.tabStep1.Controls.Add(this.label1);
             this.tabStep1.Location = new System.Drawing.Point(4, 28);
-            this.tabStep1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabStep1.Margin = new System.Windows.Forms.Padding(4);
             this.tabStep1.Name = "tabStep1";
-            this.tabStep1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabStep1.Padding = new System.Windows.Forms.Padding(4);
             this.tabStep1.Size = new System.Drawing.Size(970, 794);
             this.tabStep1.TabIndex = 0;
             this.tabStep1.Text = "基础信息";
@@ -189,7 +189,7 @@
             // tbAgentFee
             // 
             this.tbAgentFee.Location = new System.Drawing.Point(129, 525);
-            this.tbAgentFee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbAgentFee.Margin = new System.Windows.Forms.Padding(4);
             this.tbAgentFee.Name = "tbAgentFee";
             this.tbAgentFee.Size = new System.Drawing.Size(300, 28);
             this.tbAgentFee.TabIndex = 47;
@@ -226,7 +226,7 @@
             // tbContainerNo
             // 
             this.tbContainerNo.Location = new System.Drawing.Point(129, 458);
-            this.tbContainerNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbContainerNo.Margin = new System.Windows.Forms.Padding(4);
             this.tbContainerNo.Name = "tbContainerNo";
             this.tbContainerNo.Size = new System.Drawing.Size(300, 28);
             this.tbContainerNo.TabIndex = 43;
@@ -234,7 +234,7 @@
             // tbCTinJD
             // 
             this.tbCTinJD.Location = new System.Drawing.Point(598, 406);
-            this.tbCTinJD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCTinJD.Margin = new System.Windows.Forms.Padding(4);
             this.tbCTinJD.Name = "tbCTinJD";
             this.tbCTinJD.Size = new System.Drawing.Size(300, 28);
             this.tbCTinJD.TabIndex = 41;
@@ -242,7 +242,7 @@
             // tbVATinJD
             // 
             this.tbVATinJD.Location = new System.Drawing.Point(129, 410);
-            this.tbVATinJD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbVATinJD.Margin = new System.Windows.Forms.Padding(4);
             this.tbVATinJD.Name = "tbVATinJD";
             this.tbVATinJD.Size = new System.Drawing.Size(300, 28);
             this.tbVATinJD.TabIndex = 39;
@@ -250,7 +250,7 @@
             // tbDutyInJD
             // 
             this.tbDutyInJD.Location = new System.Drawing.Point(598, 362);
-            this.tbDutyInJD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDutyInJD.Margin = new System.Windows.Forms.Padding(4);
             this.tbDutyInJD.Name = "tbDutyInJD";
             this.tbDutyInJD.Size = new System.Drawing.Size(300, 28);
             this.tbDutyInJD.TabIndex = 37;
@@ -258,7 +258,7 @@
             // tbCust_Fee
             // 
             this.tbCust_Fee.Location = new System.Drawing.Point(129, 364);
-            this.tbCust_Fee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCust_Fee.Margin = new System.Windows.Forms.Padding(4);
             this.tbCust_Fee.Name = "tbCust_Fee";
             this.tbCust_Fee.Size = new System.Drawing.Size(300, 28);
             this.tbCust_Fee.TabIndex = 35;
@@ -316,7 +316,7 @@
             // tbCT
             // 
             this.tbCT.Location = new System.Drawing.Point(128, 297);
-            this.tbCT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCT.Margin = new System.Windows.Forms.Padding(4);
             this.tbCT.Name = "tbCT";
             this.tbCT.Size = new System.Drawing.Size(300, 28);
             this.tbCT.TabIndex = 33;
@@ -334,7 +334,7 @@
             // tbVAT
             // 
             this.tbVAT.Location = new System.Drawing.Point(598, 261);
-            this.tbVAT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbVAT.Margin = new System.Windows.Forms.Padding(4);
             this.tbVAT.Name = "tbVAT";
             this.tbVAT.Size = new System.Drawing.Size(300, 28);
             this.tbVAT.TabIndex = 31;
@@ -352,7 +352,7 @@
             // tbDuty
             // 
             this.tbDuty.Location = new System.Drawing.Point(128, 261);
-            this.tbDuty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDuty.Margin = new System.Windows.Forms.Padding(4);
             this.tbDuty.Name = "tbDuty";
             this.tbDuty.Size = new System.Drawing.Size(300, 28);
             this.tbDuty.TabIndex = 29;
@@ -384,7 +384,7 @@
             // tbMAWB
             // 
             this.tbMAWB.Location = new System.Drawing.Point(126, 152);
-            this.tbMAWB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMAWB.Margin = new System.Windows.Forms.Padding(4);
             this.tbMAWB.Name = "tbMAWB";
             this.tbMAWB.Size = new System.Drawing.Size(300, 28);
             this.tbMAWB.TabIndex = 21;
@@ -411,7 +411,7 @@
             // 
             this.dtpARRDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpARRDate.Location = new System.Drawing.Point(598, 148);
-            this.dtpARRDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpARRDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpARRDate.Name = "dtpARRDate";
             this.dtpARRDate.Size = new System.Drawing.Size(298, 28);
             this.dtpARRDate.TabIndex = 23;
@@ -445,7 +445,7 @@
             "代理2",
             "代理3"});
             this.cbImport_Agent.Location = new System.Drawing.Point(126, 93);
-            this.cbImport_Agent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbImport_Agent.Margin = new System.Windows.Forms.Padding(4);
             this.cbImport_Agent.Name = "cbImport_Agent";
             this.cbImport_Agent.Size = new System.Drawing.Size(300, 26);
             this.cbImport_Agent.TabIndex = 9;
@@ -468,7 +468,7 @@
             "代理2",
             "代理3"});
             this.cbcust_gl_agent.Location = new System.Drawing.Point(598, 54);
-            this.cbcust_gl_agent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbcust_gl_agent.Margin = new System.Windows.Forms.Padding(4);
             this.cbcust_gl_agent.Name = "cbcust_gl_agent";
             this.cbcust_gl_agent.Size = new System.Drawing.Size(298, 26);
             this.cbcust_gl_agent.TabIndex = 7;
@@ -490,7 +490,7 @@
             "上海",
             "北京"});
             this.cbARRport.Location = new System.Drawing.Point(126, 52);
-            this.cbARRport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbARRport.Margin = new System.Windows.Forms.Padding(4);
             this.cbARRport.Name = "cbARRport";
             this.cbARRport.Size = new System.Drawing.Size(300, 26);
             this.cbARRport.TabIndex = 5;
@@ -509,7 +509,7 @@
             // 
             this.dtExCusClearTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtExCusClearTime.Location = new System.Drawing.Point(598, 9);
-            this.dtExCusClearTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtExCusClearTime.Margin = new System.Windows.Forms.Padding(4);
             this.dtExCusClearTime.Name = "dtExCusClearTime";
             this.dtExCusClearTime.Size = new System.Drawing.Size(298, 28);
             this.dtExCusClearTime.TabIndex = 3;
@@ -528,7 +528,7 @@
             // tbOrderNO
             // 
             this.tbOrderNO.Location = new System.Drawing.Point(126, 14);
-            this.tbOrderNO.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbOrderNO.Margin = new System.Windows.Forms.Padding(4);
             this.tbOrderNO.Name = "tbOrderNO";
             this.tbOrderNO.Size = new System.Drawing.Size(300, 28);
             this.tbOrderNO.TabIndex = 1;
@@ -560,18 +560,18 @@
             this.tabStep2.Controls.Add(this.tbINV_NO);
             this.tabStep2.Controls.Add(this.label6);
             this.tabStep2.Location = new System.Drawing.Point(4, 28);
-            this.tabStep2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabStep2.Margin = new System.Windows.Forms.Padding(4);
             this.tabStep2.Name = "tabStep2";
-            this.tabStep2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabStep2.Size = new System.Drawing.Size(970, 794);
+            this.tabStep2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabStep2.Size = new System.Drawing.Size(1483, 794);
             this.tabStep2.TabIndex = 1;
             this.tabStep2.Text = "发票信息";
             this.tabStep2.UseVisualStyleBackColor = true;
             // 
             // btnUpload
             // 
-            this.btnUpload.Location = new System.Drawing.Point(513, 87);
-            this.btnUpload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpload.Location = new System.Drawing.Point(1344, 10);
+            this.btnUpload.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(132, 34);
             this.btnUpload.TabIndex = 33;
@@ -581,8 +581,8 @@
             // 
             // btnCalINV
             // 
-            this.btnCalINV.Location = new System.Drawing.Point(654, 87);
-            this.btnCalINV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCalINV.Location = new System.Drawing.Point(1344, 52);
+            this.btnCalINV.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalINV.Name = "btnCalINV";
             this.btnCalINV.Size = new System.Drawing.Size(132, 34);
             this.btnCalINV.TabIndex = 32;
@@ -592,10 +592,10 @@
             // 
             // btnAddINV
             // 
-            this.btnAddINV.Location = new System.Drawing.Point(795, 87);
-            this.btnAddINV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddINV.Location = new System.Drawing.Point(1344, 94);
+            this.btnAddINV.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddINV.Name = "btnAddINV";
-            this.btnAddINV.Size = new System.Drawing.Size(112, 34);
+            this.btnAddINV.Size = new System.Drawing.Size(131, 34);
             this.btnAddINV.TabIndex = 31;
             this.btnAddINV.Text = "添加发票";
             this.btnAddINV.UseVisualStyleBackColor = true;
@@ -617,11 +617,11 @@
             this.Duty,
             this.VAT,
             this.CT});
-            this.dgvINV.Location = new System.Drawing.Point(8, 129);
+            this.dgvINV.Location = new System.Drawing.Point(8, 135);
             this.dgvINV.MultiSelect = false;
             this.dgvINV.Name = "dgvINV";
             this.dgvINV.RowTemplate.Height = 30;
-            this.dgvINV.Size = new System.Drawing.Size(956, 658);
+            this.dgvINV.Size = new System.Drawing.Size(1468, 652);
             this.dgvINV.TabIndex = 30;
             // 
             // OrderNO
@@ -695,7 +695,7 @@
             // tbShop_Receiver
             // 
             this.tbShop_Receiver.Location = new System.Drawing.Point(608, 6);
-            this.tbShop_Receiver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbShop_Receiver.Margin = new System.Windows.Forms.Padding(4);
             this.tbShop_Receiver.Name = "tbShop_Receiver";
             this.tbShop_Receiver.Size = new System.Drawing.Size(298, 28);
             this.tbShop_Receiver.TabIndex = 29;
@@ -713,7 +713,7 @@
             // tbPCs
             // 
             this.tbPCs.Location = new System.Drawing.Point(136, 87);
-            this.tbPCs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPCs.Margin = new System.Windows.Forms.Padding(4);
             this.tbPCs.Name = "tbPCs";
             this.tbPCs.Size = new System.Drawing.Size(300, 28);
             this.tbPCs.TabIndex = 27;
@@ -731,7 +731,7 @@
             // tbCart_INV
             // 
             this.tbCart_INV.Location = new System.Drawing.Point(608, 46);
-            this.tbCart_INV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCart_INV.Margin = new System.Windows.Forms.Padding(4);
             this.tbCart_INV.Name = "tbCart_INV";
             this.tbCart_INV.Size = new System.Drawing.Size(298, 28);
             this.tbCart_INV.TabIndex = 25;
@@ -749,7 +749,7 @@
             // tbINV_Amount
             // 
             this.tbINV_Amount.Location = new System.Drawing.Point(136, 45);
-            this.tbINV_Amount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbINV_Amount.Margin = new System.Windows.Forms.Padding(4);
             this.tbINV_Amount.Name = "tbINV_Amount";
             this.tbINV_Amount.Size = new System.Drawing.Size(300, 28);
             this.tbINV_Amount.TabIndex = 23;
@@ -767,7 +767,7 @@
             // tbINV_NO
             // 
             this.tbINV_NO.Location = new System.Drawing.Point(138, 8);
-            this.tbINV_NO.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbINV_NO.Margin = new System.Windows.Forms.Padding(4);
             this.tbINV_NO.Name = "tbINV_NO";
             this.tbINV_NO.Size = new System.Drawing.Size(298, 28);
             this.tbINV_NO.TabIndex = 21;
@@ -796,7 +796,7 @@
             this.tabPage3.Controls.Add(this.tbHS_Code);
             this.tabPage3.Controls.Add(this.label26);
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(970, 794);
             this.tabPage3.TabIndex = 2;
@@ -806,7 +806,7 @@
             // tbShopReceiver
             // 
             this.tbShopReceiver.Location = new System.Drawing.Point(134, 15);
-            this.tbShopReceiver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbShopReceiver.Margin = new System.Windows.Forms.Padding(4);
             this.tbShopReceiver.Name = "tbShopReceiver";
             this.tbShopReceiver.Size = new System.Drawing.Size(298, 28);
             this.tbShopReceiver.TabIndex = 42;
@@ -824,7 +824,7 @@
             // btnInputD_V
             // 
             this.btnInputD_V.Location = new System.Drawing.Point(812, 20);
-            this.btnInputD_V.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInputD_V.Margin = new System.Windows.Forms.Padding(4);
             this.btnInputD_V.Name = "btnInputD_V";
             this.btnInputD_V.Size = new System.Drawing.Size(148, 38);
             this.btnInputD_V.TabIndex = 40;
@@ -835,7 +835,7 @@
             // btnCalHS
             // 
             this.btnCalHS.Location = new System.Drawing.Point(640, 68);
-            this.btnCalHS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCalHS.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalHS.Name = "btnCalHS";
             this.btnCalHS.Size = new System.Drawing.Size(148, 38);
             this.btnCalHS.TabIndex = 39;
@@ -846,7 +846,7 @@
             // btnInputHS
             // 
             this.btnInputHS.Location = new System.Drawing.Point(640, 20);
-            this.btnInputHS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInputHS.Margin = new System.Windows.Forms.Padding(4);
             this.btnInputHS.Name = "btnInputHS";
             this.btnInputHS.Size = new System.Drawing.Size(148, 38);
             this.btnInputHS.TabIndex = 38;
@@ -857,7 +857,7 @@
             // btnAddHS
             // 
             this.btnAddHS.Location = new System.Drawing.Point(812, 68);
-            this.btnAddHS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddHS.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddHS.Name = "btnAddHS";
             this.btnAddHS.Size = new System.Drawing.Size(148, 38);
             this.btnAddHS.TabIndex = 37;
@@ -885,60 +885,6 @@
             this.dgvHS.RowTemplate.Height = 30;
             this.dgvHS.Size = new System.Drawing.Size(963, 648);
             this.dgvHS.TabIndex = 36;
-            // 
-            // tbM
-            // 
-            this.tbM.Location = new System.Drawing.Point(134, 93);
-            this.tbM.Name = "tbM";
-            this.tbM.Size = new System.Drawing.Size(298, 28);
-            this.tbM.TabIndex = 35;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(4, 96);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(53, 18);
-            this.label27.TabIndex = 34;
-            this.label27.Text = "总价:";
-            // 
-            // tbHS_Code
-            // 
-            this.tbHS_Code.Location = new System.Drawing.Point(134, 56);
-            this.tbHS_Code.Name = "tbHS_Code";
-            this.tbHS_Code.Size = new System.Drawing.Size(298, 28);
-            this.tbHS_Code.TabIndex = 33;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(2, 58);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(80, 18);
-            this.label26.TabIndex = 32;
-            this.label26.Text = "HS CODE:";
-            // 
-            // btnSaveOrder
-            // 
-            this.btnSaveOrder.Location = new System.Drawing.Point(730, 862);
-            this.btnSaveOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnSaveOrder.Name = "btnSaveOrder";
-            this.btnSaveOrder.Size = new System.Drawing.Size(112, 34);
-            this.btnSaveOrder.TabIndex = 1;
-            this.btnSaveOrder.Text = "保存";
-            this.btnSaveOrder.UseVisualStyleBackColor = true;
-            this.btnSaveOrder.Click += new System.EventHandler(this.btnSaveOrder_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(880, 862);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(112, 34);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "取消";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // OrderNO2
             // 
@@ -996,16 +942,70 @@
             this.Shop_Receiver2.HeaderText = "Shop_Receiver";
             this.Shop_Receiver2.Name = "Shop_Receiver2";
             // 
+            // tbM
+            // 
+            this.tbM.Location = new System.Drawing.Point(134, 93);
+            this.tbM.Name = "tbM";
+            this.tbM.Size = new System.Drawing.Size(298, 28);
+            this.tbM.TabIndex = 35;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(4, 96);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(53, 18);
+            this.label27.TabIndex = 34;
+            this.label27.Text = "总价:";
+            // 
+            // tbHS_Code
+            // 
+            this.tbHS_Code.Location = new System.Drawing.Point(134, 56);
+            this.tbHS_Code.Name = "tbHS_Code";
+            this.tbHS_Code.Size = new System.Drawing.Size(298, 28);
+            this.tbHS_Code.TabIndex = 33;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(2, 58);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(80, 18);
+            this.label26.TabIndex = 32;
+            this.label26.Text = "HS CODE:";
+            // 
+            // btnSaveOrder
+            // 
+            this.btnSaveOrder.Location = new System.Drawing.Point(1236, 862);
+            this.btnSaveOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSaveOrder.Name = "btnSaveOrder";
+            this.btnSaveOrder.Size = new System.Drawing.Size(112, 34);
+            this.btnSaveOrder.TabIndex = 1;
+            this.btnSaveOrder.Text = "保存";
+            this.btnSaveOrder.UseVisualStyleBackColor = true;
+            this.btnSaveOrder.Click += new System.EventHandler(this.btnSaveOrder_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(1386, 862);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(112, 34);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "取消";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // frmDecOrderEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1014, 921);
+            this.ClientSize = new System.Drawing.Size(1522, 921);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveOrder);
             this.Controls.Add(this.tcDecNewOrder);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmDecOrderEdit";
