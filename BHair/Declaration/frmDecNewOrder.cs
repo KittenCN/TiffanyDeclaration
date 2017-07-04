@@ -212,11 +212,11 @@ namespace BHair.Business
                         double douCT = douSumCT * (douINV_Amount / douSumAmount);
                         double douAgentFee = douSumAgentFee * (douINV_Amount / douSumAmount);
 
-                        dgvINV.Rows[intRowsnum].Cells["Freight"].Value = douFreight.ToString();
-                        dgvINV.Rows[intRowsnum].Cells["Duty"].Value = douDuty.ToString();
-                        dgvINV.Rows[intRowsnum].Cells["VAT"].Value = douVAT.ToString();
-                        dgvINV.Rows[intRowsnum].Cells["CT"].Value = douCT.ToString();
-                        dgvINV.Rows[intRowsnum].Cells["AgentFee"].Value = douAgentFee.ToString();
+                        dgvINV.Rows[intRowsnum].Cells["Freight"].Value = douFreight.ToString("0.00");
+                        dgvINV.Rows[intRowsnum].Cells["Duty"].Value = douDuty.ToString("0.00");
+                        dgvINV.Rows[intRowsnum].Cells["VAT"].Value = douVAT.ToString("0.00");
+                        dgvINV.Rows[intRowsnum].Cells["CT"].Value = douCT.ToString("0.00");
+                        dgvINV.Rows[intRowsnum].Cells["AgentFee"].Value = douAgentFee.ToString("0.00");
                     }
                     intRowsnum++;
                 }
@@ -321,6 +321,38 @@ namespace BHair.Business
             catch (Exception ex)
             {
                 MessageBox.Show("计算发生异常,错误信息为:" + ex.Message, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnDownload_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF文件(*.xls)|*.xls";
+            // Show save file dialog box
+            DialogResult result = saveFileDialog.ShowDialog();
+            //点了保存按钮进入
+            if (result == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+                string strResult = "";
+                DataTable dtSource = GenClass.GetDgvToTable(dgvINV);
+                if(dtSource.Rows.Count > 0)
+                {
+                    PrintExcel pe = new PrintExcel();
+                    strResult = pe.GenOutToXLS(filePath, dtSource);
+                }
+                else
+                {
+                    strResult = "输出列表为空,输出失败";
+                }
+                if(strResult == "Success")
+                {
+                    MessageBox.Show("导出成功");
+                }
+                else
+                {
+                    MessageBox.Show(strResult);
+                }
             }
         }
     }

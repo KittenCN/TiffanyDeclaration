@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BHair.Business.BaseData;
+using BHair.Business.Table;
+using System;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
-using Excel = Microsoft.Office.Interop.Excel;
-using Microsoft.Office.Core;
-using System.IO;
-using System.Data;
 using System.Windows.Forms;
-using BHair.Business.BaseData;
-using BHair.Business.Table;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace BHair.Business
 {
@@ -29,8 +27,6 @@ namespace BHair.Business
                 return false;
             }
         }
-
-
 
         private bool CreateXLS(DataTable AppDT, DataTable DetailDT, string ExcelPath)
         {
@@ -183,7 +179,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
+                for (int iRow = 2; iRow <= iRowCount; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result.NewRow();
@@ -247,7 +243,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
+                for (int iRow = 2; iRow <= iRowCount; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result.NewRow();
@@ -311,7 +307,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
+                for (int iRow = 2; iRow <= iRowCount; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result.NewRow();
@@ -628,7 +624,7 @@ namespace BHair.Business
                 //生成申请单行数据
                 Excel.Range range;
 
-                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
+                for (int iRow = 2; iRow <= iRowCount; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result[0].NewRow();
@@ -982,7 +978,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
+                for (int iRow = 2; iRow <= iRowCount; iRow++)
                 {
                     //((Excel.Range)worksheet.Cells[iRow, 1]).Text;
                     string strCtrlid = ((Excel.Range)worksheet.Cells[iRow, 1]).Text.ToString();
@@ -1182,7 +1178,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
+                for (int iRow = 2; iRow <= iRowCount; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result.NewRow();
@@ -1247,7 +1243,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
+                for (int iRow = 2; iRow <= iRowCount; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result.NewRow();
@@ -1363,7 +1359,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
+                for (int iRow = 2; iRow <= iRowCount; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result.NewRow();
@@ -1795,7 +1791,7 @@ namespace BHair.Business
 
                 //生成行数据
                 Excel.Range range;
-                for (int iRow = 2; iRow <= iRowCount + 1; iRow++)
+                for (int iRow = 2; iRow <= iRowCount; iRow++)
                 {
                     int validate = 0;
                     DataRow dr = Result.NewRow();
@@ -1819,6 +1815,60 @@ namespace BHair.Business
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
                 app = null;
             }
+        }
+
+        public string GenOutToXLS(string excelFilePath, DataTable tbl)
+        {
+            string strResult = "";
+            try
+            {
+                if (tbl == null || tbl.Columns.Count == 0)
+                    throw new Exception("ExportToExcel: Null or empty input table!\n");
+                // load excel, and create a new workbook
+                var excelApp = new Excel.Application();
+                excelApp.Workbooks.Add();
+                // single worksheet
+                Excel._Worksheet workSheet = excelApp.ActiveSheet as Microsoft.Office.Interop.Excel.Worksheet;
+                // column headings
+                for (var i = 0; i < tbl.Columns.Count; i++)
+                {
+                    workSheet.Cells[1, i + 1] = tbl.Columns[i].ColumnName;
+                }
+                // rows
+                for (var i = 0; i < tbl.Rows.Count; i++)
+                {
+                    // to do: format datetime values before printing
+                    for (var j = 0; j < tbl.Columns.Count; j++)
+                    {
+                        workSheet.Cells[i + 2, j + 1] = tbl.Rows[i][j];
+                    }
+                }
+                // check file path
+                if (!string.IsNullOrEmpty(excelFilePath))
+                {
+                    try
+                    {
+                        workSheet.SaveAs(excelFilePath);
+                        excelApp.Quit();
+                        MessageBox.Show("Excel file saved!");
+                    }
+                    catch (Exception ex)
+                    {
+                        strResult = "Error::" + ex.Message.ToString();
+                    }
+                }
+                else
+                { // no file path is given
+                    excelApp.Visible = true;
+                }
+
+                strResult = "Success";
+            }
+            catch(Exception ex)
+            {
+                strResult = "Error::" + ex.Message.ToString();
+            }
+            return strResult;
         }
     }
 }

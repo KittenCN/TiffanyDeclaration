@@ -188,6 +188,7 @@ namespace BHair.Business
                 drINVData["Cart_INV"] = tbCart_INV.Text;
                 drINVData["PCs"] = tbPCs.Text;
                 drINVData["Shop_Receiver"] = tbShop_Receiver.Text;
+                drINVData["ContainerNo"] = tbContainerNoD.Text;
                 dtShowINV.Rows.Add(drINVData);
 
                 dgvINV.AutoGenerateColumns = false;
@@ -198,6 +199,7 @@ namespace BHair.Business
                 //tbFreight.Text = "0";
                 tbCart_INV.Text = "1";
                 tbPCs.Text = "1";
+                tbContainerNoD.Text = "";
             }
         }
 
@@ -229,6 +231,7 @@ namespace BHair.Business
                 double douSumVATHS = double.Parse(tbVAT.Text);
                 double douSumFreight = double.Parse(tbFreight.Text);
                 double douSumCT = double.Parse(tbCT.Text);
+                double douSumAgentFee = double.Parse(tbAgentFee.Text);
                 int intRowsnum = 0;
 
                 foreach (DataRow dr in dtSaveINV.Rows)
@@ -240,11 +243,13 @@ namespace BHair.Business
                         double douDuty = douSumDutyHS * (douINV_Amount / douSumAmount);
                         double douVAT = douSumVATHS * (douINV_Amount / douSumAmount);
                         double douCT = douSumCT * (douINV_Amount / douSumAmount);
+                        double douAgentFee = douSumAgentFee * (douINV_Amount / douSumAmount);
 
                         dgvINV.Rows[intRowsnum].Cells["Freight"].Value = douFreight.ToString("0.00");
                         dgvINV.Rows[intRowsnum].Cells["Duty"].Value = douDuty.ToString("0.00");
                         dgvINV.Rows[intRowsnum].Cells["VAT"].Value = douVAT.ToString("0.00");
                         dgvINV.Rows[intRowsnum].Cells["CT"].Value = douCT.ToString("0.00");
+                        dgvINV.Rows[intRowsnum].Cells["AgentFee"].Value = douAgentFee.ToString("0.00");
                     }
                     intRowsnum++;
                 }
@@ -561,6 +566,38 @@ namespace BHair.Business
             drMainData["JD_Receiving_Date"] = dtpJD_Receiving_Date.Value;
 
             return drMainData;
+        }
+
+        private void btnDownload_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF文件(*.xls)|*.xls";
+            // Show save file dialog box
+            DialogResult result = saveFileDialog.ShowDialog();
+            //点了保存按钮进入
+            if (result == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+                string strResult = "";
+                DataTable dtSource = GenClass.GetDgvToTable(dgvINV);
+                if (dtSource.Rows.Count > 0)
+                {
+                    PrintExcel pe = new PrintExcel();
+                    strResult = pe.GenOutToXLS(filePath, dtSource);
+                }
+                else
+                {
+                    strResult = "输出列表为空,输出失败";
+                }
+                if (strResult == "Success")
+                {
+                    MessageBox.Show("导出成功");
+                }
+                else
+                {
+                    MessageBox.Show(strResult);
+                }
+            }
         }
     }
 }
