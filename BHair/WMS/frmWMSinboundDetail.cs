@@ -142,22 +142,25 @@ namespace BHair.Business
 
                 foreach (DataRow dr in dtSaveWMSD.Rows)
                 {
-                    string strSKU = dr["SKU"].ToString();
-                    int intAmount = int.Parse(dr["PCs"].ToString());
+                    if (dr["SKU"].ToString().Length > 0)
+                    {
+                        string strSKU = dr["SKU"].ToString();
+                        int intAmount = int.Parse(dr["PCs"].ToString());
 
-                    string strSQL = "select * from WMSMain where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
-                    DataTable dtTemp = ah.SelectToDataTable(strSQL);
-                    ah.Close();
-                    ah = new AccessHelper();
-                    if (dtTemp.Rows.Count > 0)
-                    {
-                        strSQL = "update WMSMain set Amount=Amount+" + intAmount + " where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
+                        string strSQL = "select * from WMSMain where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
+                        DataTable dtTemp = ah.SelectToDataTable(strSQL);
+                        ah.Close();
+                        ah = new AccessHelper();
+                        if (dtTemp.Rows.Count > 0)
+                        {
+                            strSQL = "update WMSMain set Amount=Amount+" + intAmount + " where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
+                        }
+                        else
+                        {
+                            strSQL = "insert into WMSMain(SKU,Amount,WearHouse) values('" + strSKU + "'," + intAmount + ",'" + cbWearHouse.Text + "') ";
+                        }
+                        ah.ExecuteSQLNonquery(strSQL);
                     }
-                    else
-                    {
-                        strSQL = "insert into WMSMain(SKU,Amount,WearHouse) values('" + strSKU + "'," + intAmount + ",'" + cbWearHouse.Text + "') ";
-                    }
-                    ah.ExecuteSQLNonquery(strSQL);
                 }
 
                 ah.Close();

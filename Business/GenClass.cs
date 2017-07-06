@@ -180,13 +180,20 @@ namespace BHair.Business
                 {
                     for (int y = 0; y < intdgvColsCount; y++)
                     {
-                        if(dgv.Rows[x].Cells[y].Value != null)
+                        if(dgv.Rows[x].Cells[y].Value != null && dgv.Rows[x].Cells[y].Value.ToString().Length > 0)
                         {
                             dr[y + 1] = dgv.Rows[x].Cells[y].Value;
                         }                        
                     }
-                    dtNew.Rows.Add(dr.ItemArray);
-                    dr = dtNew.NewRow();
+                    for(int z = 0; z < dr.ItemArray.Count(); z++)
+                    {
+                        if (dr.ItemArray[z].ToString().Length > 0)
+                        {
+                            dtNew.Rows.Add(dr.ItemArray);
+                            dr = dtNew.NewRow();
+                            break;
+                        }
+                    }
                 }
             }
             return dtNew;
