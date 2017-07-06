@@ -205,19 +205,26 @@ namespace BHair.Business
 
         private void btnAddHS_Click(object sender, EventArgs e)
         {
-            DataRow drHSData = dtShowHS.NewRow();
-            drHSData["OrderNO"] = tbOrderNO.Text;
-            drHSData["Status"] = 0;
-            drHSData["HS_Code"] = tbHS_Code.Text;
-            drHSData["M"] = tbM.Text;
-            drHSData["Shop_Receiver"] = tbShopReceiver.Text;
-            dtShowHS.Rows.Add(drHSData);
+            try
+            {
+                DataRow drHSData = dtShowHS.NewRow();
+                drHSData["OrderNO"] = tbOrderNO.Text;
+                drHSData["Status"] = 0;
+                drHSData["HS_Code"] = tbHS_Code.Text;
+                drHSData["M"] = tbM.Text;
+                drHSData["Shop_Receiver"] = tbShopReceiver.Text;
+                dtShowHS.Rows.Add(drHSData);
 
-            dgvHS.AutoGenerateColumns = false;
-            dgvHS.DataSource = dtShowHS;
+                dgvHS.AutoGenerateColumns = false;
+                dgvHS.DataSource = dtShowHS;
 
-            tbHS_Code.Text = "";
-            tbM.Text = "0";
+                tbHS_Code.Text = "";
+                tbM.Text = "0";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         private void btnCalINV_Click(object sender, EventArgs e)
@@ -369,18 +376,28 @@ namespace BHair.Business
             DataTable dtResultINV = new DataTable();
             dtResultINV.Columns.Add(new DataColumn("Shop_Receiver", typeof(string)));
             dtResultINV.Columns.Add(new DataColumn("Freight", typeof(double)));
+            dtResultINV.Columns.Add(new DataColumn("AgentFee", typeof(double)));
             dtResultINV.Columns.Add(new DataColumn("Duty", typeof(double)));
+            dtResultINV.Columns.Add(new DataColumn("DutyinJD", typeof(double)));
             dtResultINV.Columns.Add(new DataColumn("VAT", typeof(double)));
+            dtResultINV.Columns.Add(new DataColumn("VATinJD", typeof(double)));
             dtResultINV.Columns.Add(new DataColumn("CT", typeof(double)));
+            dtResultINV.Columns.Add(new DataColumn("CTinJD", typeof(double)));
+            dtResultINV.Columns.Add(new DataColumn("ContainerNO", typeof(string)));
             string strLastStringHS = "";
             double douSumDutyHS = 0.00;
             double douSumVATHS = 0.00;
             DataRow drNewHS;
             string strLastStringINV = "";
             double douSumDutyINV = 0.00;
+            double douSumDutyinJDINV = 0.00;
             double douSumVATINV = 0.00;
+            double douSumVATinJDINV = 0.00;
             double douSumCTINV = 0.00;
+            double douSumCTinJDINV = 0.00;
             double douSumFreightINV = 0.00;
+            double douSumAgentFeeINV = 0.00;
+            string strLastContainerNO = "";
             DataRow drNewINV;
             DataTable dtResult = new DataTable();
             dtResult.Columns.Add(new DataColumn("ExCusClearTime", typeof(DateTime)));
@@ -397,16 +414,16 @@ namespace BHair.Business
             dtResult.Columns.Add(new DataColumn("PCs", typeof(int)));
             dtResult.Columns.Add(new DataColumn("Shop_Receiver", typeof(string)));
             dtResult.Columns.Add(new DataColumn("Freight", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("AgentFee", typeof(double)));                     
             dtResult.Columns.Add(new DataColumn("Duty", typeof(double)));
-            dtResult.Columns.Add(new DataColumn("VAT", typeof(double)));
-            dtResult.Columns.Add(new DataColumn("CT", typeof(double)));
-            dtResult.Columns.Add(new DataColumn("Duty_HSCODE", typeof(string)));
-            dtResult.Columns.Add(new DataColumn("VAT_HSCODE", typeof(string)));
-            dtResult.Columns.Add(new DataColumn("AgentFee", typeof(double)));
             dtResult.Columns.Add(new DataColumn("DutyInJD", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("VAT", typeof(double)));
             dtResult.Columns.Add(new DataColumn("VATinJD", typeof(double)));
+            dtResult.Columns.Add(new DataColumn("CT", typeof(double)));
             dtResult.Columns.Add(new DataColumn("CTinJD", typeof(double)));
             dtResult.Columns.Add(new DataColumn("ContainerNO", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("Duty_HSCODE", typeof(string)));
+            dtResult.Columns.Add(new DataColumn("VAT_HSCODE", typeof(string)));
             dtResult.Columns.Add(new DataColumn("JD_Receiving_Date", typeof(DateTime)));
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -424,32 +441,51 @@ namespace BHair.Business
                         {
                             drNewINV = dtResultINV.NewRow();
                             drNewINV["Shop_Receiver"] = strLastStringINV;
+                            drNewINV["AgentFee"] = douSumAgentFeeINV.ToString("0.00");
                             drNewINV["Duty"] = douSumDutyINV.ToString("0.00");
+                            drNewINV["DutyInJD"] = douSumDutyinJDINV.ToString("0.00");
                             drNewINV["VAT"] = douSumVATINV.ToString("0.00");
+                            drNewINV["VATinJD"] = douSumVATinJDINV.ToString("0.00");
                             drNewINV["CT"] = douSumCTINV.ToString("0.00");
+                            drNewINV["CTinJD"] = douSumCTinJDINV.ToString("0.00");
                             drNewINV["Freight"] = douSumFreightINV.ToString("0.00");
+                            drNewINV["ContainerNO"] = strLastContainerNO;
                             dtResultINV.Rows.Add(drNewINV);
 
                             strLastStringINV = dr["Shop_Receiver"].ToString();
+                            douSumAgentFeeINV = double.Parse(dr["AgentFee"].ToString());
                             douSumDutyINV = double.Parse(dr["Duty"].ToString());
                             douSumVATINV = double.Parse(dr["VAT"].ToString());
                             douSumCTINV = double.Parse(dr["CT"].ToString());
+                            douSumDutyinJDINV = double.Parse(dr["DutyInJD"].ToString());
+                            douSumVATinJDINV = double.Parse(dr["VATinJD"].ToString());
+                            douSumCTinJDINV = double.Parse(dr["CTinJD"].ToString());
                             douSumFreightINV = double.Parse(dr["Freight"].ToString());
+                            strLastContainerNO = dr["ContainerNO"].ToString();
                         }
                         else if (dr["Shop_Receiver"].ToString() != strLastStringINV && strLastStringINV.Length == 0)
                         {
                             strLastStringINV = dr["Shop_Receiver"].ToString();
+                            douSumAgentFeeINV = double.Parse(dr["AgentFee"].ToString());
                             douSumDutyINV = double.Parse(dr["Duty"].ToString());
                             douSumVATINV = double.Parse(dr["VAT"].ToString());
                             douSumCTINV = double.Parse(dr["CT"].ToString());
+                            douSumDutyinJDINV = double.Parse(dr["DutyInJD"].ToString());
+                            douSumVATinJDINV = double.Parse(dr["VATinJD"].ToString());
+                            douSumCTinJDINV = double.Parse(dr["CTinJD"].ToString());
                             douSumFreightINV = double.Parse(dr["Freight"].ToString());
+                            strLastContainerNO = dr["ContainerNO"].ToString();
                         }
                         else if (dr["Shop_Receiver"].ToString() == strLastStringINV)
                         {
                             douSumDutyINV = douSumDutyINV + double.Parse(dr["Duty"].ToString());
                             douSumVATINV = douSumVATINV + double.Parse(dr["VAT"].ToString());
                             douSumCTINV = douSumCTINV + double.Parse(dr["CT"].ToString());
+                            douSumDutyinJDINV = douSumDutyinJDINV + double.Parse(dr["DutyInJD"].ToString());
+                            douSumVATinJDINV = douSumVATinJDINV + double.Parse(dr["VATinJD"].ToString());
+                            douSumCTinJDINV = douSumCTinJDINV + double.Parse(dr["CTinJD"].ToString());
                             douSumFreightINV = douSumFreightINV + double.Parse(dr["Freight"].ToString());
+                            douSumAgentFeeINV = douSumAgentFeeINV + double.Parse(dr["AgentFee"].ToString());
                         }
                         else
                         {
@@ -459,10 +495,15 @@ namespace BHair.Business
                     //The last data can not calculat in the method of foreach
                     drNewINV = dtResultINV.NewRow();
                     drNewINV["Shop_Receiver"] = strLastStringINV;
+                    drNewINV["AgentFee"] = douSumAgentFeeINV.ToString("0.00");
                     drNewINV["Duty"] = douSumDutyINV.ToString("0.00");
+                    drNewINV["DutyInJD"] = douSumDutyinJDINV.ToString("0.00");
                     drNewINV["VAT"] = douSumVATINV.ToString("0.00");
+                    drNewINV["VATinJD"] = douSumVATinJDINV.ToString("0.00");
                     drNewINV["CT"] = douSumCTINV.ToString("0.00");
+                    drNewINV["CTinJD"] = douSumCTinJDINV.ToString("0.00");
                     drNewINV["Freight"] = douSumFreightINV.ToString("0.00");
+                    drNewINV["ContainerNO"] = strLastContainerNO;
                     dtResultINV.Rows.Add(drNewINV);
 
                     foreach (DataRow dr in dtTempHS.Rows)
@@ -523,13 +564,18 @@ namespace BHair.Business
                             DataRow[] drINV = dtResultINV.Select("Shop_Receiver = '" + dr["Shop_Receiver"].ToString() + "' ");
                             if (drINV.Length > 0)
                             {
+                                drR["AgentFee"] = double.Parse(drINV[0]["AgentFee"].ToString());
                                 drR["Freight"] = double.Parse(drINV[0]["Freight"].ToString());
                                 drR["Duty"] = double.Parse(drINV[0]["Duty"].ToString());
+                                drR["DutyinJD"] = double.Parse(drINV[0]["DutyinJD"].ToString());
                                 drR["VAT"] = double.Parse(drINV[0]["VAT"].ToString());
+                                drR["VATinJD"] = double.Parse(drINV[0]["VATinJD"].ToString());
                                 drR["CT"] = double.Parse(drINV[0]["CT"].ToString());
+                                drR["CTinJD"] = double.Parse(drINV[0]["CTinJD"].ToString());
+                                drR["ContainerNO"] = drINV[0]["ContainerNO"].ToString();
                             }
                             DataRow[] drHS = dtResultHS.Select("Shop_Receiver = '" + dr["Shop_Receiver"].ToString() + "' ");
-                            if (drINV.Length > 0)
+                            if (drINV.Length > 0 && drHS.Count() > 0)
                             {
                                 drR["Duty_HSCODE"] = double.Parse(drHS[0]["Duty_HSCODE"].ToString());
                                 drR["VAT_HSCODE"] = double.Parse(drHS[0]["VAT_HSCODE"].ToString());

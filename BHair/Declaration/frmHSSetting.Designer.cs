@@ -40,6 +40,7 @@
             // 
             // dgvHSSetting
             // 
+            this.dgvHSSetting.AllowUserToAddRows = false;
             this.dgvHSSetting.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHSSetting.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHSSetting.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

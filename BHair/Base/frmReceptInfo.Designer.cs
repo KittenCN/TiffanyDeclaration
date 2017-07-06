@@ -42,6 +42,7 @@
             // 
             // dgvReceiptInfo
             // 
+            this.dgvReceiptInfo.AllowUserToAddRows = false;
             this.dgvReceiptInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReceiptInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReceiptInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

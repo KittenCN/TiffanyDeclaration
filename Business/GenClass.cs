@@ -165,12 +165,14 @@ namespace BHair.Business
         public static DataTable GetTableFromDgv(DataGridView dgv, string strDataTableName)
         {
             DataTable dt = new DataTable();
-            string strSQL = "select top 1 * from " + strDataTableName;
             AccessHelper ah = new AccessHelper();
+            string strSQL = "delete from " + strDataTableName;
+            ah.ExecuteSQLNonquery(strSQL);
+            strSQL = "select top 1 * from " + strDataTableName;           
             dt = ah.SelectToDataTable(strSQL);
             DataTable dtNew = dt.Clone();
             DataRow dr = dtNew.NewRow();
-            int intdgvRowsCount = dgv.Rows.Count - 1;
+            int intdgvRowsCount = dgv.Rows.Count;
             int intdgvColsCount = dgv.Columns.Count;
             if (intdgvRowsCount > 0 && intdgvColsCount > 0)
             {
@@ -178,7 +180,10 @@ namespace BHair.Business
                 {
                     for (int y = 0; y < intdgvColsCount; y++)
                     {
-                        dr[y + 1] = dgv.Rows[x].Cells[y].Value;
+                        if(dgv.Rows[x].Cells[y].Value != null)
+                        {
+                            dr[y + 1] = dgv.Rows[x].Cells[y].Value;
+                        }                        
                     }
                     dtNew.Rows.Add(dr.ItemArray);
                     dr = dtNew.NewRow();

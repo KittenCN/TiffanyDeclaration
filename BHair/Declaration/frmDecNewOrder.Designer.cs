@@ -69,6 +69,7 @@
             this.tbOrderNO = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabStep2 = new System.Windows.Forms.TabPage();
+            this.btnDownload = new System.Windows.Forms.Button();
             this.tbContainerNoD = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.btnUpload = new System.Windows.Forms.Button();
@@ -124,7 +125,6 @@
             this.label26 = new System.Windows.Forms.Label();
             this.btnSaveOrder = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnDownload = new System.Windows.Forms.Button();
             this.tcDecNewOrder.SuspendLayout();
             this.tabStep1.SuspendLayout();
             this.tabStep2.SuspendLayout();
@@ -578,6 +578,17 @@
             this.tabStep2.TabIndex = 1;
             this.tabStep2.Text = "发票信息";
             this.tabStep2.UseVisualStyleBackColor = true;
+            // 
+            // btnDownload
+            // 
+            this.btnDownload.Location = new System.Drawing.Point(1334, 4);
+            this.btnDownload.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(132, 34);
+            this.btnDownload.TabIndex = 46;
+            this.btnDownload.Text = "下载发票信息";
+            this.btnDownload.UseVisualStyleBackColor = true;
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
             // tbContainerNoD
             // 
@@ -1062,17 +1073,6 @@
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnDownload
-            // 
-            this.btnDownload.Location = new System.Drawing.Point(1334, 4);
-            this.btnDownload.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(132, 34);
-            this.btnDownload.TabIndex = 46;
-            this.btnDownload.Text = "下载发票信息";
-            this.btnDownload.UseVisualStyleBackColor = true;
-            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
             // frmDecNewOrder
             // 

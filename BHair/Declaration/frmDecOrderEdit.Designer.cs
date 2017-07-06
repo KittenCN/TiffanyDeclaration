@@ -614,6 +614,7 @@
             // 
             // dgvINV
             // 
+            this.dgvINV.AllowUserToAddRows = false;
             this.dgvINV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvINV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvINV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -815,6 +816,7 @@
             // 
             // dgvHS
             // 
+            this.dgvHS.AllowUserToAddRows = false;
             this.dgvHS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
