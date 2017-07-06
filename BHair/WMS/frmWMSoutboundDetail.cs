@@ -40,7 +40,8 @@ namespace BHair.Business
             }
             else
             {
-                if (dt.Rows.Count > 0 && int.Parse(dt.Rows[0]["Amount"].ToString()) >= int.Parse(tbPCss.Text))
+                //if (dt.Rows.Count > 0 && int.Parse(dt.Rows[0]["Amount"].ToString()) >= int.Parse(tbPCss.Text))
+                if (dt.Rows.Count > 0 && int.Parse(tbPCss.Text) > 0)
                 {
                     DataRow drShow = dtShowWMSOutDetail.NewRow();
                     drShow["OrderNO"] = "";
@@ -71,7 +72,8 @@ namespace BHair.Business
                 }
                 else
                 {
-                    MessageBox.Show("SKU:" + tbSKU.Text + "库存不足!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("SKU:" + tbSKU.Text + "库存不足!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("SKU:" + tbSKU.Text + "数量不能为0! 或 SKU不存在", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -176,14 +178,16 @@ namespace BHair.Business
                     DataTable dtTemp = ah.SelectToDataTable(strSQL);
                     ah.Close();
                     ah = new AccessHelper();
-                    if (dtTemp.Rows.Count > 0 && int.Parse(dtTemp.Rows[0]["Amount"].ToString()) >= intAmount)
+                    //if (dtTemp.Rows.Count > 0 && int.Parse(dtTemp.Rows[0]["Amount"].ToString()) >= intAmount)
+                    if (dtTemp.Rows.Count > 0)
                     {
                         strSQL = "update WMSMain set Amount=Amount-" + intAmount + " where sku='" + strSKU + "' and wearhouse='" + cbWearHouse.Text + "' ";
                     }
                     else
                     {
                         strSQL = "";
-                        MessageBox.Show("SKU:" + tbSKU.Text + "库存不足!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show("SKU:" + tbSKU.Text + "库存不足!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("SKU:" + tbSKU.Text + "数量不能为0! 或 SKU不存在", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     ah.ExecuteSQLNonquery(strSQL);
                 }
