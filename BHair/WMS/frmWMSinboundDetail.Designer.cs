@@ -534,7 +534,7 @@
             this.tbPCss.Name = "tbPCss";
             this.tbPCss.Size = new System.Drawing.Size(148, 28);
             this.tbPCss.TabIndex = 12;
-            this.tbPCss.Text = "0";
+            this.tbPCss.Text = "1";
             // 
             // label18
             // 
@@ -553,7 +553,7 @@
             this.tbCarton.Name = "tbCarton";
             this.tbCarton.Size = new System.Drawing.Size(148, 28);
             this.tbCarton.TabIndex = 10;
-            this.tbCarton.Text = "0";
+            this.tbCarton.Text = "1";
             // 
             // label17
             // 

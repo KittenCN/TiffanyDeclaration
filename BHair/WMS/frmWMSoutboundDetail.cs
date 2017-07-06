@@ -52,7 +52,7 @@ namespace BHair.Business
                     drShow["Specification"] = tbSpecification.Text;
                     drShow["Carton"] = tbCarton.Text;
                     drShow["PCs"] = tbPCss.Text;
-                    drShow["Remarks"] = tbRemarks.Text;
+                    drShow["Remarks"] = tbRemarks.Text + "||收货地址:" + tbReceiptAdd.Text + "||联系人:" + tbReceipt1.Text + "||联系方式:" + tbContact1.Text;
                     drShow["WMSNO"] = tbWMSNO.Text;
                     drShow["ItemNO"] = tbItemNO.Text;
                     dtSaveWMSOutDetail.Rows.Add(drShow.ItemArray);
@@ -61,10 +61,10 @@ namespace BHair.Business
 
                     tbSKU.Text = "";
                     tbDescription.Text = "";
-                    tbOutsiteSize.Text = "";
+                    tbOutsiteSize.Text = "0";
                     tbSpecification.Text = "";
-                    tbCarton.Text = "";
-                    tbPCss.Text = "";
+                    tbCarton.Text = "1";
+                    tbPCss.Text = "1";
                     tbRemarks.Text = "";
                     tbWMSNO.Text = "";
                     tbItemNO.Text = "";
