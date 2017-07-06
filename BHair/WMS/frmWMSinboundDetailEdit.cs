@@ -55,10 +55,10 @@ namespace BHair.Business
 
                 tbSKU.Text = "";
                 tbDescription.Text = "";
-                tbOutsiteSize.Text = "";
+                tbOutsiteSize.Text = "0";
                 tbSpecification.Text = "";
-                tbCarton.Text = "";
-                tbPCss.Text = "";
+                tbCarton.Text = "1";
+                tbPCss.Text = "1";
                 tbRemarks.Text = "";
                 tbWMSNO.Text = "";
                 tbItemNO.Text = "";
